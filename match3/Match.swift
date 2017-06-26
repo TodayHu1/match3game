@@ -15,7 +15,7 @@ class Match: SKScene {
 
     
     //Присвоение текстур
-    static func setTextureMatch(matchNamber: Int) -> SKTexture {
+    func setTextureMatch(matchNamber: Int) -> SKTexture {
         switch matchNamber {
         case 0:
             return SKTexture(imageNamed:"match_block.png")
@@ -33,13 +33,7 @@ class Match: SKScene {
         }
     }
     
-    static func moveArrLeft(array: [Int]) {
-        var xarray = array
-        xarray.remove(at: 0)
-        xarray.append(0)
-        GameScene.buildLevel()
-        
-    }
+
     
     static func checkArr() {
 //        for i in 0...5 {

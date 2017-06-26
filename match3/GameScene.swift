@@ -19,7 +19,6 @@ public var levelArr = [[1,2,1,2,1,2],
 class GameScene: SKScene {
     
 
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
@@ -28,40 +27,48 @@ class GameScene: SKScene {
     func randon(number: Int) -> Int {
         return Int(arc4random_uniform(UInt32(number)))
     }
+    
+    public func moveArrLeft(array: [Int]) {
+        var xarray = array
+        xarray.remove(at: 0)
+        xarray.append(0)
+        buildLevel()
+        
+    }
 
-    static func buildLevel() {
+    public func buildLevel() {
         for i in 0...levelArr.count-1 {
             for j in 0...levelArr.count-1 {
-                let matchNode = SKSpriteNode(texture: Match.setTextureMatch(matchNamber: levelArr[i][j]))
+                let matchNode = SKSpriteNode(texture: Match().setTextureMatch(matchNamber: levelArr[i][j]))
                 matchNode.position = CGPoint(x: (0 - (55 * j) + 139), y: (0 - (55 * i)) - 9)
                 matchNode.xScale = 0.19
                 matchNode.yScale = 0.19
                 matchNode.zPosition = 998
-                GameScene.addChild(matchNode)
+                self.addChild(matchNode)
             }
         }
         print("Build")
     }
     
     func swipedRight(sender:UISwipeGestureRecognizer){
-        ActionGesture.direction(dir: 2, point: lastTouch)
+        ActionGesture().direction(dir: 2, point: lastTouch)
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
-        ActionGesture.direction(dir: 1, point: lastTouch)
+        ActionGesture().direction(dir: 1, point: lastTouch)
     }
     
     func swipedUp(sender:UISwipeGestureRecognizer){
-        ActionGesture.direction(dir: -1, point: lastTouch)
+        ActionGesture().direction(dir: -1, point: lastTouch)
     }
     
     func swipedDown(sender:UISwipeGestureRecognizer){
-        ActionGesture.direction(dir: -2, point: lastTouch)
+        ActionGesture().direction(dir: -2, point: lastTouch)
     }
     
     override func didMove(to view: SKView) {
 
-        GameScene.buildLevel()
+        buildLevel()
         
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()

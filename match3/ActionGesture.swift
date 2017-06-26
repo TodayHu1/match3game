@@ -16,7 +16,10 @@ import GameplayKit
 //  2 right
 
 class ActionGesture {
-    static func direction(dir: Int, point: CGPoint){
+    
+    let sceneView = GameScene(fileNamed: "GameScene")
+    
+    func direction(dir: Int, point: CGPoint){
         if(dir > 0) {
             rowEvent(touchY: Int(point.y))
         }
@@ -26,7 +29,7 @@ class ActionGesture {
     }
     
     
-    static func colomnEvent(touchX: Int) {
+    public func colomnEvent(touchX: Int) {
         if (-160 < touchX && touchX <= -110) {
             print("| 1")
         }
@@ -47,9 +50,9 @@ class ActionGesture {
         }
     }
     
-    static func rowEvent(touchY: Int) {
+    public func rowEvent(touchY: Int) {
         if (10 > touchY && touchY >= -40) {
-            print("- 1")
+            sceneView?.moveArrLeft(array: levelArr[0])
         }
         if (-40-6 > touchY && touchY >= -90-6) {
             print("- 2")
