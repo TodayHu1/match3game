@@ -9,12 +9,15 @@
 import SpriteKit
 import GameplayKit
 
-public var levelArr = [[1,2,1,2,1,2],
-                       [2,1,2,1,2,2],
+
+public var xx = 994
+public var levelArr = [[1,2,1,0,1,2],
+                       [2,1,2,0,2,2],
                        [3,3,2,3,2,3],
                        [1,2,3,3,1,1],
                        [2,1,1,2,2,1],
                        [1,2,3,1,2,3]]
+
 
 class GameScene: SKScene {
     
@@ -28,26 +31,39 @@ class GameScene: SKScene {
         return Int(arc4random_uniform(UInt32(number)))
     }
     
-    public func moveArrLeft(array: [Int]) {
-        var xarray = array
-        xarray.remove(at: 0)
-        xarray.append(0)
-        buildLevel()
-        
-    }
 
     public func buildLevel() {
+        
+        
+        for nextButton in self.children {
+            if nextButton.name == "1" {
+                if let nextButton = nextButton as? SKSpriteNode {
+                    nextButton.removeAllChildren()
+                    nextButton.removeFromParent()
+                }
+            }
+        }
+        
+        print("=======")
+        
         for i in 0...levelArr.count-1 {
             for j in 0...levelArr.count-1 {
                 let matchNode = SKSpriteNode(texture: Match().setTextureMatch(matchNamber: levelArr[i][j]))
                 matchNode.position = CGPoint(x: (0 - (55 * j) + 139), y: (0 - (55 * i)) - 9)
                 matchNode.xScale = 0.19
                 matchNode.yScale = 0.19
-                matchNode.zPosition = 998
+                matchNode.name = "1"
+                matchNode.zPosition = 993
                 self.addChild(matchNode)
+                
             }
         }
         print("Build")
+
+
+        print(levelArr)
+        
+
     }
     
     func swipedRight(sender:UISwipeGestureRecognizer){
@@ -56,6 +72,7 @@ class GameScene: SKScene {
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
         ActionGesture().direction(dir: 1, point: lastTouch)
+        buildLevel()
     }
     
     func swipedUp(sender:UISwipeGestureRecognizer){
@@ -105,6 +122,10 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             lastTouch = touch.location(in: self)
 //            print(lastTouch)
+//            buildLevel()
+            
+            
+            
         }
     }
     

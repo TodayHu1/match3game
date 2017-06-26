@@ -33,6 +33,15 @@ class Match: SKScene {
         }
     }
     
+    
+    public func moveArrLeft(array: [Int]) {
+        var xarray = array
+        xarray.remove(at: 0)
+        xarray.append(0)
+        levelArr[0] = xarray
+        GameScene().buildLevel()
+
+    }
 
     
     static func checkArr() {

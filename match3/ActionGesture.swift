@@ -52,7 +52,7 @@ class ActionGesture {
     
     public func rowEvent(touchY: Int) {
         if (10 > touchY && touchY >= -40) {
-            sceneView?.moveArrLeft(array: levelArr[0])
+            Match().moveArrLeft(array: levelArr[0])
         }
         if (-40-6 > touchY && touchY >= -90-6) {
             print("- 2")
