@@ -34,24 +34,36 @@ class Match: SKScene {
     }
     
     
-    public func moveArrLeft(array: [Int]) {
-        var xarray = array
-        xarray.remove(at: 0)
-        xarray.append(0)
-        levelArr[0] = xarray
-        GameScene().buildLevel()
-
+    public func moveArrLeft(index: Int) {
+        levelArr[index].remove(at: 0)
+        levelArr[index].append(GameScene().random(number: 4))
     }
-
+    
+    public func moveArrRight(index: Int) {
+        levelArr[index].remove(at: 5)
+        levelArr[index].insert(GameScene().random(number: 4), at: 0)
+    }
+    
+    public func moveArrBottom(index: Int) {
+        for i in (1...5).reversed() {
+            print(i)
+            levelArr[i][index] = levelArr[i-1][index]
+        }
+        levelArr[0][index] = GameScene().random(number: 4)
+        print(levelArr)    }
+    
+    
+    public func moveArrTop(index: Int) {
+        for i in 0...4 {
+            print(i)
+            levelArr[i][index] = levelArr[i+1][index]
+        }
+        levelArr[5][index] = GameScene().random(number: 4)
+        print(levelArr)
+    }
     
     static func checkArr() {
-//        for i in 0...5 {
-//            for j in 0...5 {
-//                for k in 1...4 {
-//                    
-//                }
-//            }
-//        }
+
     }
 
 }

@@ -27,8 +27,8 @@ class GameScene: SKScene {
     
     private var lastTouch = CGPoint(x:1,y:1)
     
-    func randon(number: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(number)))
+    func random(number: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(number)) + 1)
     }
     
 
@@ -44,12 +44,12 @@ class GameScene: SKScene {
             }
         }
         
-        print("=======")
+//        print("=======")
         
         for i in 0...levelArr.count-1 {
             for j in 0...levelArr.count-1 {
                 let matchNode = SKSpriteNode(texture: Match().setTextureMatch(matchNamber: levelArr[i][j]))
-                matchNode.position = CGPoint(x: (0 - (55 * j) + 139), y: (0 - (55 * i)) - 9)
+                matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
                 matchNode.xScale = 0.19
                 matchNode.yScale = 0.19
                 matchNode.name = "1"
@@ -58,16 +58,17 @@ class GameScene: SKScene {
                 
             }
         }
-        print("Build")
-
-
-        print(levelArr)
+//        print("Build")
+//
+//
+//        print(levelArr)
         
 
     }
     
     func swipedRight(sender:UISwipeGestureRecognizer){
         ActionGesture().direction(dir: 2, point: lastTouch)
+        buildLevel()
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
@@ -77,10 +78,12 @@ class GameScene: SKScene {
     
     func swipedUp(sender:UISwipeGestureRecognizer){
         ActionGesture().direction(dir: -1, point: lastTouch)
+        buildLevel()
     }
     
     func swipedDown(sender:UISwipeGestureRecognizer){
         ActionGesture().direction(dir: -2, point: lastTouch)
+        buildLevel()
     }
     
     override func didMove(to view: SKView) {
