@@ -37,7 +37,12 @@ class Match: SKScene {
     public func moveArrLeft(index: Int) {
         levelArr[index].remove(at: 0)
         levelArr[index].append(GameScene().random(number: 4))
+        
+        
     }
+    
+    
+
     
     public func moveArrRight(index: Int) {
         levelArr[index].remove(at: 5)

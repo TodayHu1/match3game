@@ -10,13 +10,12 @@ import SpriteKit
 import GameplayKit
 
 
-public var xx = 994
-public var levelArr = [[1,2,1,0,1,2],
-                       [2,1,2,0,2,2],
-                       [3,3,2,3,2,3],
-                       [1,2,3,3,1,1],
-                       [2,1,1,2,2,1],
-                       [1,2,3,1,2,3]]
+public var levelArr = [[1,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [2,0,0,0,0,0]]
 
 
 class GameScene: SKScene {
@@ -35,11 +34,17 @@ class GameScene: SKScene {
     public func buildLevel() {
         
         
-        for nextButton in self.children {
-            if nextButton.name == "1" {
-                if let nextButton = nextButton as? SKSpriteNode {
-                    nextButton.removeAllChildren()
-                    nextButton.removeFromParent()
+
+        
+        for i in 0...levelArr.count-1 {
+            for j in 0...levelArr.count-1 {
+                for nextButton in self.children {
+                    if nextButton.name == String(levelArr[i][j]) {
+                        if let nextButton = nextButton as? SKSpriteNode {
+                            nextButton.removeAllChildren()
+                            nextButton.removeFromParent()
+                        }
+                    }
                 }
             }
         }
@@ -52,7 +57,7 @@ class GameScene: SKScene {
                 matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
                 matchNode.xScale = 0.19
                 matchNode.yScale = 0.19
-                matchNode.name = "1"
+                matchNode.name = String(levelArr[i][j])
                 matchNode.zPosition = 993
                 self.addChild(matchNode)
                 
@@ -69,6 +74,45 @@ class GameScene: SKScene {
     func swipedRight(sender:UISwipeGestureRecognizer){
         ActionGesture().direction(dir: 2, point: lastTouch)
         buildLevel()
+        animate()
+
+    }
+    
+    func animate() {
+        var spriteA: SKSpriteNode!
+        var spriteB: SKSpriteNode!
+        
+        for nextButton in self.children {
+            if nextButton.name == "1" {
+                if let nextButton = nextButton as? SKSpriteNode {
+                    spriteA = nextButton
+                }
+            }
+        }
+
+        for nextButton1 in self.children {
+            if nextButton1.name == "2" {
+                if let nextButton1 = nextButton1 as? SKSpriteNode {
+                    spriteB = nextButton1
+                }
+            }
+        }
+        
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let duration: TimeInterval = 0.3
+        
+        let moveA = SKAction.move(to: spriteB.position, duration: duration)
+        moveA.timingMode = .easeOut
+        spriteA.run(moveA)
+        
+        let moveB = SKAction.move(to: spriteA.position, duration: duration)
+        moveB.timingMode = .easeOut
+        spriteB.run(moveB)
+        
+        
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
