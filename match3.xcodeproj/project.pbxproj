@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */; };
+		1F253AA91F43219700F74E34 /* Ladia-A.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F253AA81F43219700F74E34 /* Ladia-A.xcassets */; };
+		1F26CA271F41B93500691519 /* GS_ActionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F26CA261F41B93500691519 /* GS_ActionStats.swift */; };
 		1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB51EFD5862001AEBB7 /* AppDelegate.swift */; };
-		1F2AEDB81EFD5863001AEBB7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
 		1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB91EFD5863001AEBB7 /* Actions.sks */; };
 		1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDBB1EFD5863001AEBB7 /* GameScene.swift */; };
 		1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDBD1EFD5863001AEBB7 /* GameViewController.swift */; };
@@ -17,8 +19,14 @@
 		1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDC41EFD5863001AEBB7 /* LaunchScreen.storyboard */; };
 		1F2AEDD11EFD5863001AEBB7 /* match3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDD01EFD5863001AEBB7 /* match3Tests.swift */; };
 		1F2AEDDC1EFD5863001AEBB7 /* match3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDDB1EFD5863001AEBB7 /* match3UITests.swift */; };
-		1FB1A15A1F009BF0004EEA96 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* Match.swift */; };
-		1FE14C1D1F00D30500B7138A /* ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* ActionGesture.swift */; };
+		1F3942E61F4557290005B307 /* Ladia-S.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3942E51F4557290005B307 /* Ladia-S.xcassets */; };
+		1F3E25ED1F5825C0004C48D7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EC1F5825C0004C48D7 /* UIButton.swift */; };
+		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
+		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
+		1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AA2591F35944B002586DD /* GS_CheckArr.swift */; };
+		1F6AA25B1F361642002586DD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
+		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
+		1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Animation.swift; sourceTree = "<group>"; };
+		1F253AA81F43219700F74E34 /* Ladia-A.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Ladia-A.xcassets"; sourceTree = "<group>"; };
+		1F26CA261F41B93500691519 /* GS_ActionStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionStats.swift; sourceTree = "<group>"; };
 		1F2AEDB21EFD5862001AEBB7 /* match3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = match3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AEDB51EFD5862001AEBB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -55,8 +66,13 @@
 		1F2AEDD71EFD5863001AEBB7 /* match3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = match3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F2AEDDB1EFD5863001AEBB7 /* match3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = match3UITests.swift; sourceTree = "<group>"; };
 		1F2AEDDD1EFD5863001AEBB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FB1A1591F009BF0004EEA96 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
-		1FE14C1C1F00D30500B7138A /* ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionGesture.swift; sourceTree = "<group>"; };
+		1F3942E51F4557290005B307 /* Ladia-S.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Ladia-S.xcassets"; path = "Ladia-A.xcassets/Ladia-S.xcassets"; sourceTree = "<group>"; };
+		1F3E25EC1F5825C0004C48D7 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		1F6AA2591F35944B002586DD /* GS_CheckArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_CheckArr.swift; sourceTree = "<group>"; };
+		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
+		1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionGesture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +132,16 @@
 				1F2AEDC21EFD5863001AEBB7 /* Assets.xcassets */,
 				1F2AEDC41EFD5863001AEBB7 /* LaunchScreen.storyboard */,
 				1F2AEDC71EFD5863001AEBB7 /* Info.plist */,
-				1FB1A1591F009BF0004EEA96 /* Match.swift */,
-				1FE14C1C1F00D30500B7138A /* ActionGesture.swift */,
+				1FB1A1591F009BF0004EEA96 /* GS_Match.swift */,
+				1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */,
+				1F6AA2591F35944B002586DD /* GS_CheckArr.swift */,
+				1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */,
+				1F26CA261F41B93500691519 /* GS_ActionStats.swift */,
+				1F253AA81F43219700F74E34 /* Ladia-A.xcassets */,
+				1F3942E51F4557290005B307 /* Ladia-S.xcassets */,
+				1F443DB51F55998200D5CBD5 /* Enemy.swift */,
+				1F3E25EC1F5825C0004C48D7 /* UIButton.swift */,
+				1F3E25EE1F582C3E004C48D7 /* Player.swift */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -249,10 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
-				1F2AEDB81EFD5863001AEBB7 /* GameScene.sks in Resources */,
+				1F3942E61F4557290005B307 /* Ladia-S.xcassets in Resources */,
+				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F2AEDC31EFD5863001AEBB7 /* Assets.xcassets in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
+				1F253AA91F43219700F74E34 /* Ladia-A.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,11 +303,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */,
+				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,
 				1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
-				1FE14C1D1F00D30500B7138A /* ActionGesture.swift in Sources */,
+				1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */,
 				1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */,
-				1FB1A15A1F009BF0004EEA96 /* Match.swift in Sources */,
+				1F3E25ED1F5825C0004C48D7 /* UIButton.swift in Sources */,
+				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
+				1F26CA271F41B93500691519 /* GS_ActionStats.swift in Sources */,
+				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
+				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +469,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qwe.qwe.match3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -451,7 +483,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qwe.qwe.match3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

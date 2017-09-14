@@ -1,3 +1,4 @@
+
 //
 //  GameScene.swift
 //  match3
@@ -10,129 +11,146 @@ import SpriteKit
 import GameplayKit
 
 
-public var levelArr = [[1,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [2,0,0,0,0,0]]
-
-
+public var levelArr = [[2,1,4,2,1,2],
+                       [1,3,1,4,2,1],
+                       [2,4,3,1,3,4],
+                       [1,2,3,2,3,2],
+                       [1,3,4,1,4,3],
+                       [2,4,1,2,3,2]]
+var enemyUnit = EnemyUnit(enemyName: "Red")
+var player = Player(playerName: "Red")
+var gameScene = GameScene()
 class GameScene: SKScene {
     
 
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    let myLabel = SKLabelNode(fontNamed: "Arial")
     
     private var lastTouch = CGPoint(x:1,y:1)
     
-    func random(number: Int) -> Int {
+    public func random(number: Int) -> Int {
         return Int(arc4random_uniform(UInt32(number)) + 1)
     }
     
-
-    public func buildLevel() {
+    public func randomNear(number: Int) -> Int {
+        let value: Int = Int(arc4random_uniform(UInt32(number))) - (number/2)
+        return value
+    }
+    
+    public func searchByName(name: String) -> SKSpriteNode {
+        var searchNode: SKSpriteNode?
         
+        for someNode in self.children {
+            if someNode.name == name {
+                if let nodeNode = someNode as? SKSpriteNode {
+                    searchNode = nodeNode
+                }
+            }
+        }
         
-
+        return searchNode!
+    }
+    
+    public func buildLevel(hardBuild: Bool) {
         
-        for i in 0...levelArr.count-1 {
-            for j in 0...levelArr.count-1 {
-                for nextButton in self.children {
-                    if nextButton.name == String(levelArr[i][j]) {
-                        if let nextButton = nextButton as? SKSpriteNode {
-                            nextButton.removeAllChildren()
-                            nextButton.removeFromParent()
+        if hardBuild {
+            for i in 0...levelArr.count-1 {
+                for j in 0...levelArr.count-1 {
+                    for nextButton in self.children {
+                        if nextButton.name == "Match" + String(i) + String(j) {
+                            if let nextButton = nextButton as? SKSpriteNode {
+                                nextButton.removeAllChildren()
+                                nextButton.removeFromParent()
+                            }
                         }
                     }
                 }
             }
-        }
-        
-//        print("=======")
-        
-        for i in 0...levelArr.count-1 {
-            for j in 0...levelArr.count-1 {
-                let matchNode = SKSpriteNode(texture: Match().setTextureMatch(matchNamber: levelArr[i][j]))
-                matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
-                matchNode.xScale = 0.19
-                matchNode.yScale = 0.19
-                matchNode.name = String(levelArr[i][j])
-                matchNode.zPosition = 993
-                self.addChild(matchNode)
-                
-            }
-        }
-//        print("Build")
-//
-//
-//        print(levelArr)
-        
-
-    }
-    
-    func swipedRight(sender:UISwipeGestureRecognizer){
-        ActionGesture().direction(dir: 2, point: lastTouch)
-        buildLevel()
-        animate()
-
-    }
-    
-    func animate() {
-        var spriteA: SKSpriteNode!
-        var spriteB: SKSpriteNode!
-        
-        for nextButton in self.children {
-            if nextButton.name == "1" {
-                if let nextButton = nextButton as? SKSpriteNode {
-                    spriteA = nextButton
+            
+            
+            for i in 0...levelArr.count-1 {
+                for j in 0...levelArr.count-1 {
+                    let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
+                    matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
+                    matchNode.xScale = 0.091
+                    matchNode.yScale = 0.091
+                    matchNode.name = "Match" + String(i) + String(j)
+                    matchNode.zPosition = 993
+                    self.addChild(matchNode)
                 }
             }
+            print("Хард билд")
         }
+        else {
+            print("=====================")
+            for i in 0...5 {
+                for j in 0...5 {
+                    let matchNode: SKSpriteNode = self.searchByName(name: "Match" + String(i) + String(j))
+                    matchNode.zPosition = 900
+                    matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
+                    
+                    var matchNodeStringTexture = String(describing: setTextureMatch(matchNumber: levelArr[i][j]))
+                    
+                    matchNodeStringTexture = matchNodeStringTexture.replacingOccurrences(of: "<SKTexture>", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "'", with: "").replacingOccurrences(of: "(600x600)", with: "")
 
-        for nextButton1 in self.children {
-            if nextButton1.name == "2" {
-                if let nextButton1 = nextButton1 as? SKSpriteNode {
-                    spriteB = nextButton1
+                    matchNode.texture = SKTexture(imageNamed: matchNodeStringTexture)
                 }
             }
+            print("Cофт билд")
         }
         
-        
-        spriteA.zPosition = 100
-        spriteB.zPosition = 90
-        
-        let duration: TimeInterval = 0.3
-        
-        let moveA = SKAction.move(to: spriteB.position, duration: duration)
-        moveA.timingMode = .easeOut
-        spriteA.run(moveA)
-        
-        let moveB = SKAction.move(to: spriteA.position, duration: duration)
-        moveB.timingMode = .easeOut
-        spriteB.run(moveB)
-        
-        
     }
+    
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
-        ActionGesture().direction(dir: 1, point: lastTouch)
-        buildLevel()
+        direction(dir: 1, point: lastTouch)
+        Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(afterAnimation), userInfo: nil, repeats: false)
     }
     
     func swipedUp(sender:UISwipeGestureRecognizer){
-        ActionGesture().direction(dir: -1, point: lastTouch)
-        buildLevel()
+        direction(dir: -1, point: lastTouch)
+        Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(afterAnimation), userInfo: nil, repeats: false)
     }
     
     func swipedDown(sender:UISwipeGestureRecognizer){
-        ActionGesture().direction(dir: -2, point: lastTouch)
-        buildLevel()
+        direction(dir: -2, point: lastTouch)
+        Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(afterAnimation), userInfo: nil, repeats: false)
     }
+    
+    func swipedRight(sender:UISwipeGestureRecognizer){
+        direction(dir: 2, point: lastTouch)
+        Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(afterAnimation), userInfo: nil, repeats: false)
+    }
+    
+    func afterAnimation() {
+        checkAlignArr()
+    }
+
+    
+    func buttonTap() {
+        print("Button pressed")
+    }
+    
     
     override func didMove(to view: SKView) {
 
-        buildLevel()
+        buildLevel(hardBuild: true)
+        checkArr()
+        
+        gameScene = self
+        enemyUnit = EnemyUnit(enemyName: "Fitments")
+        player = Player(playerName: "Fitments")
+        
+
+        
+//        func label(obj: SKSpriteNode, text: String) {
+//            myLabel.text = text
+//            myLabel.name = "testlabel"
+//            myLabel.fontSize = 60
+//            myLabel.position = CGPoint(x: obj.frame.midX + 100, y: obj.frame.height + 200)
+//            
+//            obj.addChild(myLabel)
+//        }
+//        label(obj: searchByName(name: "enemyUnit"), text: String(describing: actionOnTurn))
         
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
@@ -158,20 +176,21 @@ class GameScene: SKScene {
         swipeDown.direction = .down
         self.view!.addGestureRecognizer(swipeDown)
         
-        
+        self.addChild(player)
+        self.addChild(enemyUnit)
+    }
+    
+    override func didFinishUpdate() {
 
     }
     
     
-    //Вызывается когда просиходит нажатие
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Цикл считывающий нажатие на экран
+
         for touch: AnyObject in touches {
             lastTouch = touch.location(in: self)
-//            print(lastTouch)
-//            buildLevel()
-            
-            
+
             
         }
     }
