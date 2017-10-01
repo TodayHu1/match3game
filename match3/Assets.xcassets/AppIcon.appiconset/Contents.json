@@ -145,6 +145,11 @@
       "scale" : "2x"
     },
     {
+      "idiom" : "ios-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
+    },
+    {
       "size" : "60x60",
       "idiom" : "car",
       "filename" : "Без имени-1.png",
@@ -215,6 +220,11 @@
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
+    },
+    {
+      "idiom" : "watch-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
     },
     {
       "filename" : "Icon-App-60x60@1x.png",
