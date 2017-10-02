@@ -18,7 +18,7 @@ public var levelArr = [[2,1,4,2,1,2],
                        [1,3,4,1,4,3],
                        [2,4,1,2,3,2]]
 
-var enemyUnit = EnemyUnit(enemyName: "", attack: 0, health: 0)
+var enemyUnit = EnemyUnit(enemyName: "Stony", attack: 44, health: 55)
 var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
@@ -144,7 +144,7 @@ class GameScene: SKScene {
         checkArr()
         
         gameScene = self
-        enemyUnit = EnemyUnit(enemyName: "Fitments", attack: 10, health: 20)
+        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
         player = Player()
         
 

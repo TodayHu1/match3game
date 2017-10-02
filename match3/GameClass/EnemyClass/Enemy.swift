@@ -22,7 +22,7 @@ class EnemyUnit: SKSpriteNode {
     var shield: Int = 0
     
     //Label
-    var labelBoard = SKLabelNode(text: "KEK")
+    var labelBoard = SKLabelNode(text: "")
     var labelUnitName = SKLabelNode(text: "x-UnitName_Label-x")
     var labelHealth = SKLabelNode(text: "x-Health_Label-x")
     var labelShield = SKLabelNode(text: "x-Shield_Label-x")
@@ -30,13 +30,13 @@ class EnemyUnit: SKSpriteNode {
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
     
-    var pos: CGPoint =  CGPoint(x: 100, y: 205)
+    var pos: CGPoint =  CGPoint(x: 100, y: 210)
     
     var enemyName = ""
     
     
     init(enemyName: String, attack: Int, health: Int) {
-        super.init(texture: SKTexture(imageNamed: "enemyUnit-0"), color: UIColor.clear, size: SKTexture(imageNamed: "enemyUnit-0").size())
+        super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
 
         self.setScale(0.33)
@@ -46,27 +46,25 @@ class EnemyUnit: SKSpriteNode {
         
 //        self.xScale = -0.2
         
-        self.enemyName = self.name!
         self.attack = attack
         self.health = health
-        self.colorBlendFactor = CGFloat(gameScene.randomFloat())
-        self.color = UIColor(colorLiteralRed: gameScene.randomFloat(), green: gameScene.randomFloat(), blue: gameScene.randomFloat(), alpha: 1)
-        
+//        self.colorBlendFactor = CGFloat(gameScene.randomFloat())
+//        self.color = UIColor(colorLiteralRed: gameScene.randomFloat(), green: gameScene.randomFloat(), blue: gameScene.randomFloat(), alpha: 1)
+//        
         initShadow()
 
-        labelOverHead(shield: self.attack, health: self.health)
+        labelOverHead(shield: self.attack, health: self.health, initLabel: true)
         
-        enemyAtlasAttack = SKTextureAtlas(named: "testAttack")
-
+        enemyAtlasAttack = SKTextureAtlas(named: enemyName + "-Attack")
+        enemyAtlasStand = SKTextureAtlas(named: enemyName + "-Stand")
         
         for i in 0...enemyAtlasAttack.textureNames.count-1 {
-            let name = "enemyUnit" + "-\(i).png"
+            let name = enemyName + "-" + "Attack" + "-\(i).png"
             enemyArrAttack.append(SKTexture(imageNamed: name))
         }
         
-        enemyAtlasStand = SKTextureAtlas(named: "testStand")
         for i in 0...enemyAtlasStand.textureNames.count-1 {
-            let name = "enemyUnit" + "-\(i).png"
+            let name = enemyName + "-" + "Stand" + "-\(i).png"
             enemyArrStand.append(SKTexture(imageNamed: name))
         }
     }
@@ -80,7 +78,10 @@ class EnemyUnit: SKSpriteNode {
         self.removeAllActions()
 
         let enemyAnimStand = SKAction.repeatForever(
-             SKAction.animate(with: enemyArrStand, timePerFrame: 0.1)
+            SKAction.sequence(
+                [SKAction.animate(with: enemyArrStand, timePerFrame: 0.2),
+                 SKAction.wait(forDuration: 1)]
+            )
         )
         
         self.run(enemyAnimStand)
@@ -127,14 +128,10 @@ class EnemyUnit: SKSpriteNode {
     private func initShadow() {
         let shadowNode = SKSpriteNode(imageNamed: "shadow")
         shadowNode.zPosition = -1
-        
-        shadowNode.position.y += -270
-        
-        shadowNode.size.height = 130
-        shadowNode.size.width = 750
-        
+        shadowNode.position.y -= (self.size.height + self.size.height/2 - 10)
+        shadowNode.size.height = 100
+        shadowNode.size.width = self.size.width * 3.3
         shadowNode.alpha = 0.3
-        
         self.addChild(shadowNode)
     }
     

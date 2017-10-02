@@ -21,6 +21,8 @@
 		1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82101F7E385C00710D50 /* Assets.xcassets */; };
 		1F2D82131F80CB7D00710D50 /* Player_LabelOverHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D82121F80CB7D00710D50 /* Player_LabelOverHead.swift */; };
 		1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D82141F80D09300710D50 /* Enemy_LabelOverHead.swift */; };
+		1F2D82201F8277E200710D50 /* Stony-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D821E1F8277E200710D50 /* Stony-Stand.atlas */; };
+		1F2D82211F8277E200710D50 /* Stony-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D821F1F8277E200710D50 /* Stony-Attack.atlas */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
@@ -72,6 +74,8 @@
 		1F2D82101F7E385C00710D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F2D82121F80CB7D00710D50 /* Player_LabelOverHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player_LabelOverHead.swift; sourceTree = "<group>"; };
 		1F2D82141F80D09300710D50 /* Enemy_LabelOverHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_LabelOverHead.swift; sourceTree = "<group>"; };
+		1F2D821E1F8277E200710D50 /* Stony-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = "Stony-Stand.atlas"; path = "../../../../../Desktop/Stony/Stony-Stand.atlas"; sourceTree = "<group>"; };
+		1F2D821F1F8277E200710D50 /* Stony-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = "Stony-Attack.atlas"; path = "../../../../../Desktop/Stony/Stony-Attack.atlas"; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
@@ -164,9 +168,19 @@
 			path = match3UITests;
 			sourceTree = "<group>";
 		};
+		1F2D821A1F8277A200710D50 /* Stony */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D821F1F8277E200710D50 /* Stony-Attack.atlas */,
+				1F2D821E1F8277E200710D50 /* Stony-Stand.atlas */,
+			);
+			path = Stony;
+			sourceTree = "<group>";
+		};
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F2D821A1F8277A200710D50 /* Stony */,
 				1FFD4F6F1F76406100952F94 /* testStand.atlas */,
 				1FFD4F6D1F76403500952F94 /* testAttack.atlas */,
 			);
@@ -332,8 +346,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2D82201F8277E200710D50 /* Stony-Stand.atlas in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
 				1FFD4F701F76406100952F94 /* testStand.atlas in Resources */,
+				1F2D82211F8277E200710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,

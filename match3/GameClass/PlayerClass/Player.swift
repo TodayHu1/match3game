@@ -42,7 +42,7 @@ class Player: SKSpriteNode {
         self.name = "playerUnit"
 
         initShadow()
-        labelOverHead(shield: self.shield, health: self.health)
+        labelOverHead(shield: self.shield, health: self.health, initLabel: true)
     
         
         print("INIT DONE")

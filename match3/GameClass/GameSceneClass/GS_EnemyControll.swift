@@ -20,7 +20,7 @@ extension GameScene {
     public func newEnemy() {
         enemyUnit.removeFromParent()
         enemyUnit.removeAllChildren()
-        enemyUnit = EnemyUnit(enemyName: "Fitments", attack: 10, health: 20)
+        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
         self.addChild(enemyUnit)
         enemyUnit.animationStand()
     }
