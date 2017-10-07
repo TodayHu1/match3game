@@ -12,16 +12,16 @@ extension EnemyUnit {
     
     func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
         
-        self.labelBoard.removeFromParent()
-        self.labelBoard.removeAllChildren()
-        
         if initLabel {
+            self.labelBoard.removeFromParent()
+            self.labelBoard.removeAllChildren()
+            
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
             self.labelBoard.position = self.position
             //        self.labelBoard.position.y = self.position.y + 50
             self.labelBoard.position.x = self.position.x - self.size.width/2
-            self.labelBoard.position.y = self.position.y - 50
+            self.labelBoard.position.y = self.position.y
             self.labelBoard.fontName = "TrebuchetMS"
             self.addChild(self.labelBoard)
             
@@ -48,8 +48,8 @@ extension EnemyUnit {
             self.labelShield.addChild(self.iconShield)
         }
         
-        self.labelHealth.text = String(health)
-        self.labelShield.text = String(shield)
+        self.labelHealth.text = String(self.health)
+        self.labelShield.text = String(self.shield)
 
         
         

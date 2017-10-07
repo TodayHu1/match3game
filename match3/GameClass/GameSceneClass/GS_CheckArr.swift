@@ -39,16 +39,16 @@ extension GameScene {
                         animationMatchCorner(indexIandJ: String(i) + String(j))
                         hehlolkekmda(i: i, j: j)
                         actionOnTurn[indexOfMatch] += 1
-                        print(actionOnTurn)
+//                        print(actionOnTurn)
                         levelArr[i][j] = 0
                     }
                 }
             }
         }
         
-        print("-> " + String(describing: actionOnTurn))
+//        print("-> " + String(describing: actionOnTurn))
         
-        print("Чек Арр")
+//        print("Чек Арр")
         reBuildArr()
     }
     
@@ -86,7 +86,7 @@ extension GameScene {
     }
     
     public func reBuildArr() {
-        print("Ребилд")
+//        print("Ребилд")
         for i in 0...5 {
             for j in 0...5 {
                 if(levelArr[i][j] == 0) {
@@ -105,9 +105,9 @@ extension GameScene {
     }
     
     public func checkAlignArr() {
-        print("Чек Алигн Арр")
-        print(checkVerticalArr())
-        print(checkHorizontalArr())
+//        print("Чек Алигн Арр")
+//        print(checkVerticalArr())
+//        print(checkHorizontalArr())
         if(checkVerticalArr() || checkHorizontalArr()) {
             checkArr()
         }
@@ -131,9 +131,9 @@ extension GameScene {
                 }
             }
         }
-        if check {
-            print("Чек Вертикал Арр")
-        }
+//        if check {
+////            print("Чек Вертикал Арр")
+//        }
         return check
     }
     
@@ -150,9 +150,9 @@ extension GameScene {
                 }
             }
         }
-        if check {
-            print("Чек Хризонтал Арр")
-        }
+//        if check {
+//            print("Чек Хризонтал Арр")
+//        }
         return check
     }
     

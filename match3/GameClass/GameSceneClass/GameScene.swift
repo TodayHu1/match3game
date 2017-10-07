@@ -18,7 +18,7 @@ public var levelArr = [[2,1,4,2,1,2],
                        [1,3,4,1,4,3],
                        [2,4,1,2,3,2]]
 
-var enemyUnit = EnemyUnit(enemyName: "Stony", attack: 44, health: 55)
+var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, scale: 0, vampire: 0.5)
 var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
@@ -83,10 +83,10 @@ class GameScene: SKScene {
                     self.addChild(matchNode)
                 }
             }
-            print("Хард билд")
+//            print("Хард билд")
         }
         else {
-            print("=====================")
+//            print("=====================")
             for i in 0...5 {
                 for j in 0...5 {
                     let matchNode: SKSpriteNode = self.searchByName(name: "Match" + String(i) + String(j))
@@ -100,7 +100,7 @@ class GameScene: SKScene {
                     matchNode.texture = SKTexture(imageNamed: matchNodeStringTexture)
                 }
             }
-            print("Cофт билд")
+//            print("Cофт билд")
         }
         
     }
@@ -144,7 +144,7 @@ class GameScene: SKScene {
         checkArr()
         
         gameScene = self
-        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
+        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 22, health: 33, shield: 44, scale: 0.28, vampire: 0.8)
         player = Player()
         
 
@@ -190,8 +190,8 @@ class GameScene: SKScene {
         self.addChild(player)
         self.addChild(enemyUnit)
 //        player.animationStand()
-        enemyUnit.animationStand()
-        print("x-x-x- BUILD DONE -x-x-x")
+//        enemyUnit.animationStand()
+//        print("x-x-x- BUILD DONE -x-x-x")
 
     }
     
@@ -202,18 +202,12 @@ class GameScene: SKScene {
 
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         for touch: AnyObject in touches {
             lastTouch = touch.location(in: self)
-
-            
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-//        print()
-//        gestureLabel.text = "Gesture: " + String(matchActionGesture)
-        
+        gestureLabel.text = "Gesture: " + String(matchActionGesture)
     }
 }

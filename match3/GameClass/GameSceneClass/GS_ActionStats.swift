@@ -58,7 +58,7 @@ extension GameScene {
 //        enemyUnit.animationStand()
 //        player.fullAttackStandAnimation()
         enemyUnit.fullAttackStandAnimation()
-        player.labelOverHead(shield: actionOnTurn[1], health: actionOnTurn[2], initLabel: false)
+        player.labelOverHead(shield: player.shield + actionOnTurn[1], health: player.health + actionOnTurn[2], initLabel: false)
     }
     
 

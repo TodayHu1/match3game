@@ -11,15 +11,23 @@ import SpriteKit
 
 class EnemyUnit: SKSpriteNode {
     
+    //Texture staff
     var enemyArrAttack = [SKTexture]()
     var enemyAtlasAttack = SKTextureAtlas()
     
     var enemyArrStand = [SKTexture]()
     var enemyAtlasStand = SKTextureAtlas()
     
+    
+    //Main Stat
     var attack: Int = 0
     var health: Int = 0
     var shield: Int = 0
+    
+    
+    //Attack modificator
+    var vampireAttack: Float = 0
+    
     
     //Label
     var labelBoard = SKLabelNode(text: "")
@@ -30,27 +38,36 @@ class EnemyUnit: SKSpriteNode {
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
     
-    var pos: CGPoint =  CGPoint(x: 100, y: 210)
     
+    //Position
+    var pos: CGPoint =  CGPoint(x: 100, y: 145)
+    
+    
+    //Enemy name
     var enemyName = ""
     
     
-    init(enemyName: String, attack: Int, health: Int) {
+    init(enemyName: String, attack: Int, health: Int, shield: Int, scale: Float, vampire: Float) {
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
-
-        self.setScale(0.33)
+        self.anchorPoint.x = 0.5
+        self.anchorPoint.y = 0
+        
         self.zPosition = 1000
         self.position = pos
         self.name = "enemyUnit"
         
-//        self.xScale = -0.2
         
+        //init main value
+        self.setScale(CGFloat(scale))
         self.attack = attack
         self.health = health
-//        self.colorBlendFactor = CGFloat(gameScene.randomFloat())
-//        self.color = UIColor(colorLiteralRed: gameScene.randomFloat(), green: gameScene.randomFloat(), blue: gameScene.randomFloat(), alpha: 1)
-//        
+        self.shield = shield
+        self.vampireAttack = vampire
+        
+        self.colorBlendFactor = CGFloat(0)
+        self.color = UIColor(colorLiteralRed: vampireAttack, green: 0, blue: 0, alpha: 1)
+//
         initShadow()
 
         labelOverHead(shield: self.attack, health: self.health, initLabel: true)
@@ -75,12 +92,14 @@ class EnemyUnit: SKSpriteNode {
     
     func animationStand() -> SKAction{
         
+//        print("FGHJKLFGHJKLFGHJKLDFGHJKL:")
+        
         self.removeAllActions()
 
         let enemyAnimStand = SKAction.repeatForever(
             SKAction.sequence(
                 [SKAction.animate(with: enemyArrStand, timePerFrame: 0.2),
-                 SKAction.wait(forDuration: 1)]
+                 SKAction.wait(forDuration: 1.5)]
             )
         )
         
@@ -93,7 +112,7 @@ class EnemyUnit: SKSpriteNode {
         
         self.removeAllActions()
 
-        let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.1)
+        let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.15)
 
         self.run(enemyAnimAttack)
         return enemyAnimAttack
@@ -119,8 +138,12 @@ class EnemyUnit: SKSpriteNode {
         let shakeScene = SKAction.run {
             gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
+        
+        let attackMod = SKAction.run {
+            self.vampireAttackMod()
+        }
 
-        let fullAttackAnimation = SKAction.sequence([moveForward, animationAttack(), shakeScene, moveBack,matchGestureTrue, animationStand()])
+        let fullAttackAnimation = SKAction.sequence([moveForward, animationAttack(), attackMod, shakeScene, moveBack,matchGestureTrue, animationStand()])
 
         self.run(fullAttackAnimation)
     }

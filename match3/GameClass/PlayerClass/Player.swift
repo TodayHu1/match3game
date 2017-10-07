@@ -15,7 +15,7 @@ class Player: SKSpriteNode {
     var body = SKSpriteNode(imageNamed: "enemy")
     
     //Label
-    var labelBoard = SKLabelNode(text: "LOL")
+    var labelBoard = SKLabelNode(text: "")
     var labelHealth = SKLabelNode(text: "x-Health_Label-x")
     var labelShield = SKLabelNode(text: "x-Shield_Label-x")
         //Icon for label
@@ -23,9 +23,9 @@ class Player: SKSpriteNode {
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
     
     //Stats
-    var attack: Int = 999
-    var health: Int = 999
-    var shield: Int = 999
+    var attack: Int = 10
+    var health: Int = 20
+    var shield: Int = 30
     var move: Int = 3
     
     //Position
@@ -45,7 +45,7 @@ class Player: SKSpriteNode {
         labelOverHead(shield: self.shield, health: self.health, initLabel: true)
     
         
-        print("INIT DONE")
+//        print("INIT DONE")
     }
     
     required init?(coder aDecoder: NSCoder) {

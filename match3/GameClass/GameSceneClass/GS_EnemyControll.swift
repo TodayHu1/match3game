@@ -13,16 +13,16 @@ var matchActionGesture = true
 extension GameScene {
     
     public func actionGesture(gesture: Bool) {
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!! " + String(gesture))
+//        print("!!!!!!!!!!!!!!!!!!!!!!!!!! " + String(gesture))
         matchActionGesture = gesture
     }
     
     public func newEnemy() {
-        enemyUnit.removeFromParent()
-        enemyUnit.removeAllChildren()
-        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
-        self.addChild(enemyUnit)
-        enemyUnit.animationStand()
+//        enemyUnit.removeFromParent()
+//        enemyUnit.removeAllChildren()
+//        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
+//        self.addChild(enemyUnit)
+//        enemyUnit.animationStand()
     }
     
     public func attackQueue() {
