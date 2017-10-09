@@ -18,15 +18,16 @@ extension EnemyUnit {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-            self.labelBoard.position = self.position
+//            self.labelBoard.position = self.position
             //        self.labelBoard.position.y = self.position.y + 50
             self.labelBoard.position.x = self.position.x - self.size.width/2
-            self.labelBoard.position.y = self.position.y
-            self.labelBoard.fontName = "TrebuchetMS"
+            self.labelBoard.position.y += 400
+            self.labelBoard.anchorPoint.y = 0.0
+//            self.labelBoard.fontName = "TrebuchetMS"
             self.addChild(self.labelBoard)
             
             //Health
-            self.labelHealth.fontName = self.labelBoard.fontName
+            self.labelHealth.fontName = "TrebuchetMS"
             self.labelHealth.text = String(health)
             self.labelHealth.position.x = self.labelBoard.position.x - self.size.width
             self.labelHealth.fontSize = 50
@@ -37,7 +38,7 @@ extension EnemyUnit {
             
             
             //Shield
-            self.labelShield.fontName = self.labelBoard.fontName
+            self.labelShield.fontName = "TrebuchetMS"
             self.labelShield.text = String(shield)
             self.labelShield.position.x = self.labelBoard.position.x + self.size.width
             self.labelShield.fontSize = 50

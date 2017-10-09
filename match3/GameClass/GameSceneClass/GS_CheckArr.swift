@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-public var actionOnTurn = [0,0,0,0,0,0]
+public var actionOnTurn = [Int](repeating: 0, count: gameScene.numberOfMatch() + 1)
 public var statArr = [[0,0,0,0,0,0],
                       [0,0,0,0,0,0],
                       [0,0,0,0,0,0],
@@ -32,28 +32,27 @@ extension GameScene {
         setHorizontalArr()
         setVerticalArr()
         
-        for indexOfMatch in 1...5 {
+        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
             for i in 0...5 {
                 for j in 0...5 {
                     if(statArr[i][j] == indexOfMatch) {
                         animationMatchCorner(indexIandJ: String(i) + String(j))
-                        hehlolkekmda(i: i, j: j)
+                        moveMatchToPlayer(i: i, j: j)
                         actionOnTurn[indexOfMatch] += 1
-//                        print(actionOnTurn)
                         levelArr[i][j] = 0
                     }
                 }
             }
         }
         
-//        print("-> " + String(describing: actionOnTurn))
+        print("-> " + String(describing: actionOnTurn))
         
 //        print("Чек Арр")
         reBuildArr()
     }
     
     private func setHorizontalArr() {
-        for indexOfMatch in 1...5 {
+        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
             for i in 0...5 {
                 for j in 0...3 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -69,7 +68,7 @@ extension GameScene {
     }
     
     private func setVerticalArr() {
-        for indexOfMatch in 1...5 {
+        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
             for i in 0...3 {
                 for j in 0...5 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -91,7 +90,7 @@ extension GameScene {
             for j in 0...5 {
                 if(levelArr[i][j] == 0) {
 
-                        levelArr[i][j] = GameScene().random(number: 4)
+                        levelArr[i][j] = gameScene.customRandom()
                         self.buildLevel(hardBuild: false)
 
                 }
@@ -120,7 +119,7 @@ extension GameScene {
     
     private func checkVerticalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...5 {
+        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
             for i in 0...3 {
                 for j in 0...5 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -139,7 +138,7 @@ extension GameScene {
     
     private func checkHorizontalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...5 {
+        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
             for i in 0...5 {
                 for j in 0...3 {
                     if( levelArr[i][j] == indexOfMatch &&

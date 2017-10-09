@@ -23,9 +23,9 @@ class Player: SKSpriteNode {
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
     
     //Stats
-    var attack: Int = 10
+    var attack: Int = 1
     var health: Int = 20
-    var shield: Int = 30
+    var shield: Int = 500
     var move: Int = 3
     
     //Position
@@ -34,9 +34,9 @@ class Player: SKSpriteNode {
 
     
     init() {
-        super.init(texture: SKTexture(imageNamed: "player"), color: UIColor.clear, size: SKTexture(imageNamed: "player").size())
+        super.init(texture: SKTexture(imageNamed: "enemy"), color: UIColor.clear, size: SKTexture(imageNamed: "enemy").size())
         
-        self.setScale(0.33)
+        self.setScale(0.23)
         self.zPosition = 1000
         self.position = pos
         self.name = "playerUnit"
@@ -80,15 +80,18 @@ class Player: SKSpriteNode {
     
     func takeDamage(damage: Int) {
         
-        self.health -= damage
+        print("До атаки врага shield \(self.shield)  -\(damage)-  health \(self.health)")
         
-        //Change label
-//        labelStat(attack: self.attack, health: self.health, initLabel: false)
+        if self.shield > 0 {
+            self.shield -= damage
+        }
+        else {
+            self.health -= damage
+        }
         
-        //Animation
-        let flash = SKAction.colorize(with: UIColor(red: 1, green: 1, blue: 1, alpha: 0), colorBlendFactor: 1, duration: 0.1)
-        let seq = SKAction.sequence([flash, flash.reversed()])
-        self.run(seq)
+        print("После атаки врага shield \(self.shield)  -\(damage)-  health \(self.health)")
+        print("===================================================================")
+        labelOverHead(shield: self.shield, health: self.health, initLabel: false)
     }
     
     func getMove(move: Int) {

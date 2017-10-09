@@ -11,14 +11,14 @@ import SpriteKit
 import GameplayKit
 
 
-public var levelArr = [[2,1,4,2,1,2],
-                       [1,3,1,4,2,1],
-                       [2,4,3,1,3,4],
-                       [1,2,3,2,3,2],
-                       [1,3,4,1,4,3],
-                       [2,4,1,2,3,2]]
+public var levelArr = [[0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0],
+                       [0,0,0,0,0,0]]
 
-var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, scale: 0, vampire: 0.5)
+var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, scale: 0, vampire: 0)
 var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
@@ -144,7 +144,7 @@ class GameScene: SKScene {
         checkArr()
         
         gameScene = self
-        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 22, health: 33, shield: 44, scale: 0.28, vampire: 0.8)
+        enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 1, health: 1, shield: 500, scale: 0.33, vampire: 0)
         player = Player()
         
 
@@ -208,6 +208,6 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        gestureLabel.text = "Gesture: " + String(matchActionGesture)
+//        gestureLabel.text = "Gesture: " + String(matchActionGesture)
     }
 }

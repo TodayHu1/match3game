@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 extension GameScene {
     
-    public func hehlolkekmda(i:Int ,j:Int) {
+    public func moveMatchToPlayer(i:Int ,j:Int) {
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
         matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
         matchNode.xScale = 0.07
@@ -18,17 +18,35 @@ extension GameScene {
         matchNode.name = "QAZ"
         matchNode.zPosition = 999
         
-        let pop = player
-//        let moveA = SKAction.moveBy(x:  y: , duration: 1)
-        let moveA = SKAction.move(to: CGPoint(x: pop.position.x, y: pop.position.y), duration: 0.3)
-        moveA.timingMode = .easeInEaseOut
-        let moveB = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: 60), duration: 0.4)
-        moveB.timingMode = .easeOut
-        let qwe = SKAction.sequence([moveB, moveA])
+        var objectPosition: AnyObject
+        var objectScaleForAnimation = CGFloat(0.97)
+        
+        switch statArr[i][j] {
+        case 1:
+            objectPosition = enemyUnit
+        case 2:
+            objectPosition = player.iconShield
+            objectScaleForAnimation = 1.1
+        default:
+            objectPosition = player
+        }
+    
+        let startMove = SKAction.move(to: CGPoint(x: objectPosition.position.x, y: objectPosition.position.y), duration: 0.3)
+        startMove.timingMode = .easeInEaseOut
+        let endMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: 0.4)
+        endMove.timingMode = .easeOut
+        let fullMoveAction = SKAction.sequence([endMove, startMove])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.addChild(matchNode)
-            matchNode.run(qwe)
+            matchNode.run(fullMoveAction)
+            
+            let q = SKAction.scale(by: objectScaleForAnimation, duration: 0.1)
+            let w = q.reversed()
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                objectPosition.run(SKAction.sequence(
+                    [q,w]
+                ))
                 matchNode.removeFromParent()
             }
         }
@@ -57,8 +75,9 @@ extension GameScene {
 //        player.fullAttackStandAnimation(playerName: "Fitments")
 //        enemyUnit.animationStand()
 //        player.fullAttackStandAnimation()
-        enemyUnit.fullAttackStandAnimation()
-        player.labelOverHead(shield: player.shield + actionOnTurn[1], health: player.health + actionOnTurn[2], initLabel: false)
+//        enemyUnit.fullAttackStandAnimation()
+//        player.labelOverHead(shield: player.shield, health: player.health + actionOnTurn[2], initLabel: false)
+        gameScene.checkArrForAction()
     }
     
 

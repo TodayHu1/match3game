@@ -30,7 +30,7 @@ class EnemyUnit: SKSpriteNode {
     
     
     //Label
-    var labelBoard = SKLabelNode(text: "")
+    var labelBoard = SKSpriteNode()
     var labelUnitName = SKLabelNode(text: "x-UnitName_Label-x")
     var labelHealth = SKLabelNode(text: "x-Health_Label-x")
     var labelShield = SKLabelNode(text: "x-Shield_Label-x")
@@ -143,7 +143,14 @@ class EnemyUnit: SKSpriteNode {
             self.vampireAttackMod()
         }
 
-        let fullAttackAnimation = SKAction.sequence([moveForward, animationAttack(), attackMod, shakeScene, moveBack,matchGestureTrue, animationStand()])
+        let fullAttackAnimation = SKAction.sequence([SKAction.wait(forDuration: 0.6),moveForward,
+                                                     animationAttack(),
+                                                     attackMod,
+                                                     shakeScene,
+                                                     moveBack,
+                                                     matchGestureTrue,
+                                                     animationStand()
+            ])
 
         self.run(fullAttackAnimation)
     }
@@ -151,28 +158,28 @@ class EnemyUnit: SKSpriteNode {
     private func initShadow() {
         let shadowNode = SKSpriteNode(imageNamed: "shadow")
         shadowNode.zPosition = -1
-        shadowNode.position.y -= (self.size.height + self.size.height/2 - 10)
-        shadowNode.size.height = 100
-        shadowNode.size.width = self.size.width * 3.3
-        shadowNode.alpha = 0.3
+//        shadowNode.position.y = self.position.y
+        shadowNode.size.height = 90
+        shadowNode.size.width = self.size.width * 4
+        shadowNode.alpha = 0.2
+        shadowNode.anchorPoint.x = 0.5
+        shadowNode.anchorPoint.y = 0.4
         self.addChild(shadowNode)
     }
     
 
     
     func takeDamage(damage: Int) {
-        
-        self.health -= damage
-        
-        //Change label
-//        labelStat(attack: self.attack, health: self.health , initLabel: false)
-        if self.health < 1 {
-            gameScene.newEnemy()
+        print("До атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
+        if self.shield > 0 {
+            self.shield -= damage
         }
-        //Animation
-//        let flash = SKAction.colorize(with: UIColor(red: 1, green: 1, blue: 1, alpha: 0), colorBlendFactor: 1, duration: 0.1)
-//        let seq = SKAction.sequence([flash, flash.reversed()])
-//        self.run(seq)
+        else {
+            self.health -= damage
+        }
+        print("После атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
+        print("===================================================================")
+        labelOverHead(shield: self.shield, health: self.health, initLabel: false)
     }
     
     func echo() {
