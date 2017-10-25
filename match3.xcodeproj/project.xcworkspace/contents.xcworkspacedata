@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/KLASTER/Documents/match3game/match3/EnemyAtlas/Stony/Stony-Attack.atlas">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/KLASTER/Documents/match3game/match3/EnemyAtlas/Stony/Stony-Stand.atlas">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

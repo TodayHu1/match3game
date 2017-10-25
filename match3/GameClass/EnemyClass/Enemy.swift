@@ -47,7 +47,7 @@ class EnemyUnit: SKSpriteNode {
     var enemyName = ""
     
     
-    init(enemyName: String, attack: Int, health: Int, shield: Int, scale: Float, vampire: Float) {
+    init(enemyName: String, attack: Int, health: Int, shield: Int, scale: Float,vampire: Float) {
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
         self.anchorPoint.x = 0.5
@@ -84,6 +84,8 @@ class EnemyUnit: SKSpriteNode {
             let name = enemyName + "-" + "Stand" + "-\(i).png"
             enemyArrStand.append(SKTexture(imageNamed: name))
         }
+        
+        print("Init done - Index \(enemyIndexNow)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -118,7 +120,7 @@ class EnemyUnit: SKSpriteNode {
         return enemyAnimAttack
     }
     
-    func fullAttackStandAnimation() {
+    func fullAttackStandAnimation(damage: Int) {
         
         self.removeAllActions()
 
@@ -129,6 +131,20 @@ class EnemyUnit: SKSpriteNode {
 
         moveForward.timingMode = .easeOut
         moveBack.timingMode = .easeOut
+        
+        
+        let z1 = SKAction.run {
+            let x1 = gameScene.random(number: 5)
+            let x2 = gameScene.random(number: 5)
+            levelArr[x1][x2] = 6
+            gameScene.animationMatchCornerReverse(indexIandJ: "\(x1)\(x2)")
+            gameScene.animationMatchCorner(indexIandJ: "\(x1)\(x2)")
+            gameScene.animationMatchCorner(indexIandJ: "\(x1)\(x2)")
+            gameScene.buildLevel(hardBuild: false)
+        }
+
+        
+        
 
 
         let matchGestureTrue = SKAction.run {
@@ -141,18 +157,21 @@ class EnemyUnit: SKSpriteNode {
         
         let attackMod = SKAction.run {
             self.vampireAttackMod()
+            player.takeDamage(damage: damage)
         }
 
-        let fullAttackAnimation = SKAction.sequence([SKAction.wait(forDuration: 0.6),moveForward,
+        let fullAttackAnimation = SKAction.sequence([SKAction.wait(forDuration: 0.6),
+                                                     moveForward,
                                                      animationAttack(),
-                                                     attackMod,
                                                      shakeScene,
+                                                     attackMod,
                                                      moveBack,
                                                      matchGestureTrue,
                                                      animationStand()
             ])
 
         self.run(fullAttackAnimation)
+//        self.run(z1)
     }
     
     private func initShadow() {
@@ -171,12 +190,25 @@ class EnemyUnit: SKSpriteNode {
     
     func takeDamage(damage: Int) {
         print("До атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
+        
         if self.shield > 0 {
             self.shield -= damage
+            if self.shield < 0 {
+                print(self.health)
+                self.health += self.shield
+                print(self.health)
+                self.shield = 0
+            }
         }
         else {
             self.health -= damage
         }
+        
+        if self.health < 1 {
+            gameScene.newEnemy()
+            print("NEW ENEMY INIT")
+        }
+        
         print("После атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
         print("===================================================================")
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
@@ -184,6 +216,10 @@ class EnemyUnit: SKSpriteNode {
     
     func echo() {
         print(self)
+    }
+    
+    func wait() {
+        self.run(SKAction.wait(forDuration: 0.5))
     }
     
 }

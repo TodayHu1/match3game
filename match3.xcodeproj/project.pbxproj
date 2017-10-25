@@ -26,6 +26,8 @@
 		1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */; };
 		1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */; };
 		1F2D822E1F88EA6500710D50 /* Enemy_Vampire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_Vampire.swift */; };
+		1F2DE8871F9F36A200D23B88 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DE8861F9F36A200D23B88 /* MyScene.sks */; };
+		1F2DE8891F9F3C2200D23B88 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
@@ -82,6 +84,8 @@
 		1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Stand.atlas"; sourceTree = "<group>"; };
 		1F2D822D1F88EA6500710D50 /* Enemy_Vampire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Vampire.swift; sourceTree = "<group>"; };
+		1F2DE8861F9F36A200D23B88 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				1FD658F71F7E259600F808F4 /* UIClass */,
 				1FD658F21F7E24BC00F808F4 /* EnemyAtlas */,
 				1FD658F41F7E250300F808F4 /* GameClass */,
+				1F2DE8861F9F36A200D23B88 /* MyScene.sks */,
+				1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -370,9 +376,11 @@
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
+				1F2DE8891F9F3C2200D23B88 /* MyParticle.sks in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
 				1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */,
+				1F2DE8871F9F36A200D23B88 /* MyScene.sks in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

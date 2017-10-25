@@ -18,11 +18,14 @@ public var levelArr = [[0,0,0,0,0,0],
                        [0,0,0,0,0,0],
                        [0,0,0,0,0,0]]
 
+
+var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit]
+
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, scale: 0, vampire: 0)
 var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
-
+var enemyIndexNow = 0
 
 class GameScene: SKScene {
     
@@ -138,14 +141,35 @@ class GameScene: SKScene {
         checkAlignArr()
     }
     
+    func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
+        switch enemyName {
+        case "Stony":
+            return EnemyUnit(enemyName: "Stony", attack: 5, health: 30, shield: 20, scale: 0.27, vampire: 0)
+            break
+        case "StoneScale":
+            return EnemyUnit(enemyName: "StoneScale", attack: 7, health: 5, shield: 70, scale: 0.33, vampire: 0)
+            break
+        default:
+            return EnemyUnit(enemyName: "Stony", attack: 5, health: 1, shield: 666, scale: 0, vampire: 1)
+            break
+        }
+    }
+    
     override func didMove(to view: SKView) {
 
         buildLevel(hardBuild: true)
         checkArr()
         
         gameScene = self
-        enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 1, health: 1, shield: 500, scale: 0.33, vampire: 0)
+        
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "Stony")
+        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "Stony")
+        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "StoneScale")
+        
+        enemyUnit = enemyOnLevelArr[enemyIndexNow]
+        
         player = Player()
+        
         
 
         

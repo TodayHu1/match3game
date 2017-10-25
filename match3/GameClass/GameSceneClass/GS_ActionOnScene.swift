@@ -18,20 +18,23 @@ extension GameScene {
         matchNode.name = "QAZ"
         matchNode.zPosition = 999
         
-        var objectPosition: AnyObject
+        var objectForAnimation: AnyObject
+        var positionToMove: CGPoint = player.position
         var objectScaleForAnimation = CGFloat(0.97)
         
         switch statArr[i][j] {
         case 1:
-            objectPosition = enemyUnit
+            objectForAnimation = enemyUnit
+            positionToMove = enemyUnit.position
         case 2:
-            objectPosition = player.iconShield
-            objectScaleForAnimation = 1.1
+            positionToMove = player.position
+            objectForAnimation = player.iconShield
+            objectScaleForAnimation = 1.2
         default:
-            objectPosition = player
+            objectForAnimation = player
         }
     
-        let startMove = SKAction.move(to: CGPoint(x: objectPosition.position.x, y: objectPosition.position.y), duration: 0.3)
+        let startMove = SKAction.move(to: positionToMove, duration: 0.3)
         startMove.timingMode = .easeInEaseOut
         let endMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: 0.4)
         endMove.timingMode = .easeOut
@@ -40,11 +43,11 @@ extension GameScene {
             self.addChild(matchNode)
             matchNode.run(fullMoveAction)
             
-            let q = SKAction.scale(by: objectScaleForAnimation, duration: 0.1)
+            let q = SKAction.scale(by: objectScaleForAnimation, duration: 0.11)
             let w = q.reversed()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                objectPosition.run(SKAction.sequence(
+                objectForAnimation.run(SKAction.sequence(
                     [q,w]
                 ))
                 matchNode.removeFromParent()
@@ -64,20 +67,8 @@ extension GameScene {
     }
     
     public func endBuild() {
-//        myLabel.text = "🖤 " + String(describing: actionOnTurn[0])
-//            + "❤️ " + String(describing: actionOnTurn[1])
-//            + "💙 " + String(describing: actionOnTurn[2])
-//            + "💜 " + String(describing: actionOnTurn[3])
-//            + "💛 " + String(describing: actionOnTurn[4])
-//            + "💔 " + String(describing: actionOnTurn[5])
-//        
-        
-//        player.fullAttackStandAnimation(playerName: "Fitments")
-//        enemyUnit.animationStand()
-//        player.fullAttackStandAnimation()
-//        enemyUnit.fullAttackStandAnimation()
-//        player.labelOverHead(shield: player.shield, health: player.health + actionOnTurn[2], initLabel: false)
         gameScene.checkArrForAction()
+//        levelArr[gameScene.random(number: 5)][gameScene.random(number: 5)] = 6
     }
     
 

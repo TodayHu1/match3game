@@ -31,7 +31,7 @@ extension GameScene {
 //        }
         switch matchNumber {
         case 0:
-            return SKTexture(imageNamed:"Green.png")
+            return SKTexture(imageNamed:"match_-1.png")
         case 1:
             return SKTexture(imageNamed:"match_0.png")
         case 2:
@@ -42,8 +42,10 @@ extension GameScene {
             return SKTexture(imageNamed:"match_3.png")
         case 5:
             return SKTexture(imageNamed:"match_4.png")
+        case 6:
+            return SKTexture(imageNamed:"match_5.png")
         default:
-            print("[MATCH] WRONG TEXTURE")
+            print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
             return SKTexture(imageNamed:"matchBoard.png")
         }
     }
@@ -80,7 +82,7 @@ extension GameScene {
     }
     
     func numberOfMatch() -> Int {
-        return 5
+        return 6
     }
     
     public func durationTime() -> Double {

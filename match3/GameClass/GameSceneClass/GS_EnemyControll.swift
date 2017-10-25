@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import SceneKit
+import SpriteKit
+import GameplayKit
 
 var matchActionGesture = true
 
@@ -18,11 +21,21 @@ extension GameScene {
     }
     
     public func newEnemy() {
-//        enemyUnit.removeFromParent()
-//        enemyUnit.removeAllChildren()
-//        enemyUnit = EnemyUnit(enemyName: "Stony", attack: 10, health: 20)
-//        self.addChild(enemyUnit)
-//        enemyUnit.animationStand()
+        print("enemyIndex \(enemyIndexNow)")
+        if enemyIndexNow <= enemyOnLevelArr.count-1 {
+            enemyUnit.removeFromParent()
+            enemyUnit.removeAllChildren()
+            enemyIndexNow+=1
+            enemyUnit = enemyOnLevelArr[enemyIndexNow]
+            self.addChild(enemyUnit)
+            enemyUnit.animationStand()
+            print("create new Enemy \(enemyIndexNow)")
+        }
+        else {
+            enemyUnit.removeFromParent()
+            enemyUnit.removeAllChildren()
+            print("delet all \(enemyIndexNow)")
+        }
     }
     
     public func attackQueue() {
@@ -41,12 +54,11 @@ extension GameScene {
                 case 0:
                     print("НОЛИК")
                 case 1:
-                    enemyUnit.fullAttackStandAnimation()
-                    player.takeDamage(damage: enemyUnit.attack * actionOnTurn[1])
+                    enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[1])
                 case 2:
                     player.shield += actionOnTurn[2]
                 case 4:
-                    enemyUnit.takeDamage(damage: (player.attack * actionOnTurn[4]))
+                    player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
                 default: break
 //                    print("ERORR: checkArrForAction() invalid value \(i)")
                 }

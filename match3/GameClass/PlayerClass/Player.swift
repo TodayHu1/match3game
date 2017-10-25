@@ -23,9 +23,9 @@ class Player: SKSpriteNode {
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
     
     //Stats
-    var attack: Int = 1
+    var attack: Int = 10
     var health: Int = 20
-    var shield: Int = 500
+    var shield: Int = 20
     var move: Int = 3
     
     //Position
@@ -84,6 +84,12 @@ class Player: SKSpriteNode {
         
         if self.shield > 0 {
             self.shield -= damage
+            if self.shield < 0 {
+                print(self.health)
+                self.health += self.shield
+                print(self.health)
+                self.shield = 0
+            }
         }
         else {
             self.health -= damage
@@ -92,6 +98,41 @@ class Player: SKSpriteNode {
         print("После атаки врага shield \(self.shield)  -\(damage)-  health \(self.health)")
         print("===================================================================")
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
+        
+        
+        let a = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.05)
+        let b = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.1)
+//        let q = SKAction.fadeOut(withDuration: 0.05)
+//        let w = SKAction.fadeIn(withDuration: 0.05)
+        
+        self.run(SKAction.sequence([b,a]))
+        
+    }
+    
+    func fullAttackStandAnimation(damage: Int) {
+
+        
+        self.removeAllActions()
+        
+        let moveForward = SKAction.move(to: CGPoint(x: pos.x + self.size.width/2,y: pos.y), duration: 0.25)
+        let moveBack = SKAction.move(to: pos, duration: 0.1)
+        
+        moveForward.timingMode = .easeOut
+        moveBack.timingMode = .easeOut
+        
+        let attackMod = SKAction.run {
+            enemyUnit.takeDamage(damage: damage)
+        }
+        
+        let fullAttackAnimation = SKAction.sequence([
+            SKAction.wait(forDuration: 0.6),
+            moveForward,
+            attackMod,
+            SKAction.wait(forDuration: 0.6),
+            moveBack,
+        ])
+        
+        self.run(fullAttackAnimation)
     }
     
     func getMove(move: Int) {
@@ -100,6 +141,10 @@ class Player: SKSpriteNode {
     
     func echo() {
         print(self)
+    }
+    
+    func wait() {
+        self.run(SKAction.wait(forDuration: 0.5))
     }
     
 }
