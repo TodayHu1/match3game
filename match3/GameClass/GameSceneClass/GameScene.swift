@@ -19,7 +19,7 @@ public var levelArr = [[0,0,0,0,0,0],
                        [0,0,0,0,0,0]]
 
 
-var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit]
+var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0)
 var player = Player()
@@ -145,6 +145,8 @@ class GameScene: SKScene {
         switch enemyName {
         case "Stony":
             return EnemyUnit(enemyName: "Stony", attack: 5, health: 30, shield: 70, size: CGSize(width: 110, height: 110), vampire: 0)
+        case "MotherStony":
+            return EnemyUnit(enemyName: "Stony", attack: 7, health: 1, shield: 300, size: CGSize(width: 150, height: 150), vampire: 0.5)
         case "StoneScale":
             return EnemyUnit(enemyName: "StoneScale", attack: 7, health: 5, shield: 140, size: CGSize(width: 150, height: 150), vampire: 0)
         default:
@@ -162,7 +164,7 @@ class GameScene: SKScene {
         enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "Stony")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "Stony")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "Stony")
-        
+        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         
         player = Player()

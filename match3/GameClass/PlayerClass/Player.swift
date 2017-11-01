@@ -28,8 +28,8 @@ class Player: SKSpriteNode {
     
     //Stats
     var attack: Int = 10
-    var health: Int = 20
-    var shield: Int = 20
+    var health: Int = 50
+    var shield: Int = 50
     var move: Int = 3
     
     //Position
