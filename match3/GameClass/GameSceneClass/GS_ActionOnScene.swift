@@ -13,8 +13,8 @@ extension GameScene {
     public func moveMatchToPlayer(i:Int ,j:Int) {
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
         matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
-        matchNode.xScale = 0.07
-        matchNode.yScale = 0.07
+        matchNode.size.width = 20
+        matchNode.size.height = 20
         matchNode.name = "QAZ"
         matchNode.zPosition = 999
         

@@ -11,11 +11,15 @@ import SpriteKit
 
 class Player: SKSpriteNode {
     
-    //PlayerParts
-    var body = SKSpriteNode(imageNamed: "enemy")
+    //Texture staff
+    var playerArrAttack = [SKTexture]()
+    var playerAtlasAttack = SKTextureAtlas()
+    
+    var playerArrStand = [SKTexture]()
+    var playerAtlasStand = SKTextureAtlas()
     
     //Label
-    var labelBoard = SKLabelNode(text: "")
+    var labelBoard = SKSpriteNode()
     var labelHealth = SKLabelNode(text: "x-Health_Label-x")
     var labelShield = SKLabelNode(text: "x-Shield_Label-x")
         //Icon for label
@@ -29,23 +33,37 @@ class Player: SKSpriteNode {
     var move: Int = 3
     
     //Position
-    var pos: CGPoint =  CGPoint(x: -100, y: 205)
+    var pos: CGPoint =  CGPoint(x: -100, y: 140)
     
 
     
     init() {
-        super.init(texture: SKTexture(imageNamed: "enemy"), color: UIColor.clear, size: SKTexture(imageNamed: "enemy").size())
+        super.init(texture: SKTexture(imageNamed: "CharPlaceHolder"), color: UIColor.clear, size: SKTexture(imageNamed: "CharPlaceHolder").size())
         
-        self.setScale(0.23)
+        self.setScale(0.3)
         self.zPosition = 1000
         self.position = pos
-        self.name = "playerUnit"
+        self.name = "Player"
+        self.anchorPoint.x = 0.5
+        self.anchorPoint.y = 0
 
         initShadow()
         labelOverHead(shield: self.shield, health: self.health, initLabel: true)
-    
         
-//        print("INIT DONE")
+        playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
+//        playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
+        
+        for i in 0...playerAtlasAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "Attack" + "-\(i).png"
+            playerArrAttack.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...1 {
+            let name = self.name! + "-" + "Attack" + "-\(i).png"
+            playerArrStand.append(SKTexture(imageNamed: name))
+        }
+//
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,14 +73,12 @@ class Player: SKSpriteNode {
     func initShadow() {
         let shadowNode = SKSpriteNode(imageNamed: "shadow")
         shadowNode.zPosition = -1
-        
-        shadowNode.position.y += -270
-        
-        shadowNode.size.height = 100
-        shadowNode.size.width = 350
-        
-        shadowNode.alpha = 0.3
-        
+        //        shadowNode.position.y = self.position.y
+        shadowNode.size.height = 90
+        shadowNode.size.width = self.size.width * 2
+        shadowNode.alpha = 0.2
+        shadowNode.anchorPoint.x = 0.5
+        shadowNode.anchorPoint.y = 0.3
         self.addChild(shadowNode)
     }
     
@@ -100,12 +116,10 @@ class Player: SKSpriteNode {
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
         
         
-        let a = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.05)
-        let b = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.1)
-//        let q = SKAction.fadeOut(withDuration: 0.05)
-//        let w = SKAction.fadeIn(withDuration: 0.05)
+        let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
+        let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)
         
-        self.run(SKAction.sequence([b,a]))
+        self.run(SKAction.sequence([getDamage,toNormalColor]))
         
     }
     
@@ -124,15 +138,47 @@ class Player: SKSpriteNode {
             enemyUnit.takeDamage(damage: damage)
         }
         
+        let shakeScene = SKAction.run {
+            gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
+        }
         let fullAttackAnimation = SKAction.sequence([
             SKAction.wait(forDuration: 0.6),
             moveForward,
+            animationAttack(),
+            shakeScene,
             attackMod,
             SKAction.wait(forDuration: 0.6),
             moveBack,
+            animationStand()
         ])
         
         self.run(fullAttackAnimation)
+    }
+    
+    func animationAttack() -> SKAction {
+        
+        self.removeAllActions()
+        
+        let playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.10)
+        
+        self.run(playerAnimAttack)
+        return playerAnimAttack
+    }
+    
+    func animationStand() -> SKAction{
+        
+        self.removeAllActions()
+        
+        let playerAnimStand = SKAction.repeatForever(
+            SKAction.sequence(
+                [SKAction.animate(with: playerArrStand, timePerFrame: 0.2),
+                 SKAction.wait(forDuration: 1.5)]
+            )
+        )
+        
+        self.run(playerAnimStand)
+        return playerAnimStand
+        
     }
     
     func getMove(move: Int) {

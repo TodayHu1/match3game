@@ -21,7 +21,7 @@ public var levelArr = [[0,0,0,0,0,0],
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit]
 
-var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, scale: 0, vampire: 0)
+var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0)
 var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
@@ -79,8 +79,8 @@ class GameScene: SKScene {
                 for j in 0...levelArr.count-1 {
                     let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
                     matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
-                    matchNode.xScale = 0.091
-                    matchNode.yScale = 0.091
+                    matchNode.size.width = 54
+                    matchNode.size.height = 54
                     matchNode.name = "Match" + String(i) + String(j)
                     matchNode.zPosition = 993
                     self.addChild(matchNode)
@@ -144,14 +144,11 @@ class GameScene: SKScene {
     func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
         switch enemyName {
         case "Stony":
-            return EnemyUnit(enemyName: "Stony", attack: 5, health: 30, shield: 20, scale: 0.27, vampire: 0)
-            break
+            return EnemyUnit(enemyName: "Stony", attack: 5, health: 30, shield: 70, size: CGSize(width: 110, height: 110), vampire: 0)
         case "StoneScale":
-            return EnemyUnit(enemyName: "StoneScale", attack: 7, health: 5, shield: 70, scale: 0.33, vampire: 0)
-            break
+            return EnemyUnit(enemyName: "StoneScale", attack: 7, health: 5, shield: 140, size: CGSize(width: 150, height: 150), vampire: 0)
         default:
-            return EnemyUnit(enemyName: "Stony", attack: 5, health: 1, shield: 666, scale: 0, vampire: 1)
-            break
+            return EnemyUnit(enemyName: "Stony", attack: 666, health: 666, shield: 666, size: CGSize(width: 500, height: 500), vampire: 1)
         }
     }
     
@@ -164,7 +161,7 @@ class GameScene: SKScene {
         
         enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "Stony")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "Stony")
-        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "StoneScale")
+        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "Stony")
         
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         

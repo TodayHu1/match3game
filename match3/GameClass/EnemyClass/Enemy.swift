@@ -40,14 +40,14 @@ class EnemyUnit: SKSpriteNode {
     
     
     //Position
-    var pos: CGPoint =  CGPoint(x: 100, y: 145)
+    var pos: CGPoint =  CGPoint(x: 100, y: 140)
     
     
     //Enemy name
     var enemyName = ""
     
     
-    init(enemyName: String, attack: Int, health: Int, shield: Int, scale: Float,vampire: Float) {
+    init(enemyName: String, attack: Int, health: Int, shield: Int, size: CGSize,vampire: Float) {
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
         self.anchorPoint.x = 0.5
@@ -59,7 +59,8 @@ class EnemyUnit: SKSpriteNode {
         
         
         //init main value
-        self.setScale(CGFloat(scale))
+        self.setScale(CGFloat(0.3))
+        self.size = size
         self.attack = attack
         self.health = health
         self.shield = shield
@@ -212,6 +213,12 @@ class EnemyUnit: SKSpriteNode {
         print("После атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
         print("===================================================================")
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
+
+        let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
+        let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)
+
+        self.run(SKAction.sequence([getDamage,toNormalColor]))
+        
     }
     
     func echo() {

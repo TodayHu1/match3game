@@ -63,8 +63,8 @@ extension GameScene {
         spriteNode = searchByName(name: "Match" + indexIandJ)
         let duration: TimeInterval = 0.3
         spriteNode.zPosition = 1000
-        let moveB = SKAction.resize(byWidth: 100, height: 100, duration: duration / 2)
-        let moveC = SKAction.resize(byWidth: -100, height: -100, duration: duration / 2)
+        let moveB = SKAction.resize(byWidth: 10, height: 10, duration: duration/2)
+        let moveC = SKAction.resize(byWidth: -10, height: -10, duration: duration/2)
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
         let qwe = SKAction.sequence([moveB, moveC])
@@ -76,8 +76,8 @@ extension GameScene {
         spriteNode = searchByName(name: "Match" + indexIandJ)
         spriteNode.zPosition = 1000
         let moveA = SKAction.rotate(byAngle: CGFloat(Double.pi/2) * 4, duration: 0.6)
-        let moveB = SKAction.resize(byWidth: 100, height: 100, duration: 0.1)
-        let moveC = SKAction.resize(byWidth: -100, height: -100, duration: 0.1)
+        let moveB = SKAction.resize(byWidth: spriteNode.size.width + 10, height: spriteNode.size.height + 10, duration: 0.1)
+        let moveC = SKAction.resize(byWidth: spriteNode.size.width - 10, height: spriteNode.size.height - 10, duration: 0.1)
         moveA.timingMode = .easeOut
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
@@ -90,8 +90,8 @@ extension GameScene {
         spriteNode = searchByName(name: "Match" + indexIandJ)
         let duration: TimeInterval = 0.3
         spriteNode.zPosition = 1000
-        let moveB = SKAction.resize(byWidth: 100, height: 100, duration: duration / 2)
-        let moveC = SKAction.resize(byWidth: -100, height: -100, duration: duration / 2)
+        let moveB = SKAction.resize(byWidth: 10, height: 10, duration: duration/2)
+        let moveC = SKAction.resize(byWidth: -10, height: -10, duration: duration/2)
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
         let qwe = SKAction.sequence([moveC, moveB])

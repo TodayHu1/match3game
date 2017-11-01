@@ -10,11 +10,11 @@ import Foundation
 
 extension Player {
     
-    func initPlayerParts() {
-
-        self.setScale(0.25)
-        addChild(body)
-        
-    }
+//    func initPlayerParts() {
+//
+//        self.setScale(0.25)
+//        addChild(body)
+//        
+//    }
     
 }

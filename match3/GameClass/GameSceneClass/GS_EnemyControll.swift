@@ -22,14 +22,20 @@ extension GameScene {
     
     public func newEnemy() {
         print("enemyIndex \(enemyIndexNow)")
-        if enemyIndexNow <= enemyOnLevelArr.count-1 {
-            enemyUnit.removeFromParent()
-            enemyUnit.removeAllChildren()
-            enemyIndexNow+=1
-            enemyUnit = enemyOnLevelArr[enemyIndexNow]
-            self.addChild(enemyUnit)
-            enemyUnit.animationStand()
-            print("create new Enemy \(enemyIndexNow)")
+        if enemyIndexNow < enemyOnLevelArr.count-1 {
+            let moveOut = SKAction.move(to: CGPoint(x: 500, y: 140), duration: 2)
+            let reverse = SKAction.
+            let newEnemy = SKAction.run {
+                enemyUnit.removeFromParent()
+                enemyUnit.removeAllChildren()
+                enemyIndexNow+=1
+                enemyUnit = enemyOnLevelArr[enemyIndexNow]
+                self.addChild(enemyUnit)
+                enemyUnit.animationStand()
+                print("create new Enemy \(enemyIndexNow)")
+            }
+            enemyUnit.run(SKAction.sequence([moveOut,newEnemy]))
+
         }
         else {
             enemyUnit.removeFromParent()

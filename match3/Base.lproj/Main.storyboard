@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-Vd-ZrS" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="582" width="110" height="54"/>
+                                <rect key="frame" x="249" y="605" width="110" height="54"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                 <size key="titleShadowOffset" width="0.0" height="3"/>
