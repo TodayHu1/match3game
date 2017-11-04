@@ -19,42 +19,35 @@ extension EnemyUnit {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-//            self.labelBoard.position = self.position
-            //        self.labelBoard.position.y = self.position.y + 50
-            self.labelBoard.position.x = self.position.x - self.size.width/2
-            self.labelBoard.position.y += 400
-            self.labelBoard.anchorPoint.y = 0.0
-//            self.labelBoard.fontName = "TrebuchetMS"
+            self.labelBoard.position.y = self.position.y + self.size.height + 120
             self.addChild(self.labelBoard)
             
             //Health
-            self.labelHealth.fontName = "TrebuchetMS"
+            self.labelHealth.fontName = "Munro"
             self.labelHealth.text = String(health)
-            self.labelHealth.position.x = self.labelBoard.position.x - self.size.width
+            self.labelHealth.position.x = self.labelBoard.position.x + 90
             self.labelHealth.fontSize = 50
             self.labelBoard.addChild(self.labelHealth)
-            self.iconHeart.position.x -= 100
-            self.iconHeart.position.y += 20
+            self.iconHeart.size = CGSize(width: 100, height: 100)
+            self.iconHeart.zPosition = self.iconHeart.zPosition - 1
+            self.iconHeart.position.y += 15
             self.labelHealth.addChild(self.iconHeart)
             
             
             //Shield
-            self.labelShield.fontName = "TrebuchetMS"
+            self.labelShield.fontName = "Munro"
             self.labelShield.text = String(shield)
-            self.labelShield.position.x = self.labelBoard.position.x + self.size.width
+            self.labelShield.position.x = self.labelBoard.position.x - 90
             self.labelShield.fontSize = 50
             self.labelBoard.addChild(self.labelShield)
-            self.iconShield.position.x -= 100
-            //        self.iconShield.position.y += self.iconShield.size.width/2
-            self.iconShield.position.y += 20
+            self.iconShield.size = CGSize(width: 100, height: 100)
+            self.iconShield.zPosition = self.iconShield.zPosition - 1
+            self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
         }
         
         self.labelHealth.text = String(self.health)
         self.labelShield.text = String(self.shield)
-
-        
-        
     }
     
 }

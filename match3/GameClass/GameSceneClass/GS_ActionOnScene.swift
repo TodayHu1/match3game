@@ -39,20 +39,13 @@ extension GameScene {
         let endMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: 0.4)
         endMove.timingMode = .easeOut
         let fullMoveAction = SKAction.sequence([endMove, startMove])
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.addChild(matchNode)
-            matchNode.run(fullMoveAction)
-            
-            let q = SKAction.scale(by: objectScaleForAnimation, duration: 0.11)
-            let w = q.reversed()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                objectForAnimation.run(SKAction.sequence(
-                    [q,w]
-                ))
-                matchNode.removeFromParent()
-            }
+        self.addChild(matchNode)
+        matchNode.size = CGSize(width: 35, height: 35)
+        matchNode.run(fullMoveAction)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            matchNode.removeFromParent()
         }
+
     }
     
     func sceneShake(shakeCount: Int, intensity: CGVector, shakeDuration: Double) {

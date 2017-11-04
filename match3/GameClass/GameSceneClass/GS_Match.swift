@@ -54,11 +54,11 @@ extension GameScene {
         let randomNumber = gameScene.random(number: 100)
         
         //Процентная доля появления match от 100%
-        let skull = 35
-        let shield = 16
-        let lightning = 11
-        let sword = 32
-        let coin = 6
+        let skull = 40
+        let shield = 15
+        let lightning = 5
+        let sword = 35
+        let coin = 5
 
         switch randomNumber {
         // Череп

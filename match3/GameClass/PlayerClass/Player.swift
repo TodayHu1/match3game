@@ -38,7 +38,7 @@ class Player: SKSpriteNode {
 
     
     init() {
-        super.init(texture: SKTexture(imageNamed: "CharPlaceHolder"), color: UIColor.clear, size: SKTexture(imageNamed: "CharPlaceHolder").size())
+        super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: CGSize(width: 150, height: 400))
         
         self.setScale(0.3)
         self.zPosition = 1000
@@ -46,20 +46,21 @@ class Player: SKSpriteNode {
         self.name = "Player"
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
+        self.size.width = 170
 
         initShadow()
         labelOverHead(shield: self.shield, health: self.health, initLabel: true)
         
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
-//        playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
+        playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
             playerArrAttack.append(SKTexture(imageNamed: name))
         }
         
-        for i in 0...1 {
-            let name = self.name! + "-" + "Attack" + "-\(i).png"
+        for i in 0...playerAtlasStand.textureNames.count-1 {
+            let name = self.name! + "-" + "Stand" + "-\(i).png"
             playerArrStand.append(SKTexture(imageNamed: name))
         }
 //
@@ -128,7 +129,7 @@ class Player: SKSpriteNode {
         
         self.removeAllActions()
         
-        let moveForward = SKAction.move(to: CGPoint(x: pos.x + self.size.width/2,y: pos.y), duration: 0.25)
+        let moveForward = SKAction.move(to: CGPoint(x: -50, y: pos.y), duration: 0.25)
         let moveBack = SKAction.move(to: pos, duration: 0.1)
         
         moveForward.timingMode = .easeOut
@@ -169,12 +170,17 @@ class Player: SKSpriteNode {
         
         self.removeAllActions()
         
+//        let playerAnimStand = SKAction.repeatForever(
+//            SKAction.sequence(
+//                [SKAction.animate(with: playerArrStand, timePerFrame: 0.2),
+//                 SKAction.wait(forDuration: 1.5)]
+//            )
+//        )
+        
         let playerAnimStand = SKAction.repeatForever(
-            SKAction.sequence(
-                [SKAction.animate(with: playerArrStand, timePerFrame: 0.2),
-                 SKAction.wait(forDuration: 1.5)]
+                SKAction.animate(with: playerArrStand, timePerFrame: 0.2)
             )
-        )
+
         
         self.run(playerAnimStand)
         return playerAnimStand

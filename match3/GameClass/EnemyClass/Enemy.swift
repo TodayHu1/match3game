@@ -99,12 +99,17 @@ class EnemyUnit: SKSpriteNode {
         
         self.removeAllActions()
 
+//        let enemyAnimStand = SKAction.repeatForever(
+//            SKAction.sequence(
+//                [SKAction.animate(with: enemyArrStand, timePerFrame: 0.2),
+//                 SKAction.wait(forDuration: 1.5)]
+//            )
+//        )
+        
         let enemyAnimStand = SKAction.repeatForever(
-            SKAction.sequence(
-                [SKAction.animate(with: enemyArrStand, timePerFrame: 0.2),
-                 SKAction.wait(forDuration: 1.5)]
-            )
+            SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
         )
+
         
         self.run(enemyAnimStand)
         return enemyAnimStand
@@ -115,7 +120,7 @@ class EnemyUnit: SKSpriteNode {
         
         self.removeAllActions()
 
-        let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.15)
+        let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.1)
 
         self.run(enemyAnimAttack)
         return enemyAnimAttack
@@ -127,7 +132,7 @@ class EnemyUnit: SKSpriteNode {
 
 //        gameScene.actionGesture(gesture: false)
 
-        let moveForward = SKAction.move(to: CGPoint(x: pos.x - self.size.width/2,y: pos.y), duration: 0.25)
+        let moveForward = SKAction.move(to: CGPoint(x: 50, y: pos.y), duration: 0.25)
         let moveBack = SKAction.move(to: pos, duration: 0.1)
 
         moveForward.timingMode = .easeOut
@@ -180,7 +185,7 @@ class EnemyUnit: SKSpriteNode {
         shadowNode.zPosition = -1
 //        shadowNode.position.y = self.position.y
         shadowNode.size.height = 90
-        shadowNode.size.width = self.size.width * 4
+        shadowNode.size.width = self.size.width * 2.5
         shadowNode.alpha = 0.2
         shadowNode.anchorPoint.x = 0.5
         shadowNode.anchorPoint.y = 0.4

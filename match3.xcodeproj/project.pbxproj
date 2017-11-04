@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B6ED1FAD9E2000C002B3 /* GS_EnemyCollection.swift */; };
+		1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6F01FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas */; };
+		1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6F11FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas */; };
+		1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6F51FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas */; };
+		1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6F61FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas */; };
+		1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FA1FADB4AE00C002B3 /* munro.ttf */; };
+		1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */; };
+		1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -28,15 +36,16 @@
 		1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82241F83376F00710D50 /* Stony-Attack.atlas */; };
 		1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */; };
 		1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */; };
-		1F2D822E1F88EA6500710D50 /* Enemy_Vampire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_Vampire.swift */; };
-		1F2DE8871F9F36A200D23B88 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DE8861F9F36A200D23B88 /* MyScene.sks */; };
-		1F2DE8891F9F3C2200D23B88 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */; };
+		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AA2591F35944B002586DD /* GS_CheckArr.swift */; };
 		1F6AA25B1F361642002586DD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
+		1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */; };
+		1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */; };
+		1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */; };
 		1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */; };
 		1FF48F861F7E30BA005D3DBF /* Player_PartsInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF48F851F7E30BA005D3DBF /* Player_PartsInit.swift */; };
 		1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FFD4F6D1F76403500952F94 /* testAttack.atlas */; };
@@ -61,6 +70,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F00B6ED1FAD9E2000C002B3 /* GS_EnemyCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_EnemyCollection.swift; sourceTree = "<group>"; };
+		1F00B6F01FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkFlameThrower-Attack.atlas"; sourceTree = "<group>"; };
+		1F00B6F11FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkFlameThrower-Stand.atlas"; sourceTree = "<group>"; };
+		1F00B6F51FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkPunch-Attack.atlas"; sourceTree = "<group>"; };
+		1F00B6F61FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkPunch-Stand.atlas"; sourceTree = "<group>"; };
+		1F00B6FA1FADB4AE00C002B3 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
+		1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
+		1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -89,14 +106,15 @@
 		1F2D82241F83376F00710D50 /* Stony-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Stand.atlas"; sourceTree = "<group>"; };
-		1F2D822D1F88EA6500710D50 /* Enemy_Vampire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Vampire.swift; sourceTree = "<group>"; };
-		1F2DE8861F9F36A200D23B88 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
-		1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6AA2591F35944B002586DD /* GS_CheckArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_CheckArr.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
+		1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Stand.atlas"; sourceTree = "<group>"; };
+		1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Attack.atlas"; sourceTree = "<group>"; };
+		1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Stand.atlas"; sourceTree = "<group>"; };
 		1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionGesture.swift; sourceTree = "<group>"; };
 		1FF48F851F7E30BA005D3DBF /* Player_PartsInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player_PartsInit.swift; sourceTree = "<group>"; };
 		1FFD4F6D1F76403500952F94 /* testAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = testAttack.atlas; sourceTree = "<group>"; };
@@ -128,9 +146,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F00B6EF1FAD9EF400C002B3 /* SteamPunkFlameThrower */ = {
+			isa = PBXGroup;
+			children = (
+				1F00B6F01FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas */,
+				1F00B6F11FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas */,
+			);
+			path = SteamPunkFlameThrower;
+			sourceTree = "<group>";
+		};
+		1F00B6F41FAD9F0F00C002B3 /* SteamPunkPunch */ = {
+			isa = PBXGroup;
+			children = (
+				1F00B6F51FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas */,
+				1F00B6F61FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas */,
+			);
+			path = SteamPunkPunch;
+			sourceTree = "<group>";
+		};
+		1F00B6F91FADB4AE00C002B3 /* munro */ = {
+			isa = PBXGroup;
+			children = (
+				1F00B6FA1FADB4AE00C002B3 /* munro.ttf */,
+				1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */,
+				1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */,
+			);
+			path = munro;
+			sourceTree = "<group>";
+		};
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */,
 				1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */,
 			);
 			path = Player;
@@ -159,6 +206,7 @@
 		1F2AEDB41EFD5862001AEBB7 /* match3 */ = {
 			isa = PBXGroup;
 			children = (
+				1F00B6F91FADB4AE00C002B3 /* munro */,
 				1F2D82101F7E385C00710D50 /* Assets.xcassets */,
 				1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */,
 				1F11EF721FA610B600FD51B7 /* Shit.xcassets */,
@@ -172,8 +220,6 @@
 				1FD658F71F7E259600F808F4 /* UIClass */,
 				1FD658F21F7E24BC00F808F4 /* EnemyAtlas */,
 				1FD658F41F7E250300F808F4 /* GameClass */,
-				1F2DE8861F9F36A200D23B88 /* MyScene.sks */,
-				1F2DE8881F9F3C2200D23B88 /* MyParticle.sks */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -217,6 +263,9 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F00B6F41FAD9F0F00C002B3 /* SteamPunkPunch */,
+				1F00B6EF1FAD9EF400C002B3 /* SteamPunkFlameThrower */,
+				1FD69C171FAAE1440003CA7E /* RoyalMage */,
 				1F2D82281F88D83C00710D50 /* StoneScale */,
 				1F2D821A1F8277A200710D50 /* Stony */,
 				1FFD4F6F1F76406100952F94 /* testStand.atlas */,
@@ -235,6 +284,7 @@
 				1F26CA261F41B93500691519 /* GS_ActionOnScene.swift */,
 				1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */,
 				1F2AEDBB1EFD5863001AEBB7 /* GameScene.swift */,
+				1F00B6ED1FAD9E2000C002B3 /* GS_EnemyCollection.swift */,
 			);
 			path = GameSceneClass;
 			sourceTree = "<group>";
@@ -254,7 +304,7 @@
 			children = (
 				1F443DB51F55998200D5CBD5 /* Enemy.swift */,
 				1F2D82141F80D09300710D50 /* Enemy_LabelOverHead.swift */,
-				1F2D822D1F88EA6500710D50 /* Enemy_Vampire.swift */,
+				1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */,
 			);
 			path = EnemyClass;
 			sourceTree = "<group>";
@@ -276,6 +326,15 @@
 				1F1DA1041F6FBBC900634AF1 /* UIShadow.swift */,
 			);
 			path = UIClass;
+			sourceTree = "<group>";
+		};
+		1FD69C171FAAE1440003CA7E /* RoyalMage */ = {
+			isa = PBXGroup;
+			children = (
+				1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */,
+				1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */,
+			);
+			path = RoyalMage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,20 +446,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */,
+				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
 				1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */,
+				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
+				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
+				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
 				1FFD4F701F76406100952F94 /* testStand.atlas in Resources */,
+				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
-				1F2DE8891F9F3C2200D23B88 /* MyParticle.sks in Resources */,
+				1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */,
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
+				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */,
+				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
+				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
+				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
 				1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */,
-				1F2DE8871F9F36A200D23B88 /* MyScene.sks in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +501,7 @@
 				1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */,
 				1FF48F861F7E30BA005D3DBF /* Player_PartsInit.swift in Sources */,
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
+				1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
 				1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */,
 				1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */,
@@ -441,7 +509,7 @@
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
 				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,
-				1F2D822E1F88EA6500710D50 /* Enemy_Vampire.swift in Sources */,
+				1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +607,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

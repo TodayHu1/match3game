@@ -141,19 +141,6 @@ class GameScene: SKScene {
         checkAlignArr()
     }
     
-    func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
-        switch enemyName {
-        case "Stony":
-            return EnemyUnit(enemyName: "Stony", attack: 5, health: 30, shield: 70, size: CGSize(width: 110, height: 110), vampire: 0)
-        case "MotherStony":
-            return EnemyUnit(enemyName: "Stony", attack: 7, health: 1, shield: 300, size: CGSize(width: 150, height: 150), vampire: 0.5)
-        case "StoneScale":
-            return EnemyUnit(enemyName: "StoneScale", attack: 7, health: 5, shield: 140, size: CGSize(width: 150, height: 150), vampire: 0)
-        default:
-            return EnemyUnit(enemyName: "Stony", attack: 666, health: 666, shield: 666, size: CGSize(width: 500, height: 500), vampire: 1)
-        }
-    }
-    
     override func didMove(to view: SKView) {
 
         buildLevel(hardBuild: true)
@@ -161,8 +148,8 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "Stony")
-        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "Stony")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
+        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "Stony")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
