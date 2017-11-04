@@ -26,6 +26,8 @@ var player = Player()
 var gameScene = GameScene()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
 var enemyIndexNow = 0
+var statLabel = SKLabelNode(fontNamed: "Arial")
+var manaLabel = SKLabelNode(fontNamed: "Arial")
 
 class GameScene: SKScene {
     
@@ -148,14 +150,29 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
-        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "Stony")
-        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
+        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
+        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         
         player = Player()
         
+        statLabel.zPosition = 10
+        statLabel.position = CGPoint(x: 0, y: 290)
+        statLabel.fontName = "MunroSmall"
+        statLabel.fontSize = 40
+        statLabel.text = "OVER VS 9000"
+        self.addChild(statLabel)
+        
+        manaLabel.zPosition = 10
+        manaLabel.position = CGPoint(x: 0, y: 80)
+        manaLabel.fontName = "Munro"
+        manaLabel.fontSize = 32
+        manaLabel.text = String(player.mana)
+        manaLabel.verticalAlignmentMode = .center
+        manaLabel.horizontalAlignmentMode = .center
+        self.addChild(manaLabel)
         
 
         

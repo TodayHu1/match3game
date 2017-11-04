@@ -31,6 +31,7 @@ class Player: SKSpriteNode {
     var health: Int = 50
     var shield: Int = 50
     var move: Int = 3
+    var mana: Int = 0
     
     //Position
     var pos: CGPoint =  CGPoint(x: -100, y: 140)
@@ -63,7 +64,6 @@ class Player: SKSpriteNode {
             let name = self.name! + "-" + "Stand" + "-\(i).png"
             playerArrStand.append(SKTexture(imageNamed: name))
         }
-//
         
     }
     

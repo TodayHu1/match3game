@@ -15,6 +15,7 @@
 		1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FA1FADB4AE00C002B3 /* munro.ttf */; };
 		1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */; };
 		1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */; };
+		1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7051FADBC8900C002B3 /* Blood.sks */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -78,6 +79,7 @@
 		1F00B6FA1FADB4AE00C002B3 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
 		1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
 		1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
+		1F00B7051FADBC8900C002B3 /* Blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Blood.sks; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				1FD658F71F7E259600F808F4 /* UIClass */,
 				1FD658F21F7E24BC00F808F4 /* EnemyAtlas */,
 				1FD658F41F7E250300F808F4 /* GameClass */,
+				1F00B7051FADBC8900C002B3 /* Blood.sks */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
 				1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
+				1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

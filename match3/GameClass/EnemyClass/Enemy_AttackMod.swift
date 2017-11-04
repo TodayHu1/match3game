@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import SpriteKit
 
 extension EnemyUnit {
     
-    
     //Health = (Attack * 3) * %Vamp
     func vampireAttackMod() {
+        let path = Bundle.main.path(forResource: "Blood", ofType: "sks")
+        var rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+        self.addChild(rainParticle)
+        
         self.health += Int(
             Float(self.attack * 3) * Float(self.vampireAttack)
         )

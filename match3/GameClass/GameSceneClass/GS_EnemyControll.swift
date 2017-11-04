@@ -66,14 +66,35 @@ extension GameScene {
                 case 2:
                     player.shield += actionOnTurn[2] * 10
                     player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
+                case 3:
+                    player.mana += actionOnTurn[3]
+                    print(player.mana)
+                    print(actionOnTurn[3])
+                    manaLabel.text = String(player.mana)
                 case 4:
                     player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
                 default: break
 //                    print("ERORR: checkArrForAction() invalid value \(i)")
                 }
             }
-            actionOnTurn[i] = 0
         }
+        
+        let statIn = SKAction.fadeIn(withDuration: 0.1)
+        let statHide = SKAction.fadeOut(withDuration: 2)
+        let statWait = SKAction.wait(forDuration: 2)
+        let statText = SKAction.run({
+            statLabel.text = "\(player.attack * actionOnTurn[4]) vs \(enemyUnit.attack * actionOnTurn[1])"
+        })
+        let sdf = SKAction.removeFromParent()
+        let statInitArr = SKAction.run {
+            for i in 0...actionOnTurn.count-1 {
+                actionOnTurn[i] = 0
+            }
+        }
+        statLabel.run(
+            SKAction.sequence(
+                [statIn,statText,statWait,statHide,statInitArr]
+            )
+        )
     }
-
 }
