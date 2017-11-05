@@ -19,7 +19,7 @@ extension EnemyUnit {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-            self.labelBoard.position.y = self.position.y + self.size.height + 120
+            self.labelBoard.position.y = self.position.y + self.size.height*1.5 + 120
             self.addChild(self.labelBoard)
             
             //Health

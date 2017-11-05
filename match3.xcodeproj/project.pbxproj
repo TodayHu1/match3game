@@ -16,6 +16,8 @@
 		1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */; };
 		1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */; };
 		1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7051FADBC8900C002B3 /* Blood.sks */; };
+		1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */; };
+		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -80,6 +82,8 @@
 		1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
 		1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
 		1F00B7051FADBC8900C002B3 /* Blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Blood.sks; sourceTree = "<group>"; };
+		1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Attack.atlas"; sourceTree = "<group>"; };
+		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -176,6 +180,15 @@
 			path = munro;
 			sourceTree = "<group>";
 		};
+		1F00B7071FAF588300C002B3 /* SteamPunkWalker */ = {
+			isa = PBXGroup;
+			children = (
+				1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */,
+				1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */,
+			);
+			path = SteamPunkWalker;
+			sourceTree = "<group>";
+		};
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +279,7 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F00B7071FAF588300C002B3 /* SteamPunkWalker */,
 				1F00B6F41FAD9F0F00C002B3 /* SteamPunkPunch */,
 				1F00B6EF1FAD9EF400C002B3 /* SteamPunkFlameThrower */,
 				1FD69C171FAAE1440003CA7E /* RoyalMage */,
@@ -454,6 +468,7 @@
 				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
 				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
+				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
 				1FFD4F701F76406100952F94 /* testStand.atlas in Resources */,
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
@@ -464,6 +479,7 @@
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
+				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,

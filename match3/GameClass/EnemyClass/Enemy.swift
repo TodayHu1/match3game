@@ -27,6 +27,7 @@ class EnemyUnit: SKSpriteNode {
     
     //Attack modificator
     var vampireAttack: Float = 0
+    var reactiveArmor: Int = 0
     
     
     //Label
@@ -47,7 +48,9 @@ class EnemyUnit: SKSpriteNode {
     var enemyName = ""
     
     
-    init(enemyName: String, attack: Int, health: Int, shield: Int, size: CGSize,vampire: Float) {
+    init(enemyName: String, attack: Int, health: Int, shield: Int,
+         size: CGSize,
+         vampire: Float, reactiveArmor: Int) {
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
         self.anchorPoint.x = 0.5
@@ -65,6 +68,7 @@ class EnemyUnit: SKSpriteNode {
         self.health = health
         self.shield = shield
         self.vampireAttack = vampire
+        self.reactiveArmor = reactiveArmor
         
         self.colorBlendFactor = CGFloat(0)
         self.color = UIColor(colorLiteralRed: vampireAttack, green: 0, blue: 0, alpha: 1)
@@ -163,18 +167,20 @@ class EnemyUnit: SKSpriteNode {
         
         let attackMod = SKAction.run {
             self.vampireAttackMod()
+            self.reactiveArmorMod()
             player.takeDamage(damage: damage)
         }
 
-        let fullAttackAnimation = SKAction.sequence([SKAction.wait(forDuration: 0.6),
-                                                     moveForward,
-                                                     animationAttack(),
-                                                     shakeScene,
-                                                     attackMod,
-                                                     moveBack,
-                                                     matchGestureTrue,
-                                                     animationStand()
-            ])
+        let fullAttackAnimation = SKAction.sequence([
+            SKAction.wait(forDuration: 0.6),
+            moveForward,
+            animationAttack(),
+            shakeScene,
+            attackMod,
+            moveBack,
+            matchGestureTrue,
+            animationStand()
+        ])
 
         self.run(fullAttackAnimation)
 //        self.run(z1)

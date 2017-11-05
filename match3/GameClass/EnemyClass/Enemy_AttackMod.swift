@@ -13,20 +13,25 @@ extension EnemyUnit {
     
     //Health = (Attack * 3) * %Vamp
     func vampireAttackMod() {
-        let path = Bundle.main.path(forResource: "Blood", ofType: "sks")
-        var rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
-        self.addChild(rainParticle)
-        
-        self.health += Int(
-            Float(self.attack * 3) * Float(self.vampireAttack)
-        )
-        labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+        if self.vampireAttack > 0 {
+            let path = Bundle.main.path(forResource: "Blood", ofType: "sks")
+            var rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+            self.addChild(rainParticle)
+            
+            self.health += Int(
+                Float(self.attack * 3) * Float(self.vampireAttack)
+            )
+            labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+        }
     }
     
     //Shield = Shield + Attack
-    func armorAttackMod() {
-        self.shield += self.attack
-        labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+    func reactiveArmorMod() {
+        if reactiveArmor > 0 {
+            self.shield += self.attack * self.reactiveArmor
+            labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+        }
+
     }
     
     

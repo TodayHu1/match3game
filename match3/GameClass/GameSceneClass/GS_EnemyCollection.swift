@@ -17,48 +17,44 @@ extension GameScene {
         switch enemyName {
         case "Stony":
             return EnemyUnit(enemyName: "Stony",
-                             attack: 5,
-                             health: 30,
-                             shield: 70,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 110, height: 110),
-                             vampire: 0)
+                             vampire: 0, reactiveArmor: 0)
         case "MotherStony":
             return EnemyUnit(enemyName: "Stony",
-                             attack: 7,
-                             health: 1,
-                             shield: 300,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 150, height: 150),
-                             vampire: 1)
+                             vampire: 0, reactiveArmor: 0)
         case "StoneScale":
             return EnemyUnit(enemyName: "StoneScale",
-                             attack: 7,
-                             health: 5,
-                             shield: 140,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 150, height: 150),
-                             vampire: 0)
+                             vampire: 0, reactiveArmor: 0)
         case "RoyalMage":
             return EnemyUnit(enemyName: "RoyalMage",
-                             attack: 7,
-                             health: 5,
-                             shield: 140,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 140, height: 140),
-                             vampire: 0)
+                             vampire: 0, reactiveArmor: 0)
         case "SteamPunkPunch":
             return EnemyUnit(enemyName: "SteamPunkPunch",
-                             attack: 7,
-                             health: 5,
-                             shield: 140,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 120, height: 120),
-                             vampire: 0)
+                             vampire: 0, reactiveArmor: 0)
         case "SteamPunkFlameThrower":
             return EnemyUnit(enemyName: "SteamPunkFlameThrower",
-                             attack: 7,
-                             health: 5,
-                             shield: 140,
+                             attack: 5, health: 30, shield: 70,
                              size: CGSize(width: 270, height: 120),
-                             vampire: 0)
+                             vampire: 0, reactiveArmor: 0)
+        case "SteamPunkWalker":
+            return EnemyUnit(enemyName: "SteamPunkWalker",
+                             attack: 5, health: 1, shield: 500,
+                             size: CGSize(width: 260, height: 160),
+                             vampire: 0, reactiveArmor: 3)
         default:
-            return EnemyUnit(enemyName: "Stony", attack: 666, health: 666, shield: 666, size: CGSize(width: 500, height: 500), vampire: 1)
+            return EnemyUnit(enemyName: "SteamPunkWalker",
+                             attack: 5, health: 999, shield: 999,
+                             size: CGSize(width: 999, height: 999),
+                             vampire: 0, reactiveArmor: 0)
         }
     }
 }
