@@ -14,21 +14,6 @@ extension GameScene {
     
     //Присвоение текстур
     func setTextureMatch(matchNumber: Int) -> SKTexture {
-//        switch matchNumber {
-//        case 0:
-//            return SKTexture(imageNamed:"Black.png")
-//        case 1:
-//            return SKTexture(imageNamed:"Pink.png")
-//        case 2:
-//            return SKTexture(imageNamed:"Cyan.png")
-//        case 3:
-//            return SKTexture(imageNamed:"DeepPurple.png")
-//        case 4:
-//            return SKTexture(imageNamed:"Amber.png")
-//        default:
-//            print("[MATCH] WRONG TEXTURE")
-//            return SKTexture(imageNamed:"matchBoard.png")
-//        }
         switch matchNumber {
         case 0:
             return SKTexture(imageNamed:"match_-1.png")
@@ -54,6 +39,12 @@ extension GameScene {
         let randomNumber = gameScene.random(number: 100)
         
         //Процентная доля появления match от 100%
+//        let skull = 0
+//        let shield = 0
+//        let lightning = 95
+//        let sword = 0
+//        let coin = 5
+        
         let skull = 35
         let shield = 15
         let lightning = 15
@@ -62,7 +53,7 @@ extension GameScene {
 
         switch randomNumber {
         // Череп
-        case 0..<skull:
+        case 1..<skull:
             return 1
         // Щит
         case skull..<skull+shield:
@@ -80,11 +71,7 @@ extension GameScene {
             return 1
         }
     }
-    
-    func numberOfMatch() -> Int {
-        return 6
-    }
-    
+        
     public func durationTime() -> Double {
         return 0.34
     }
@@ -95,14 +82,14 @@ extension GameScene {
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             levelArr[index].remove(at: 0)
             levelArr[index].append(gameScene.customRandom())
-            self.animationMatchCornerReverse(indexIandJ: String(index) + "5")
+            self.animationMatchCornerReverse(indexIandJ: String(index) + String(matchBoard.verticalCount-1))
         }
     }
     
     public func moveArrRight(index: Int) {
         swipeAnimationRight(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            levelArr[index].remove(at: 5)
+            levelArr[index].remove(at: matchBoard.horizontalCount-1)
             levelArr[index].insert(gameScene.customRandom(), at: 0)
             self.animationMatchCornerReverse(indexIandJ: String(index) + "0")
         }
@@ -111,7 +98,7 @@ extension GameScene {
     public func moveArrBottom(index: Int) {
         swipeAnimationDown(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            for i in (1...5).reversed() {
+            for i in (1...matchBoard.horizontalCount-1).reversed() {
                 levelArr[i][index] = levelArr[i-1][index]
             }
             levelArr[0][index] = gameScene.customRandom()
@@ -123,11 +110,11 @@ extension GameScene {
     public func moveArrTop(index: Int) {
         swipeAnimationUp(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            for i in 0...4 {
+            for i in 0...matchBoard.horizontalCount-2 {
                 levelArr[i][index] = levelArr[i+1][index]
             }
             levelArr[5][index] = gameScene.customRandom()
-            self.animationMatchCornerReverse(indexIandJ: "5" + String(index))
+            self.animationMatchCornerReverse(indexIandJ: String(matchBoard.horizontalCount-1) + String(index))
         }
     }
     

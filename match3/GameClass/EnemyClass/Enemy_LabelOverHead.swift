@@ -19,16 +19,16 @@ extension EnemyUnit {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-            self.labelBoard.position.y = self.position.y + self.size.height*1.5 + 120
+            self.labelBoard.position.y = self.position.y + self.size.height * 1.5  + 120
             self.addChild(self.labelBoard)
             
             //Health
             self.labelHealth.fontName = "MunroSmall"
             self.labelHealth.text = String(health)
             self.labelHealth.position.x = self.labelBoard.position.x + 90
-            self.labelHealth.fontSize = 60
+            self.labelHealth.fontSize = 70
             self.labelBoard.addChild(self.labelHealth)
-            self.iconHeart.size = CGSize(width: 100, height: 100)
+            self.iconHeart.size = CGSize(width: 120, height: 120)
             self.iconHeart.zPosition = self.iconHeart.zPosition - 1
             self.iconHeart.position.y += 15
             self.labelHealth.addChild(self.iconHeart)
@@ -38,9 +38,9 @@ extension EnemyUnit {
             self.labelShield.fontName = "MunroSmall"
             self.labelShield.text = String(shield)
             self.labelShield.position.x = self.labelBoard.position.x - 90
-            self.labelShield.fontSize = 60
+            self.labelShield.fontSize = 70
             self.labelBoard.addChild(self.labelShield)
-            self.iconShield.size = CGSize(width: 100, height: 100)
+            self.iconShield.size = CGSize(width: 120, height: 120)
             self.iconShield.zPosition = self.iconShield.zPosition - 1
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)

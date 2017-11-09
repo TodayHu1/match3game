@@ -125,8 +125,6 @@ class Player: SKSpriteNode {
     }
     
     func fullAttackStandAnimation(damage: Int) {
-
-        
         self.removeAllActions()
         
         let moveForward = SKAction.move(to: CGPoint(x: -50, y: pos.y), duration: 0.25)
@@ -157,7 +155,6 @@ class Player: SKSpriteNode {
     }
     
     func animationAttack() -> SKAction {
-        
         self.removeAllActions()
         
         let playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.10)

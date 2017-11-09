@@ -67,8 +67,8 @@ extension GameScene {
         let moveC = SKAction.resize(byWidth: -10, height: -10, duration: duration/2)
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
-        let qwe = SKAction.sequence([moveB, moveC])
-        spriteNode.run(qwe)
+        let matchAnimation = SKAction.sequence([moveB, moveC])
+        spriteNode.run(matchAnimation)
     }
     
     public func animationMatchSpin(indexIandJ: String) {
@@ -81,8 +81,8 @@ extension GameScene {
         moveA.timingMode = .easeOut
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
-        let qwe = SKAction.sequence([moveA])
-        spriteNode.run(qwe)
+        let matchAnimation = SKAction.sequence([moveA])
+        spriteNode.run(matchAnimation)
     }
     
     public func animationMatchCornerReverse(indexIandJ: String) {
@@ -94,8 +94,8 @@ extension GameScene {
         let moveC = SKAction.resize(byWidth: -10, height: -10, duration: duration/2)
         moveB.timingMode = .easeOut
         moveC.timingMode = .easeOut
-        let qwe = SKAction.sequence([moveC, moveB])
-        spriteNode.run(qwe)
+        let matchAnimation = SKAction.sequence([moveC, moveB])
+        spriteNode.run(matchAnimation)
     }
     
     

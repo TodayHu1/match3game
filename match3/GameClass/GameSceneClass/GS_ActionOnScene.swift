@@ -21,7 +21,7 @@ extension GameScene {
         var objectForAnimation: AnyObject
         var positionToMove: CGPoint = player.position
         var objectScaleForAnimation = CGFloat(0.97)
-        
+
         switch statArr[i][j] {
         case 1:
             objectForAnimation = enemyUnit

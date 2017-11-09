@@ -24,6 +24,7 @@ var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
+var matchBoard = Match()
 var gestureLabel = SKLabelNode(fontNamed: "Arial")
 var enemyIndexNow = 0
 var statLabel = SKLabelNode(fontNamed: "Arial")
@@ -59,57 +60,6 @@ class GameScene: SKScene {
         
         return searchNode!
     }
-    
-    public func buildLevel(hardBuild: Bool) {
-        
-        if hardBuild {
-            for i in 0...levelArr.count-1 {
-                for j in 0...levelArr.count-1 {
-                    for nextButton in self.children {
-                        if nextButton.name == "Match" + String(i) + String(j) {
-                            if let nextButton = nextButton as? SKSpriteNode {
-                                nextButton.removeAllChildren()
-                                nextButton.removeFromParent()
-                            }
-                        }
-                    }
-                }
-            }
-            
-            
-            for i in 0...levelArr.count-1 {
-                for j in 0...levelArr.count-1 {
-                    let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
-                    matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
-                    matchNode.size.width = 54
-                    matchNode.size.height = 54
-                    matchNode.name = "Match" + String(i) + String(j)
-                    matchNode.zPosition = 993
-                    self.addChild(matchNode)
-                }
-            }
-//            print("Хард билд")
-        }
-        else {
-//            print("=====================")
-            for i in 0...5 {
-                for j in 0...5 {
-                    let matchNode: SKSpriteNode = self.searchByName(name: "Match" + String(i) + String(j))
-                    matchNode.zPosition = 900
-                    matchNode.position = CGPoint(x: ((55 * j) - 139), y: (0 - (55 * i)) - 9)
-                    
-                    var matchNodeStringTexture = String(describing: setTextureMatch(matchNumber: levelArr[i][j]))
-                    
-                    matchNodeStringTexture = matchNodeStringTexture.replacingOccurrences(of: "<SKTexture>", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "'", with: "").replacingOccurrences(of: "(600x600)", with: "")
-
-                    matchNode.texture = SKTexture(imageNamed: matchNodeStringTexture)
-                }
-            }
-//            print("Cофт билд")
-        }
-        
-    }
-    
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
         if matchActionGesture {

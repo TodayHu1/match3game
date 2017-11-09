@@ -60,7 +60,6 @@ class EnemyUnit: SKSpriteNode {
         self.position = pos
         self.name = "enemyUnit"
         
-        
         //init main value
         self.setScale(CGFloat(0.3))
         self.size = size

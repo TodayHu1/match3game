@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-public var actionOnTurn = [Int](repeating: 0, count: gameScene.numberOfMatch() + 1)
+public var actionOnTurn = [Int](repeating: 0, count: gameScene.actionOnTurnCount() + 1)
 public var statArr = [[0,0,0,0,0,0],
                       [0,0,0,0,0,0],
                       [0,0,0,0,0,0],
@@ -20,7 +20,9 @@ public var statArr = [[0,0,0,0,0,0],
 
 extension GameScene {
     
-    
+    func actionOnTurnCount() -> Int {
+        return 6
+    }
     
     public func checkArr() {
         statArr = [[0,0,0,0,0,0],
@@ -32,9 +34,9 @@ extension GameScene {
         setHorizontalArr()
         setVerticalArr()
         
-        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
-            for i in 0...5 {
-                for j in 0...5 {
+        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+            for i in 0...matchBoard.horizontalCount-1 {
+                for j in 0...matchBoard.verticalCount-1 {
                     if(statArr[i][j] == indexOfMatch) {
                         animationMatchCorner(indexIandJ: String(i) + String(j))
                         moveMatchToPlayer(i: i, j: j)
@@ -52,9 +54,9 @@ extension GameScene {
     }
     
     private func setHorizontalArr() {
-        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
-            for i in 0...5 {
-                for j in 0...3 {
+        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+            for i in 0...matchBoard.horizontalCount-1 {
+                for j in 0...matchBoard.verticalCount-3 {
                     if( levelArr[i][j] == indexOfMatch &&
                         levelArr[i][j+1] == indexOfMatch &&
                         levelArr[i][j+2] == indexOfMatch ) {
@@ -68,13 +70,12 @@ extension GameScene {
     }
     
     private func setVerticalArr() {
-        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
-            for i in 0...3 {
-                for j in 0...5 {
+        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+            for i in 0...matchBoard.horizontalCount-3 {
+                for j in 0...matchBoard.verticalCount-1 {
                     if( levelArr[i][j] == indexOfMatch &&
                         levelArr[i+1][j] == indexOfMatch &&
                         levelArr[i+2][j] == indexOfMatch ) {
-                        
                         statArr[i][j] = indexOfMatch
                         statArr[i+1][j] = indexOfMatch
                         statArr[i+2][j] = indexOfMatch
@@ -85,14 +86,11 @@ extension GameScene {
     }
     
     public func reBuildArr() {
-//        print("Ребилд")
-        for i in 0...5 {
-            for j in 0...5 {
+        for i in 0...matchBoard.horizontalCount-1 {
+            for j in 0...matchBoard.verticalCount-1 {
                 if(levelArr[i][j] == 0) {
-
-                        levelArr[i][j] = gameScene.customRandom()
-                        self.buildLevel(hardBuild: false)
-
+                    levelArr[i][j] = gameScene.customRandom()
+                    self.buildLevel(hardBuild: false)
                 }
             }
         }
@@ -104,9 +102,6 @@ extension GameScene {
     }
     
     public func checkAlignArr() {
-//        print("Чек Алигн Арр")
-//        print(checkVerticalArr())
-//        print(checkHorizontalArr())
         if(checkVerticalArr() || checkHorizontalArr()) {
             checkArr()
         }
@@ -119,9 +114,9 @@ extension GameScene {
     
     private func checkVerticalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
-            for i in 0...3 {
-                for j in 0...5 {
+        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+            for i in 0...matchBoard.horizontalCount-3 {
+                for j in 0...matchBoard.verticalCount-1 {
                     if( levelArr[i][j] == indexOfMatch &&
                         levelArr[i+1][j] == indexOfMatch &&
                         levelArr[i+2][j] == indexOfMatch ) {
@@ -130,17 +125,14 @@ extension GameScene {
                 }
             }
         }
-//        if check {
-////            print("Чек Вертикал Арр")
-//        }
         return check
     }
     
     private func checkHorizontalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...gameScene.numberOfMatch()+1 {
-            for i in 0...5 {
-                for j in 0...3 {
+        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+            for i in 0...matchBoard.horizontalCount-1 {
+                for j in 0...matchBoard.verticalCount-3 {
                     if( levelArr[i][j] == indexOfMatch &&
                         levelArr[i][j+1] == indexOfMatch &&
                         levelArr[i][j+2] == indexOfMatch ) {
@@ -149,9 +141,6 @@ extension GameScene {
                 }
             }
         }
-//        if check {
-//            print("Чек Хризонтал Арр")
-//        }
         return check
     }
     

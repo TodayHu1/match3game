@@ -18,6 +18,7 @@
 		1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7051FADBC8900C002B3 /* Blood.sks */; };
 		1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */; };
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
+		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -46,11 +47,11 @@
 		1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AA2591F35944B002586DD /* GS_CheckArr.swift */; };
 		1F6AA25B1F361642002586DD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
+		1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB431441FB4908B00039960 /* MatchParamerts.swift */; };
 		1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */; };
 		1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */; };
 		1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */; };
 		1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */; };
-		1FF48F861F7E30BA005D3DBF /* Player_PartsInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF48F851F7E30BA005D3DBF /* Player_PartsInit.swift */; };
 		1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FFD4F6D1F76403500952F94 /* testAttack.atlas */; };
 		1FFD4F701F76406100952F94 /* testStand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FFD4F6F1F76406100952F94 /* testStand.atlas */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		1F00B7051FADBC8900C002B3 /* Blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Blood.sks; sourceTree = "<group>"; };
 		1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Attack.atlas"; sourceTree = "<group>"; };
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
+		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -118,11 +120,11 @@
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6AA2591F35944B002586DD /* GS_CheckArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_CheckArr.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
+		1FB431441FB4908B00039960 /* MatchParamerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchParamerts.swift; sourceTree = "<group>"; };
 		1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Stand.atlas"; sourceTree = "<group>"; };
 		1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Attack.atlas"; sourceTree = "<group>"; };
 		1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Stand.atlas"; sourceTree = "<group>"; };
 		1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionGesture.swift; sourceTree = "<group>"; };
-		1FF48F851F7E30BA005D3DBF /* Player_PartsInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player_PartsInit.swift; sourceTree = "<group>"; };
 		1FFD4F6D1F76403500952F94 /* testAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = testAttack.atlas; sourceTree = "<group>"; };
 		1FFD4F6F1F76406100952F94 /* testStand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = testStand.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +304,8 @@
 				1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */,
 				1F2AEDBB1EFD5863001AEBB7 /* GameScene.swift */,
 				1F00B6ED1FAD9E2000C002B3 /* GS_EnemyCollection.swift */,
+				1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */,
+				1FB431441FB4908B00039960 /* MatchParamerts.swift */,
 			);
 			path = GameSceneClass;
 			sourceTree = "<group>";
@@ -331,7 +335,6 @@
 			children = (
 				1F11EF741FA9A4C900FD51B7 /* Player */,
 				1F3E25EE1F582C3E004C48D7 /* Player.swift */,
-				1FF48F851F7E30BA005D3DBF /* Player_PartsInit.swift */,
 				1F2D82121F80CB7D00710D50 /* Player_LabelOverHead.swift */,
 			);
 			path = PlayerClass;
@@ -519,7 +522,8 @@
 				1F2D82131F80CB7D00710D50 /* Player_LabelOverHead.swift in Sources */,
 				1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */,
 				1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */,
-				1FF48F861F7E30BA005D3DBF /* Player_PartsInit.swift in Sources */,
+				1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */,
+				1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */,
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
 				1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
