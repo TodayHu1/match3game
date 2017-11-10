@@ -26,8 +26,10 @@ extension GameScene {
                     }
                 }
             }
-            for i in 0...matchBoard.horizontalCount-1 {
-                for j in 0...matchBoard.verticalCount-1 {
+            print(levelArr)
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    print("\(i) –– \(j)")
                     let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
                     matchNode.position = matchBoard.matchPosition(i: i, j: j)
                     matchNode.size.width = CGFloat(matchBoard.matchSize)
@@ -39,8 +41,8 @@ extension GameScene {
             }
         }
         else {
-            for i in 0...matchBoard.horizontalCount-1 {
-                for j in 0...matchBoard.verticalCount-1 {
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
                     let matchNode: SKSpriteNode = self.searchByName(name: "Match" + String(i) + String(j))
                     matchNode.zPosition = 900
                     matchNode.position = matchBoard.matchPosition(i: i, j: j)

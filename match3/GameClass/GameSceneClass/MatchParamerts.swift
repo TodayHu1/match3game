@@ -11,12 +11,16 @@ import SpriteKit
 import GameplayKit
 
 class Match {
-    var horizontalCount = 6
-    var verticalCount = 6
+    var horizontalCount = 10
+    var verticalCount = 10
 
-    var matchSize = 55
+    var matchSize = 33
     
     var centerMatchBoard = CGPoint(x: 0, y: -145)
+    
+//    init(matchSize: Int, horizontalCount:Int, verticalCount:Int) {
+//
+//    }
     
     public func matchPosition(i: Int, j: Int) -> CGPoint {
         let boardWidth = (matchSize * (horizontalCount - 1) / 2)

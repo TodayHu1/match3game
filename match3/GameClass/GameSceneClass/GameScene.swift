@@ -10,15 +10,6 @@
 import SpriteKit
 import GameplayKit
 
-
-public var levelArr = [[0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0],
-                       [0,0,0,0,0,0]]
-
-
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
@@ -29,6 +20,10 @@ var gestureLabel = SKLabelNode(fontNamed: "Arial")
 var enemyIndexNow = 0
 var statLabel = SKLabelNode(fontNamed: "Arial")
 var manaLabel = SKLabelNode(fontNamed: "Arial")
+
+public var levelArr = Array(repeating: Array(repeating: 0, count: matchBoard.horizontalCount),
+                              count: matchBoard.verticalCount)
+
 
 class GameScene: SKScene {
     
@@ -49,7 +44,7 @@ class GameScene: SKScene {
     
     public func searchByName(name: String) -> SKSpriteNode {
         var searchNode: SKSpriteNode?
-        
+//        print(name)
         for someNode in self.children {
             if someNode.name == name {
                 if let nodeNode = someNode as? SKSpriteNode {

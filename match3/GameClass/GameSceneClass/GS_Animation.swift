@@ -12,7 +12,7 @@ extension GameScene {
     
     public func swipeAnimationLeft(index: Int) {
         var spriteNode: SKSpriteNode!
-        for j in 1...5 {
+        for j in 1...matchBoard.horizontalCount-1 {
             spriteNode = searchByName(name: "Match" + String(index) + String(j))
             spriteNode.zPosition = 1000
             let duration: TimeInterval = 0.3
@@ -24,7 +24,7 @@ extension GameScene {
     
     public func swipeAnimationRight(index: Int) {
         var spriteNode: SKSpriteNode!
-        for j in 0...4 {
+        for j in 0...matchBoard.horizontalCount-2 {
             spriteNode = searchByName(name: "Match" + String(index) + String(j))
             spriteNode.zPosition = 1000
             let duration: TimeInterval = 0.3
@@ -36,7 +36,7 @@ extension GameScene {
     
     public func swipeAnimationUp(index: Int) {
         var spriteNode: SKSpriteNode!
-        for j in 1...5 {
+        for j in 1...matchBoard.verticalCount-1 {
             spriteNode = searchByName(name: "Match" + String(j) + String(index))
             spriteNode.zPosition = 1000
             let duration: TimeInterval = 0.3
@@ -48,7 +48,7 @@ extension GameScene {
     
     public func swipeAnimationDown(index: Int) {
         var spriteNode: SKSpriteNode!
-        for j in 0...4 {
+        for j in 0...matchBoard.verticalCount-2 {
             spriteNode = searchByName(name: "Match" + String(j) + String(index))
             spriteNode.zPosition = 1000
             let duration: TimeInterval = 0.3

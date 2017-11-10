@@ -17,11 +17,8 @@ import GameplayKit
 
 extension GameScene {
     
-//    let sceneView = GameScene(fileNamed: "GameScene")
     
     func direction(dir: Int, point: CGPoint){
-
-//        self.actionGesture(gesture: false)
         if(dir > 0) {
             rowEvent(touchY: Int(point.y), dir: dir)
         }
@@ -32,138 +29,35 @@ extension GameScene {
     
     
     public func colomnEvent(touchX: Int, dir: Int) {
-        if (-160 < touchX && touchX <= -110) {
-            if (dir == -1) {
-                moveArrTop(index: 0)
-                print("| 1 Top")
-            }
-            else {
-                moveArrBottom(index: 0)
-                print("| 1 Bottom")
-            }
-        }
-        
-        if (-110+6 < touchX && touchX <= -60+6) {
-            if (dir == -1) {
-                moveArrTop(index: 1)
-                print("| 2 Top")
-            }
-            else {
-                moveArrBottom(index: 1)
-                print("| 2 Bottom")
-            }
-        }
-        
-        if (-60+(6*2) < touchX && touchX <= -10+(6*2)) {
-            if (dir == -1) {
-                moveArrTop(index: 2)
-                print("| 3 Top")
-            }
-            else {
-                moveArrBottom(index: 2)
-                print("| 3 Bottom")
-            }
-        }
-        
-        if (-10+(6*3) < touchX && touchX <= 40+(6*3)) {
-            if (dir == -1) {
-                moveArrTop(index: 3)
-                print("| 4 Top")
-            }
-            else {
-                moveArrBottom(index: 3)
-                print("| 4 Bottom")
-            }
-        }
-        
-        if (40+(6*4) < touchX && touchX <= 90+(6*4)) {
-            if (dir == -1) {
-                moveArrTop(index: 4)
-                print("| 5 Top")
-            }
-            else {
-                moveArrBottom(index: 4)
-                print("| 5 Bottom")
-            }
-        }
-        
-        if (90+(6*5) < touchX && touchX <= 140+(6*5)) {
-            if (dir == -1) {
-                moveArrTop(index: 5)
-                print("| 6 Top")
-            }
-            else {
-                moveArrBottom(index: 5)
-                print("| 6 Bottom")
+        for i in 0...matchBoard.horizontalCount-1 {
+            if (-160+(matchBoard.matchSize*i) < touchX && touchX <= -160+(matchBoard.matchSize*(i+1))) {
+                if (dir == -1) {
+                    print("| \(i+1) Top")
+                    moveArrTop(index: i)
+                }
+                else {
+                    print("| \(i+1) Bottom")
+                    moveArrBottom(index: i)
+                }
             }
         }
     }
     
+    
     public func rowEvent(touchY: Int, dir: Int) {
-        if (10 > touchY && touchY >= -40) {
-            if (dir == 1) {
-                moveArrLeft(index: 0)
-                print("- 1 Left")
-            }
-            else {
-                moveArrRight(index: 0)
-                print("- 1 Right")
-            }
-        }
-        
-        if (-40-6 > touchY && touchY >= -90-6) {
-            if (dir == 1) {
-                moveArrLeft(index: 1)
-                print("- 2 Left")
-            }
-            else {
-                moveArrRight(index: 1)
-                print("- 2 Right")
-            }
-        }
-        
-        if (-90-(6*2) > touchY && touchY >= -140-(6*2)) {
-            if (dir == 1) {
-                moveArrLeft(index: 2)
-                print("- 3 Left")
-            }
-            else {
-                moveArrRight(index: 2)
-                print("- 3 Right")
-            }
-        }
-        
-        if (-140-(6*3) > touchY && touchY >= -190-(6*3)) {
-            if (dir == 1) {
-                moveArrLeft(index: 3)
-                print("- 4 Left")
-            }
-            else {
-                moveArrRight(index: 3)
-                print("- 4 Right")
-            }
-        }
-        
-        if (-190-(6*4) > touchY && touchY >= -240-(6*4)) {
-            if (dir == 1) {
-                moveArrLeft(index: 4)
-                print("- 5 Left")
-            }
-            else {
-                moveArrRight(index: 4)
-                print("- 5 Right")
-            }
-        }
-        
-        if (-240-(6*5) > touchY && touchY >= -290-(6*5)) {
-            if (dir == 1) {
-                moveArrLeft(index: 5)
-                print("- 6 Left")
-            }
-            else {
-                moveArrRight(index: 5)
-                print("- 6 Right")
+        for i in 0...matchBoard.verticalCount-1 {
+            if (10+(-matchBoard.matchSize*i) > touchY && touchY >= (10+(-matchBoard.matchSize*(i+1)))) {
+                if (dir == 1) {
+                    print("<––– \(i+1) Left")
+                    moveArrLeft(index: i)
+                }
+                else {
+                    print("–––> \(i+1) Right")
+                    moveArrRight(index: i)
+                }
             }
         }
     }
+    
+    
 }
