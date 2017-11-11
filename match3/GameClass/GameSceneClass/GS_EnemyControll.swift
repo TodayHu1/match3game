@@ -112,6 +112,8 @@ extension GameScene {
             }
         }
         
+        
+        
 //        let statIn = SKAction.fadeIn(withDuration: 0.1)
 //        let statHide = SKAction.fadeOut(withDuration: 2)
 //        let statWait = SKAction.wait(forDuration: 2)

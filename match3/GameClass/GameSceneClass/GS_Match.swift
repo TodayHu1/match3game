@@ -12,23 +12,31 @@ import GameplayKit
 
 extension GameScene {
     
-    //Присвоение текстур
+     /**
+     0 –– MatchChain.png
+     1 –– MatchSkull.png
+     2 –– MatchArmor.png
+     3 –– MatchEnergy.png
+     4 –– MatchAttack.png
+     5 –– MatchCoin.png
+     6 –– MatchPoison.png
+     */
     func setTextureMatch(matchNumber: Int) -> SKTexture {
         switch matchNumber {
         case 0:
             return SKTexture(imageNamed:"MatchChain.png")
         case 1:
-            return SKTexture(imageNamed:"match_0.png")
+            return SKTexture(imageNamed:"MatchSkull.png")
         case 2:
-            return SKTexture(imageNamed:"match_1.png")
+            return SKTexture(imageNamed:"MatchArmor.png")
         case 3:
-            return SKTexture(imageNamed:"match_2.png")
+            return SKTexture(imageNamed:"MatchEnergy.png")
         case 4:
-            return SKTexture(imageNamed:"match_3.png")
+            return SKTexture(imageNamed:"MatchAttack.png")
         case 5:
-            return SKTexture(imageNamed:"match_4.png")
+            return SKTexture(imageNamed:"MatchCoin.png")
         case 6:
-            return SKTexture(imageNamed:"match_5.png")
+            return SKTexture(imageNamed:"MatchPoison.png")
         default:
             print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
             return SKTexture(imageNamed:"Black.png")

@@ -176,7 +176,7 @@ class EnemyUnit: SKSpriteNode {
 //        shadowNode.position.y = self.position.y
         shadowNode.size.height = 90
         shadowNode.size.width = self.size.width * 2.5
-        shadowNode.alpha = 0.2
+        shadowNode.alpha = 0.4
         shadowNode.anchorPoint.x = 0.5
         shadowNode.anchorPoint.y = 0.4
         self.addChild(shadowNode)
@@ -185,7 +185,6 @@ class EnemyUnit: SKSpriteNode {
 
     
     func takeDamage(damage: Int) {
-        print("До атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
         
         if self.shield > 0 {
             self.shield -= damage
@@ -204,9 +203,7 @@ class EnemyUnit: SKSpriteNode {
             gameScene.newEnemy()
             print("NEW ENEMY INIT")
         }
-        
-        print("После атаки Игрока shield \(self.shield)  -\(damage)-  health \(self.health)")
-        print("===================================================================")
+
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
 
         let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
