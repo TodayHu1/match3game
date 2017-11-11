@@ -79,23 +79,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="404"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LQn-Ei-Wx8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQn-Ei-Wx8">
                                 <rect key="frame" x="-275" y="-246" width="956" height="897"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMN-1L-ygs">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMN-1L-ygs">
                                         <rect key="frame" x="669" y="360" width="142" height="150"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="142" id="9J2-pn-ZrV"/>
+                                            <constraint firstAttribute="height" constant="150" id="eHU-nv-yWr"/>
+                                        </constraints>
                                         <state key="normal" title="Button" backgroundImage="Amber"/>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bg1" translatesAutoresizingMaskIntoConstraints="NO" id="W8B-aL-R3y">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg1" translatesAutoresizingMaskIntoConstraints="NO" id="W8B-aL-R3y">
                                         <rect key="frame" x="112" y="298" width="293" height="265"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="293" id="Ax0-Gs-cbd"/>
+                                            <constraint firstAttribute="height" constant="265" id="NRy-YP-maB"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="VMN-1L-ygs" firstAttribute="top" secondItem="LQn-Ei-Wx8" secondAttribute="top" constant="360" id="1my-1M-j24"/>
+                                    <constraint firstItem="W8B-aL-R3y" firstAttribute="top" secondItem="LQn-Ei-Wx8" secondAttribute="top" constant="298" id="6gI-OY-pn7"/>
+                                    <constraint firstAttribute="bottom" secondItem="W8B-aL-R3y" secondAttribute="bottom" constant="334" id="Ke3-kq-1rC"/>
+                                    <constraint firstItem="W8B-aL-R3y" firstAttribute="leading" secondItem="LQn-Ei-Wx8" secondAttribute="leading" constant="112" id="kmM-Sd-AFW"/>
+                                    <constraint firstItem="VMN-1L-ygs" firstAttribute="leading" secondItem="LQn-Ei-Wx8" secondAttribute="leading" constant="669" id="raj-wE-hcd"/>
+                                    <constraint firstAttribute="trailing" secondItem="VMN-1L-ygs" secondAttribute="trailing" constant="145" id="yI2-yC-ELq"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LQn-Ei-Wx8" secondAttribute="trailing" constant="-306" id="9qH-L8-11f"/>
+                            <constraint firstItem="LQn-Ei-Wx8" firstAttribute="centerY" secondItem="nj1-nr-9Pg" secondAttribute="centerY" id="IVl-xG-tyd"/>
+                            <constraint firstItem="LQn-Ei-Wx8" firstAttribute="leading" secondItem="nj1-nr-9Pg" secondAttribute="leading" constant="-275" id="QOL-zq-6Zr"/>
+                            <constraint firstItem="LQn-Ei-Wx8" firstAttribute="top" secondItem="nj1-nr-9Pg" secondAttribute="top" constant="-246" id="cRb-QM-htz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8B-S0-Mlu" userLabel="First Responder" sceneMemberID="firstResponder"/>

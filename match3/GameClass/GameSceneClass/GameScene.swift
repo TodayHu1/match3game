@@ -12,7 +12,7 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 8, verticalCount: 8)
+var matchBoard = Match(horizontalCount: 6, verticalCount: 6)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
@@ -95,7 +95,7 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "ShadowRin")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "Stony")
