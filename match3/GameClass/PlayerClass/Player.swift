@@ -34,8 +34,8 @@ class Player: SKSpriteNode {
     var mana: Int = 0
     
     //Position
-    var pos: CGPoint =  CGPoint(x: -100, y: 140)
-    
+    var positionAnchor: CGPoint =  CGPoint(x: -100, y: 140)
+    var positionCenter: CGPoint = CGPoint(x: 0, y: 0)
 
     
     init() {
@@ -43,12 +43,13 @@ class Player: SKSpriteNode {
         
         self.setScale(0.3)
         self.zPosition = 1000
-        self.position = pos
+        self.position = positionAnchor
         self.name = "Player"
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
         self.size.width = 170
-
+        self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
+        
         initShadow()
         labelOverHead(shield: self.shield, health: self.health, initLabel: true)
         
@@ -122,8 +123,8 @@ class Player: SKSpriteNode {
     func fullAttackStandAnimation(damage: Int) {
         self.removeAllActions()
         
-        let moveForward = SKAction.move(to: CGPoint(x: -50, y: pos.y), duration: 0.25)
-        let moveBack = SKAction.move(to: pos, duration: 0.1)
+        let moveForward = SKAction.move(to: CGPoint(x: -50, y: positionAnchor.y), duration: 0.25)
+        let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
         
         moveForward.timingMode = .easeOut
         moveBack.timingMode = .easeOut

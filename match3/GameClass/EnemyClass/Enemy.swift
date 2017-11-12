@@ -28,6 +28,7 @@ class EnemyUnit: SKSpriteNode {
     //Attack modificator
     var vampireAttack: Float = 0
     var reactiveArmor: Int = 0
+    var spawnPoisonOnBoard = 3
     
     
     //Label
@@ -41,7 +42,8 @@ class EnemyUnit: SKSpriteNode {
     
     
     //Position
-    var pos: CGPoint =  CGPoint(x: 100, y: 140)
+    var positionAnchor: CGPoint =  CGPoint(x: 100, y: 140)
+    var positionCenter: CGPoint = CGPoint(x: 0, y: 0)
     
     
     //Enemy name
@@ -57,12 +59,13 @@ class EnemyUnit: SKSpriteNode {
         self.anchorPoint.y = 0
         
         self.zPosition = 1000
-        self.position = pos
+        self.position = positionAnchor
         self.name = "enemyUnit"
         
         //init main value
         self.setScale(CGFloat(0.3))
         self.size = size
+        self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         self.attack = attack
         self.health = health
         self.shield = shield
@@ -135,8 +138,8 @@ class EnemyUnit: SKSpriteNode {
 
 //        gameScene.actionGesture(gesture: false)
 
-        let moveForward = SKAction.move(to: CGPoint(x: 50, y: pos.y), duration: 0.25)
-        let moveBack = SKAction.move(to: pos, duration: 0.1)
+        let moveForward = SKAction.move(to: CGPoint(x: 50, y: positionAnchor.y), duration: 0.25)
+        let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
 
         moveForward.timingMode = .easeOut
         moveBack.timingMode = .easeOut
@@ -152,6 +155,7 @@ class EnemyUnit: SKSpriteNode {
         let attackMod = SKAction.run {
             self.vampireAttackMod()
             self.reactiveArmorMod()
+            self.spawnPoisonOnBoardMod()
             player.takeDamage(damage: damage)
         }
 

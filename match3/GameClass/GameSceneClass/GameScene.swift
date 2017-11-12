@@ -95,7 +95,7 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "ShadowRin")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "Stony")

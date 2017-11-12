@@ -51,6 +51,7 @@
 		1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431B81FB7384C00039960 /* BuffArmor.atlas */; };
 		1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BB1FB753E000039960 /* ShadowRin-Attack.atlas */; };
 		1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */; };
+		1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BF1FB835F900039960 /* SpellTexture.xcassets */; };
 		1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */; };
 		1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */; };
 		1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */; };
@@ -127,6 +128,7 @@
 		1FB431B81FB7384C00039960 /* BuffArmor.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BuffArmor.atlas; sourceTree = "<group>"; };
 		1FB431BB1FB753E000039960 /* ShadowRin-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Attack.atlas"; sourceTree = "<group>"; };
 		1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Stand.atlas"; sourceTree = "<group>"; };
+		1FB431BF1FB835F900039960 /* SpellTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellTexture.xcassets; sourceTree = "<group>"; };
 		1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Stand.atlas"; sourceTree = "<group>"; };
 		1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Attack.atlas"; sourceTree = "<group>"; };
 		1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Stand.atlas"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				1FB431B61FB7380600039960 /* BuffAtlas */,
 				1FB431B21FB5B28000039960 /* MatchTexture.xcassets */,
 				1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */,
+				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 			files = (
 				1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
+				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
 				1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */,
 				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
