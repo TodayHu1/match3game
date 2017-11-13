@@ -58,6 +58,8 @@
 		1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */; };
 		1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FFD4F6D1F76403500952F94 /* testAttack.atlas */; };
 		1FFD4F701F76406100952F94 /* testStand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FFD4F6F1F76406100952F94 /* testStand.atlas */; };
+		32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32280FA91FB9570600F954B1 /* PageViewController.swift */; };
+		32280FAC1FB9577900F954B1 /* ChoiceLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32280FAB1FB9577900F954B1 /* ChoiceLevelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionGesture.swift; sourceTree = "<group>"; };
 		1FFD4F6D1F76403500952F94 /* testAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = testAttack.atlas; sourceTree = "<group>"; };
 		1FFD4F6F1F76406100952F94 /* testStand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = testStand.atlas; sourceTree = "<group>"; };
+		32280FA91FB9570600F954B1 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		32280FAB1FB9577900F954B1 /* ChoiceLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceLevelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,7 @@
 		1F2AEDB41EFD5862001AEBB7 /* match3 */ = {
 			isa = PBXGroup;
 			children = (
+				32280FA81FB956E600F954B1 /* Level menu */,
 				1FB431B41FB5B28D00039960 /* Assets */,
 				1F00B6F91FADB4AE00C002B3 /* munro */,
 				1F2D82101F7E385C00710D50 /* Assets.xcassets */,
@@ -383,6 +388,15 @@
 				1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */,
 			);
 			path = RoyalMage;
+			sourceTree = "<group>";
+		};
+		32280FA81FB956E600F954B1 /* Level menu */ = {
+			isa = PBXGroup;
+			children = (
+				32280FA91FB9570600F954B1 /* PageViewController.swift */,
+				32280FAB1FB9577900F954B1 /* ChoiceLevelViewController.swift */,
+			);
+			path = "Level menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +570,7 @@
 				1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */,
 				1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */,
 				1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */,
+				32280FAC1FB9577900F954B1 /* ChoiceLevelViewController.swift in Sources */,
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
 				1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
@@ -564,6 +579,7 @@
 				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
+				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,
 				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,
 				1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */,
 			);
