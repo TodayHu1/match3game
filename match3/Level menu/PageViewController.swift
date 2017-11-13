@@ -24,6 +24,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.dataSource = self
         self.delegate = self
         
+        // dnl: создаем одну кнопку на все страницы page сontroller`а
+        createButton()
+        
         // This sets up the first view that will show up on our page control
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
@@ -35,6 +38,22 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         configurePageControl()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func createButton(){
+        let button = UIButton(frame: CGRect(x: 16, y: 535, width: 343, height: 64))
+        let image = UIImage(named: "Board") as UIImage?
+        button.setBackgroundImage(image, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Munro", size: 35)
+        button.titleLabel?.textColor = UIColor.white
+        button.setTitle("BACK", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.view.addSubview(button)
+    }
+
+    func buttonAction(sender: UIButton!) {
+        // dnl: тут можно использовать что-нибудь получше чем seque, но мне лень
+        self.performSegue(withIdentifier: "backToMainMenu", sender: nil)
     }
     
     func configurePageControl() {

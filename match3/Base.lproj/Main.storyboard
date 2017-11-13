@@ -84,7 +84,11 @@
         <!--Page View Controller-->
         <scene sceneID="nc4-hT-Ixe">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ZKV-Dx-BEr" customClass="PageViewController" customModule="match3" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ZKV-Dx-BEr" customClass="PageViewController" customModule="match3" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="m0h-0w-7RR" kind="show" identifier="backToMainMenu" id="hfA-ga-LLP"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy7-Kp-TNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-727" y="-608"/>
@@ -164,19 +168,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XM-ia-s5Y" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="535" width="343" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="35"/>
-                                <size key="titleShadowOffset" width="0.0" height="3"/>
-                                <state key="normal" title="BACK" backgroundImage="Board">
-                                    <color key="titleShadowColor" red="0.18133370539999999" green="0.3321355198" blue="0.39667968749999999" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <state key="highlighted" title="Battle"/>
-                                <connections>
-                                    <segue destination="m0h-0w-7RR" kind="show" id="J6p-no-3px"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -242,19 +233,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUw-Q7-3XT" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="535" width="343" height="64"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="35"/>
-                                <size key="titleShadowOffset" width="0.0" height="3"/>
-                                <state key="normal" title="BACK" backgroundImage="Board">
-                                    <color key="titleShadowColor" red="0.18133370539999999" green="0.3321355198" blue="0.39667968749999999" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <state key="highlighted" title="Battle"/>
-                                <connections>
-                                    <segue destination="m0h-0w-7RR" kind="show" id="o3m-dH-8hZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -272,7 +250,4 @@
         <image name="levelBg1" width="351" height="609"/>
         <image name="levelBg2" width="351" height="609"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="o3m-dH-8hZ"/>
-    </inferredMetricsTieBreakers>
 </document>
