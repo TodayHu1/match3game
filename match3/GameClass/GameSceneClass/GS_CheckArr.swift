@@ -20,11 +20,11 @@ extension GameScene {
         return 6
     }
     
+    public func checkArrOnAction(loop: Bool) {
         statArr = Array(repeating: Array(repeating: 0, count: matchBoard.horizontalCount),
         count: matchBoard.verticalCount)
-        setHorizontalArr()
-        setVerticalArr()
-        
+        findHorizontalMatchChaindInArr()
+        findVerticalMatchChaindInArr()
         for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
@@ -37,13 +37,18 @@ extension GameScene {
                 }
             }
         }
-        
         print("-> " + String(describing: actionOnTurn))
         
-//        print("Чек Арр")
+        if loop {
+            fillArrOnVoidLoop()
+        }
+        else {
+            fillArrOnVoidNoLoop()
+        }
+
     }
     
-    private func setHorizontalArr() {
+    private func findHorizontalMatchChaindInArr() {
         for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
@@ -59,7 +64,7 @@ extension GameScene {
         }
     }
     
-    private func setVerticalArr() {
+    private func findVerticalMatchChaindInArr() {
         for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
@@ -75,6 +80,7 @@ extension GameScene {
         }
     }
     
+    public func fillArrOnVoidLoop() {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
                 if(levelArr[i][j] == -1) {
@@ -82,14 +88,43 @@ extension GameScene {
                 }
             }
         }
-        
+        self.buildLevel(hardBuild: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.checkAlignArr()
+            self.startCheckLoop()
         }
-
     }
     
+    public func fillArrOnVoidNoLoop() {
+        let subArr = levelArr
+        repeat {
+            levelArr = subArr
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if(levelArr[i][j] == -1) {
+                        levelArr[i][j] = gameScene.customRandom()
+                    }
+                }
+            }
+        }
+        while checkFullArr()
+        self.buildLevel(hardBuild: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.startCheckLoop()
+        }
+    }
+    
+    public func checkFullArr() -> Bool {
         if(checkVerticalArr() || checkHorizontalArr()) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    public func startCheckLoop() {
+        if(checkFullArr()) {
+            checkArrOnAction(loop: loopOnSpawnMatch)
         }
         else {
             buildLevel(hardBuild: false)
