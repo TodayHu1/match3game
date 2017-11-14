@@ -53,10 +53,10 @@ extension GameScene {
 //        let sword = 0
 //        let coin = 0
         
-        let skull = 35
+        let skull = 45
         let shield = 15
-        let lightning = 15
-        let sword = 30
+        let lightning = 10
+        let sword = 25
         let coin = 5
 
         switch randomNumber {

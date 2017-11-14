@@ -15,7 +15,7 @@ extension EnemyUnit {
     func vampireAttackMod() {
         if self.vampireAttack > 0 {
             let path = Bundle.main.path(forResource: "Blood", ofType: "sks")
-            var rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+            let rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
             self.addChild(rainParticle)
             
             self.health += Int(
@@ -41,7 +41,7 @@ extension EnemyUnit {
     func spawnPoisonOnBoardMod() {
         if self.spawnPoisonOnBoard > 0 {
             var duration: Double = 0
-            var interval: Double = 0.2
+            let interval: Double = 0.2
             for _ in 1...self.spawnPoisonOnBoard {
                 duration += interval
                 gameScene.matchMoveToBoard(

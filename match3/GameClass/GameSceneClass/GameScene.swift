@@ -96,10 +96,10 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
-        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
+        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
-        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "Stony")
+        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         
         player = Player()
@@ -175,7 +175,7 @@ class GameScene: SKScene {
                     
                     print(name)
                     var duration: Double = 0
-                    var interval: Double = 0.225
+                    let interval: Double = 0.225
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             if levelArr[i][j] == 1 {
@@ -198,7 +198,7 @@ class GameScene: SKScene {
                     
                     print(name)
                     var duration: Double = 0
-                    var interval: Double = 0.3
+                    let interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             print(i-j)
@@ -218,7 +218,7 @@ class GameScene: SKScene {
                     
                     print(name)
                     var duration: Double = 0
-                    var interval: Double = 0.3
+                    let interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             if i-j == 1 || i-j == -1 {
@@ -237,7 +237,7 @@ class GameScene: SKScene {
                     
                     print(name)
                     var duration: Double = 0
-                    var interval: Double = 0.3
+                    let interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             duration += interval
