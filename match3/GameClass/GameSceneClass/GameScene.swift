@@ -12,7 +12,7 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 6, verticalCount: 6)
+var matchBoard = Match(horizontalCount: 3, verticalCount: 3)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
