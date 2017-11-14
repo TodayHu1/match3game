@@ -19,16 +19,17 @@ extension GameScene {
         
         var objectForAnimation: AnyObject
         var positionToMove: CGPoint = player.position
-        var objectScaleForAnimation = CGFloat(0.97)
 
         switch statArr[i][j] {
         case 1:
             objectForAnimation = enemyUnit
             positionToMove = enemyUnit.position
         case 2:
-            positionToMove = player.position
             objectForAnimation = player.iconShield
-            objectScaleForAnimation = 1.2
+            positionToMove = player.position
+        case 3:
+            objectForAnimation = manaPoolNode
+            positionToMove = manaPoolNode.position
         default:
             objectForAnimation = player
         }
@@ -41,6 +42,7 @@ extension GameScene {
 
         let removeMatch = SKAction.run {
             matchNode.removeFromParent()
+            gameScene.nodeAnimationPulseRevers(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
         }
         self.addChild(matchNode)
         matchNode.run(SKAction.sequence([endMove, startMove, removeMatch]))

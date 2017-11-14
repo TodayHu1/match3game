@@ -35,12 +35,22 @@ extension EnemyUnit {
     }
     
     
+    
+    //TODO Poison DMG = ATTACK * 6
+    //Кол-во выпускаемых матчей
     func spawnPoisonOnBoardMod() {
         if self.spawnPoisonOnBoard > 0 {
-            var interval: Double = 0
+            var duration: Double = 0
+            var interval: Double = 0.2
             for _ in 1...self.spawnPoisonOnBoard {
-                interval += 0.2
-                gameScene.matchMoveToBoard(matchIndex: 6, startPosition: self.positionCenter, i: gameScene.random(number: matchBoard.verticalCount-1), j: gameScene.random(number: matchBoard.horizontalCount-1), waitTimeToAnimation: TimeInterval(interval))
+                duration += interval
+                gameScene.matchMoveToBoard(
+                    matchIndex: 6,
+                    nodePosition: self,
+                    i: gameScene.random(number: matchBoard.verticalCount) - 1,
+                    j: gameScene.random(number: matchBoard.horizontalCount) - 1,
+                    waitTimeToAnimation: duration,
+                    durationAnimation: interval)
             }
             self.spawnPoisonOnBoard += 1
         }

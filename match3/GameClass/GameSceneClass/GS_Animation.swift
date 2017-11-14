@@ -103,6 +103,16 @@ extension GameScene {
         spriteNode.run(matchAnimation)
     }
     
+    public func nodeAnimationPulseRevers(node: SKSpriteNode, duration: TimeInterval, percentValuePulsation: CGFloat) {
+        let value = 100 / percentValuePulsation
+        let moveB = SKAction.resize(byWidth: node.size.width/value, height: node.size.height/value, duration: duration/2)
+        let moveC = SKAction.resize(byWidth: -node.size.width/value, height: -node.size.height/value, duration: duration/2)
+        moveB.timingMode = .easeOut
+        moveC.timingMode = .easeOut
+        let nodeAnimation = SKAction.sequence([moveB, moveC])
+        node.run(nodeAnimation)
+    }
+    
     
     
     

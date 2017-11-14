@@ -39,19 +39,19 @@ extension GameScene {
             return SKTexture(imageNamed:"MatchPoison.png")
         default:
             print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
-            return SKTexture(imageNamed:"Black.png")
+            return SKTexture(imageNamed:"SkillPH.png")
         }
     }
     
     public func customRandom() -> Int{
-        let randomNumber = gameScene.random(number: 100)
+        let randomNumber = gameScene.random(number: 100)-1
         
         //Процентная доля появления match от 100%
-//        let skull = 0
+//        let skull = 50
 //        let shield = 0
-//        let lightning = 95
+//        let lightning = 50
 //        let sword = 0
-//        let coin = 5
+//        let coin = 0
         
         let skull = 35
         let shield = 15
@@ -61,7 +61,7 @@ extension GameScene {
 
         switch randomNumber {
         // Череп
-        case 1..<skull:
+        case 0..<skull:
             return 1
         // Щит
         case skull..<skull+shield:

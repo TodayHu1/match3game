@@ -159,6 +159,7 @@ class Player: SKSpriteNode {
         return playerAnimAttack
     }
     
+
     func animationStand() -> SKAction{
         
         self.removeAllActions()

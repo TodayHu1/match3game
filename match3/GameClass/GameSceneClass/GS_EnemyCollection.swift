@@ -22,7 +22,7 @@ extension GameScene {
                              vampire: 0, reactiveArmor: 0)
         case "MotherStony":
             return EnemyUnit(enemyName: "Stony",
-                             attack: 5, health: 30, shield: 70,
+                             attack: 5, health: 30, shield: 970,
                              size: CGSize(width: 150, height: 150),
                              vampire: 0, reactiveArmor: 0)
         case "StoneScale":

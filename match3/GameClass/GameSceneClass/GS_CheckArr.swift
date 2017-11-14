@@ -20,7 +20,6 @@ extension GameScene {
         return 6
     }
     
-    public func checkArr() {
         statArr = Array(repeating: Array(repeating: 0, count: matchBoard.horizontalCount),
         count: matchBoard.verticalCount)
         setHorizontalArr()
@@ -42,7 +41,6 @@ extension GameScene {
         print("-> " + String(describing: actionOnTurn))
         
 //        print("Чек Арр")
-        reBuildArr()
     }
     
     private func setHorizontalArr() {
@@ -77,12 +75,10 @@ extension GameScene {
         }
     }
     
-    public func reBuildArr() {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
                 if(levelArr[i][j] == -1) {
                     levelArr[i][j] = gameScene.customRandom()
-                    self.buildLevel(hardBuild: false)
                 }
             }
         }
@@ -93,9 +89,7 @@ extension GameScene {
 
     }
     
-    public func checkAlignArr() {
         if(checkVerticalArr() || checkHorizontalArr()) {
-            checkArr()
         }
         else {
             buildLevel(hardBuild: false)

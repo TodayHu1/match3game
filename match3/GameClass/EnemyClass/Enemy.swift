@@ -28,7 +28,7 @@ class EnemyUnit: SKSpriteNode {
     //Attack modificator
     var vampireAttack: Float = 0
     var reactiveArmor: Int = 0
-    var spawnPoisonOnBoard = 3
+    var spawnPoisonOnBoard = 0
     
     
     //Label

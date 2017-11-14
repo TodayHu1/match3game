@@ -20,6 +20,7 @@ var gestureLabel = SKLabelNode(fontNamed: "Arial")
 var enemyIndexNow = 0
 var statLabel = SKLabelNode(fontNamed: "Arial")
 var manaLabel = SKLabelNode(fontNamed: "Arial")
+var manaPoolNode = SKSpriteNode(imageNamed: "")
 
 public var levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
                               count: matchBoard.verticalCount)
@@ -85,17 +86,17 @@ class GameScene: SKScene {
     }
     
     func afterAnimation() {
-        checkAlignArr()
+        startCheckLoop()
     }
     
     override func didMove(to view: SKView) {
 
         buildLevel(hardBuild: true)
-        checkArr()
+        checkArrOnAction(loop: loopOnSpawnMatch)
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "Stony")
@@ -119,6 +120,7 @@ class GameScene: SKScene {
         manaLabel.horizontalAlignmentMode = .center
         self.addChild(manaLabel)
         
+        manaPoolNode = searchByName(name: "manaBarPool")
         
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
@@ -172,16 +174,22 @@ class GameScene: SKScene {
                 if name == "Spell" {
                     
                     print(name)
-                    var interval: Double = 0
+                    var duration: Double = 0
+                    var interval: Double = 0.225
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             if levelArr[i][j] == 1 {
-                                interval += 0.2
-                                matchMoveToBoard(matchIndex: 0,startPosition: player.position, i: i, j: j, waitTimeToAnimation: TimeInterval(interval))
+                                duration += interval
+                                matchMoveToBoard(matchIndex: 0,
+                                                 nodePosition: player,
+                                                 i: i,
+                                                 j: j,
+                                                 waitTimeToAnimation: TimeInterval(duration),
+                                                 durationAnimation: interval
+                                )
                             }
                         }
                     }
-                    gameScene.checkArr()
                     
                     
                     
@@ -189,13 +197,14 @@ class GameScene: SKScene {
                 if name == "Spell2" {
                     
                     print(name)
-                    var interval: Double = 0
+                    var duration: Double = 0
+                    var interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             print(i-j)
                             if i == j {
-                                interval += 0.2
-                                matchMoveToBoard(matchIndex: 1,startPosition: enemyUnit.position, i: i, j: j, waitTimeToAnimation: TimeInterval(interval))
+                                duration += interval
+                                matchMoveToBoard(matchIndex: 1,nodePosition: enemyUnit, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
                             }
                         }
                     }
@@ -208,12 +217,13 @@ class GameScene: SKScene {
                 if name == "Spell3" {
                     
                     print(name)
-                    var interval: Double = 0
+                    var duration: Double = 0
+                    var interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
                             if i-j == 1 || i-j == -1 {
-                                interval += 0.1
-                                matchMoveToBoard(matchIndex: 5,startPosition: player.position, i: i, j: j, waitTimeToAnimation: TimeInterval(interval))
+                                duration += interval
+                                matchMoveToBoard(matchIndex: 5,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
                             }
                         }
                     }
@@ -226,16 +236,16 @@ class GameScene: SKScene {
                 if name == "Spell4" {
                     
                     print(name)
-                    var interval: Double = 0
+                    var duration: Double = 0
+                    var interval: Double = 0.3
                     for i in 0...matchBoard.verticalCount-1 {
                         for j in 0...matchBoard.horizontalCount-1 {
+                            duration += interval
                             if i + j < 6 {
-                                interval += 0.1
-                                matchMoveToBoard(matchIndex: i+j,startPosition: player.position, i: i, j: j, waitTimeToAnimation: TimeInterval(interval))
+                                matchMoveToBoard(matchIndex: i+j,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
                             }
                             else {
-                                interval += 0.1
-                                matchMoveToBoard(matchIndex: 0,startPosition: player.position, i: i, j: j, waitTimeToAnimation: TimeInterval(interval))
+                                matchMoveToBoard(matchIndex: 0,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
                             }
                         }
                     }

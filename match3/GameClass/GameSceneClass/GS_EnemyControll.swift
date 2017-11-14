@@ -12,8 +12,10 @@ import SpriteKit
 import GameplayKit
 
 var matchActionGesture = true
+var loopOnSpawnMatch = false
 
 extension GameScene {
+    
     
     public func actionGesture(gesture: Bool) {
 //        print("!!!!!!!!!!!!!!!!!!!!!!!!!! " + String(gesture))
@@ -46,14 +48,27 @@ extension GameScene {
         }
     }
     
-    func matchMoveToBoard(matchIndex: Int, startPosition: CGPoint, i: Int, j: Int, waitTimeToAnimation: TimeInterval){
+    func matchMoveToBoard(matchIndex: Int, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchIndex))
-        matchNode.position = startPosition
+        
+        switch nodePosition {
+        case player:
+            matchNode.position = player.positionCenter
+        case enemyUnit:
+            matchNode.position = enemyUnit.positionCenter
+        default:
+            matchNode.position = nodePosition.position
+        }
+
         matchNode.size.width = 0
         matchNode.size.height = 0
         matchNode.zPosition = CGFloat(matchBoard.matchZIndex + 2)
         
         let durationMoveAndResize = 0.5
+        
+        let animationCode = SKAction.run {
+            gameScene.nodeAnimationPulseRevers(node: nodePosition, duration: durationAnimation, percentValuePulsation: 20)
+        }
         
         let startMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: durationMoveAndResize)
         startMove.timingMode = .easeInEaseOut
@@ -79,12 +94,12 @@ extension GameScene {
         let setMatchWithIndex = SKAction.run {
             levelArr[i][j] = matchIndex
             gameScene.buildLevel(hardBuild: false)
-            gameScene.checkArr()
+            gameScene.checkArrOnAction(loop: loopOnSpawnMatch)
         }
         
         self.addChild(matchNode)
         
-        matchNode.run(SKAction.sequence([SKAction.wait(forDuration: waitTimeToAnimation), moveAndResize, endMove, removeMatch, setMatchWithIndex, matchEndAnimation]))
+        matchNode.run(SKAction.sequence([SKAction.wait(forDuration: waitTimeToAnimation), animationCode, moveAndResize, endMove, removeMatch, setMatchWithIndex, matchEndAnimation]))
         
     }
     
