@@ -38,7 +38,7 @@ extension EnemyUnit {
     
     //TODO Poison DMG = ATTACK * 6
     //Кол-во выпускаемых матчей
-    func spawnPoisonOnBoardMod() {
+    func spawnPoisonOnAttackMod() {
         if self.spawnPoisonOnBoard > 0 {
             var duration: Double = 0
             let interval: Double = 0.2
@@ -56,6 +56,20 @@ extension EnemyUnit {
         }
     }
     
+    func spawnSkullOnAttackMod() {
+        if self.spawnSkullOnBoard > 0 {
+            var duration: Double = 0
+            let interval: Double = 0.2
+            duration += interval
+            gameScene.matchMoveToBoard(
+                matchIndex: 1,
+                nodePosition: self,
+                i: gameScene.random(number: matchBoard.verticalCount) - 1,
+                j: gameScene.random(number: matchBoard.horizontalCount) - 1,
+                waitTimeToAnimation: duration,
+                durationAnimation: interval)
+        }
+    }
     
     
 }

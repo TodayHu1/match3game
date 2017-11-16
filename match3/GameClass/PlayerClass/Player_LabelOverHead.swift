@@ -19,7 +19,7 @@ extension Player {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-            self.labelBoard.position.y = self.position.y + self.size.height + 120
+//            self.labelBoard.position.y = self.position.y + self.size.height + 120
             self.addChild(self.labelBoard)
             
             //Health
@@ -46,8 +46,16 @@ extension Player {
             self.labelShield.addChild(self.iconShield)
         }
         
-        self.labelHealth.text = String(self.health)
-        self.labelShield.text = String(self.shield)
+        self.labelHealth.countFrom(fromValue: gameScene.stringToFloat(value: self.labelHealth.text!),
+                                   to: Float(self.health),
+                                   withDuration: 1,
+                                   andAnimationType: .EaseOut,
+                                   andCountingType: .Int)
+        self.labelShield.countFrom(fromValue: gameScene.stringToFloat(value: self.labelShield.text!),
+                                   to: Float(self.shield),
+                                   withDuration: 1,
+                                   andAnimationType: .EaseOut,
+                                   andCountingType: .Int)
     }
     
 }

@@ -12,14 +12,14 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 3, verticalCount: 3)
+var matchBoard = Match(horizontalCount: 5, verticalCount: 5)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
-var gestureLabel = SKLabelNode(fontNamed: "Arial")
+var gestureLabel = SKLabelNode(text: "")
 var enemyIndexNow = 0
 var statLabel = SKLabelNode(fontNamed: "Arial")
-var manaLabel = SKLabelNode(fontNamed: "Arial")
+var manaLabel = SKCountingLabel(fontNamed: "Arial")
 var manaPoolNode = SKSpriteNode(imageNamed: "")
 
 public var levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
@@ -96,7 +96,7 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
         enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
@@ -152,6 +152,8 @@ class GameScene: SKScene {
         
         self.addChild(player)
         self.addChild(enemyUnit)
+        player.animationStand()
+        enemyUnit.animationStand()
 //        player.animationStand()
 //        enemyUnit.animationStand()
 //        print("x-x-x- BUILD DONE -x-x-x")
@@ -204,7 +206,7 @@ class GameScene: SKScene {
                             print(i-j)
                             if i == j {
                                 duration += interval
-                                matchMoveToBoard(matchIndex: 1,nodePosition: enemyUnit, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
+                                matchMoveToBoard(matchIndex: 3,nodePosition: enemyUnit, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
                             }
                         }
                     }

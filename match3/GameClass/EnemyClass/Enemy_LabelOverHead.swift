@@ -19,7 +19,7 @@ extension EnemyUnit {
             
             //Board
             self.labelBoard.zPosition = self.zPosition + 1
-            self.labelBoard.position.y = self.position.y + self.size.height * 1.5  + 120
+//            self.labelBoard.position.y = self.position.y + self.size.height * 1.5  + 120
             self.addChild(self.labelBoard)
             
             //Health
@@ -36,6 +36,7 @@ extension EnemyUnit {
             
             //Shield
             self.labelShield.fontName = "MunroSmall"
+            self.labelShield.color = UIColor.green
             self.labelShield.text = String(shield)
             self.labelShield.position.x = self.labelBoard.position.x - 90
             self.labelShield.fontSize = 70
@@ -46,8 +47,16 @@ extension EnemyUnit {
             self.labelShield.addChild(self.iconShield)
         }
         
-        self.labelHealth.text = String(self.health)
-        self.labelShield.text = String(self.shield)
+        self.labelHealth.countFrom(fromValue: gameScene.stringToFloat(value: self.labelHealth.text!),
+                                   to: Float(self.health),
+                                   withDuration: 1,
+                                   andAnimationType: .EaseOut,
+                                   andCountingType: .Int)
+        self.labelShield.countFrom(fromValue: gameScene.stringToFloat(value: self.labelShield.text!),
+                                   to: Float(self.shield),
+                                   withDuration: 1,
+                                   andAnimationType: .EaseOut,
+                                   andCountingType: .Int)
     }
     
 }

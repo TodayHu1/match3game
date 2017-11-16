@@ -20,8 +20,8 @@ class Player: SKSpriteNode {
     
     //Label
     var labelBoard = SKSpriteNode()
-    var labelHealth = SKLabelNode(text: "x-Health_Label-x")
-    var labelShield = SKLabelNode(text: "x-Shield_Label-x")
+    var labelHealth = SKCountingLabel(fontNamed: "Arial")
+    var labelShield = SKCountingLabel(fontNamed: "Arial")
         //Icon for label
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
@@ -84,17 +84,17 @@ class Player: SKSpriteNode {
         self.addChild(shadowNode)
     }
     
-    func initStat(attack: Int, health: Int) {
-        let textFrame = " 🛡" + String(attack) + " ⚔" + String(health)
-        let labelNode = SKLabelNode(text: textFrame)
-        labelNode.zPosition = 1
-        labelNode.fontSize = 80
-        labelNode.position.y += 300
-        
-        labelNode.alpha = 1
-        self.addChild(labelNode)
-        
-    }
+//    func initStat(attack: Int, health: Int) {
+//        let textFrame = " 🛡" + String(attack) + " ⚔" + String(health)
+//        let labelNode = CountingLabel(text: textFrame)
+//        labelNode.zPosition = 1
+//        labelNode.fontSize = 80
+//        labelNode.position.y += 300
+//
+//        labelNode.alpha = 1
+//        self.addChild(labelNode)
+//
+//    }
     
     func takeDamage(damage: Int) {
 

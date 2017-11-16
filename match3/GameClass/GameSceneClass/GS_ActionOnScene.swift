@@ -19,6 +19,7 @@ extension GameScene {
         
         var objectForAnimation: AnyObject
         var positionToMove: CGPoint = player.position
+        var specialActionOnEnd = SKAction()
 
         switch statArr[i][j] {
         case 1:
@@ -27,9 +28,19 @@ extension GameScene {
         case 2:
             objectForAnimation = player.iconShield
             positionToMove = player.position
+            specialActionOnEnd = SKAction.run {
+                player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
+            }
         case 3:
             objectForAnimation = manaPoolNode
             positionToMove = manaPoolNode.position
+            specialActionOnEnd = SKAction.run {
+                manaLabel.countFrom(fromValue: gameScene.stringToFloat(value: manaLabel.text!),
+                                    to: Float(player.mana),
+                                    withDuration: 0.5,
+                                    andAnimationType: .EaseOut,
+                                    andCountingType: .Int)
+            }
         default:
             objectForAnimation = player
         }
@@ -45,7 +56,7 @@ extension GameScene {
             gameScene.nodeAnimationPulseRevers(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
         }
         self.addChild(matchNode)
-        matchNode.run(SKAction.sequence([endMove, startMove, removeMatch]))
+        matchNode.run(SKAction.sequence([endMove, startMove, removeMatch, specialActionOnEnd]))
 
     }
     

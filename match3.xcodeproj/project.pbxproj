@@ -22,6 +22,8 @@
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
+		1F13F9501FBD7104008DA2C9 /* CounClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F94F1FBD7104008DA2C9 /* CounClass.swift */; };
+		1F13F9521FBDCA49008DA2C9 /* GS_HelpFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */; };
 		1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */; };
 		1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F26CA261F41B93500691519 /* GS_ActionOnScene.swift */; };
 		1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB51EFD5862001AEBB7 /* AppDelegate.swift */; };
@@ -44,6 +46,7 @@
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
+		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
 		1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AA2591F35944B002586DD /* GS_CheckArr.swift */; };
 		1F6AA25B1F361642002586DD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
@@ -96,6 +99,8 @@
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
+		1F13F94F1FBD7104008DA2C9 /* CounClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounClass.swift; sourceTree = "<group>"; };
+		1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_HelpFunction.swift; sourceTree = "<group>"; };
 		1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Animation.swift; sourceTree = "<group>"; };
 		1F26CA261F41B93500691519 /* GS_ActionOnScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionOnScene.swift; sourceTree = "<group>"; };
 		1F2AEDB21EFD5862001AEBB7 /* match3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = match3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +130,7 @@
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
+		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
 		1F6AA2591F35944B002586DD /* GS_CheckArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_CheckArr.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
 		1FB431441FB4908B00039960 /* MatchParamerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchParamerts.swift; sourceTree = "<group>"; };
@@ -339,6 +345,7 @@
 		1FD658F31F7E24CC00F808F4 /* GameSceneClass */ = {
 			isa = PBXGroup;
 			children = (
+				1F13F94F1FBD7104008DA2C9 /* CounClass.swift */,
 				1FB1A1591F009BF0004EEA96 /* GS_Match.swift */,
 				1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */,
 				1F6AA2591F35944B002586DD /* GS_CheckArr.swift */,
@@ -350,6 +357,7 @@
 				1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */,
 				1FB431441FB4908B00039960 /* MatchParamerts.swift */,
 				1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */,
+				1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */,
 			);
 			path = GameSceneClass;
 			sourceTree = "<group>";
@@ -370,6 +378,7 @@
 				1F443DB51F55998200D5CBD5 /* Enemy.swift */,
 				1F2D82141F80D09300710D50 /* Enemy_LabelOverHead.swift */,
 				1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */,
+				1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */,
 			);
 			path = EnemyClass;
 			sourceTree = "<group>";
@@ -570,9 +579,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */,
+				1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */,
 				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,
 				1F2D82131F80CB7D00710D50 /* Player_LabelOverHead.swift in Sources */,
 				1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */,
+				1F13F9521FBDCA49008DA2C9 /* GS_HelpFunction.swift in Sources */,
 				1F2AEDBC1EFD5863001AEBB7 /* GameScene.swift in Sources */,
 				1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */,
 				1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */,
@@ -585,6 +596,7 @@
 				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
+				1F13F9501FBD7104008DA2C9 /* CounClass.swift in Sources */,
 				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,
 				1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */,
 				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,

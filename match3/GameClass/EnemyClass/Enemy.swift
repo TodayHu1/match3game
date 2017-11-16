@@ -29,13 +29,17 @@ class EnemyUnit: SKSpriteNode {
     var vampireAttack: Float = 0
     var reactiveArmor: Int = 0
     var spawnPoisonOnBoard = 0
+    var spawnSkullOnBoard: Int = 0
+    
+    //Death modificator
+    var spawnSkullOnDie = 2
     
     
     //Label
     var labelBoard = SKSpriteNode()
-    var labelUnitName = SKLabelNode(text: "x-UnitName_Label-x")
-    var labelHealth = SKLabelNode(text: "x-Health_Label-x")
-    var labelShield = SKLabelNode(text: "x-Shield_Label-x")
+    var labelUnitName = SKLabelNode(fontNamed: "Arial")
+    var labelHealth = SKCountingLabel(fontNamed: "Arial")
+    var labelShield = SKCountingLabel(fontNamed: "Arial")
         //Icon for label
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
@@ -93,6 +97,7 @@ class EnemyUnit: SKSpriteNode {
         }
         
         print("Init done - Index \(enemyIndexNow)")
+        print(labelHealth)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -155,7 +160,7 @@ class EnemyUnit: SKSpriteNode {
         let attackMod = SKAction.run {
             self.vampireAttackMod()
             self.reactiveArmorMod()
-            self.spawnPoisonOnBoardMod()
+            self.spawnPoisonOnAttackMod()
             player.takeDamage(damage: damage)
         }
 
@@ -204,7 +209,16 @@ class EnemyUnit: SKSpriteNode {
         }
         
         if self.health < 1 {
-            gameScene.newEnemy()
+            
+            let spawnNewEnemy = SKAction.run {
+                gameScene.newEnemy()
+            }
+            
+            self.run(SKAction.sequence([
+                self.spawnSkullOnDieMod(),
+                spawnNewEnemy
+            ]))
+            
             print("NEW ENEMY INIT")
         }
 

@@ -12,7 +12,8 @@ import SpriteKit
 import GameplayKit
 
 var matchActionGesture = true
-var loopOnSpawnMatch = false
+var loopOnSpawnMatch = false //Появление собирающихся матчей после генерации
+var boardSizeUp = true //Увеличение доски после победы над врагом
 
 extension GameScene {
     
@@ -31,11 +32,17 @@ extension GameScene {
             let newEnemy = SKAction.run {
                 enemyUnit.removeFromParent()
                 enemyUnit.removeAllChildren()
+                
                 enemyIndexNow+=1
                 enemyUnit = enemyOnLevelArr[enemyIndexNow]
+                
                 self.addChild(enemyUnit)
+                
                 enemyUnit.run(pulse)
                 enemyUnit.animationStand()
+                
+                self.boardMatchSizeUp()
+                
                 print("create new Enemy \(enemyIndexNow)")
             }
             enemyUnit.run(SKAction.sequence([reverse,moveOut,newEnemy]))
@@ -45,6 +52,17 @@ extension GameScene {
             enemyUnit.removeFromParent()
             enemyUnit.removeAllChildren()
             print("delet all \(enemyIndexNow)")
+        }
+    }
+    
+    func boardMatchSizeUp() {
+        if boardSizeUp {
+            matchBoard = Match(horizontalCount: 3+enemyIndexNow, verticalCount: 3+enemyIndexNow)
+            levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
+                             count: matchBoard.verticalCount)
+            gameScene.buildLevel(hardBuild: true)
+            gameScene.fillArrOnVoidNoLoop()
+            gameScene.buildLevel(hardBuild: false)
         }
     }
     
@@ -113,12 +131,8 @@ extension GameScene {
                     enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[1])
                 case 2:
                     player.shield += actionOnTurn[2] * 10
-                    player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
                 case 3:
                     player.mana += actionOnTurn[3]
-                    print(player.mana)
-                    print(actionOnTurn[3])
-                    manaLabel.text = String(player.mana)
                 case 4:
                     player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
                 default: break
