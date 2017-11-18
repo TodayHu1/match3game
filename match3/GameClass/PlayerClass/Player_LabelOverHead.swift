@@ -46,6 +46,7 @@ extension Player {
             self.labelShield.addChild(self.iconShield)
         }
         
+        
         self.labelHealth.countFrom(fromValue: gameScene.stringToFloat(value: self.labelHealth.text!),
                                    to: Float(self.health),
                                    withDuration: 1,

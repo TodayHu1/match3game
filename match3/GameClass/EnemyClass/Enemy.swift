@@ -77,8 +77,7 @@ class EnemyUnit: SKSpriteNode {
         self.reactiveArmor = reactiveArmor
         
         self.colorBlendFactor = CGFloat(0)
-        self.color = UIColor(colorLiteralRed: vampireAttack, green: 0, blue: 0, alpha: 1)
-//
+
         initShadow()
 
         labelOverHead(shield: self.attack, health: self.health, initLabel: true)
@@ -105,44 +104,24 @@ class EnemyUnit: SKSpriteNode {
     }
     
     func animationStand() -> SKAction{
-        
-//        print("FGHJKLFGHJKLFGHJKLDFGHJKL:")
-        
         self.removeAllActions()
-
-//        let enemyAnimStand = SKAction.repeatForever(
-//            SKAction.sequence(
-//                [SKAction.animate(with: enemyArrStand, timePerFrame: 0.2),
-//                 SKAction.wait(forDuration: 1.5)]
-//            )
-//        )
-        
         let enemyAnimStand = SKAction.repeatForever(
             SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
         )
-
-        
         self.run(enemyAnimStand)
         return enemyAnimStand
 
     }
 
     func animationAttack() -> SKAction {
-        
         self.removeAllActions()
-
         let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.1)
-
         self.run(enemyAnimAttack)
         return enemyAnimAttack
     }
     
     func fullAttackStandAnimation(damage: Int) {
-        
         self.removeAllActions()
-
-//        gameScene.actionGesture(gesture: false)
-
         let moveForward = SKAction.move(to: CGPoint(x: 50, y: positionAnchor.y), duration: 0.25)
         let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
 

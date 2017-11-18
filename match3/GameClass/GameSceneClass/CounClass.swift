@@ -57,7 +57,11 @@ public class SKCountingLabel: SKLabelNode {
         return start + (update * (end - start));
     }
     
-    public func countFrom(fromValue: Float, to toValue: Float, withDuration duration: TimeInterval, andAnimationType aType: AnimationType, andCountingType cType: CountingType) {
+    public func countFrom(fromValue: Float,
+                          to toValue: Float,
+                          withDuration duration: TimeInterval,
+                          andAnimationType aType: AnimationType,
+                          andCountingType cType: CountingType) {
         
         // Set values
         self.start = fromValue
@@ -67,6 +71,19 @@ public class SKCountingLabel: SKLabelNode {
         self.animationType = aType
         self.progress = 0.0
         self.lastUpdate = NSDate.timeIntervalSinceReferenceDate
+        
+        if fromValue == toValue {
+            self.fontColor = .white
+        }
+        else {
+            if fromValue < toValue {
+                self.fontColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            }
+            else {
+                self.fontColor = #colorLiteral(red: 1, green: 0.4102467211, blue: 0.3860324332, alpha: 1)
+            }
+        }
+
         
         // Invalidate and nullify timer
         killTimer()
@@ -116,6 +133,9 @@ public class SKCountingLabel: SKLabelNode {
     func killTimer() {
         timer?.invalidate()
         timer = nil
+        if lroundf(Float(progress)) == 1 {
+            self.fontColor = .white
+        }
     }
     
     func updateCounter(t: Float) -> Float {

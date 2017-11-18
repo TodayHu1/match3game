@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 extension GameScene {
     
-    public func moveMatchToPlayer(i:Int ,j:Int) {
+    public func moveMatchTo(i:Int ,j:Int) {
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
         matchNode.position = matchBoard.matchPosition(i: i, j: j)
         matchNode.size.width = CGFloat(matchBoard.matchSizeOnAction)
@@ -46,7 +46,7 @@ extension GameScene {
         }
     
         let startMove = SKAction.move(to: positionToMove, duration: 0.3)
-        startMove.timingMode = .easeInEaseOut
+        startMove.timingMode = .easeIn
         
         let endMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: 0.4)
         endMove.timingMode = .easeOut

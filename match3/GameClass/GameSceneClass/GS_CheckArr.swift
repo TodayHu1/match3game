@@ -30,7 +30,7 @@ extension GameScene {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(statArr[i][j] == indexOfMatch) {
                         matchAnimationPulse(indexIandJ: String(i) + String(j))
-                        moveMatchToPlayer(i: i, j: j)
+                        moveMatchTo(i: i, j: j)
                         actionOnTurn[indexOfMatch] += 1
                         levelArr[i][j] = -1
                     }
