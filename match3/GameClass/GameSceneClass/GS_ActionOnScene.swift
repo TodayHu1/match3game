@@ -10,6 +10,14 @@ import Foundation
 import SpriteKit
 extension GameScene {
     
+    public func changeManaLabel(){
+        manaLabel.countFrom(fromValue: gameScene.stringToFloat(value: manaLabel.text!),
+                            to: Float(player.mana),
+                            withDuration: 0.5,
+                            andAnimationType: .EaseOut,
+                            andCountingType: .Int)
+    }
+    
     public func moveMatchTo(i:Int ,j:Int) {
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
         matchNode.position = matchBoard.matchPosition(i: i, j: j)
@@ -35,11 +43,7 @@ extension GameScene {
             objectForAnimation = manaPoolNode
             positionToMove = manaPoolNode.position
             specialActionOnEnd = SKAction.run {
-                manaLabel.countFrom(fromValue: gameScene.stringToFloat(value: manaLabel.text!),
-                                    to: Float(player.mana),
-                                    withDuration: 0.5,
-                                    andAnimationType: .EaseOut,
-                                    andCountingType: .Int)
+                gameScene.changeManaLabel()
             }
         default:
             objectForAnimation = player

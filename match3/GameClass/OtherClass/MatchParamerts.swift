@@ -39,4 +39,12 @@ class Match {
             y: (boardHeight - (matchSize * i)) + Int(centerMatchBoard.y)
         )
     }
+    
+    public func getRandomMatchHorizontal() -> Int {
+        return (gameScene.random(number: self.horizontalCount))-1
+    }
+    
+    public func getRandomMatchVertical() -> Int {
+        return (gameScene.random(number: self.verticalCount))-1
+    }
 }

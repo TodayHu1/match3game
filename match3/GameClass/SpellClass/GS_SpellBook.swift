@@ -30,7 +30,6 @@ extension GameScene {
      Герой:
      - cпавнит 3 матчейЖизни "FirstAid"
      - заменяет все матчиЧерепа на матчиЗащиты "ArmorUp"
-     - заменяет все матчиАтака на матчиЗащиты "NoOneStepBack"
      - теряет всю эннергию и получает 10 монет "MagicMoney"
      - атакует врага обычной атакой "MagicAttack"
      - получает 50 брони "MagicArmor"
@@ -40,9 +39,6 @@ extension GameScene {
      - атакует врага и лечит себя от нанесенного урона "VampiricAttack"
      - получает 100 жизней и 100 брони, но теряет способность использовать магию до конца матча "PowerOverwhelming" (Референс: https://youtu.be/AJKx1XDBqNo)
      - теряет 20 монет и получает 10 брони, 10 жизней и 10 маны "AllHavePrice"
-     - теряет 20 жизней и получает 20 монет "BloodMoney"
-     - спавнит 6 матчейМонет "TouchOfMidas"
-     - спавнит 2 матчаЧерепа и получает 2 золота "GoodDial"
 */
     
     
@@ -76,12 +72,14 @@ extension GameScene {
 //
     func spellBook(skillName: String, spellIndex: Int) -> Spell {
         var skillPosition: CGPoint
-        if spellIndex > 2 {
+        if spellIndex < 3 {
             skillPosition = CGPoint(x: -140+((spellIndex-1)*70), y: 80)
         }
         else {
-            skillPosition = CGPoint(x: 0+((spellIndex-1)*70), y: 80)
+            skillPosition = CGPoint(x: 0+((spellIndex-2)*70), y: 80)
         }
+        
+        print(skillPosition)
 
         switch skillName {
         case "SkullJail":
@@ -92,6 +90,14 @@ extension GameScene {
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
                          mana: 0, health: 10, armor: 0, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition)
+        case "TouchOfMidas":
+            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                         mana: 6, health: 0, armor: 0, coin: 0,
+                         name: "Spell"+String(spellIndex), position: skillPosition)
+        case "NoOneStepBack":
+            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                         mana: 2, health: 0, armor: 0, coin: 0,
+                         name: "Spell"+String(spellIndex), position: skillPosition)
         default:
             return Spell(skillName: "0", texture: SKTexture(imageNamed: ""),
                          mana: 666, health: 666, armor: 666, coin: 666,
@@ -99,6 +105,15 @@ extension GameScene {
         }
     }
     
+//
+//    0 –– MatchChain.png
+//    1 –– MatchSkull.png
+//    2 –– MatchArmor.png
+//    3 –– MatchEnergy.png
+//    4 –– MatchAttack.png
+//    5 –– MatchCoin.png
+//    6 –– MatchPoison.png
+//
     
     func castSpell(skillName: String) {
         switch skillName {
@@ -124,9 +139,51 @@ extension GameScene {
             let interval: Double = 0.225
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == 4 {
+                    if levelArr[i][j] == 0  {
                         duration += interval
-                        matchMoveToBoard(matchIndex: 0,
+                        matchMoveToBoard(matchIndex: 2,
+                                         nodePosition: player,
+                                         i: i,
+                                         j: j,
+                                         waitTimeToAnimation: TimeInterval(duration),
+                                         durationAnimation: interval
+                        )
+                    }
+                    if levelArr[i][j] == 1 {
+                        duration += interval
+                        matchMoveToBoard(matchIndex: 4,
+                                         nodePosition: player,
+                                         i: i,
+                                         j: j,
+                                         waitTimeToAnimation: TimeInterval(duration),
+                                         durationAnimation: interval
+                        )
+                    }
+                }
+            }
+        //  - спавнит 6 матчейМонет "TouchOfMidas"
+        case "TouchOfMidas":
+            var duration: Double = 0
+            let interval: Double = 0.225
+            for _ in 0...5 {
+                duration += interval
+                matchMoveToBoard(matchIndex: 5,
+                                 nodePosition: player,
+                                 i: matchBoard.getRandomMatchVertical(),
+                                 j: matchBoard.getRandomMatchHorizontal(),
+                                 waitTimeToAnimation: TimeInterval(duration),
+                                 durationAnimation: interval
+                )
+            }
+        //  - заменяет все матчиАтака на матчиЗащиты "NoOneStepBack"
+        case "NoOneStepBack":
+            var duration: Double = 0
+            let interval: Double = 0.225
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if levelArr[i][j] == 4  {
+                        duration += interval
+                        matchMoveToBoard(matchIndex: 2,
                                          nodePosition: player,
                                          i: i,
                                          j: j,

@@ -12,7 +12,7 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 5, verticalCount: 5)
+var matchBoard = Match(horizontalCount: 6, verticalCount: 6)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
@@ -128,8 +128,10 @@ class GameScene: SKScene {
         manaPoolNode = searchByName(name: "manaBarPool")
         
         spell1 = gameScene.spellBook(skillName: "SkullJail", spellIndex: 1)
+        spell2 = gameScene.spellBook(skillName: "TouchOfMidas", spellIndex: 2)
         spell3 = gameScene.spellBook(skillName: "Nemesis", spellIndex: 3)
-        print(spell1)
+        spell4 = gameScene.spellBook(skillName: "NoOneStepBack", spellIndex: 4)
+
 
         self.addChild(spell1)
         self.addChild(spell2)

@@ -26,7 +26,7 @@ class Spell: SKSpriteNode {
 
     init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint) {
         super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 41, height: 41))
-        self.zPosition = 9600
+        self.zPosition = 550
     
         self.skillName = skillName
         
@@ -52,7 +52,7 @@ class Spell: SKSpriteNode {
         if self.conditionToUse() {
             print("GO")
             self.changePlayerStat()
-            gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 20)
+            gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 40)
             gameScene.castSpell(skillName: skillName)
         }
         else {
@@ -63,54 +63,71 @@ class Spell: SKSpriteNode {
     private func initStatSpell() {
         let radius: CGFloat = 1.8
         let fontSize = 25
+        let iconSize = 24
+        let zIndex = CGFloat(500)
         
         if manaToUse > 0 {
             let labelMana = SKLabelNode(text: "\(manaToUse)")
-            self.addChild(labelMana)
             labelMana.position = CGPoint(x: self.frame.width/radius , y: -self.frame.height/radius)
-            labelMana.zPosition = 9999
+            labelMana.zPosition = zIndex
             labelMana.horizontalAlignmentMode = .center
             labelMana.verticalAlignmentMode = .center
             labelMana.fontName = "MunroSmall"
-            labelMana.fontColor = .purple
+            labelMana.fontColor = .white
             labelMana.fontSize = CGFloat(fontSize)
+            self.addChild(labelMana)
+            let iconMana = SKSpriteNode(imageNamed: "manaBar-1.png")
+            iconMana.size = CGSize(width: iconSize, height: iconSize)
+            iconMana.zPosition -= 1
+            labelMana.addChild(iconMana)
         }
-
         
         if armorToUse > 0 {
             let labelArmor = SKLabelNode(text: "\(armorToUse)")
-            self.addChild(labelArmor)
             labelArmor.position = CGPoint(x: -self.frame.width/radius , y: self.frame.height/radius)
-            labelArmor.zPosition = 9999
+            labelArmor.zPosition = zIndex
             labelArmor.horizontalAlignmentMode = .center
             labelArmor.verticalAlignmentMode = .center
             labelArmor.fontName = "MunroSmall"
-            labelArmor.fontColor = .blue
+            labelArmor.fontColor = .white
             labelArmor.fontSize = CGFloat(fontSize)
+            self.addChild(labelArmor)
+            let iconArmor = SKSpriteNode(imageNamed: "Icon_Shield.png")
+            iconArmor.size = CGSize(width: iconSize, height: iconSize)
+            iconArmor.zPosition -= 1
+            labelArmor.addChild(iconArmor)
         }
         
         if healthToUse > 0 {
             let labelHealth = SKLabelNode(text: "\(healthToUse)")
-            self.addChild(labelHealth)
             labelHealth.position = CGPoint(x: self.frame.width/radius , y: self.frame.height/radius)
-            labelHealth.zPosition = 9999
+            labelHealth.zPosition = zIndex
             labelHealth.horizontalAlignmentMode = .center
             labelHealth.verticalAlignmentMode = .center
             labelHealth.fontName = "MunroSmall"
-            labelHealth.fontColor = .red
+            labelHealth.fontColor = .white
             labelHealth.fontSize = CGFloat(fontSize)
+            self.addChild(labelHealth)
+            let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart.png")
+            iconHeart.size = CGSize(width: iconSize, height: iconSize)
+            iconHeart.zPosition -= 1
+            labelHealth.addChild(iconHeart)
         }
         
         if coinToUse > 0 {
             let labelCoin = SKLabelNode(text: "\(coinToUse)")
-            self.addChild(labelCoin)
             labelCoin.position = CGPoint(x: -self.frame.width/radius , y: -self.frame.height/radius)
-            labelCoin.zPosition = 9999
+            labelCoin.zPosition = zIndex
             labelCoin.horizontalAlignmentMode = .center
             labelCoin.verticalAlignmentMode = .center
             labelCoin.fontName = "MunroSmall"
-            labelCoin.fontColor = .yellow
+            labelCoin.fontColor = .white
             labelCoin.fontSize = CGFloat(fontSize)
+            self.addChild(labelCoin)
+            let iconCoin = SKSpriteNode(imageNamed: "MatchCoin.png")
+            iconCoin.size = CGSize(width: iconSize, height: iconSize)
+            iconCoin.zPosition -= 1
+            labelCoin.addChild(iconCoin)
         }
     }
     
@@ -132,6 +149,7 @@ class Spell: SKSpriteNode {
         player.coin -= coinToUse
         player.mana -= manaToUse
 
+        gameScene.changeManaLabel()
         player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
     }
     
