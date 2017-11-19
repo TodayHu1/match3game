@@ -94,9 +94,6 @@ class EnemyUnit: SKSpriteNode {
             let name = enemyName + "-" + "Stand" + "-\(i).png"
             enemyArrStand.append(SKTexture(imageNamed: name))
         }
-        
-        print("Init done - Index \(enemyIndexNow)")
-        print(labelHealth)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -209,11 +206,7 @@ class EnemyUnit: SKSpriteNode {
         self.run(SKAction.sequence([getDamage,toNormalColor]))
         
     }
-    
-    func echo() {
-        print(self)
-    }
-    
+
     func wait() {
         self.run(SKAction.wait(forDuration: 0.5))
     }

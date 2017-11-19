@@ -53,7 +53,7 @@ extension GameScene {
 
         let removeMatch = SKAction.run {
             matchNode.removeFromParent()
-            gameScene.nodeAnimationPulseRevers(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
+            gameScene.nodeAnimationPulseUp(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
         }
         self.addChild(matchNode)
         matchNode.run(SKAction.sequence([endMove, startMove, removeMatch, specialActionOnEnd]))

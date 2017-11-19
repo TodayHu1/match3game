@@ -32,11 +32,9 @@ extension GameScene {
         for i in 0...matchBoard.horizontalCount-1 {
             if (-160+(matchBoard.matchSize*i) < touchX && touchX <= -160+(matchBoard.matchSize*(i+1))) {
                 if (dir == -1) {
-                    print("| \(i+1) Top")
                     moveArrTop(index: i)
                 }
                 else {
-                    print("| \(i+1) Bottom")
                     moveArrBottom(index: i)
                 }
             }
@@ -48,11 +46,9 @@ extension GameScene {
         for i in 0...matchBoard.verticalCount-1 {
             if (10+(-matchBoard.matchSize*i) > touchY && touchY >= (10+(-matchBoard.matchSize*(i+1)))) {
                 if (dir == 1) {
-                    print("<––– \(i+1) Left")
                     moveArrLeft(index: i)
                 }
                 else {
-                    print("–––> \(i+1) Right")
                     moveArrRight(index: i)
                 }
             }

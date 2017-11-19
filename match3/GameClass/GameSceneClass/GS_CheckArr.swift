@@ -37,7 +37,6 @@ extension GameScene {
                 }
             }
         }
-        print("-> " + String(describing: actionOnTurn))
         
         if loop {
             fillArrOnVoidLoop()

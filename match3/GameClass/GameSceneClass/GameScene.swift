@@ -16,6 +16,12 @@ var matchBoard = Match(horizontalCount: 5, verticalCount: 5)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
+
+var spell1 = Spell(name: "Spell1", position: CGPoint(x: -140, y: 80))
+var spell2 = Spell(name: "Spell2", position: CGPoint(x: -70, y: 80))
+var spell3 = Spell(name: "Spell3", position: CGPoint(x: 70, y: 80))
+var spell4 = Spell(name: "Spell4", position: CGPoint(x: 140, y: 80))
+
 var gestureLabel = SKLabelNode(text: "")
 var enemyIndexNow = 0
 var statLabel = SKLabelNode(fontNamed: "Arial")
@@ -45,7 +51,6 @@ class GameScene: SKScene {
     
     public func searchByName(name: String) -> SKSpriteNode {
         var searchNode: SKSpriteNode?
-//        print(name)
         for someNode in self.children {
             if someNode.name == name {
                 if let nodeNode = someNode as? SKSpriteNode {
@@ -122,6 +127,15 @@ class GameScene: SKScene {
         
         manaPoolNode = searchByName(name: "manaBarPool")
         
+        spell1 = gameScene.spellBook(skillName: "SkullJail")
+        print(spell1)
+
+        self.addChild(spell1)
+        self.addChild(spell2)
+        self.addChild(spell3)
+        self.addChild(spell4)
+        
+        
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
         let swipeUp = UISwipeGestureRecognizer()
@@ -172,94 +186,13 @@ class GameScene: SKScene {
             lastTouch = touch.location(in: self)
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
-            if let name = touchedNode.name {
-                if name == "Spell" {
-                    
-                    print(name)
-                    var duration: Double = 0
-                    let interval: Double = 0.225
-                    for i in 0...matchBoard.verticalCount-1 {
-                        for j in 0...matchBoard.horizontalCount-1 {
-                            if levelArr[i][j] == 1 {
-                                duration += interval
-                                matchMoveToBoard(matchIndex: 0,
-                                                 nodePosition: player,
-                                                 i: i,
-                                                 j: j,
-                                                 waitTimeToAnimation: TimeInterval(duration),
-                                                 durationAnimation: interval
-                                )
-                            }
-                        }
-                    }
-                    
-                    
-                    
-                }
-                if name == "Spell2" {
-                    
-                    print(name)
-                    var duration: Double = 0
-                    let interval: Double = 0.3
-                    for i in 0...matchBoard.verticalCount-1 {
-                        for j in 0...matchBoard.horizontalCount-1 {
-                            print(i-j)
-                            if i == j {
-                                duration += interval
-                                matchMoveToBoard(matchIndex: 3,nodePosition: enemyUnit, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
-                            }
-                        }
-                    }
-                    print("Spell2 done")
-                    
-                    
-                    
-                }
-                
-                if name == "Spell3" {
-                    
-                    print(name)
-                    var duration: Double = 0
-                    let interval: Double = 0.3
-                    for i in 0...matchBoard.verticalCount-1 {
-                        for j in 0...matchBoard.horizontalCount-1 {
-                            if i-j == 1 || i-j == -1 {
-                                duration += interval
-                                matchMoveToBoard(matchIndex: 5,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
-                            }
-                        }
-                    }
-                    print("Spell2 done")
-                    
-                    
-                    
-                }
-                
-                if name == "Spell4" {
-                    
-                    print(name)
-                    var duration: Double = 0
-                    let interval: Double = 0.3
-                    for i in 0...matchBoard.verticalCount-1 {
-                        for j in 0...matchBoard.horizontalCount-1 {
-                            duration += interval
-                            if i + j < 6 {
-                                matchMoveToBoard(matchIndex: i+j,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
-                            }
-                            else {
-                                matchMoveToBoard(matchIndex: 0,nodePosition: player, i: i, j: j, waitTimeToAnimation: TimeInterval(duration), durationAnimation: interval)
-                            }
-                        }
-                    }
-                    print("Spell2 done")
-                    
-                    
-                    
+            if touchedNode.name != nil {
+                if touchedNode.name == "Spell1" {
+                    print(touchedNode.name)
+                    spell1.useSpell()
                 }
             }
         }
-
-//        }
     }
     
     override func update(_ currentTime: TimeInterval) {

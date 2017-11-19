@@ -19,7 +19,6 @@ extension GameScene {
     
     
     public func actionGesture(gesture: Bool) {
-//        print("!!!!!!!!!!!!!!!!!!!!!!!!!! " + String(gesture))
         matchActionGesture = gesture
     }
     
@@ -85,7 +84,7 @@ extension GameScene {
         let durationMoveAndResize = 0.5
         
         let animationCode = SKAction.run {
-            gameScene.nodeAnimationPulseRevers(node: nodePosition, duration: durationAnimation, percentValuePulsation: 20)
+            gameScene.nodeAnimationPulseUp(node: nodePosition, duration: durationAnimation, percentValuePulsation: 20)
         }
         
         let startMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: durationMoveAndResize)

@@ -45,6 +45,76 @@ extension GameScene {
      - спавнит 2 матчаЧерепа и получает 2 золота "GoodDial"
 */
     
+    
+    
+//    let labelmana = SKLabelNode(text: "\(manaToUse)")
+//    skillNode.addChild(labelmana)
+//    labelmana.position = CGPoint(x: skillNode.frame.width/5 , y: skillNode.frame.height/5)
+//    labelmana.zPosition = 9999
+//    labelmana.horizontalAlignmentMode = .center
+//    labelmana.verticalAlignmentMode = .center
+//    labelmana.fontName = "MunroSmall"
+//    print(labelmana)
+    
+    
+//    func initSpellOnBoard() {
+//        let spell = SKSpriteNode(imageNamed: "SpellSkullJail.png")
+////        spell.position = CGPoint()
+//        gameScene.addChild(spell)
+//    }
+//
+//    func getStatSpell() -> [Int] {
+//        let manaToUse = 0
+//        let healthToUse = 10
+//        let armorToUse = 10
+//        let cointToUse = 0
+//        return [manaToUse,healthToUse,armorToUse,cointToUse]
+//    }
+//
+//
+
+//
+    func spellBook(skillName: String) -> Spell {
+        switch skillName {
+        case "SkullJail":
+            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                        mana: 6, health: 0, armor: 0, coin: 0)
+        default:
+            return Spell(skillName: "0", texture: SKTexture(imageNamed: "SpellSkullJail"),
+                         mana: 666, health: 666, armor: 666, coin: 666)
+        }
+    }
+    
+    
+    func castSpell(skillName: String) {
+        switch skillName {
+        case "SkullJail":
+            var duration: Double = 0
+            let interval: Double = 0.225
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if levelArr[i][j] == 1 {
+                        duration += interval
+                        matchMoveToBoard(matchIndex: 0,
+                                         nodePosition: player,
+                                         i: i,
+                                         j: j,
+                                         waitTimeToAnimation: TimeInterval(duration),
+                                         durationAnimation: interval
+                        )
+                    }
+                }
+            }
+        default:
+            break
+        }
+        
+       
+        
+        
+    }
+
+    
 /*
     TODO Модификаторы
     При атаке:

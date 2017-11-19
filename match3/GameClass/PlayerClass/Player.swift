@@ -31,7 +31,8 @@ class Player: SKSpriteNode {
     var health: Int = 50
     var shield: Int = 50
     var move: Int = 3
-    var mana: Int = 0
+    var mana: Int = 20
+    var coin: Int = 0
     
     //Position
     var positionAnchor: CGPoint =  CGPoint(x: -100, y: 140)
@@ -101,9 +102,7 @@ class Player: SKSpriteNode {
         if self.shield > 0 {
             self.shield -= damage
             if self.shield < 0 {
-                print(self.health)
                 self.health += self.shield
-                print(self.health)
                 self.shield = 0
             }
         }
