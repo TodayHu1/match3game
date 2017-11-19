@@ -127,7 +127,8 @@ class GameScene: SKScene {
         
         manaPoolNode = searchByName(name: "manaBarPool")
         
-        spell1 = gameScene.spellBook(skillName: "SkullJail")
+        spell1 = gameScene.spellBook(skillName: "SkullJail", spellIndex: 1)
+        spell3 = gameScene.spellBook(skillName: "Nemesis", spellIndex: 3)
         print(spell1)
 
         self.addChild(spell1)
@@ -188,8 +189,20 @@ class GameScene: SKScene {
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name != nil {
                 if touchedNode.name == "Spell1" {
-                    print(touchedNode.name)
+                    print(touchedNode.name as Any)
                     spell1.useSpell()
+                }
+                if touchedNode.name == "Spell2" {
+                    print(touchedNode.name as Any)
+                    spell2.useSpell()
+                }
+                if touchedNode.name == "Spell3" {
+                    print(touchedNode.name as Any)
+                    spell3.useSpell()
+                }
+                if touchedNode.name == "Spell4" {
+                    print(touchedNode.name as Any)
+                    spell4.useSpell()
                 }
             }
         }

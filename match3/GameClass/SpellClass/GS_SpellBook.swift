@@ -16,13 +16,13 @@ extension GameScene {
  TODO
     - Поочередность атаки (Враг - Игрок)
     - Блокировка управления пользователя во время экшена (Gesture)
-    - Плата за скиллы
+    + Плата за скиллы
     - Инициализатор для сцены
     - Анимация смерти персонажа
     - Ходы для врага
     - Счетчик монет + анимация
     - Иконки модификаторов
-    - Система спеллов в этом классе
+    + Система спеллов в этом классе
 */
     
 /*
@@ -74,14 +74,28 @@ extension GameScene {
 //
 
 //
-    func spellBook(skillName: String) -> Spell {
+    func spellBook(skillName: String, spellIndex: Int) -> Spell {
+        var skillPosition: CGPoint
+        if spellIndex > 2 {
+            skillPosition = CGPoint(x: -140+((spellIndex-1)*70), y: 80)
+        }
+        else {
+            skillPosition = CGPoint(x: 0+((spellIndex-1)*70), y: 80)
+        }
+
         switch skillName {
         case "SkullJail":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                        mana: 6, health: 0, armor: 0, coin: 0)
+                         mana: 6, health: 0, armor: 0, coin: 0,
+                         name: "Spell"+String(spellIndex), position: skillPosition)
+        case "Nemesis":
+            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                         mana: 0, health: 10, armor: 0, coin: 0,
+                         name: "Spell"+String(spellIndex), position: skillPosition)
         default:
-            return Spell(skillName: "0", texture: SKTexture(imageNamed: "SpellSkullJail"),
-                         mana: 666, health: 666, armor: 666, coin: 666)
+            return Spell(skillName: "0", texture: SKTexture(imageNamed: ""),
+                         mana: 666, health: 666, armor: 666, coin: 666,
+                         name: "Spell"+String(spellIndex), position: skillPosition )
         }
     }
     
@@ -94,6 +108,23 @@ extension GameScene {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == 1 {
+                        duration += interval
+                        matchMoveToBoard(matchIndex: 0,
+                                         nodePosition: player,
+                                         i: i,
+                                         j: j,
+                                         waitTimeToAnimation: TimeInterval(duration),
+                                         durationAnimation: interval
+                        )
+                    }
+                }
+            }
+        case "Nemesis":
+            var duration: Double = 0
+            let interval: Double = 0.225
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if levelArr[i][j] == 4 {
                         duration += interval
                         matchMoveToBoard(matchIndex: 0,
                                          nodePosition: player,

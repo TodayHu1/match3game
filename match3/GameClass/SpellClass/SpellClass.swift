@@ -24,14 +24,16 @@ class Spell: SKSpriteNode {
         self.position = position
     }
 
-    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int) {
+    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint) {
         super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 41, height: 41))
         self.zPosition = 9600
     
         self.skillName = skillName
         
         self.name = "Spell1"
-        self.position = CGPoint(x: -140, y: 80)
+        self.name = name
+        
+        self.position = position
         
         self.manaToUse = mana
         self.healthToUse = health
