@@ -25,8 +25,8 @@ extension GameScene {
             matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue)
             var subArr = [[Int]]()
             subArr = levelArr
-            levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount + plusValue),
-                             count: matchBoard.verticalCount + plusValue)
+            levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
+                             count: matchBoard.verticalCount)
             
             for i in 0...subArr.count-1 {
                 for j in 0...subArr[i].count-1 {
