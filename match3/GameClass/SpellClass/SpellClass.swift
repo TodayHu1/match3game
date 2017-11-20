@@ -16,7 +16,7 @@ class Spell: SKSpriteNode {
     private var armorToUse = 0
     private var coinToUse = 0
     
-    private var skillName = ""
+    public var skillName = ""
     
     init(name: String, position: CGPoint){
         super.init(texture: SKTexture(imageNamed: ""), color: UIColor.clear, size: CGSize(width: 41, height: 41))
@@ -50,13 +50,13 @@ class Spell: SKSpriteNode {
     
     func useSpell() {
         if self.conditionToUse() {
-            print("GO")
+            testGameLabel.text = "GO \(self.skillName)"
             self.changePlayerStat()
             gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 40)
             gameScene.castSpell(skillName: skillName)
         }
         else {
-            print("UNGO")
+            testGameLabel.text = "UNGO \(self.skillName)"
         }
     }
     

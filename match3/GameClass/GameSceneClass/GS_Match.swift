@@ -38,8 +38,8 @@ extension GameScene {
         case 6:
             return SKTexture(imageNamed:"MatchPoison.png")
         default:
-            print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
-            return SKTexture(imageNamed:"SkillPH.png")
+//            print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
+            return SKTexture(imageNamed:"MatchNull.png")
         }
     }
     
@@ -83,8 +83,7 @@ extension GameScene {
     public func durationTime() -> Double {
         return 0.34
     }
-    
-    
+
     public func moveArrLeft(index: Int) {
         swipeAnimationLeft(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
@@ -113,7 +112,6 @@ extension GameScene {
             self.matchAnimationPulseRevers(indexIandJ: "0" + String(index))
         }
     }
-    
     
     public func moveArrTop(index: Int) {
         swipeAnimationUp(index: index)

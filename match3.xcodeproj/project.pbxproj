@@ -354,10 +354,10 @@
 				1F6AA2591F35944B002586DD /* GS_CheckArr.swift */,
 				1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */,
 				1F26CA261F41B93500691519 /* GS_ActionOnScene.swift */,
-				1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */,
 				1F2AEDBB1EFD5863001AEBB7 /* GameScene.swift */,
 				1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */,
 				1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */,
+				1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */,
 			);
 			path = GameSceneClass;
 			sourceTree = "<group>";

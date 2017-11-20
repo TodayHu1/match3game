@@ -183,11 +183,7 @@ class Player: SKSpriteNode {
     func getMove(move: Int) {
         self.move -= move
     }
-    
-    func echo() {
-        print(self)
-    }
-    
+
     func wait() {
         self.run(SKAction.wait(forDuration: 0.5))
     }

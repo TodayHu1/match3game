@@ -26,7 +26,6 @@ extension GameScene {
                     }
                 }
             }
-//            print(levelArr)
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))

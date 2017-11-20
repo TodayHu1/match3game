@@ -41,35 +41,6 @@ extension GameScene {
      - теряет 20 монет и получает 10 брони, 10 жизней и 10 маны "AllHavePrice"
 */
     
-    
-    
-//    let labelmana = SKLabelNode(text: "\(manaToUse)")
-//    skillNode.addChild(labelmana)
-//    labelmana.position = CGPoint(x: skillNode.frame.width/5 , y: skillNode.frame.height/5)
-//    labelmana.zPosition = 9999
-//    labelmana.horizontalAlignmentMode = .center
-//    labelmana.verticalAlignmentMode = .center
-//    labelmana.fontName = "MunroSmall"
-//    print(labelmana)
-    
-    
-//    func initSpellOnBoard() {
-//        let spell = SKSpriteNode(imageNamed: "SpellSkullJail.png")
-////        spell.position = CGPoint()
-//        gameScene.addChild(spell)
-//    }
-//
-//    func getStatSpell() -> [Int] {
-//        let manaToUse = 0
-//        let healthToUse = 10
-//        let armorToUse = 10
-//        let cointToUse = 0
-//        return [manaToUse,healthToUse,armorToUse,cointToUse]
-//    }
-//
-//
-
-//
     func spellBook(skillName: String, spellIndex: Int) -> Spell {
         var skillPosition: CGPoint
         if spellIndex < 3 {
@@ -79,7 +50,7 @@ extension GameScene {
             skillPosition = CGPoint(x: 0+((spellIndex-2)*70), y: 80)
         }
         
-        print(skillPosition)
+        testGameLabel.text = "Init Skill position - \(skillPosition)"
 
         switch skillName {
         case "SkullJail":

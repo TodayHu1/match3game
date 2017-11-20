@@ -12,7 +12,7 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 6, verticalCount: 6)
+var matchBoard = Match(horizontalCount: 3, verticalCount: 3)
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
 var gameScene = GameScene()
@@ -24,7 +24,7 @@ var spell4 = Spell(name: "Spell4", position: CGPoint(x: 140, y: 80))
 
 var gestureLabel = SKLabelNode(text: "")
 var enemyIndexNow = 0
-var statLabel = SKLabelNode(fontNamed: "Arial")
+var testGameLabel = SKLabelNode(fontNamed: "Arial")
 var manaLabel = SKCountingLabel(fontNamed: "Arial")
 var manaPoolNode = SKSpriteNode(imageNamed: "")
 
@@ -35,32 +35,6 @@ public var levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.ho
 class GameScene: SKScene {
     
     private var lastTouch = CGPoint(x:1,y:1)
-    
-    public func randomFloat() -> Float {
-        return Float(Double(arc4random())/Double(UInt32.max))
-    }
-    
-    public func random(number: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(number)) + 1)
-    }
-    
-    public func randomNear(number: Int) -> Int {
-        let value: Int = Int(arc4random_uniform(UInt32(number))) - (number/2)
-        return value
-    }
-    
-    public func searchByName(name: String) -> SKSpriteNode {
-        var searchNode: SKSpriteNode?
-        for someNode in self.children {
-            if someNode.name == name {
-                if let nodeNode = someNode as? SKSpriteNode {
-                    searchNode = nodeNode
-                }
-            }
-        }
-        
-        return searchNode!
-    }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
         if matchActionGesture {
@@ -101,20 +75,21 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
-        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
+        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
         enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
         enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         
         player = Player()
         
-        statLabel.zPosition = 10
-        statLabel.position = CGPoint(x: 0, y: 290)
-        statLabel.fontName = "MunroSmall"
-        statLabel.fontSize = 40
-        statLabel.text = "OVER VS 9000"
-        self.addChild(statLabel)
+        testGameLabel.zPosition = 1000
+        testGameLabel.horizontalAlignmentMode = .left
+        testGameLabel.position = CGPoint(x: -gameScene.size.width/2 + 5 , y: -gameScene.size.height/2 + 5)
+        testGameLabel.fontName = "MunroSmall"
+        testGameLabel.fontSize = 20
+        testGameLabel.text = "SOME LOG HERE..."
+        self.addChild(testGameLabel)
         
         manaLabel.zPosition = 10
         manaLabel.position = CGPoint(x: 0, y: 80)
@@ -171,9 +146,7 @@ class GameScene: SKScene {
         self.addChild(enemyUnit)
         player.animationStand()
         enemyUnit.animationStand()
-//        player.animationStand()
-//        enemyUnit.animationStand()
-//        print("x-x-x- BUILD DONE -x-x-x")
+        testGameLabel.text = "Done DidMove"
 
     }
     
@@ -191,19 +164,19 @@ class GameScene: SKScene {
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name != nil {
                 if touchedNode.name == "Spell1" {
-                    print(touchedNode.name as Any)
+                    testGameLabel.text = (touchedNode.name as Any as! String)
                     spell1.useSpell()
                 }
                 if touchedNode.name == "Spell2" {
-                    print(touchedNode.name as Any)
+                    testGameLabel.text = (touchedNode.name as Any as? String)
                     spell2.useSpell()
                 }
                 if touchedNode.name == "Spell3" {
-                    print(touchedNode.name as Any)
+                    testGameLabel.text = (touchedNode.name as Any as! String)
                     spell3.useSpell()
                 }
                 if touchedNode.name == "Spell4" {
-                    print(touchedNode.name as Any)
+                    testGameLabel.text = touchedNode.name as Any as? String
                     spell4.useSpell()
                 }
             }

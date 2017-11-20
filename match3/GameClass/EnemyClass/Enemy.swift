@@ -32,7 +32,7 @@ class EnemyUnit: SKSpriteNode {
     var spawnSkullOnBoard: Int = 0
     
     //Death modificator
-    var spawnSkullOnDie = 2
+    var spawnSkullOnDie = 0
     
     
     //Label
@@ -174,9 +174,7 @@ class EnemyUnit: SKSpriteNode {
         if self.shield > 0 {
             self.shield -= damage
             if self.shield < 0 {
-                print(self.health)
                 self.health += self.shield
-                print(self.health)
                 self.shield = 0
             }
         }
@@ -195,7 +193,7 @@ class EnemyUnit: SKSpriteNode {
                 spawnNewEnemy
             ]))
             
-            print("NEW ENEMY INIT")
+            testGameLabel.text = "Init New Enemy"
         }
 
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
