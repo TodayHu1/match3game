@@ -14,8 +14,8 @@ extension GameScene {
 
     public func buildLevel(hardBuild: Bool) {
         if hardBuild {
-            for i in 0...matchBoard.horizontalCount-1 {
-                for j in 0...matchBoard.verticalCount-1 {
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
                     for nextButton in self.children {
                         if nextButton.name == "Match" + String(i) + String(j) {
                             if let nextButton = nextButton as? SKSpriteNode {

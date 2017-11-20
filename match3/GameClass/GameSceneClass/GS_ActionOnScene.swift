@@ -20,7 +20,7 @@ extension GameScene {
     
     func boardMatchSizeUp() {
         let plusValue = 1
-        if boardSizeUp {
+        if !boardSizeUp {
             print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue)
             var subArr = [[Int]]()

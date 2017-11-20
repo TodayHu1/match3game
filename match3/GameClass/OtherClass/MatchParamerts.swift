@@ -18,16 +18,20 @@ class Match {
     var matchSizeOnAction = 35
     var matchZIndex = 990
     
+    var boardSize = 320
+    var halfBoardSize = 0
+    
     var centerMatchBoard = CGPoint(x: 0, y: -145)
     
     init(horizontalCount:Int, verticalCount:Int) {
         self.horizontalCount = horizontalCount
         self.verticalCount = verticalCount
+        self.halfBoardSize = self.boardSize / 2
         if self.horizontalCount > self.verticalCount {
-            self.matchSize = 330 / self.horizontalCount
+            self.matchSize = self.boardSize / self.horizontalCount
         }
         else {
-            self.matchSize = 330 / self.verticalCount
+            self.matchSize = self.boardSize / self.verticalCount
         }
     }
     
