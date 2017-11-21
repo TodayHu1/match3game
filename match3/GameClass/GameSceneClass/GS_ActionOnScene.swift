@@ -18,9 +18,9 @@ extension GameScene {
                             andCountingType: .Int)
     }
     
-    func boardMatchSizeUp() {
+    func boardSizeChange() {
         let plusValue = 1
-        if !boardSizeUp {
+        if boardSizeUp {
             print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue)
             var subArr = [[Int]]()
@@ -39,29 +39,29 @@ extension GameScene {
             gameScene.fillArrOnVoidNoLoop()
             gameScene.buildLevel(hardBuild: false)
         }
-        else {
-            print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-            matchBoard = Match(horizontalCount: matchBoard.horizontalCount + 2, verticalCount: matchBoard.verticalCount + 2)
-            var subArr = [[Int]]()
-            print("- \(levelArr.count) –1– \(subArr.count)")
-            subArr = levelArr
-            print("- \(levelArr.count) –2– \(subArr.count)")
-            levelArr = Array(repeating: Array(repeating: 0, count: matchBoard.horizontalCount),
-                             count: matchBoard.verticalCount)
-            
-            for i in 0...subArr.count-1 {
-                for j in 0...subArr[i].count-1 {
-                    levelArr[i+1][j+1] = subArr[i][j]
-                }
-            }
-            
-            
-            print("- \(levelArr.count) –3– \(subArr.count)")
-            print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-            gameScene.buildLevel(hardBuild: true)
-            gameScene.fillArrOnVoidNoLoop()
-            gameScene.buildLevel(hardBuild: false)
-        }
+//        else {
+//            print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
+//            matchBoard = Match(horizontalCount: matchBoard.horizontalCount + 2, verticalCount: matchBoard.verticalCount + 2)
+//            var subArr = [[Int]]()
+//            print("- \(levelArr.count) –1– \(subArr.count)")
+//            subArr = levelArr
+//            print("- \(levelArr.count) –2– \(subArr.count)")
+//            levelArr = Array(repeating: Array(repeating: 0, count: matchBoard.horizontalCount),
+//                             count: matchBoard.verticalCount)
+//
+//            for i in 0...subArr.count-1 {
+//                for j in 0...subArr[i].count-1 {
+//                    levelArr[i+1][j+1] = subArr[i][j]
+//                }
+//            }
+//
+//
+//            print("- \(levelArr.count) –3– \(subArr.count)")
+//            print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
+//            gameScene.buildLevel(hardBuild: true)
+//            gameScene.fillArrOnVoidNoLoop()
+//            gameScene.buildLevel(hardBuild: false)
+//        }
     }
     
     public func moveMatchTo(i:Int ,j:Int) {

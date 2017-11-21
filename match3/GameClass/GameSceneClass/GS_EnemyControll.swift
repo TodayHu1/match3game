@@ -39,7 +39,7 @@ extension GameScene {
                 enemyUnit.run(pulse)
                 enemyUnit.animationStand()
                 
-                self.boardMatchSizeUp()
+                self.boardSizeChange()
                 
                 testGameLabel.text = "create new Enemy \(enemyIndexNow)"
             }
