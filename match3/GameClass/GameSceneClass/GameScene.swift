@@ -12,9 +12,12 @@ import GameplayKit
 
 var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
 
-var matchBoard = Match(horizontalCount: 5, verticalCount: 3)
+var matchBoard = Match(horizontalCount: 5, verticalCount: 5)
+
 var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
 var player = Player()
+var randomUnit = GeneratRandomUnit(playerLvl: 1)
+
 var gameScene = GameScene()
 
 var spell1 = Spell(name: "Spell1", position: CGPoint(x: -140, y: 80))
@@ -75,10 +78,11 @@ class GameScene: SKScene {
         
         gameScene = self
         
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
-        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "MotherStony")
-        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
-        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
+//        enemyOnLevelArr[0] = randomUnit.generate()
+        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
+        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
+        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
+        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
         enemyUnit = enemyOnLevelArr[enemyIndexNow]
         
         player = Player()
@@ -103,7 +107,7 @@ class GameScene: SKScene {
         manaPoolNode = searchByName(name: "manaBarPool")
         
         spell1 = gameScene.spellBook(skillName: "SkullJail", spellIndex: 1)
-        spell2 = gameScene.spellBook(skillName: "TouchOfMidas", spellIndex: 2)
+        spell2 = gameScene.spellBook(skillName: "Null", spellIndex: 2)
         spell3 = gameScene.spellBook(skillName: "Nemesis", spellIndex: 3)
         spell4 = gameScene.spellBook(skillName: "NoOneStepBack", spellIndex: 4)
 

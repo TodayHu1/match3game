@@ -29,7 +29,7 @@ extension GameScene {
     
     
     public func colomnEvent(touchX: Int, dir: Int) {
-        var p = matchBoard.halfBoardSize - ((matchBoard.horizontalCount * matchBoard.matchSize) / 2)
+        let p = matchBoard.halfBoardSize - ((matchBoard.horizontalCount * matchBoard.matchSize) / 2)
         for i in 0...matchBoard.horizontalCount-1 {
             if ((-160 + p)+(matchBoard.matchSize*i)) < touchX && touchX <= (-160 + p)+(matchBoard.matchSize*(i+1)) {
                 if (dir == -1) {
@@ -44,7 +44,7 @@ extension GameScene {
     
     
     public func rowEvent(touchY: Int, dir: Int) {
-        var p = matchBoard.halfBoardSize - ((matchBoard.verticalCount * matchBoard.matchSize) / 2)
+        let p = matchBoard.halfBoardSize - ((matchBoard.verticalCount * matchBoard.matchSize) / 2)
         for i in 0...matchBoard.verticalCount-1 {
             if ((10 - p)+(-matchBoard.matchSize*i) > touchY && touchY >= ((10 - p)+(-matchBoard.matchSize*(i+1)))) {
                 if (dir == 1) {

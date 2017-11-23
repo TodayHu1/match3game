@@ -11,7 +11,7 @@ import SpriteKit
 
 extension EnemyUnit {
     
-    func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
+    func setLabelOverHead(shield: Int, health: Int, initLabel: Bool) {
         
         if initLabel {
             self.labelBoard.removeFromParent()
@@ -57,6 +57,7 @@ extension EnemyUnit {
                                    withDuration: 1,
                                    andAnimationType: .EaseOut,
                                    andCountingType: .Int)
+        
+      
     }
-    
 }

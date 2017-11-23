@@ -13,7 +13,7 @@ extension EnemyUnit {
     
     func spawnSkullOnDieMod() -> SKAction {
         var duration: Double = 0
-        let interval: Double = 0.2
+        let interval: Double = gameScene.durationSpawnMatchAnimation()
         if self.spawnSkullOnDie > 0 {
             for _ in 1...self.spawnSkullOnDie {
                 duration += interval

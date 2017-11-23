@@ -37,6 +37,8 @@ extension GameScene {
             return SKTexture(imageNamed:"MatchCoin.png")
         case 6:
             return SKTexture(imageNamed:"MatchPoison.png")
+        case 7:
+            return SKTexture(imageNamed:"MatchCog.png")
         default:
 //            print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
             return SKTexture(imageNamed:"MatchNull.png")

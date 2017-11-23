@@ -13,6 +13,8 @@ import GameplayKit
 class Match {
     var horizontalCount = 0
     var verticalCount = 0
+    
+    var numberOfMatch = 0
 
     var matchSize = 0
     var matchSizeOnAction = 35
@@ -26,6 +28,8 @@ class Match {
     init(horizontalCount:Int, verticalCount:Int) {
         self.horizontalCount = horizontalCount
         self.verticalCount = verticalCount
+        self.numberOfMatch = self.horizontalCount * self.verticalCount
+        print(" ---> \(self.numberOfMatch)")
         self.halfBoardSize = self.boardSize / 2
         if self.horizontalCount > self.verticalCount {
             self.matchSize = self.boardSize / self.horizontalCount

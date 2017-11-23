@@ -21,7 +21,7 @@ extension GameScene {
     func boardSizeChange() {
         let plusValue = 1
         if boardSizeUp {
-            print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
+            //print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue)
             var subArr = [[Int]]()
             subArr = levelArr
@@ -34,7 +34,7 @@ extension GameScene {
                 }
             }
             
-            print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
+            //print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             gameScene.buildLevel(hardBuild: true)
             gameScene.fillArrOnVoidNoLoop()
             gameScene.buildLevel(hardBuild: false)
@@ -91,6 +91,12 @@ extension GameScene {
             specialActionOnEnd = SKAction.run {
                 gameScene.changeManaLabel()
             }
+        case 7:
+            objectForAnimation = enemyUnit
+            positionToMove = enemyUnit.position
+            specialActionOnEnd = SKAction.run {
+                enemyUnit.setLabelOverHead(shield: enemyUnit.shield, health: enemyUnit.health, initLabel: false)
+            }
         default:
             objectForAnimation = player
         }
@@ -113,6 +119,8 @@ extension GameScene {
     func matchMoveToBoard(matchIndex: Int, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchIndex))
         
+//        print(nodePosition)
+        
         switch nodePosition {
         case player:
             matchNode.position = player.positionCenter
@@ -121,6 +129,8 @@ extension GameScene {
         default:
             matchNode.position = nodePosition.position
         }
+        
+//        print(matchNode.position)
         
         matchNode.size.width = 0
         matchNode.size.height = 0

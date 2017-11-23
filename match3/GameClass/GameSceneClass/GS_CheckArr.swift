@@ -17,7 +17,7 @@ public var statArr = Array(repeating: Array(repeating: -1, count: matchBoard.hor
 extension GameScene {
     
     func actionOnTurnCount() -> Int {
-        return 6
+        return 7
     }
     
     public func checkArrOnAction(loop: Bool) {

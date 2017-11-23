@@ -15,7 +15,7 @@
 		1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FA1FADB4AE00C002B3 /* munro.ttf */; };
 		1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */; };
 		1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */; };
-		1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7051FADBC8900C002B3 /* Blood.sks */; };
+		1F00B7061FADBC8900C002B3 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7051FADBC8900C002B3 /* Heart.sks */; };
 		1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */; };
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
@@ -49,6 +49,11 @@
 		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
 		1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6AA2591F35944B002586DD /* GS_CheckArr.swift */; };
 		1F6AA25B1F361642002586DD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AEDB71EFD5863001AEBB7 /* GameScene.sks */; };
+		1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1F70F9E41FC6951800A0BAFD /* Armor.sks */; };
+		1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F70F9E91FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas */; };
+		1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F70F9EB1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas */; };
+		1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */; };
+		1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
 		1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB431441FB4908B00039960 /* MatchParamerts.swift */; };
 		1FB431B31FB5B28000039960 /* MatchTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431B21FB5B28000039960 /* MatchTexture.xcassets */; };
@@ -94,7 +99,7 @@
 		1F00B6FA1FADB4AE00C002B3 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
 		1F00B6FB1FADB4AE00C002B3 /* munro_narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_narrow.ttf; sourceTree = "<group>"; };
 		1F00B6FC1FADB4AE00C002B3 /* munro_small.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro_small.ttf; sourceTree = "<group>"; };
-		1F00B7051FADBC8900C002B3 /* Blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Blood.sks; sourceTree = "<group>"; };
+		1F00B7051FADBC8900C002B3 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Attack.atlas"; sourceTree = "<group>"; };
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
@@ -134,6 +139,11 @@
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
 		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
 		1F6AA2591F35944B002586DD /* GS_CheckArr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_CheckArr.swift; sourceTree = "<group>"; };
+		1F70F9E41FC6951800A0BAFD /* Armor.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Armor.sks; sourceTree = "<group>"; };
+		1F70F9E91FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RandomTestUnit-Attack.atlas"; sourceTree = "<group>"; };
+		1F70F9EB1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RandomTestUnit-Stand.atlas"; sourceTree = "<group>"; };
+		1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_BreakArmorMod.swift; sourceTree = "<group>"; };
+		1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Defense.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
 		1FB431441FB4908B00039960 /* MatchParamerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchParamerts.swift; sourceTree = "<group>"; };
 		1FB431B21FB5B28000039960 /* MatchTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MatchTexture.xcassets; sourceTree = "<group>"; };
@@ -261,7 +271,8 @@
 				32280FA81FB956E600F954B1 /* LevelMenu */,
 				1FD658F21F7E24BC00F808F4 /* EnemyAtlas */,
 				1FD658F41F7E250300F808F4 /* GameClass */,
-				1F00B7051FADBC8900C002B3 /* Blood.sks */,
+				1F00B7051FADBC8900C002B3 /* Heart.sks */,
+				1F70F9E41FC6951800A0BAFD /* Armor.sks */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -302,6 +313,15 @@
 			path = StoneScale;
 			sourceTree = "<group>";
 		};
+		1F70F9E81FC6AB1100A0BAFD /* RandomTestUnit */ = {
+			isa = PBXGroup;
+			children = (
+				1F70F9EB1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas */,
+				1F70F9E91FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas */,
+			);
+			path = RandomTestUnit;
+			sourceTree = "<group>";
+		};
 		1FB431B41FB5B28D00039960 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +353,7 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F70F9E81FC6AB1100A0BAFD /* RandomTestUnit */,
 				1FB431BA1FB753E000039960 /* ShadowRin */,
 				1F00B7071FAF588300C002B3 /* SteamPunkWalker */,
 				1F00B6F41FAD9F0F00C002B3 /* SteamPunkPunch */,
@@ -381,6 +402,8 @@
 				1F2D82141F80D09300710D50 /* Enemy_LabelOverHead.swift */,
 				1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */,
 				1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */,
+				1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */,
+				1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */,
 				1F00B6ED1FAD9E2000C002B3 /* GS_EnemyCollection.swift */,
 			);
 			path = EnemyClass;
@@ -558,6 +581,8 @@
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
+				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
+				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
 				1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */,
@@ -567,6 +592,7 @@
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
+				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
 				1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
@@ -575,7 +601,7 @@
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
 				1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
-				1F00B7061FADBC8900C002B3 /* Blood.sks in Resources */,
+				1F00B7061FADBC8900C002B3 /* Heart.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +638,7 @@
 				1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */,
 				1FF8179E1FC1755600F07292 /* SpellClass.swift in Sources */,
 				32280FAC1FB9577900F954B1 /* ChoiceLevelViewController.swift in Sources */,
+				1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */,
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
 				1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
@@ -619,6 +646,7 @@
 				1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */,
 				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
+				1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
 				1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */,
 				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,

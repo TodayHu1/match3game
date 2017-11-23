@@ -17,7 +17,8 @@ extension GameScene {
     - Поочередность атаки (Спелл - Враг - Игрок)
     - Блокировка управления пользователя во время экшена (Gesture)
     - Инициализатор для сцены
-    - Анимация смерти персонажа + меню
+    - Анимация смерти персон
+     ажа + меню
     - Анимация победы персонажа + меню
     - Анимация появленя врага
     - Счетчик монет + анимация
@@ -51,6 +52,10 @@ extension GameScene {
         testGameLabel.text = "Init Skill position - \(skillPosition)"
 
         switch skillName {
+        case "Null":
+            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                         mana: 1, health: 0, armor: 0, coin: 0,
+                         name: "Spell"+String(spellIndex), position: skillPosition)
         case "SkullJail":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
                          mana: 6, health: 0, armor: 0, coin: 0,
@@ -86,9 +91,12 @@ extension GameScene {
     
     func castSpell(skillName: String) {
         switch skillName {
+        case "Null":
+            let test = GeneratRandomUnit(playerLvl: 1)
+            test.echo()
         case "SkullJail":
             var duration: Double = 0
-            let interval: Double = 0.225
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == 1 {
@@ -105,7 +113,7 @@ extension GameScene {
             }
         case "Nemesis":
             var duration: Double = 0
-            let interval: Double = 0.225
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == 0  {
@@ -133,7 +141,7 @@ extension GameScene {
         //  - спавнит 6 матчейМонет "TouchOfMidas"
         case "TouchOfMidas":
             var duration: Double = 0
-            let interval: Double = 0.225
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             for _ in 0...5 {
                 duration += interval
                 matchMoveToBoard(matchIndex: 5,
@@ -147,7 +155,7 @@ extension GameScene {
         //  - заменяет все матчиАтака на матчиЗащиты "NoOneStepBack"
         case "NoOneStepBack":
             var duration: Double = 0
-            let interval: Double = 0.225
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == 4  {

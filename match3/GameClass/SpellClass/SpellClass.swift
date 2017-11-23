@@ -40,7 +40,7 @@ class Spell: SKSpriteNode {
         self.armorToUse = armor
         self.coinToUse = coin
         
-        print(self)
+        //print(self)
         
         self.initStatSpell()
         

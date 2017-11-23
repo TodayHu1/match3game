@@ -34,6 +34,8 @@ class EnemyUnit: SKSpriteNode {
     //Death modificator
     var spawnSkullOnDie = 0
     
+    //Bool for special spell
+    var specialSpell = true
     
     //Label
     var labelBoard = SKSpriteNode()
@@ -53,6 +55,9 @@ class EnemyUnit: SKSpriteNode {
     //Enemy name
     var enemyName = ""
     
+    //Color
+    var normalColor: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
+    
     
     init(enemyName: String, attack: Int, health: Int, shield: Int,
          size: CGSize,
@@ -66,9 +71,13 @@ class EnemyUnit: SKSpriteNode {
         self.position = positionAnchor
         self.name = "enemyUnit"
         
+        self.enemyName = enemyName
+        
         //init main value
         self.setScale(CGFloat(0.3))
         self.size = size
+//        self.color = normalColor
+        normalColor = self.color
         self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         self.attack = attack
         self.health = health
@@ -80,7 +89,7 @@ class EnemyUnit: SKSpriteNode {
 
         initShadow()
 
-        labelOverHead(shield: self.attack, health: self.health, initLabel: true)
+        setLabelOverHead(shield: self.attack, health: self.health, initLabel: true)
         
         enemyAtlasAttack = SKTextureAtlas(named: enemyName + "-Attack")
         enemyAtlasStand = SKTextureAtlas(named: enemyName + "-Stand")
@@ -134,9 +143,8 @@ class EnemyUnit: SKSpriteNode {
         }
         
         let attackMod = SKAction.run {
-            self.vampireAttackMod()
-            self.reactiveArmorMod()
-            self.spawnPoisonOnAttackMod()
+            //On Attack
+            self.attackMod()
             player.takeDamage(damage: damage)
         }
 
@@ -176,37 +184,49 @@ class EnemyUnit: SKSpriteNode {
             if self.shield < 0 {
                 self.health += self.shield
                 self.shield = 0
+                //On Break Armor
+                breakArmor()
             }
         }
         else {
             self.health -= damage
         }
         
+        
         if self.health < 1 {
-            
             let spawnNewEnemy = SKAction.run {
                 gameScene.newEnemy()
             }
-            
+            //On Die
             self.run(SKAction.sequence([
                 self.spawnSkullOnDieMod(),
                 spawnNewEnemy
             ]))
-            
             testGameLabel.text = "Init New Enemy"
         }
 
-        labelOverHead(shield: self.shield, health: self.health, initLabel: false)
-
-        let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
-        let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)
-
-        self.run(SKAction.sequence([getDamage,toNormalColor]))
+        setLabelOverHead(shield: self.shield, health: self.health, initLabel: false)
+        
+        defenseMod()
+        
+//        print("––––––––––––––––––––––––––––––––––––")
+//        print("\(self.color) ––– \(self.normalColor)")
+//        let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
+//        let toNormalColor = SKAction.colorize(with: self.color, colorBlendFactor: 1, duration: 0.05)
+//        self.run(SKAction.sequence([getDamage,toNormalColor]))
+//
+//        print("\(self.color) ––– \(self.normalColor)")
+//        print("––––––––––––––––––––––––––––––––––––")
         
     }
 
-    func wait() {
-        self.run(SKAction.wait(forDuration: 0.5))
+    func buffParticle(name: String) {
+        let loadBuff = Bundle.main.path(forResource: name, ofType: "sks")
+        let buffParticle = NSKeyedUnarchiver.unarchiveObject(withFile: loadBuff!) as! SKEmitterNode
+        self.addChild(buffParticle)
+//        buffParticle.position = self.positionCenter
+        buffParticle.position.y = self.positionCenter.y
+        buffParticle.zPosition = self.zPosition + 1
     }
     
 }

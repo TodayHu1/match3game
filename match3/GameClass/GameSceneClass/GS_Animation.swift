@@ -15,6 +15,14 @@ extension GameScene {
 //        }
 //    }
     
+    func durationSpawnMatchAnimation() -> TimeInterval {
+        let y = 3
+        let x: Double = Double(Double(y) / Double(matchBoard.numberOfMatch))
+
+        print("DURATION \(x) - \(y) - \(matchBoard.numberOfMatch)")
+        return (TimeInterval(x))
+    }
+    
     public func swipeAnimationLeft(index: Int) {
         var spriteNode: SKSpriteNode!
         for j in 1...matchBoard.horizontalCount-1 {

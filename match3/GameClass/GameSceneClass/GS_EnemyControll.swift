@@ -67,6 +67,9 @@ extension GameScene {
                     player.mana += actionOnTurn[3]
                 case 4:
                     player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
+                case 7:
+                    enemyUnit.health += 10
+                    enemyUnit.shield += 20
                 default: break
                 }
             }

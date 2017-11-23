@@ -11,17 +11,20 @@ import SpriteKit
 
 extension EnemyUnit {
     
+    func attackMod() {
+        self.vampireAttackMod()
+        self.reactiveArmorMod()
+        self.spawnPoisonOnAttackMod()
+    }
+    
     //Health = (Attack * 3) * %Vamp
     func vampireAttackMod() {
-        if self.vampireAttack > 0 {
-            let path = Bundle.main.path(forResource: "Blood", ofType: "sks")
-            let rainParticle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
-            self.addChild(rainParticle)
-            
+        if self.vampireAttack > 0 {            
             self.health += Int(
                 Float(self.attack * 3) * Float(self.vampireAttack)
             )
-            labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+            buffParticle(name: "Heart")
+            setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
         }
     }
     
@@ -29,9 +32,9 @@ extension EnemyUnit {
     func reactiveArmorMod() {
         if reactiveArmor > 0 {
             self.shield += self.attack * self.reactiveArmor
-            labelOverHead(shield: self.attack, health: self.health, initLabel: false)
+            buffParticle(name: "Armor")
+            setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
         }
-
     }
     
     
@@ -41,7 +44,7 @@ extension EnemyUnit {
     func spawnPoisonOnAttackMod() {
         if self.spawnPoisonOnBoard > 0 {
             var duration: Double = 0
-            let interval: Double = 0.2
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             for _ in 1...self.spawnPoisonOnBoard {
                 duration += interval
                 gameScene.matchMoveToBoard(
@@ -59,7 +62,7 @@ extension EnemyUnit {
     func spawnSkullOnAttackMod() {
         if self.spawnSkullOnBoard > 0 {
             var duration: Double = 0
-            let interval: Double = 0.2
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
             duration += interval
             gameScene.matchMoveToBoard(
                 matchIndex: 1,
