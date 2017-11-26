@@ -18,14 +18,18 @@ class Spell: SKSpriteNode {
     
     public var skillName = ""
     
+    var gameScene: GameScene!
+    
     init(name: String, position: CGPoint){
         super.init(texture: SKTexture(imageNamed: ""), color: UIColor.clear, size: CGSize(width: 41, height: 41))
         self.name = name
         self.position = position
     }
 
-    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint) {
+    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint, gameScene: GameScene) {
         super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 41, height: 41))
+        
+        self.gameScene = gameScene
         self.zPosition = 550
     
         self.skillName = skillName
@@ -52,13 +56,13 @@ class Spell: SKSpriteNode {
     
     func useSpell() {
         if self.conditionToUse() {
-            testGameLabel.text = "GO \(self.skillName)"
+            self.gameScene.testGameLabel.text = "GO \(self.skillName)"
             self.changePlayerStat()
             gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 40)
             gameScene.castSpell(skillName: skillName)
         }
         else {
-            testGameLabel.text = "UNGO \(self.skillName)"
+            self.gameScene.testGameLabel.text = "UNGO \(self.skillName)"
         }
     }
     
@@ -134,10 +138,10 @@ class Spell: SKSpriteNode {
     }
     
     private func conditionToUse() -> Bool {
-        if player.mana >= manaToUse &&
-            player.health >= healthToUse &&
-            player.shield >= armorToUse &&
-            player.coin >= coinToUse  {
+        if self.gameScene.player.mana >= manaToUse &&
+            self.gameScene.player.health >= healthToUse &&
+            self.gameScene.player.shield >= armorToUse &&
+            self.gameScene.player.coin >= coinToUse  {
             return true
         }
         else {
@@ -146,13 +150,13 @@ class Spell: SKSpriteNode {
     }
     
     private func changePlayerStat() {
-        player.shield -= armorToUse
-        player.health -= healthToUse
-        player.coin -= coinToUse
-        player.mana -= manaToUse
+        self.gameScene.player.shield -= armorToUse
+        self.gameScene.player.health -= healthToUse
+        self.gameScene.player.coin -= coinToUse
+        self.gameScene.player.mana -= manaToUse
 
-        gameScene.changeManaLabel()
-        player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
+        self.gameScene.changeManaLabel()
+        self.gameScene.player.labelOverHead(shield: self.gameScene.player.shield, health: self.gameScene.player.health, initLabel: false)
     }
     
 }

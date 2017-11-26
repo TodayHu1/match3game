@@ -31,7 +31,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-js-ui5" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                        <rect key="frame" x="44" y="180" width="167" height="146"/>
+                                        <rect key="frame" x="30" y="125" width="290" height="253"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <size key="titleShadowOffset" width="0.0" height="3"/>
                                         <state key="normal" backgroundImage="Table"/>
@@ -145,7 +145,7 @@
                                         <color key="textColor" red="0.58085735103626945" green="0.38112239229230821" blue="0.084538122866737633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SteamPunkWalker" translatesAutoresizingMaskIntoConstraints="NO" id="GD5-2a-s0z">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SteamPunkWalker" translatesAutoresizingMaskIntoConstraints="NO" id="GD5-2a-s0z">
                                         <rect key="frame" x="20" y="92" width="201" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -162,7 +162,6 @@
         <!--Choice Level View Controller-->
         <scene sceneID="DK1-21-GWZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AZf-48-OGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="secondLevelScreen" id="O7d-Su-N9I" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="T8f-sb-IwP"/>
@@ -206,7 +205,7 @@
                                         <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShadowRin" translatesAutoresizingMaskIntoConstraints="NO" id="C46-a0-C3L">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShadowRin" translatesAutoresizingMaskIntoConstraints="NO" id="C46-a0-C3L">
                                         <rect key="frame" x="61" y="96" width="119" height="114"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -224,6 +223,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZf-48-OGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-63.200000000000003" y="-1316.4917541229386"/>
         </scene>

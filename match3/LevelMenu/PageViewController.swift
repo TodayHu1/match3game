@@ -24,6 +24,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.dataSource = self
         self.delegate = self
         
+        
+        
         // dnl: создаем одну кнопку на все страницы page сontroller`а
 //        createButton()
         

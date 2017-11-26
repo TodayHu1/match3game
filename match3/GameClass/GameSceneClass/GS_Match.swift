@@ -46,8 +46,7 @@ extension GameScene {
     }
     
     public func customRandom() -> Int{
-        let randomNumber = gameScene.random(number: 100)-1
-        
+        let randomNumber = self.random(number: 100)-1
         //Процентная доля появления match от 100%
 //        let skull = 50
 //        let shield = 0
@@ -89,17 +88,17 @@ extension GameScene {
     public func moveArrLeft(index: Int) {
         swipeAnimationLeft(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            levelArr[index].remove(at: 0)
-            levelArr[index].append(gameScene.customRandom())
-            self.matchAnimationPulseRevers(indexIandJ: String(index) + String(matchBoard.horizontalCount-1))
+            self.levelArr[index].remove(at: 0)
+            self.levelArr[index].append(self.customRandom())
+            self.matchAnimationPulseRevers(indexIandJ: String(index) + String(self.matchBoard.horizontalCount-1))
         }
     }
     
     public func moveArrRight(index: Int) {
         swipeAnimationRight(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            levelArr[index].remove(at: matchBoard.horizontalCount-1)
-            levelArr[index].insert(gameScene.customRandom(), at: 0)
+            self.levelArr[index].remove(at: self.matchBoard.horizontalCount-1)
+            self.levelArr[index].insert(self.customRandom(), at: 0)
             self.matchAnimationPulseRevers(indexIandJ: String(index) + "0")
         }
     }
@@ -107,10 +106,10 @@ extension GameScene {
     public func moveArrBottom(index: Int) {
         swipeAnimationDown(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            for i in (1...matchBoard.verticalCount-1).reversed() {
-                levelArr[i][index] = levelArr[i-1][index]
+            for i in (1...self.matchBoard.verticalCount-1).reversed() {
+                self.levelArr[i][index] = self.levelArr[i-1][index]
             }
-            levelArr[0][index] = gameScene.customRandom()
+            self.levelArr[0][index] = self.customRandom()
             self.matchAnimationPulseRevers(indexIandJ: "0" + String(index))
         }
     }
@@ -118,11 +117,11 @@ extension GameScene {
     public func moveArrTop(index: Int) {
         swipeAnimationUp(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            for i in 0...matchBoard.verticalCount-2 {
-                levelArr[i][index] = levelArr[i+1][index]
+            for i in 0...self.matchBoard.verticalCount-2 {
+                self.levelArr[i][index] = self.levelArr[i+1][index]
             }
-            levelArr[matchBoard.verticalCount-1][index] = gameScene.customRandom()
-            self.matchAnimationPulseRevers(indexIandJ: String(matchBoard.verticalCount-1) + String(index))
+            self.levelArr[self.matchBoard.verticalCount-1][index] = self.customRandom()
+            self.matchAnimationPulseRevers(indexIandJ: String(self.matchBoard.verticalCount-1) + String(index))
         }
     }
     

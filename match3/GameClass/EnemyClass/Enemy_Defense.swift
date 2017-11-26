@@ -26,12 +26,12 @@ extension EnemyUnit {
     
     func spawnCog(number: Int) {
         var duration: Double = 0
-        let interval: Double = gameScene.durationSpawnMatchAnimation()
+        let interval: Double = self.gameScene.durationSpawnMatchAnimation()
         for _ in 1...number {
-            gameScene.matchMoveToBoard(matchIndex: 7,
-                                       nodePosition: enemyUnit,
-                                       i: matchBoard.getRandomMatchVertical(),
-                                       j: matchBoard.getRandomMatchHorizontal(),
+            self.gameScene.matchMoveToBoard(matchIndex: 7,
+                                       nodePosition: self,
+                                       i: self.gameScene.matchBoard.getRandomMatchVertical(),
+                                       j: self.gameScene.matchBoard.getRandomMatchHorizontal(),
                                        waitTimeToAnimation: TimeInterval(duration),
                                        durationAnimation: interval
             )

@@ -22,15 +22,15 @@ extension EnemyUnit {
     }
     
     func spawnChainInstedPositiveMatch() {
-        testGameLabel.text = "GO UNARMOR"
+        self.gameScene.testGameLabel.text = "GO UNARMOR"
         var duration: Double = 0
         let interval: Double = gameScene.durationSpawnMatchAnimation()
-        for i in 0...matchBoard.verticalCount-1 {
-            for j in 0...matchBoard.horizontalCount-1 {
-                if levelArr[i][j] == 2 || levelArr[i][j] == 3 || levelArr[i][j] == 4 || levelArr[i][j] == 5 {
+        for i in 0...self.gameScene.matchBoard.verticalCount-1 {
+            for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
+                if self.gameScene.levelArr[i][j] == 2 || self.gameScene.levelArr[i][j] == 3 || self.gameScene.levelArr[i][j] == 4 || self.gameScene.levelArr[i][j] == 5 {
                     duration += interval
                     gameScene.matchMoveToBoard(matchIndex: 0,
-                                               nodePosition: enemyUnit,
+                                               nodePosition: self,
                                                i: i,
                                                j: j,
                                                waitTimeToAnimation: TimeInterval(duration),

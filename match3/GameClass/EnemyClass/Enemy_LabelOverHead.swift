@@ -47,12 +47,13 @@ extension EnemyUnit {
             self.labelShield.addChild(self.iconShield)
         }
         
-        self.labelHealth.countFrom(fromValue: gameScene.stringToFloat(value: self.labelHealth.text!),
+        self.labelHealth.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelHealth.text!),
                                    to: Float(self.health),
                                    withDuration: 1,
                                    andAnimationType: .EaseOut,
                                    andCountingType: .Int)
-        self.labelShield.countFrom(fromValue: gameScene.stringToFloat(value: self.labelShield.text!),
+        
+        self.labelShield.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelShield.text!),
                                    to: Float(self.shield),
                                    withDuration: 1,
                                    andAnimationType: .EaseOut,

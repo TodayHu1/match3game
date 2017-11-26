@@ -44,14 +44,14 @@ extension EnemyUnit {
     func spawnPoisonOnAttackMod() {
         if self.spawnPoisonOnBoard > 0 {
             var duration: Double = 0
-            let interval: Double = gameScene.durationSpawnMatchAnimation()
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
             for _ in 1...self.spawnPoisonOnBoard {
                 duration += interval
-                gameScene.matchMoveToBoard(
+                self.gameScene.matchMoveToBoard(
                     matchIndex: 6,
                     nodePosition: self,
-                    i: gameScene.random(number: matchBoard.verticalCount) - 1,
-                    j: gameScene.random(number: matchBoard.horizontalCount) - 1,
+                    i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                    j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
                     waitTimeToAnimation: duration,
                     durationAnimation: interval)
             }
@@ -62,13 +62,13 @@ extension EnemyUnit {
     func spawnSkullOnAttackMod() {
         if self.spawnSkullOnBoard > 0 {
             var duration: Double = 0
-            let interval: Double = gameScene.durationSpawnMatchAnimation()
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
             duration += interval
-            gameScene.matchMoveToBoard(
+            self.gameScene.matchMoveToBoard(
                 matchIndex: 1,
                 nodePosition: self,
-                i: gameScene.random(number: matchBoard.verticalCount) - 1,
-                j: gameScene.random(number: matchBoard.horizontalCount) - 1,
+                i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
                 waitTimeToAnimation: duration,
                 durationAnimation: interval)
         }

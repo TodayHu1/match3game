@@ -58,12 +58,14 @@ class EnemyUnit: SKSpriteNode {
     //Color
     var normalColor: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
     
+    var gameScene: GameScene!
     
     init(enemyName: String, attack: Int, health: Int, shield: Int,
          size: CGSize,
-         vampire: Float, reactiveArmor: Int) {
+         vampire: Float, reactiveArmor: Int, gameScene: GameScene) {
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
+        self.gameScene = gameScene
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
         
@@ -87,6 +89,8 @@ class EnemyUnit: SKSpriteNode {
         
         self.colorBlendFactor = CGFloat(0)
 
+        
+        
         initShadow()
 
         setLabelOverHead(shield: self.attack, health: self.health, initLabel: true)
@@ -139,13 +143,13 @@ class EnemyUnit: SKSpriteNode {
         }
 
         let shakeScene = SKAction.run {
-            gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
+            self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
         
         let attackMod = SKAction.run {
             //On Attack
             self.attackMod()
-            player.takeDamage(damage: damage)
+            self.gameScene.player.takeDamage(damage: damage)
         }
 
         let fullAttackAnimation = SKAction.sequence([
@@ -195,14 +199,14 @@ class EnemyUnit: SKSpriteNode {
         
         if self.health < 1 {
             let spawnNewEnemy = SKAction.run {
-                gameScene.newEnemy()
+                self.gameScene.newEnemy()
             }
             //On Die
             self.run(SKAction.sequence([
                 self.spawnSkullOnDieMod(),
                 spawnNewEnemy
             ]))
-            testGameLabel.text = "Init New Enemy"
+            self.gameScene.testGameLabel.text = "Init New Enemy"
         }
 
         setLabelOverHead(shield: self.shield, health: self.health, initLabel: false)

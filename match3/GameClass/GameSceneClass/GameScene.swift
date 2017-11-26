@@ -1,6 +1,6 @@
 
 //
-//  GameScene.swift
+//  self.swift
 //  match3
 //
 //  Created by Женя on 24.06.17.
@@ -10,34 +10,60 @@
 import SpriteKit
 import GameplayKit
 
-var enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
-
-var matchBoard = Match(horizontalCount: 5, verticalCount: 5)
-
-var enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 0, height: 0), vampire: 0, reactiveArmor: 0)
-var player = Player()
-var randomUnit = GeneratRandomUnit(playerLvl: 1)
-
-var gameScene = GameScene()
-
-var spell1 = Spell(name: "Spell1", position: CGPoint(x: -140, y: 80))
-var spell2 = Spell(name: "Spell2", position: CGPoint(x: -70, y: 80))
-var spell3 = Spell(name: "Spell3", position: CGPoint(x: 70, y: 80))
-var spell4 = Spell(name: "Spell4", position: CGPoint(x: 140, y: 80))
-
-var gestureLabel = SKLabelNode(text: "")
-var enemyIndexNow = 0
-var testGameLabel = SKLabelNode(fontNamed: "Arial")
-var manaLabel = SKCountingLabel(fontNamed: "Arial")
-var manaPoolNode = SKSpriteNode(imageNamed: "")
-
-public var levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
-                              count: matchBoard.verticalCount)
 
 
 class GameScene: SKScene {
     
+    var matchBoard: Match!
+    var randomUnit: GeneratRandomUnit!
+    var gestureLabel = SKLabelNode(text: "")
+    var enemyIndexNow = 0
+    var testGameLabel = SKLabelNode(fontNamed: "Arial")
+    var manaLabel: SKCountingLabel = SKCountingLabel(fontNamed: "Arial")
+    var manaPoolNode = SKSpriteNode(imageNamed: "")
+    var levelArr = [[Int]]()
     private var lastTouch = CGPoint(x:1,y:1)
+    var player: Player!
+    var enemyUnit: EnemyUnit!
+    var spell1: Spell!
+    var spell2: Spell!
+    var spell3: Spell!
+    var spell4: Spell!
+    var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
+    var statArr = [[Int]]()
+    var enemyOnLevelArr = [EnemyUnit]()
+    
+    required init?(coder aDecoder: NSCoder) {
+        print("INIT CODER - \(aDecoder)")
+        super.init(coder: aDecoder)
+        self.matchBoard = Match(horizontalCount: 4, verticalCount: 4, gameScene: self)
+        self.player = Player(gameScene: self)
+        self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
+        self.enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
+        self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
+        
+        self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
+        
+        self.levelArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+                              count: matchBoard.verticalCount)
+        
+        self.statArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+                             count: matchBoard.verticalCount)
+        
+        self.manaPoolNode = searchByName(name: "manaBarPool")
+        
+        self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
+        self.spell2 = spellBook(skillName: playerSpell[1], spellIndex: 2)
+        self.spell3 = spellBook(skillName: playerSpell[2], spellIndex: 3)
+        self.spell4 = spellBook(skillName: playerSpell[3], spellIndex: 4)
+        
+        self.addChild(spell1)
+        self.addChild(spell2)
+        self.addChild(spell3)
+        self.addChild(spell4)
+        
+        print("INIT CODER DONE")
+    }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
         if matchActionGesture {
@@ -70,26 +96,17 @@ class GameScene: SKScene {
     func afterAnimation() {
         startCheckLoop()
     }
-    
+
     override func didMove(to view: SKView) {
+        
+        print("DIDMOVE GO")
 
         buildLevel(hardBuild: true)
         checkArrOnAction(loop: loopOnSpawnMatch)
-        
-        gameScene = self
-        
-//        enemyOnLevelArr[0] = randomUnit.generate()
-        enemyOnLevelArr[0] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
-        enemyOnLevelArr[1] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkFlameThrower")
-        enemyOnLevelArr[2] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkWalker")
-        enemyOnLevelArr[3] = gameScene.initNewClassForEnemy(enemyName: "SteamPunkPunch")
-        enemyUnit = enemyOnLevelArr[enemyIndexNow]
-        
-        player = Player()
-        
+
         testGameLabel.zPosition = 1000
         testGameLabel.horizontalAlignmentMode = .left
-        testGameLabel.position = CGPoint(x: -gameScene.size.width/2 + 5 , y: -gameScene.size.height/2 + 5)
+        testGameLabel.position = CGPoint(x: -self.size.width/2 + 5 , y: -self.size.height/2 + 5)
         testGameLabel.fontName = "MunroSmall"
         testGameLabel.fontSize = 20
         testGameLabel.text = "SOME LOG HERE..."
@@ -104,41 +121,28 @@ class GameScene: SKScene {
         manaLabel.horizontalAlignmentMode = .center
         self.addChild(manaLabel)
         
-        manaPoolNode = searchByName(name: "manaBarPool")
-        
-        spell1 = gameScene.spellBook(skillName: "SkullJail", spellIndex: 1)
-        spell2 = gameScene.spellBook(skillName: "Null", spellIndex: 2)
-        spell3 = gameScene.spellBook(skillName: "Nemesis", spellIndex: 3)
-        spell4 = gameScene.spellBook(skillName: "NoOneStepBack", spellIndex: 4)
-
-
-        self.addChild(spell1)
-        self.addChild(spell2)
-        self.addChild(spell3)
-        self.addChild(spell4)
-        
         
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
         let swipeUp = UISwipeGestureRecognizer()
         let swipeDown = UISwipeGestureRecognizer()
         
-        swipeRight.addTarget(self, action: #selector(GameScene.swipedRight) )
+        swipeRight.addTarget(self, action: #selector(self.swipedRight) )
         swipeRight.direction = .right
         self.view!.addGestureRecognizer(swipeRight)
         
         
-        swipeLeft.addTarget(self, action: #selector(GameScene.swipedLeft) )
+        swipeLeft.addTarget(self, action: #selector(self.swipedLeft) )
         swipeLeft.direction = .left
         self.view!.addGestureRecognizer(swipeLeft)
         
         
-        swipeUp.addTarget(self, action: #selector(GameScene.swipedUp) )
+        swipeUp.addTarget(self, action: #selector(self.swipedUp) )
         swipeUp.direction = .up
         self.view!.addGestureRecognizer(swipeUp)
         
         
-        swipeDown.addTarget(self, action: #selector(GameScene.swipedDown))
+        swipeDown.addTarget(self, action: #selector(self.swipedDown))
         swipeDown.direction = .down
         self.view!.addGestureRecognizer(swipeDown)
         
@@ -151,6 +155,8 @@ class GameScene: SKScene {
         player.animationStand()
         enemyUnit.animationStand()
         testGameLabel.text = "Done DidMove"
+        
+        print("DIDMOVE DONE")
 
     }
     
@@ -158,8 +164,6 @@ class GameScene: SKScene {
 
     }
     
-
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        for touch: AnyObject in touches {
         for touch in (touches) {

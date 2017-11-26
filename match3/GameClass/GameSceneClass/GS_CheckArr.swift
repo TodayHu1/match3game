@@ -10,13 +10,10 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-public var actionOnTurn = [Int](repeating: 0, count: gameScene.actionOnTurnCount() + 1)
-public var statArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
-                           count: matchBoard.verticalCount)
 
 extension GameScene {
     
-    func actionOnTurnCount() -> Int {
+    public func actionOnTurnCount() -> Int {
         return 7
     }
     
@@ -25,7 +22,7 @@ extension GameScene {
         count: matchBoard.verticalCount)
         findHorizontalMatchChaindInArr()
         findVerticalMatchChaindInArr()
-        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(statArr[i][j] == indexOfMatch) {
@@ -48,7 +45,7 @@ extension GameScene {
     }
     
     private func findHorizontalMatchChaindInArr() {
-        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -64,7 +61,7 @@ extension GameScene {
     }
     
     private func findVerticalMatchChaindInArr() {
-        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -83,7 +80,7 @@ extension GameScene {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
                 if(levelArr[i][j] == -1) {
-                    levelArr[i][j] = gameScene.customRandom()
+                    levelArr[i][j] = self.customRandom()
                 }
             }
         }
@@ -100,7 +97,7 @@ extension GameScene {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(levelArr[i][j] == -1) {
-                        levelArr[i][j] = gameScene.customRandom()
+                        levelArr[i][j] = self.customRandom()
                     }
                 }
             }
@@ -134,7 +131,7 @@ extension GameScene {
     
     private func checkVerticalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if( levelArr[i][j] == indexOfMatch &&
@@ -150,7 +147,7 @@ extension GameScene {
     
     private func checkHorizontalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...gameScene.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
                     if( levelArr[i][j] == indexOfMatch &&

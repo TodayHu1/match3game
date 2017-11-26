@@ -23,25 +23,25 @@ extension GameScene {
     
     public func newEnemy() {
         testGameLabel.text = "enemyIndex \(enemyIndexNow)"
-        if enemyIndexNow < enemyOnLevelArr.count-1 {
+        if self.enemyIndexNow < self.enemyOnLevelArr.count-1 {
             let moveOut = SKAction.move(to: CGPoint(x: 500, y: 140), duration: 1)
             let reverse = SKAction.scaleX(to: -0.3, duration: 0.3)
             let pulse = SKAction.fadeIn(withDuration: 10)
             let newEnemy = SKAction.run {
-                enemyUnit.removeFromParent()
-                enemyUnit.removeAllChildren()
+                self.enemyUnit.removeFromParent()
+                self.enemyUnit.removeAllChildren()
                 
-                enemyIndexNow+=1
-                enemyUnit = enemyOnLevelArr[enemyIndexNow]
+                self.enemyIndexNow+=1
+                self.enemyUnit = self.enemyOnLevelArr[self.enemyIndexNow]
                 
-                self.addChild(enemyUnit)
+                self.addChild(self.enemyUnit)
                 
-                enemyUnit.run(pulse)
-                enemyUnit.animationStand()
+                self.enemyUnit.run(pulse)
+                self.enemyUnit.animationStand()
                 
                 self.boardSizeChange()
                 
-                testGameLabel.text = "create new Enemy \(enemyIndexNow)"
+                self.testGameLabel.text = "create new Enemy \(self.enemyIndexNow)"
             }
             enemyUnit.run(SKAction.sequence([reverse,moveOut,newEnemy]))
 

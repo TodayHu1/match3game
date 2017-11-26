@@ -38,10 +38,12 @@ class Player: SKSpriteNode {
     var positionAnchor: CGPoint =  CGPoint(x: -100, y: 140)
     var positionCenter: CGPoint = CGPoint(x: 0, y: 0)
 
+    var gameScene: GameScene!
     
-    init() {
+    init(gameScene: GameScene) {
         super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: CGSize(width: 150, height: 400))
         
+        self.gameScene = gameScene
         self.setScale(0.3)
         self.zPosition = 1000
         self.position = positionAnchor
@@ -85,18 +87,6 @@ class Player: SKSpriteNode {
         self.addChild(shadowNode)
     }
     
-//    func initStat(attack: Int, health: Int) {
-//        let textFrame = " 🛡" + String(attack) + " ⚔" + String(health)
-//        let labelNode = CountingLabel(text: textFrame)
-//        labelNode.zPosition = 1
-//        labelNode.fontSize = 80
-//        labelNode.position.y += 300
-//
-//        labelNode.alpha = 1
-//        self.addChild(labelNode)
-//
-//    }
-    
     func takeDamage(damage: Int) {
 
         if self.shield > 0 {
@@ -129,11 +119,11 @@ class Player: SKSpriteNode {
         moveBack.timingMode = .easeOut
         
         let attackMod = SKAction.run {
-            enemyUnit.takeDamage(damage: damage)
+            self.gameScene.enemyUnit.takeDamage(damage: damage)
         }
         
         let shakeScene = SKAction.run {
-            gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
+            self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
         let fullAttackAnimation = SKAction.sequence([
             SKAction.wait(forDuration: 0.6),

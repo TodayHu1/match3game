@@ -11,7 +11,7 @@ import SpriteKit
 extension GameScene {
     
     public func changeManaLabel(){
-        manaLabel.countFrom(fromValue: gameScene.stringToFloat(value: manaLabel.text!),
+        manaLabel.countFrom(fromValue: self.stringToFloat(value: manaLabel.text!),
                             to: Float(player.mana),
                             withDuration: 0.5,
                             andAnimationType: .EaseOut,
@@ -22,7 +22,7 @@ extension GameScene {
         let plusValue = 1
         if boardSizeUp {
             //print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-            matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue)
+            matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue, gameScene: self)
             var subArr = [[Int]]()
             subArr = levelArr
             levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
@@ -35,9 +35,9 @@ extension GameScene {
             }
             
             //print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-            gameScene.buildLevel(hardBuild: true)
-            gameScene.fillArrOnVoidNoLoop()
-            gameScene.buildLevel(hardBuild: false)
+            self.buildLevel(hardBuild: true)
+            self.fillArrOnVoidNoLoop()
+            self.buildLevel(hardBuild: false)
         }
 //        else {
 //            print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
@@ -58,9 +58,9 @@ extension GameScene {
 //
 //            print("- \(levelArr.count) –3– \(subArr.count)")
 //            print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-//            gameScene.buildLevel(hardBuild: true)
-//            gameScene.fillArrOnVoidNoLoop()
-//            gameScene.buildLevel(hardBuild: false)
+//            self.buildLevel(hardBuild: true)
+//            self.fillArrOnVoidNoLoop()
+//            self.buildLevel(hardBuild: false)
 //        }
     }
     
@@ -83,19 +83,19 @@ extension GameScene {
             objectForAnimation = player.iconShield
             positionToMove = player.position
             specialActionOnEnd = SKAction.run {
-                player.labelOverHead(shield: player.shield, health: player.health, initLabel: false)
+                self.player.labelOverHead(shield: self.player.shield, health: self.player.health, initLabel: false)
             }
         case 3:
             objectForAnimation = manaPoolNode
             positionToMove = manaPoolNode.position
             specialActionOnEnd = SKAction.run {
-                gameScene.changeManaLabel()
+                self.changeManaLabel()
             }
         case 7:
             objectForAnimation = enemyUnit
             positionToMove = enemyUnit.position
             specialActionOnEnd = SKAction.run {
-                enemyUnit.setLabelOverHead(shield: enemyUnit.shield, health: enemyUnit.health, initLabel: false)
+                self.enemyUnit.setLabelOverHead(shield: self.enemyUnit.shield, health: self.enemyUnit.health, initLabel: false)
             }
         default:
             objectForAnimation = player
@@ -109,7 +109,7 @@ extension GameScene {
 
         let removeMatch = SKAction.run {
             matchNode.removeFromParent()
-            gameScene.nodeAnimationPulseUp(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
+            self.nodeAnimationPulseUp(node: objectForAnimation as! SKSpriteNode, duration: 0.2, percentValuePulsation: 20/3)
         }
         self.addChild(matchNode)
         matchNode.run(SKAction.sequence([endMove, startMove, removeMatch, specialActionOnEnd]))
@@ -139,7 +139,7 @@ extension GameScene {
         let durationMoveAndResize = 0.5
         
         let animationCode = SKAction.run {
-            gameScene.nodeAnimationPulseUp(node: nodePosition, duration: durationAnimation, percentValuePulsation: 20)
+            self.nodeAnimationPulseUp(node: nodePosition, duration: durationAnimation, percentValuePulsation: 20)
         }
         
         let startMove = SKAction.move(to: CGPoint(x: CGFloat(randomNear(number: 190)), y: CGFloat(randomNear(number: 160))), duration: durationMoveAndResize)
@@ -160,13 +160,13 @@ extension GameScene {
         }
         
         let matchEndAnimation = SKAction.run {
-            gameScene.matchAnimationPulseRevers(indexIandJ: String(i) + String(j))
+            self.matchAnimationPulseRevers(indexIandJ: String(i) + String(j))
         }
         
         let setMatchWithIndex = SKAction.run {
-            levelArr[i][j] = matchIndex
-            gameScene.buildLevel(hardBuild: false)
-            gameScene.checkArrOnAction(loop: loopOnSpawnMatch)
+            self.levelArr[i][j] = matchIndex
+            self.buildLevel(hardBuild: false)
+            self.checkArrOnAction(loop: loopOnSpawnMatch)
         }
         
         self.addChild(matchNode)
@@ -187,7 +187,7 @@ extension GameScene {
     }
     
     public func endBuild() {
-        gameScene.checkArrForAction()
+        self.checkArrForAction()
     }
     
 

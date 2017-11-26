@@ -25,7 +25,10 @@ class Match {
     
     var centerMatchBoard = CGPoint(x: 0, y: -145)
     
-    init(horizontalCount:Int, verticalCount:Int) {
+    var gameScene: GameScene!
+    
+    init(horizontalCount:Int, verticalCount:Int, gameScene: GameScene) {
+        self.gameScene = gameScene
         self.horizontalCount = horizontalCount
         self.verticalCount = verticalCount
         self.numberOfMatch = self.horizontalCount * self.verticalCount
@@ -49,10 +52,10 @@ class Match {
     }
     
     public func getRandomMatchHorizontal() -> Int {
-        return (gameScene.random(number: self.horizontalCount))-1
+        return (self.gameScene.random(number: self.horizontalCount))-1
     }
     
     public func getRandomMatchVertical() -> Int {
-        return (gameScene.random(number: self.verticalCount))-1
+        return (self.gameScene.random(number: self.verticalCount))-1
     }
 }
