@@ -31,15 +31,18 @@ class GameScene: SKScene {
     var spell4: Spell!
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var statArr = [[Int]]()
-    var enemyOnLevelArr = [EnemyUnit]()
+    var enemyOnLevelArr = [String]()
     
-    required init?(coder aDecoder: NSCoder) {
-        print("INIT CODER - \(aDecoder)")
-        super.init(coder: aDecoder)
-        self.matchBoard = Match(horizontalCount: 4, verticalCount: 4, gameScene: self)
+    override init(size: CGSize) {
+        print("INIT SIZE")
+        super.init(size: size)
+        
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.backgroundColor = UIColor(displayP3Red: 11, green: 11, blue: 11, alpha: 1)
+        self.matchBoard = Match(horizontalCount: 6, verticalCount: 6, gameScene: self)
         self.player = Player(gameScene: self)
         self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
-        self.enemyOnLevelArr = [enemyUnit,enemyUnit,enemyUnit,enemyUnit]
+        self.enemyOnLevelArr = ["ShadowRin","SteamPunkFlameThrower","MotherStony","SteamPunkFlameThrower"]
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
@@ -49,8 +52,6 @@ class GameScene: SKScene {
         
         self.statArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
-        
-        self.manaPoolNode = searchByName(name: "manaBarPool")
         
         self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
         self.spell2 = spellBook(skillName: playerSpell[1], spellIndex: 2)
@@ -62,6 +63,12 @@ class GameScene: SKScene {
         self.addChild(spell3)
         self.addChild(spell4)
         
+        print("INIT SIZE DONE")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        print("INIT CODER - \(aDecoder)")
+        super.init(coder: aDecoder)
         print("INIT CODER DONE")
     }
     
@@ -94,12 +101,73 @@ class GameScene: SKScene {
     }
     
     func afterAnimation() {
+        actionGesture(gesture: true)
         startCheckLoop()
+    }
+    
+    func buildScene() {
+        //Spell Board
+        let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
+        spellBoardA.position = CGPoint(x: 0, y: 80)
+        spellBoardA.zPosition = 99
+        self.addChild(spellBoardA)
+        
+        //Mana Orb
+        self.manaPoolNode = SKSpriteNode(texture: SKTexture(imageNamed: "manaBar-1.png"), size: CGSize(width: 64, height: 64))
+        spellBoardA.addChild(self.manaPoolNode)
+        self.manaPoolNode.zPosition += 1
+        
+        //Mana Holder
+        let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))
+//        manaHoler.position = self.manaPoolNode.position
+        manaHolder.zPosition = 101
+        manaHolder.zRotation = CGFloat(Int(45)) * .pi / 180
+        self.manaPoolNode.addChild(manaHolder)
+        
+        //Label for Mana Orb
+        manaLabel.zPosition = 10
+        manaLabel.position = CGPoint(x: 0, y: 80)
+        manaLabel.fontName = "Munro"
+        manaLabel.fontSize = 32
+        manaLabel.text = String(player.mana)
+        manaLabel.verticalAlignmentMode = .center
+        manaLabel.horizontalAlignmentMode = .center
+        manaLabel.zPosition = 102
+        self.addChild(manaLabel)
+        
+        //BG
+        let bg = SKSpriteNode(texture: SKTexture(imageNamed: "BGPunk2.png"), size: CGSize(width: 375, height: 215))
+        bg.position = CGPoint(x: 0, y: 227)
+        self.addChild(bg)
+        
+
+        
+//        //Spell Cell
+
+        for i in 0...4 {
+            let spellCellTexture = SKSpriteNode(texture: SKTexture(imageNamed: "skillCell.png"), size: CGSize(width: 55, height: 55))
+            spellCellTexture.zPosition = 100
+            spellCellTexture.name = "SpellCell - \(i)"
+            if i > 1 {
+                spellCellTexture.position = CGPoint(x: -140+(70*(i+1)), y: 80)
+            }
+            else {
+                spellCellTexture.position = CGPoint(x: -140+(70*i), y: 80)
+            }
+            self.addChild(spellCellTexture)
+        }
     }
 
     override func didMove(to view: SKView) {
         
         print("DIDMOVE GO")
+        buildScene()
+
+        
+//        self.manaPoolNode = searchByName(name: "manaBarPool")
+//        self.manaPoolNode = manaBar
+        
+        self.enemyUnit = self.initNewClassForEnemy(enemyName: self.enemyOnLevelArr[self.enemyIndexNow])
 
         buildLevel(hardBuild: true)
         checkArrOnAction(loop: loopOnSpawnMatch)
@@ -112,14 +180,8 @@ class GameScene: SKScene {
         testGameLabel.text = "SOME LOG HERE..."
         self.addChild(testGameLabel)
         
-        manaLabel.zPosition = 10
-        manaLabel.position = CGPoint(x: 0, y: 80)
-        manaLabel.fontName = "Munro"
-        manaLabel.fontSize = 32
-        manaLabel.text = String(player.mana)
-        manaLabel.verticalAlignmentMode = .center
-        manaLabel.horizontalAlignmentMode = .center
-        self.addChild(manaLabel)
+
+        
         
         
         let swipeRight = UISwipeGestureRecognizer()
@@ -154,8 +216,6 @@ class GameScene: SKScene {
         self.addChild(enemyUnit)
         player.animationStand()
         enemyUnit.animationStand()
-        testGameLabel.text = "Done DidMove"
-        
         print("DIDMOVE DONE")
 
     }
@@ -172,19 +232,15 @@ class GameScene: SKScene {
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name != nil {
                 if touchedNode.name == "Spell1" {
-                    testGameLabel.text = (touchedNode.name as Any as! String)
                     spell1.useSpell()
                 }
                 if touchedNode.name == "Spell2" {
-                    testGameLabel.text = (touchedNode.name as Any as? String)
                     spell2.useSpell()
                 }
                 if touchedNode.name == "Spell3" {
-                    testGameLabel.text = (touchedNode.name as Any as! String)
                     spell3.useSpell()
                 }
                 if touchedNode.name == "Spell4" {
-                    testGameLabel.text = touchedNode.name as Any as? String
                     spell4.useSpell()
                 }
             }

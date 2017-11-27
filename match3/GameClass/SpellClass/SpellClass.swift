@@ -56,13 +56,9 @@ class Spell: SKSpriteNode {
     
     func useSpell() {
         if self.conditionToUse() {
-            self.gameScene.testGameLabel.text = "GO \(self.skillName)"
             self.changePlayerStat()
             gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 40)
             gameScene.castSpell(skillName: skillName)
-        }
-        else {
-            self.gameScene.testGameLabel.text = "UNGO \(self.skillName)"
         }
     }
     

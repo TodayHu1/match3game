@@ -48,8 +48,6 @@ extension GameScene {
         else {
             skillPosition = CGPoint(x: 0+((spellIndex-2)*70), y: 80)
         }
-        
-        testGameLabel.text = "Init Skill position - \(skillPosition)"
 
         switch skillName {
         case "Null":

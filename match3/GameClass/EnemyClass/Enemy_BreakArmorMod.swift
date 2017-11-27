@@ -22,7 +22,6 @@ extension EnemyUnit {
     }
     
     func spawnChainInstedPositiveMatch() {
-        self.gameScene.testGameLabel.text = "GO UNARMOR"
         var duration: Double = 0
         let interval: Double = gameScene.durationSpawnMatchAnimation()
         for i in 0...self.gameScene.matchBoard.verticalCount-1 {

@@ -206,7 +206,6 @@ class EnemyUnit: SKSpriteNode {
                 self.spawnSkullOnDieMod(),
                 spawnNewEnemy
             ]))
-            self.gameScene.testGameLabel.text = "Init New Enemy"
         }
 
         setLabelOverHead(shield: self.shield, health: self.health, initLabel: false)

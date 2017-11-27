@@ -19,12 +19,12 @@ extension GameScene {
     
     public func actionGesture(gesture: Bool) {
         matchActionGesture = gesture
+        testGameLabel.text = "Game gesture - \(gesture)"
     }
     
     public func newEnemy() {
-        testGameLabel.text = "enemyIndex \(enemyIndexNow)"
         if self.enemyIndexNow < self.enemyOnLevelArr.count-1 {
-            let moveOut = SKAction.move(to: CGPoint(x: 500, y: 140), duration: 1)
+            let moveOut = SKAction.move(to: CGPoint(x: 400, y: 140), duration: 0.5)
             let reverse = SKAction.scaleX(to: -0.3, duration: 0.3)
             let pulse = SKAction.fadeIn(withDuration: 10)
             let newEnemy = SKAction.run {
@@ -32,24 +32,27 @@ extension GameScene {
                 self.enemyUnit.removeAllChildren()
                 
                 self.enemyIndexNow+=1
-                self.enemyUnit = self.enemyOnLevelArr[self.enemyIndexNow]
-                
+                self.enemyUnit = self.initNewClassForEnemy(enemyName: self.enemyOnLevelArr[self.enemyIndexNow])
+
                 self.addChild(self.enemyUnit)
                 
                 self.enemyUnit.run(pulse)
                 self.enemyUnit.animationStand()
                 
                 self.boardSizeChange()
-                
-                self.testGameLabel.text = "create new Enemy \(self.enemyIndexNow)"
             }
-            enemyUnit.run(SKAction.sequence([reverse,moveOut,newEnemy]))
+            let gestureTrue = SKAction.run {
+                self.actionGesture(gesture: true)
+            }
+            let gestureFalse = SKAction.run {
+                self.actionGesture(gesture: false)
+            }
+            enemyUnit.run(SKAction.sequence([gestureFalse, reverse, moveOut, newEnemy, gestureTrue]))
 
         }
         else {
             enemyUnit.removeFromParent()
             enemyUnit.removeAllChildren()
-            testGameLabel.text = "delete all \(enemyIndexNow)"
         }
     }
     
@@ -81,7 +84,6 @@ extension GameScene {
 //        let statHide = SKAction.fadeOut(withDuration: 2)
 //        let statWait = SKAction.wait(forDuration: 2)
 //        let statText = SKAction.run({
-//            testGameLabel.text = "\(player.attack * actionOnTurn[4]) vs \(enemyUnit.attack * actionOnTurn[1])"
 //        })
 //        let sdf = SKAction.removeFromParent()
 //        let statInitArr = SKAction.run {

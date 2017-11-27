@@ -19,6 +19,7 @@ extension GameScene {
     
     
     func direction(dir: Int, point: CGPoint){
+        actionGesture(gesture: false)
         if(dir > 0) {
             rowEvent(touchY: Int(point.y), dir: dir)
         }
