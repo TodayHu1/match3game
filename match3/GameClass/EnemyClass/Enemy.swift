@@ -69,7 +69,7 @@ class EnemyUnit: SKSpriteNode {
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
         
-        self.zPosition = 1000
+        self.zPosition = 900
         self.position = positionAnchor
         self.name = "enemyUnit"
         

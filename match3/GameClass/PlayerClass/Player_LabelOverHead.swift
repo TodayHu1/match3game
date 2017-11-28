@@ -18,7 +18,7 @@ extension Player {
             self.labelBoard.removeAllChildren()
             
             //Board
-            self.labelBoard.zPosition = self.zPosition + 1
+            self.labelBoard.zPosition = self.zPosition - 500
 //            self.labelBoard.position.y = self.position.y + self.size.height + 120
             self.addChild(self.labelBoard)
             
@@ -44,6 +44,8 @@ extension Player {
             self.iconShield.zPosition = self.iconShield.zPosition - 1
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
+            
+            
         }
         
         

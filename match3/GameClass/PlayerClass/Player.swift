@@ -45,7 +45,6 @@ class Player: SKSpriteNode {
         
         self.gameScene = gameScene
         self.setScale(0.3)
-        self.zPosition = 1000
         self.position = positionAnchor
         self.name = "Player"
         self.anchorPoint.x = 0.5
@@ -68,6 +67,11 @@ class Player: SKSpriteNode {
             let name = self.name! + "-" + "Stand" + "-\(i).png"
             playerArrStand.append(SKTexture(imageNamed: name))
         }
+        
+        self.zPosition = 3000
+        print(self.labelBoard.zPosition)
+        print(self.labelHealth.zPosition)
+        print(self.labelShield.zPosition)
         
     }
     

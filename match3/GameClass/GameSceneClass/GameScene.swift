@@ -216,8 +216,26 @@ class GameScene: SKScene {
         self.addChild(enemyUnit)
         player.animationStand()
         enemyUnit.animationStand()
+        
+        fadeInStart()
+        
         print("DIDMOVE DONE")
 
+    }
+    
+    func fadeInStart() {
+        let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
+        blackSreen.size = CGSize(width: 600, height: 900)
+        blackSreen.zPosition = 2950
+        self.addChild(blackSreen)
+        
+        let fade = SKAction.fadeOut(withDuration: 3)
+        let deletScreen = SKAction.run {
+            blackSreen.removeFromParent()
+            blackSreen.removeAllChildren()
+        }
+        let fadeSeq = SKAction.sequence([SKAction.wait(forDuration: 1.4), fade, deletScreen])
+        blackSreen.run(fadeSeq)
     }
     
     override func didFinishUpdate() {
