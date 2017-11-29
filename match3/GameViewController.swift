@@ -11,21 +11,29 @@ import SpriteKit
 import GameplayKit
 
 var playerSpell = ["SkullJail","Null","SkullJail","Null"]
+let enemyA = [["MotherStony","MotherStony"],["Random","Random"]]
+var enemyIndexA = 0
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let view = self.view as! SKView? {
-            if var scene = SKScene(fileNamed: "GameScene") {
-                scene = GameScene(size: CGSize(width: 375, height: 665))
-                scene.scaleMode = .aspectFill
-                view.presentScene(scene)
-            }
-            view.ignoresSiblingOrder = true
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
+
+        let theView = view as! SKView
+        let testScene = MovingScreen()
+        let theWelcome = testScene
+        theWelcome.scaleMode = SKSceneScaleMode.resizeFill
+        
+        theView.presentScene( theWelcome )
+    }
+    
+    func presentScene(scene: SKScene) {
+        let view = self.view as! SKView
+        scene.scaleMode = .aspectFill
+        view.ignoresSiblingOrder = true
+        view.showsFPS = true
+        view.showsNodeCount = true
+        view.presentScene(scene)
     }
 
     override var shouldAutorotate: Bool {

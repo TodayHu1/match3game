@@ -40,6 +40,19 @@ class Player: SKSpriteNode {
 
     var gameScene: GameScene!
     
+    init() {
+        super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: CGSize(width: 150, height: 400))
+        
+        self.setScale(0.3)
+        self.position = positionAnchor
+        self.name = "Player"
+        self.anchorPoint.x = 0.5
+        self.anchorPoint.y = 0
+        self.size.width = 170
+        self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
+        self.zPosition = 3000
+    }
+    
     init(gameScene: GameScene) {
         super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: CGSize(width: 150, height: 400))
         

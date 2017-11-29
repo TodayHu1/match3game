@@ -54,6 +54,7 @@
 		1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F70F9EB1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas */; };
 		1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */; };
 		1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */; };
+		1F9C4B981FCEB1EF0090714E /* MovingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
 		1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB431441FB4908B00039960 /* MatchParamerts.swift */; };
 		1FB431B31FB5B28000039960 /* MatchTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431B21FB5B28000039960 /* MatchTexture.xcassets */; };
@@ -144,6 +145,7 @@
 		1F70F9EB1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RandomTestUnit-Stand.atlas"; sourceTree = "<group>"; };
 		1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_BreakArmorMod.swift; sourceTree = "<group>"; };
 		1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Defense.swift; sourceTree = "<group>"; };
+		1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingScreen.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
 		1FB431441FB4908B00039960 /* MatchParamerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchParamerts.swift; sourceTree = "<group>"; };
 		1FB431B21FB5B28000039960 /* MatchTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MatchTexture.xcassets; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				1F13F94F1FBD7104008DA2C9 /* CountClass.swift */,
 				1FB431441FB4908B00039960 /* MatchParamerts.swift */,
 				1FF817A11FC2A1B900F07292 /* GenerationRandomUnit.swift */,
+				1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */,
 			);
 			path = OtherClass;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF817A21FC2A1B900F07292 /* GenerationRandomUnit.swift in Sources */,
+				1F9C4B981FCEB1EF0090714E /* MovingScreen.swift in Sources */,
 				1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */,
 				1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */,
 				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,

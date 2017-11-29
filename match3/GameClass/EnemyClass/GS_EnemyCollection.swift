@@ -55,6 +55,8 @@ extension GameScene {
                              attack: 3, health: 200, shield: 0,
                              size: CGSize(width: 150, height: 150),
                              vampire: 1, reactiveArmor: 0, gameScene: self)
+        case "Random":
+            return randomUnit.generate()
         default:
             return EnemyUnit(enemyName: "SteamPunkWalker",
                              attack: 5, health: 999, shield: 999,

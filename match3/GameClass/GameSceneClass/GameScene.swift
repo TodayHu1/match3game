@@ -32,17 +32,51 @@ class GameScene: SKScene {
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var statArr = [[Int]]()
     var enemyOnLevelArr = [String]()
+
     
-    override init(size: CGSize) {
+    override init() {
         print("INIT SIZE")
-        super.init(size: size)
+        super.init(size: CGSize(width: 375, height: 665))
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         self.backgroundColor = UIColor(displayP3Red: 11, green: 11, blue: 11, alpha: 1)
         self.matchBoard = Match(horizontalCount: 6, verticalCount: 6, gameScene: self)
         self.player = Player(gameScene: self)
         self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
-        self.enemyOnLevelArr = ["ShadowRin","SteamPunkFlameThrower","MotherStony","SteamPunkFlameThrower"]
+        self.enemyOnLevelArr = ["MotherStony"]
+        self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
+        
+        self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
+        
+        self.levelArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+                              count: matchBoard.verticalCount)
+        
+        self.statArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+                             count: matchBoard.verticalCount)
+        
+        self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
+        self.spell2 = spellBook(skillName: playerSpell[1], spellIndex: 2)
+        self.spell3 = spellBook(skillName: playerSpell[2], spellIndex: 3)
+        self.spell4 = spellBook(skillName: playerSpell[3], spellIndex: 4)
+        
+        self.addChild(spell1)
+        self.addChild(spell2)
+        self.addChild(spell3)
+        self.addChild(spell4)
+        
+        print("INIT SIZE DONE")
+    }
+    
+    init(enemyArr: [String]) {
+        print("INIT SIZE")
+        super.init(size: CGSize(width: 375, height: 665))
+        
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.backgroundColor = UIColor(displayP3Red: 11, green: 11, blue: 11, alpha: 1)
+        self.matchBoard = Match(horizontalCount: 6, verticalCount: 6, gameScene: self)
+        self.player = Player(gameScene: self)
+        self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
+        self.enemyOnLevelArr = enemyArr
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
@@ -229,7 +263,7 @@ class GameScene: SKScene {
         blackSreen.zPosition = 2950
         self.addChild(blackSreen)
         
-        let fade = SKAction.fadeOut(withDuration: 3)
+        let fade = SKAction.fadeOut(withDuration: 1.5)
         let deletScreen = SKAction.run {
             blackSreen.removeFromParent()
             blackSreen.removeAllChildren()
@@ -263,6 +297,14 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+
+    func presentScene() {
+        print("NewScene")
+        let secondScene = MovingScreen()
+        let transition = SKTransition.crossFade(withDuration: 1.0)
+        secondScene.scaleMode = SKSceneScaleMode.aspectFill
+        self.scene!.view?.presentScene(secondScene, transition: transition)
     }
     
     override func update(_ currentTime: TimeInterval) {

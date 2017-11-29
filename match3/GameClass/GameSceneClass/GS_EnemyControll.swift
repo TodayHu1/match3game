@@ -53,6 +53,16 @@ extension GameScene {
         else {
             enemyUnit.removeFromParent()
             enemyUnit.removeAllChildren()
+            
+            enemyIndexA+=1
+            
+            let waitScene = SKAction.wait(forDuration: 0.8)
+            let scene = SKAction.run {
+                self.presentScene()
+            }
+            let seq = SKAction.sequence([waitScene, scene])
+            self.run(seq)
+
         }
     }
     
