@@ -22,13 +22,30 @@ class MovingScreen: SKScene {
     
     func presentScene() {
         print("NewScene")
-        let secondScene = GameScene(enemyArr: enemyA[enemyIndexA])
+        let secondScene = GameScene(enemyArr: enemyA[enemyIndexA],
+                                    playerSpell: ["Null","Null","Null","Null"],
+                                    bg: getRandomBG(index: enemyIndexA))
         let transition = SKTransition.crossFade(withDuration: 0.0)
-        secondScene.scaleMode = SKSceneScaleMode.aspectFill
+        secondScene.scaleMode = SKSceneScaleMode.aspectFit
         self.scene!.view?.presentScene(secondScene, transition: transition)
     }
     
+    func getRandomBG(index: Int) -> String {
+        switch index {
+        case 0:
+            return "BGPunk2.png"
+        case 1:
+            return "TableInner.png"
+        default:
+            return "CharPlaceHolder.png"
+        }
+    }
+    
     override func didMove(to view: SKView) {
+        
+        let player = Player()
+        self.addChild(player)
+        
         let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
         blackSreen.size = CGSize(width: 600, height: 900)
         blackSreen.zPosition = 1
@@ -44,7 +61,7 @@ class MovingScreen: SKScene {
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let wait = SKAction.wait(forDuration: 1)
         let startLevel = SKAction.run {
-            if enemyIndexA < 2 {
+            if enemyIndexA < enemyA.count {
                 self.presentScene()
             }
             else {
@@ -53,7 +70,7 @@ class MovingScreen: SKScene {
 
         }
         let chageLabel = SKAction.run {
-            if enemyIndexA < 2 {
+            if enemyIndexA < enemyA.count {
                 movingLabel.text = "ENEMY AHEAD!"
             }
             else {
@@ -69,8 +86,8 @@ class MovingScreen: SKScene {
                                            fadeOut,
                                            startLevel]))
         
-        let player = Player()
-        self.addChild(player)
+        
+        print("\(player.size) ------- \(self.size)")
     }
 
 }

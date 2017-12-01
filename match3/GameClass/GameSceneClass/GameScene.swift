@@ -34,40 +34,9 @@ class GameScene: SKScene {
     var enemyOnLevelArr = [String]()
 
     
-    override init() {
-        print("INIT SIZE")
-        super.init(size: CGSize(width: 375, height: 665))
-        
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.backgroundColor = UIColor(displayP3Red: 11, green: 11, blue: 11, alpha: 1)
-        self.matchBoard = Match(horizontalCount: 6, verticalCount: 6, gameScene: self)
-        self.player = Player(gameScene: self)
-        self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
-        self.enemyOnLevelArr = ["MotherStony"]
-        self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
-        
-        self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
-        
-        self.levelArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
-                              count: matchBoard.verticalCount)
-        
-        self.statArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
-                             count: matchBoard.verticalCount)
-        
-        self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
-        self.spell2 = spellBook(skillName: playerSpell[1], spellIndex: 2)
-        self.spell3 = spellBook(skillName: playerSpell[2], spellIndex: 3)
-        self.spell4 = spellBook(skillName: playerSpell[3], spellIndex: 4)
-        
-        self.addChild(spell1)
-        self.addChild(spell2)
-        self.addChild(spell3)
-        self.addChild(spell4)
-        
-        print("INIT SIZE DONE")
-    }
+
     
-    init(enemyArr: [String]) {
+    init(enemyArr: [String], playerSpell: [String], bg: String) {
         print("INIT SIZE")
         super.init(size: CGSize(width: 375, height: 665))
         
@@ -96,6 +65,8 @@ class GameScene: SKScene {
         self.addChild(spell2)
         self.addChild(spell3)
         self.addChild(spell4)
+        
+        buildScene(bg: bg)
         
         print("INIT SIZE DONE")
     }
@@ -139,7 +110,7 @@ class GameScene: SKScene {
         startCheckLoop()
     }
     
-    func buildScene() {
+    func buildScene(bg: String) {
         //Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
         spellBoardA.position = CGPoint(x: 0, y: 80)
@@ -170,14 +141,16 @@ class GameScene: SKScene {
         self.addChild(manaLabel)
         
         //BG
-        let bg = SKSpriteNode(texture: SKTexture(imageNamed: "BGPunk2.png"), size: CGSize(width: 375, height: 215))
+        let bg = SKSpriteNode(texture: SKTexture(imageNamed: bg), size: CGSize(width: 375, height: 215))
         bg.position = CGPoint(x: 0, y: 227)
         self.addChild(bg)
         
-
+        //MatchBoard
+        let matchBoard = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 375, height: 375))
+        matchBoard.position = CGPoint(x: 0, y: -145)
+        self.addChild(matchBoard)
         
-//        //Spell Cell
-
+        //Spell Cell
         for i in 0...4 {
             let spellCellTexture = SKSpriteNode(texture: SKTexture(imageNamed: "skillCell.png"), size: CGSize(width: 55, height: 55))
             spellCellTexture.zPosition = 100
@@ -195,7 +168,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         print("DIDMOVE GO")
-        buildScene()
 
         
 //        self.manaPoolNode = searchByName(name: "manaBarPool")
@@ -252,6 +224,8 @@ class GameScene: SKScene {
         enemyUnit.animationStand()
         
         fadeInStart()
+        
+        print("\(player.size) ------- \(self.size)")
         
         print("DIDMOVE DONE")
 

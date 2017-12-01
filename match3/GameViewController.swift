@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-var playerSpell = ["SkullJail","Null","SkullJail","Null"]
 let enemyA = [["MotherStony","MotherStony"],["Random","Random"]]
 var enemyIndexA = 0
 
@@ -22,7 +21,7 @@ class GameViewController: UIViewController {
         let theView = view as! SKView
         let testScene = MovingScreen()
         let theWelcome = testScene
-        theWelcome.scaleMode = SKSceneScaleMode.resizeFill
+        theWelcome.scaleMode = SKSceneScaleMode.aspectFit
         
         theView.presentScene( theWelcome )
     }
