@@ -45,6 +45,7 @@ class MovingScreen: SKScene {
         
         let player = Player()
         self.addChild(player)
+        player.animationWalking()
         
         let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
         blackSreen.size = CGSize(width: 600, height: 900)

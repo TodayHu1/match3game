@@ -18,6 +18,9 @@ class Player: SKSpriteNode {
     var playerArrStand = [SKTexture]()
     var playerAtlasStand = SKTextureAtlas()
     
+    var playerArrWalking = [SKTexture]()
+    var playerAtlasWalking = SKTextureAtlas()
+    
     //Label
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
@@ -53,6 +56,25 @@ class Player: SKSpriteNode {
         self.anchorPoint.y = 0
         self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         self.zPosition = 3000
+        
+        playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
+        playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
+        playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
+        
+        for i in 0...playerAtlasAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "Attack" + "-\(i).png"
+            playerArrAttack.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasStand.textureNames.count-1 {
+            let name = self.name! + "-" + "Stand" + "-\(i).png"
+            playerArrStand.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasWalking.textureNames.count-1 {
+            let name = self.name! + "-" + "Walking" + "-\(i).png"
+            playerArrWalking.append(SKTexture(imageNamed: name))
+        }
     }
     
     init(gameScene: GameScene) {
@@ -71,6 +93,7 @@ class Player: SKSpriteNode {
         
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
+        playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -80,6 +103,11 @@ class Player: SKSpriteNode {
         for i in 0...playerAtlasStand.textureNames.count-1 {
             let name = self.name! + "-" + "Stand" + "-\(i).png"
             playerArrStand.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasWalking.textureNames.count-1 {
+            let name = self.name! + "-" + "Walking" + "-\(i).png"
+            playerArrWalking.append(SKTexture(imageNamed: name))
         }
         
         self.zPosition = 3000
@@ -186,6 +214,16 @@ class Player: SKSpriteNode {
         self.run(playerAnimStand)
         return playerAnimStand
         
+    }
+    
+    func animationWalking(){
+        self.removeAllActions()
+        
+        let playerAnimWalking = SKAction.repeatForever(
+            SKAction.animate(with: playerArrWalking, timePerFrame: 0.15)
+        )
+
+        self.run(playerAnimWalking)
     }
     
     func getMove(move: Int) {
