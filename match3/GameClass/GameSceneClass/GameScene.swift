@@ -36,13 +36,13 @@ class GameScene: SKScene {
     
 
     
-    init(enemyArr: [String], playerSpell: [String], bg: String) {
+    init(enemyArr: [String], playerSpell: [String], bg: String, size: CGSize) {
         print("INIT SIZE")
         super.init(size: CGSize(width: 375, height: 665))
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.backgroundColor = UIColor(displayP3Red: 11, green: 11, blue: 11, alpha: 1)
-        self.matchBoard = Match(horizontalCount: 6, verticalCount: 6, gameScene: self)
+//        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
+        self.matchBoard = Match(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         self.player = Player(gameScene: self)
         self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
         self.enemyOnLevelArr = enemyArr
@@ -66,7 +66,7 @@ class GameScene: SKScene {
         self.addChild(spell3)
         self.addChild(spell4)
         
-        buildScene(bg: bg)
+        buildScene(bgName: bg)
         
         print("INIT SIZE DONE")
     }
@@ -110,7 +110,7 @@ class GameScene: SKScene {
         startCheckLoop()
     }
     
-    func buildScene(bg: String) {
+    func buildScene(bgName: String) {
         //Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
         spellBoardA.position = CGPoint(x: 0, y: 80)
@@ -141,9 +141,22 @@ class GameScene: SKScene {
         self.addChild(manaLabel)
         
         //BG
-        let bg = SKSpriteNode(texture: SKTexture(imageNamed: bg), size: CGSize(width: 375, height: 215))
+        let bg = SKSpriteNode(texture: SKTexture(imageNamed: bgName+"-0.png"), size: CGSize(width: 375, height: 215))
         bg.position = CGPoint(x: 0, y: 227)
         self.addChild(bg)
+
+        var bgArr = [SKTexture]()
+        let bgAtlas = SKTextureAtlas(named: "\(bgName)")
+        
+        for i in 0...bgAtlas.textureNames.count-1 {
+            let name = "\(bgName)" + "-\(i).png"
+            bgArr.append(SKTexture(imageNamed: name))
+        }
+        let bgAction = SKAction.repeatForever(
+            SKAction.animate(with: bgArr, timePerFrame: 0.33)
+        )
+        bg.run(bgAction)
+        
         
         //MatchBoard
         let matchBoard = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 375, height: 375))
@@ -151,7 +164,7 @@ class GameScene: SKScene {
         self.addChild(matchBoard)
         
         //Spell Cell
-        for i in 0...4 {
+        for i in 0...3 {
             let spellCellTexture = SKSpriteNode(texture: SKTexture(imageNamed: "skillCell.png"), size: CGSize(width: 55, height: 55))
             spellCellTexture.zPosition = 100
             spellCellTexture.name = "SpellCell - \(i)"

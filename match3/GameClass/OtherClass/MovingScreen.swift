@@ -23,22 +23,24 @@ class MovingScreen: SKScene {
     func presentScene() {
         print("NewScene")
         let secondScene = GameScene(enemyArr: enemyA[enemyIndexA],
-                                    playerSpell: ["Null","Null","Null","Null"],
-                                    bg: getRandomBG(index: enemyIndexA))
+                                    playerSpell: ["SkullJail","Nemesis","Null","SkullJail"],
+                                    bg: getRandomBG(index: enemyIndexA),
+                                    size: CGSize(width: 6, height: 6))
         let transition = SKTransition.crossFade(withDuration: 0.0)
         secondScene.scaleMode = SKSceneScaleMode.aspectFit
         self.scene!.view?.presentScene(secondScene, transition: transition)
     }
     
     func getRandomBG(index: Int) -> String {
-        switch index {
-        case 0:
-            return "BGPunk2.png"
-        case 1:
-            return "TableInner.png"
-        default:
-            return "CharPlaceHolder.png"
-        }
+//        switch index {
+//        case 0:
+//            return "GrassLand.png"
+//        case 1:
+//            return "TableInner.png"
+//        default:
+//            return "CharPlaceHolder.png"
+//        }
+        return "SteamPunkBackground"
     }
     
     override func didMove(to view: SKView) {

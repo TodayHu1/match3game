@@ -10,7 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-let enemyA = [["MotherStony","MotherStony"],["Random","Random"]]
+let enemyA = [["MotherStony","MotherStony"],["SteamPunkPunch","SteamPunkWalker"]]
 var enemyIndexA = 0
 
 class GameViewController: UIViewController {

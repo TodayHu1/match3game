@@ -66,7 +66,7 @@ class Spell: SKSpriteNode {
         let radius: CGFloat = 1.8
         let fontSize = 25
         let iconSize = 24
-        let zIndex = CGFloat(500)
+        let zIndex = CGFloat(300)
         
         if manaToUse > 0 {
             let labelMana = SKLabelNode(text: "\(manaToUse)")

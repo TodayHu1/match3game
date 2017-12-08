@@ -37,7 +37,7 @@ extension GameScene {
                              vampire: 0, reactiveArmor: 0, gameScene: self)
         case "SteamPunkPunch":
             return EnemyUnit(enemyName: "SteamPunkPunch",
-                             attack: 5, health: 30, shield: 70,
+                             attack: 5, health: 1, shield: 1,
                              size: CGSize(width: 120, height: 120),
                              vampire: 0, reactiveArmor: 3, gameScene: self)
         case "SteamPunkFlameThrower":
@@ -47,7 +47,7 @@ extension GameScene {
                              vampire: 0, reactiveArmor: 0, gameScene: self)
         case "SteamPunkWalker":
             return EnemyUnit(enemyName: "SteamPunkWalker",
-                             attack: 5, health: 300, shield: 5,
+                             attack: 5, health: 40, shield: 10,
                              size: CGSize(width: 260, height: 160),
                              vampire: 0, reactiveArmor: 0, gameScene: self)
         case "ShadowRin":
