@@ -166,6 +166,12 @@ class GameScene: SKScene {
         matchBoard.position = CGPoint(x: 0, y: -145)
         self.addChild(matchBoard)
         
+        let matchBoardShadow = SKSpriteNode(texture: SKTexture(imageNamed: "UI_shadow.png"), size: CGSize(width: 375, height: 70))
+        matchBoardShadow.anchorPoint.y = 1
+        matchBoardShadow.position = CGPoint(x: 0, y: 60)
+        matchBoardShadow.zPosition = matchBoard.zPosition + 1
+        self.addChild(matchBoardShadow)
+        
         //Spell Cell
         for i in 0...3 {
             let spellCellTexture = SKSpriteNode(texture: SKTexture(imageNamed: "skillCell.png"), size: CGSize(width: 55, height: 55))
@@ -177,7 +183,7 @@ class GameScene: SKScene {
             else {
                 spellCellTexture.position = CGPoint(x: -140+(70*i), y: 80)
             }
-            let uiShadow = SKSpriteNode(texture: SKTexture(imageNamed: "UI_shadow"), size: CGSize(width: 55, height: 20))
+            let uiShadow = SKSpriteNode(texture: SKTexture(imageNamed: "UI_shadow.png"), size: CGSize(width: 55, height: 20))
             self.addChild(spellCellTexture)
             uiShadow.position = spellCellTexture.position
             uiShadow.position.y -= 30

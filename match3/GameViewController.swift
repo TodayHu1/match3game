@@ -38,7 +38,7 @@ import GameplayKit
 
 var loadEnemy: [[String]]!
 var loadBg: [String]!
-var loadBoardSize: [Int]!
+var loadBoardSize: [[Int]]!
 var indexLevel = 0
 
 class GameViewController: UIViewController {
@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
         
         loadEnemy = dictionary["Enemy"] as! [[String]]
         loadBg = dictionary["Bg"] as! [String]
-        loadBoardSize = dictionary["BoardSize"] as! [Int]
+        loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
         let View = view as! SKView
         let scene = MovingScreen()

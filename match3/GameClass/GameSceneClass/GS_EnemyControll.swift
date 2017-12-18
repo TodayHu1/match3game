@@ -71,19 +71,21 @@ extension GameScene {
         for i in 0...actionOnTurn.count-1 {
             if actionOnTurn[i] > 0 {
                 switch i {
-                    case 0:
-                        break
-                    case 1:
-                        enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[1])
-                    case 2:
-                        player.shield += actionOnTurn[2] * 10
-                    case 3:
-                        player.mana += actionOnTurn[3]
-                    case 4:
-                        player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
-                    case 7:
-                        enemyUnit.health += 10
+                    case Match.skull.rawValue:
+                        enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[Match.skull.rawValue])
+                    
+                    case Match.armor.rawValue:
+                        player.shield += actionOnTurn[Match.armor.rawValue] * 10
+                    
+                    case Match.energy.rawValue:
+                        player.mana += actionOnTurn[Match.energy.rawValue]
+                    
+                    case Match.attack.rawValue:
+                        player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[Match.attack.rawValue]))
+                    
+                    case Match.cog.rawValue:
                         enemyUnit.shield += 20
+                    
                     default: break
                 }
             }

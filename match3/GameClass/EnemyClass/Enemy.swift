@@ -30,7 +30,7 @@ class EnemyUnit: SKSpriteNode {
     //Attack modificator
     var vampireAttack: Float = 0
     var reactiveArmor: Int = 0
-    var spawnPoisonOnBoard = 0
+    var spawnPoisonOnBoard = 1
     var spawnSkullOnBoard: Int = 0
     
     //Death modificator

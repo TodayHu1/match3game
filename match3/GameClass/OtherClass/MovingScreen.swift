@@ -32,7 +32,7 @@ class MovingScreen: SKScene {
         let secondScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
                                     playerSpell: ["","","",""],
                                     bg: checkBG(bgName: loadBg[indexLevel]),
-                                    size: CGSize(width: loadBoardSize[0], height: loadBoardSize[1]))
+                                    size: checkBoardSize(size: loadBoardSize[indexLevel]))
         
         let transition = SKTransition.crossFade(withDuration: 0.0)
         secondScene.scaleMode = SKSceneScaleMode.aspectFit
@@ -58,11 +58,20 @@ class MovingScreen: SKScene {
         return newArrEnemy
     }
     
+    func checkBoardSize(size: [Int]) -> CGSize {
+        if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
+            return CGSize(width: (Int(arc4random_uniform(UInt32(5)))+3), height: (Int(arc4random_uniform(UInt32(5)))+3))
+        }
+        else {
+            return CGSize(width: loadBoardSize[indexLevel][0], height: loadBoardSize[indexLevel][1])
+        }
+    }
+    
     
     func getRandomBG() -> String {
         let bg = ["GrassLand"]
         let x = bg[Int(arc4random_uniform(UInt32(bg.count)))]
-        print("Random BG ----- \(x)");
+        print("Random BG ---- \(x)");
         return x
     }
     
