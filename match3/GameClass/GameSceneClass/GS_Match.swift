@@ -10,6 +10,18 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
+public enum Match: Int {
+    case null = -1
+    case chain = 0
+    case skull = 1
+    case armor = 2
+    case energy = 3
+    case attack = 4
+    case coin = 5
+    case poison = 6
+    case cog = 7
+}
+
 extension GameScene {
     
      /**
@@ -21,31 +33,31 @@ extension GameScene {
      5 –– MatchCoin.png
      6 –– MatchPoison.png
      */
-    func setTextureMatch(matchNumber: Int) -> SKTexture {
+    
+    func setTextureMatch(matchNumber: Match) -> SKTexture {
         switch matchNumber {
-        case 0:
+        case Match.chain:
             return SKTexture(imageNamed:"MatchChain.png")
-        case 1:
+        case Match.skull:
             return SKTexture(imageNamed:"MatchSkull.png")
-        case 2:
+        case Match.armor:
             return SKTexture(imageNamed:"MatchArmor.png")
-        case 3:
+        case Match.energy:
             return SKTexture(imageNamed:"MatchEnergy.png")
-        case 4:
+        case Match.attack:
             return SKTexture(imageNamed:"MatchAttack.png")
-        case 5:
+        case Match.coin:
             return SKTexture(imageNamed:"MatchCoin.png")
-        case 6:
+        case Match.poison:
             return SKTexture(imageNamed:"MatchPoison.png")
-        case 7:
+        case Match.cog:
             return SKTexture(imageNamed:"MatchCog.png")
         default:
-//            print("[MATCH] WRONG TEXTURE -- \(matchNumber)")
             return SKTexture(imageNamed:"MatchNull.png")
         }
     }
     
-    public func customRandom() -> Int{
+    public func customRandom() -> Match{
         let randomNumber = self.random(number: 100)-1
         //Процентная доля появления match от 100%
 //        let skull = 50
@@ -63,21 +75,21 @@ extension GameScene {
         switch randomNumber {
         // Череп
         case 0..<skull:
-            return 1
+            return Match.skull
         // Щит
         case skull..<skull+shield:
-            return 2
+            return Match.armor
         // Молния
         case skull+shield..<skull+shield+lightning:
-            return 3
+            return Match.energy
         // Мечи
         case skull+shield+lightning..<skull+shield+lightning+sword:
-            return 4
+            return Match.attack
         // Монеты
         case skull+shield+lightning+sword..<skull+shield+lightning+sword+coin:
-            return 5
+            return Match.coin
         default:
-            return 1
+            return Match.attack
         }
     }
         

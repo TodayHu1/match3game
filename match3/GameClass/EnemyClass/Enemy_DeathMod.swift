@@ -18,7 +18,7 @@ extension EnemyUnit {
             for _ in 1...self.spawnSkullOnDie {
                 duration += interval
                 self.gameScene.matchMoveToBoard(
-                    matchIndex: 1,
+                    matchIndex: Match.skull,
                     nodePosition: self,
                     i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
                     j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,

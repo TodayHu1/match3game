@@ -14,14 +14,15 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var matchBoard: Match!
+    var matchBoard: MatchParametrs!
     var randomUnit: GeneratRandomUnit!
     var gestureLabel = SKLabelNode(text: "")
     var enemyIndexNow = 0
     var testGameLabel = SKLabelNode(fontNamed: "Arial")
     var manaLabel: SKCountingLabel = SKCountingLabel(fontNamed: "Arial")
     var manaPoolNode = SKSpriteNode(imageNamed: "")
-    var levelArr = [[Int]]()
+    var levelArr = [[Match]]()
+    var statArr = [[Int]]()
     private var lastTouch = CGPoint(x:1,y:1)
     var player: Player!
     var enemyUnit: EnemyUnit!
@@ -30,11 +31,13 @@ class GameScene: SKScene {
     var spell3: Spell!
     var spell4: Spell!
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
-    var statArr = [[Int]]()
     var enemyOnLevelArr = [String]()
 
     
 
+    override init() {
+        super.init(size: CGSize(width: 375, height: 665))
+    }
     
     init(enemyArr: [String], playerSpell: [String], bg: String, size: CGSize) {
         print("INIT SIZE")
@@ -42,7 +45,7 @@ class GameScene: SKScene {
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 //        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
-        self.matchBoard = Match(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
+        self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         self.player = Player(gameScene: self)
         self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
         self.enemyOnLevelArr = enemyArr
@@ -50,10 +53,10 @@ class GameScene: SKScene {
         
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
         
-        self.levelArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+        self.levelArr = Array(repeating: Array(repeating: Match.null, count: self.matchBoard.horizontalCount),
                               count: matchBoard.verticalCount)
         
-        self.statArr = Array(repeating: Array(repeating: -1, count: self.matchBoard.horizontalCount),
+        self.statArr = Array(repeating: Array(repeating: 0, count: self.matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
         
         self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
@@ -174,17 +177,19 @@ class GameScene: SKScene {
             else {
                 spellCellTexture.position = CGPoint(x: -140+(70*i), y: 80)
             }
+            let uiShadow = SKSpriteNode(texture: SKTexture(imageNamed: "UI_shadow"), size: CGSize(width: 55, height: 20))
             self.addChild(spellCellTexture)
+            uiShadow.position = spellCellTexture.position
+            uiShadow.position.y -= 30
+            uiShadow.zPosition = 99
+            self.addChild(uiShadow)
+
         }
     }
 
     override func didMove(to view: SKView) {
         
         print("DIDMOVE GO")
-
-        
-//        self.manaPoolNode = searchByName(name: "manaBarPool")
-//        self.manaPoolNode = manaBar
         
         self.enemyUnit = self.initNewClassForEnemy(enemyName: self.enemyOnLevelArr[self.enemyIndexNow])
 
@@ -198,10 +203,7 @@ class GameScene: SKScene {
         testGameLabel.fontSize = 20
         testGameLabel.text = "SOME LOG HERE..."
         self.addChild(testGameLabel)
-        
-
-        
-        
+    
         
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
@@ -250,7 +252,7 @@ class GameScene: SKScene {
         blackSreen.zPosition = 2950
         self.addChild(blackSreen)
         
-        let fade = SKAction.fadeOut(withDuration: 1.5)
+        let fade = SKAction.fadeOut(withDuration: 0.5)
         let deletScreen = SKAction.run {
             blackSreen.removeFromParent()
             blackSreen.removeAllChildren()
@@ -258,7 +260,7 @@ class GameScene: SKScene {
         let fadeSeq = SKAction.sequence([SKAction.wait(forDuration: 1.4), fade, deletScreen])
         blackSreen.run(fadeSeq)
     }
-    
+
     override func didFinishUpdate() {
 
     }

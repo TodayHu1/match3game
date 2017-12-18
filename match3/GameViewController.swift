@@ -6,24 +6,60 @@
 //  Copyright © 2017 Женя. All rights reserved.
 //
 
+extension Dictionary {
+    static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
+        var dataOK: Data
+        var dictionaryOK: NSDictionary = NSDictionary()
+        if let path = Bundle.main.path(forResource: filename, ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions()) as Data!
+                dataOK = data!
+            }
+            catch {
+                print("Could not load level file: \(filename), error: \(error)")
+                return nil
+            }
+            do {
+                let dictionary = try JSONSerialization.jsonObject(with: dataOK, options: JSONSerialization.ReadingOptions()) as AnyObject!
+                dictionaryOK = (dictionary as! NSDictionary as? Dictionary<String, AnyObject>)! as NSDictionary
+            }
+            catch {
+                print("Level file '\(filename)' is not valid JSON: \(error)")
+                return nil
+            }
+        }
+        return dictionaryOK as? Dictionary<String, AnyObject>
+    }
+}
+
 import UIKit
 import SpriteKit
 import GameplayKit
 
-let enemyA = [["MotherStony","MotherStony"],["SteamPunkPunch","SteamPunkWalker"]]
-var enemyIndexA = 0
+var loadEnemy: [[String]]!
+var loadBg: [String]!
+var loadBoardSize: [Int]!
+var indexLevel = 0
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let theView = view as! SKView
-        let testScene = MovingScreen()
-        let theWelcome = testScene
-        theWelcome.scaleMode = SKSceneScaleMode.aspectFit
         
-        theView.presentScene( theWelcome )
+        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "ArrayTest") else { return }
+        
+        print(dictionary)
+        
+        loadEnemy = dictionary["Enemy"] as! [[String]]
+        loadBg = dictionary["Bg"] as! [String]
+        loadBoardSize = dictionary["BoardSize"] as! [Int]
+        
+        let View = view as! SKView
+        let scene = MovingScreen()
+        let movingScreen = scene
+        movingScreen.scaleMode = SKSceneScaleMode.aspectFit
+        
+        View.presentScene( movingScreen )
     }
     
     func presentScene(scene: SKScene) {

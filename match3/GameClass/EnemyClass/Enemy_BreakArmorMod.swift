@@ -26,9 +26,12 @@ extension EnemyUnit {
         let interval: Double = gameScene.durationSpawnMatchAnimation()
         for i in 0...self.gameScene.matchBoard.verticalCount-1 {
             for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
-                if self.gameScene.levelArr[i][j] == 2 || self.gameScene.levelArr[i][j] == 3 || self.gameScene.levelArr[i][j] == 4 || self.gameScene.levelArr[i][j] == 5 {
+                if self.gameScene.levelArr[i][j] == Match.attack
+                    || self.gameScene.levelArr[i][j] == Match.armor
+                    || self.gameScene.levelArr[i][j] == Match.energy
+                    || self.gameScene.levelArr[i][j] == Match.coin {
                     duration += interval
-                    gameScene.matchMoveToBoard(matchIndex: 0,
+                    gameScene.matchMoveToBoard(matchIndex: Match.chain,
                                                nodePosition: self,
                                                i: i,
                                                j: j,

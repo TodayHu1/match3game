@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-class Match {
+class MatchParametrs {
     var horizontalCount = 0
     var verticalCount = 0
     

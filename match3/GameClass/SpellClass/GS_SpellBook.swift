@@ -72,7 +72,7 @@ extension GameScene {
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         default:
             return Spell(skillName: "0", texture: SKTexture(imageNamed: ""),
-                         mana: 666, health: 666, armor: 666, coin: 666,
+                         mana: 0, health: 0, armor: 0, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         }
     }
@@ -97,9 +97,9 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == 1 {
+                    if levelArr[i][j] == Match.skull {
                         duration += interval
-                        matchMoveToBoard(matchIndex: 0,
+                        matchMoveToBoard(matchIndex: Match.chain,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -114,9 +114,9 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == 0  {
+                    if levelArr[i][j] == Match.chain  {
                         duration += interval
-                        matchMoveToBoard(matchIndex: 2,
+                        matchMoveToBoard(matchIndex: Match.armor,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -124,9 +124,9 @@ extension GameScene {
                                          durationAnimation: interval
                         )
                     }
-                    if levelArr[i][j] == 1 {
+                    if levelArr[i][j] == Match.skull {
                         duration += interval
-                        matchMoveToBoard(matchIndex: 4,
+                        matchMoveToBoard(matchIndex: Match.attack,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -142,7 +142,7 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for _ in 0...5 {
                 duration += interval
-                matchMoveToBoard(matchIndex: 5,
+                matchMoveToBoard(matchIndex: Match.coin,
                                  nodePosition: player,
                                  i: matchBoard.getRandomMatchVertical(),
                                  j: matchBoard.getRandomMatchHorizontal(),
@@ -156,9 +156,9 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == 4  {
+                    if levelArr[i][j] == Match.attack  {
                         duration += interval
-                        matchMoveToBoard(matchIndex: 2,
+                        matchMoveToBoard(matchIndex: Match.armor,
                                          nodePosition: player,
                                          i: i,
                                          j: j,

@@ -28,7 +28,7 @@ extension EnemyUnit {
         var duration: Double = 0
         let interval: Double = self.gameScene.durationSpawnMatchAnimation()
         for _ in 1...number {
-            self.gameScene.matchMoveToBoard(matchIndex: 7,
+            self.gameScene.matchMoveToBoard(matchIndex: Match.cog,
                                        nodePosition: self,
                                        i: self.gameScene.matchBoard.getRandomMatchVertical(),
                                        j: self.gameScene.matchBoard.getRandomMatchHorizontal(),

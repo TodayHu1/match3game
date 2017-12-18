@@ -1,0 +1,24 @@
+{
+    "BoardSize":
+    [
+        6,
+        5
+    ],
+    "Bg":
+    [
+        "",
+        "SteamPunkBackground"
+    ],    "Enemy":
+    [
+        [
+            "",
+            "",
+            ""
+        ],
+        [
+            "SteamPunkPunch",
+            "SteamPunkFlameThrower",
+            "SteamPunkWalker"
+        ]
+    ]
+}

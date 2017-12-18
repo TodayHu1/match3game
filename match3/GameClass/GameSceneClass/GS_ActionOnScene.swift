@@ -22,10 +22,10 @@ extension GameScene {
         let plusValue = 1
         if boardSizeUp {
             //print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
-            matchBoard = Match(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue, gameScene: self)
-            var subArr = [[Int]]()
+            matchBoard = MatchParametrs(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue, gameScene: self)
+            var subArr = [[Match]]()
             subArr = levelArr
-            levelArr = Array(repeating: Array(repeating: -1, count: matchBoard.horizontalCount),
+            levelArr = Array(repeating: Array(repeating: Match.null, count: matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
             
             for i in 0...subArr.count-1 {
@@ -116,7 +116,7 @@ extension GameScene {
 
     }
     
-    func matchMoveToBoard(matchIndex: Int, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
+    func matchMoveToBoard(matchIndex: Match, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
         let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchIndex))
         
 //        print(nodePosition)

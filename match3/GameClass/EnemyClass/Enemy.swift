@@ -11,6 +11,8 @@ import SpriteKit
 
 class EnemyUnit: SKSpriteNode {
     
+    
+    
     //Texture staff
     var enemyArrAttack = [SKTexture]()
     var enemyAtlasAttack = SKTextureAtlas()
@@ -89,7 +91,7 @@ class EnemyUnit: SKSpriteNode {
         
         self.colorBlendFactor = CGFloat(0)
 
-        
+ 
         
         initShadow()
 

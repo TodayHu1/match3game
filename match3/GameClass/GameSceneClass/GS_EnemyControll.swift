@@ -54,7 +54,7 @@ extension GameScene {
             enemyUnit.removeFromParent()
             enemyUnit.removeAllChildren()
             
-            enemyIndexA+=1
+            indexLevel+=1
             
             let waitScene = SKAction.wait(forDuration: 0.8)
             let scene = SKAction.run {
@@ -66,24 +66,25 @@ extension GameScene {
         }
     }
     
+    
     public func checkArrForAction() {
         for i in 0...actionOnTurn.count-1 {
             if actionOnTurn[i] > 0 {
                 switch i {
-                case 0:
-                    break
-                case 1:
-                    enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[1])
-                case 2:
-                    player.shield += actionOnTurn[2] * 10
-                case 3:
-                    player.mana += actionOnTurn[3]
-                case 4:
-                    player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
-                case 7:
-                    enemyUnit.health += 10
-                    enemyUnit.shield += 20
-                default: break
+                    case 0:
+                        break
+                    case 1:
+                        enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[1])
+                    case 2:
+                        player.shield += actionOnTurn[2] * 10
+                    case 3:
+                        player.mana += actionOnTurn[3]
+                    case 4:
+                        player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[4]))
+                    case 7:
+                        enemyUnit.health += 10
+                        enemyUnit.shield += 20
+                    default: break
                 }
             }
         }

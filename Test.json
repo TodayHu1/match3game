@@ -1,0 +1,27 @@
+[
+    {
+        "bgName": "\"GrassLand\"",
+        "boardSize":
+        [
+            5,
+            6
+        ],        "enemy":
+        [
+            "RoyalMage",
+            "ShadowRin"
+        ]
+    },
+    {
+        "bgName": "\"SteamPunk\"",
+        "boardSize":
+        [
+            3,
+            3
+        ],        "enemy":
+        [
+            "Stony",
+            "StoneScale",
+			"MotherStony"
+        ]
+    }
+]

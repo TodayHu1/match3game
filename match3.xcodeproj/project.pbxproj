@@ -44,6 +44,7 @@
 		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
+		1F4E253E1FE644C8002731AF /* ArrayTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E253D1FE644C8002731AF /* ArrayTest.json */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
 		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
@@ -139,6 +140,7 @@
 		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		1F4E253D1FE644C8002731AF /* ArrayTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArrayTest.json; sourceTree = SOURCE_ROOT; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
 		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		1F2AEDB41EFD5862001AEBB7 /* match3 */ = {
 			isa = PBXGroup;
 			children = (
+				1F4E253D1FE644C8002731AF /* ArrayTest.json */,
 				1FB431B41FB5B28D00039960 /* Assets */,
 				1F00B6F91FADB4AE00C002B3 /* munro */,
 				1F2D82101F7E385C00710D50 /* Assets.xcassets */,
@@ -589,6 +592,7 @@
 			files = (
 				1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */,
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
+				1F4E253E1FE644C8002731AF /* ArrayTest.json in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
 				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
 				1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */,

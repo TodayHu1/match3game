@@ -11,6 +11,10 @@ import GameplayKit
 
 class MovingScreen: SKScene {
     
+    var enemy: [[String]]!
+    var bg: String!
+    var boardSize: [Int]!
+    
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -22,32 +26,54 @@ class MovingScreen: SKScene {
     
     func presentScene() {
         print("NewScene")
-        let secondScene = GameScene(enemyArr: enemyA[enemyIndexA],
-                                    playerSpell: ["SkullJail","Nemesis","Null","SkullJail"],
-                                    bg: getRandomBG(index: enemyIndexA),
-                                    size: CGSize(width: 6, height: 6))
+        print(loadEnemy)
+        print(loadEnemy[indexLevel])
+        
+        let secondScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
+                                    playerSpell: ["","","",""],
+                                    bg: checkBG(bgName: loadBg[indexLevel]),
+                                    size: CGSize(width: loadBoardSize[0], height: loadBoardSize[1]))
+        
         let transition = SKTransition.crossFade(withDuration: 0.0)
         secondScene.scaleMode = SKSceneScaleMode.aspectFit
         self.scene!.view?.presentScene(secondScene, transition: transition)
     }
     
-    func getRandomBG(index: Int) -> String {
-//        switch index {
-//        case 0:
-//            return "GrassLand.png"
-//        case 1:
-//            return "TableInner.png"
-//        default:
-//            return "CharPlaceHolder.png"
-//        }
-        return "SteamPunkBackground"
+    func checkBG(bgName: String) -> String {
+        if bgName == "" {
+            return getRandomBG()
+        }
+        else {
+            return bgName
+        }
     }
+    
+    func checkEnemy(enemy: [String]) -> [String] {
+        var newArrEnemy = enemy
+        for i in 0...newArrEnemy.count-1 {
+            if newArrEnemy[i] == "" {
+                newArrEnemy[i] = "Random"
+            }
+        }
+        return newArrEnemy
+    }
+    
+    
+    func getRandomBG() -> String {
+        let bg = ["GrassLand"]
+        let x = bg[Int(arc4random_uniform(UInt32(bg.count)))]
+        print("Random BG ----- \(x)");
+        return x
+    }
+    
     
     override func didMove(to view: SKView) {
         
         let player = Player()
         self.addChild(player)
         player.animationWalking()
+        
+        let qwe = GameScene()
         
         let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
         blackSreen.size = CGSize(width: 600, height: 900)
@@ -63,17 +89,29 @@ class MovingScreen: SKScene {
         let fadeOut = SKAction.fadeOut(withDuration: 1)
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let wait = SKAction.wait(forDuration: 1)
+        
+//        var unit: EnemyUnit!
+        
+//        for i in 0...3 {
+//            unit = qwe.initNewClassForEnemy(enemyName: enemyA[enemyIndexA][i])
+//            unit.position.x = unit.position.x + CGFloat((i * 30))
+////            unit.zPosition -= CGFloat(i)
+//            self.addChild(unit)
+//            unit.animationStand()
+//        }
+
         let startLevel = SKAction.run {
-            if enemyIndexA < enemyA.count {
+            self.presentScene()
+            if indexLevel < loadEnemy.count {
                 self.presentScene()
             }
             else {
-                
+
             }
 
         }
         let chageLabel = SKAction.run {
-            if enemyIndexA < enemyA.count {
+            if indexLevel < loadEnemy.count {
                 movingLabel.text = "ENEMY AHEAD!"
             }
             else {
