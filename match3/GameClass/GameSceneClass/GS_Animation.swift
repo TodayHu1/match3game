@@ -18,8 +18,6 @@ extension GameScene {
     func durationSpawnMatchAnimation() -> TimeInterval {
         let y = 3
         let x: Double = Double(Double(y) / Double(matchBoard.numberOfMatch))
-
-        print("DURATION \(x) - \(y) - \(matchBoard.numberOfMatch)")
         return (TimeInterval(x))
     }
     

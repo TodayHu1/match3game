@@ -12,13 +12,14 @@ import SpriteKit
 extension EnemyUnit {
     
     func attackMod() {
-        self.vampireAttackMod()
-        self.reactiveArmorMod()
+        self.vampireOnAttackMod()
+        self.reactiveArmorOnAttackMod()
         self.spawnPoisonOnAttackMod()
+        self.spawnSkullOnAttackMod()
     }
     
     //Health = (Attack * 3) * %Vamp
-    func vampireAttackMod() {
+    func vampireOnAttackMod() {
         if self.vampireAttack > 0 {            
             self.health += Int(
                 Float(self.attack * 3) * Float(self.vampireAttack)
@@ -29,14 +30,13 @@ extension EnemyUnit {
     }
     
     //Shield = Shield + Attack
-    func reactiveArmorMod() {
+    func reactiveArmorOnAttackMod() {
         if reactiveArmor > 0 {
             self.shield += self.attack * self.reactiveArmor
             buffParticle(name: "Armor")
             setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
         }
     }
-    
     
     
     //TODO Poison DMG = ATTACK * 6
@@ -48,7 +48,7 @@ extension EnemyUnit {
             for _ in 1...self.spawnPoisonOnBoard {
                 duration += interval
                 self.gameScene.matchMoveToBoard(
-                    matchIndex: Match.poison,
+                    matchType: Match.poison,
                     nodePosition: self,
                     i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
                     j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
@@ -65,7 +65,7 @@ extension EnemyUnit {
             let interval: Double = self.gameScene.durationSpawnMatchAnimation()
             duration += interval
             self.gameScene.matchMoveToBoard(
-                matchIndex: Match.skull,
+                matchType: Match.skull,
                 nodePosition: self,
                 i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
                 j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,

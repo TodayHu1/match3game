@@ -47,7 +47,6 @@ class GameScene: SKScene {
 //        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
         self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         self.player = Player(gameScene: self)
-        self.enemyUnit = EnemyUnit(enemyName: "StoneScale", attack: 0, health: 0, shield: 0, size: CGSize(width: 100, height: 100), vampire: 0, reactiveArmor: 0, gameScene: self)
         self.enemyOnLevelArr = enemyArr
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
@@ -124,10 +123,10 @@ class GameScene: SKScene {
         self.manaPoolNode = SKSpriteNode(texture: SKTexture(imageNamed: "manaBar-1.png"), size: CGSize(width: 64, height: 64))
         spellBoardA.addChild(self.manaPoolNode)
         self.manaPoolNode.zPosition += 1
+        print(" Мана пул позититон \(manaPoolNode.position)")
         
         //Mana Holder
         let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))
-//        manaHoler.position = self.manaPoolNode.position
         manaHolder.zPosition = 101
         manaHolder.zRotation = CGFloat(Int(45)) * .pi / 180
         self.manaPoolNode.addChild(manaHolder)

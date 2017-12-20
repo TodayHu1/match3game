@@ -99,7 +99,7 @@ extension GameScene {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == Match.skull {
                         duration += interval
-                        matchMoveToBoard(matchIndex: Match.chain,
+                        matchMoveToBoard(matchType: Match.chain,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -116,7 +116,7 @@ extension GameScene {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == Match.chain  {
                         duration += interval
-                        matchMoveToBoard(matchIndex: Match.armor,
+                        matchMoveToBoard(matchType: Match.armor,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -126,7 +126,7 @@ extension GameScene {
                     }
                     if levelArr[i][j] == Match.skull {
                         duration += interval
-                        matchMoveToBoard(matchIndex: Match.attack,
+                        matchMoveToBoard(matchType: Match.attack,
                                          nodePosition: player,
                                          i: i,
                                          j: j,
@@ -142,7 +142,7 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for _ in 0...5 {
                 duration += interval
-                matchMoveToBoard(matchIndex: Match.coin,
+                matchMoveToBoard(matchType: Match.coin,
                                  nodePosition: player,
                                  i: matchBoard.getRandomMatchVertical(),
                                  j: matchBoard.getRandomMatchHorizontal(),
@@ -158,7 +158,7 @@ extension GameScene {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if levelArr[i][j] == Match.attack  {
                         duration += interval
-                        matchMoveToBoard(matchIndex: Match.armor,
+                        matchMoveToBoard(matchType: Match.armor,
                                          nodePosition: player,
                                          i: i,
                                          j: j,

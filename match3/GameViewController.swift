@@ -48,7 +48,6 @@ class GameViewController: UIViewController {
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "ArrayTest") else { return }
         
-        print(dictionary)
         
         loadEnemy = dictionary["Enemy"] as! [[String]]
         loadBg = dictionary["Bg"] as! [String]

@@ -88,6 +88,7 @@ extension GameScene {
         case 3:
             objectForAnimation = manaPoolNode
             positionToMove = manaPoolNode.position
+            print("Движние к манапулу \(positionToMove)")
             specialActionOnEnd = SKAction.run {
                 self.changeManaLabel()
             }
@@ -116,8 +117,8 @@ extension GameScene {
 
     }
     
-    func matchMoveToBoard(matchIndex: Match, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
-        let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchIndex))
+    func matchMoveToBoard(matchType: Match, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
+        let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchType))
         
 //        print(nodePosition)
         
@@ -164,7 +165,7 @@ extension GameScene {
         }
         
         let setMatchWithIndex = SKAction.run {
-            self.levelArr[i][j] = matchIndex
+            self.levelArr[i][j] = matchType
             self.buildLevel(hardBuild: false)
             self.checkArrOnAction(loop: loopOnSpawnMatch)
         }

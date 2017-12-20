@@ -12,32 +12,35 @@ import SpriteKit
 
 extension EnemyUnit {
     
-    func breakArmor() {
+    func breakArmorMod() {
+        print("GO BREAK ARMOR")
+        spawnChainInstedArmorMod()
         
-        if self.specialSpell && self.enemyName == "SteamPunkWalker"  {
-            spawnCog(number: 6)
-            self.specialSpell = false
-        }
+        
+//        if self.specialSpell && self.enemyName == "SteamPunkWalker"  {
+//            spawnCogOnBreakArmor(number: 6)
+//            self.specialSpell = false
+//        }
 
     }
     
-    func spawnChainInstedPositiveMatch() {
-        var duration: Double = 0
-        let interval: Double = gameScene.durationSpawnMatchAnimation()
-        for i in 0...self.gameScene.matchBoard.verticalCount-1 {
-            for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
-                if self.gameScene.levelArr[i][j] == Match.attack
-                    || self.gameScene.levelArr[i][j] == Match.armor
-                    || self.gameScene.levelArr[i][j] == Match.energy
-                    || self.gameScene.levelArr[i][j] == Match.coin {
-                    duration += interval
-                    gameScene.matchMoveToBoard(matchIndex: Match.chain,
-                                               nodePosition: self,
-                                               i: i,
-                                               j: j,
-                                               waitTimeToAnimation: TimeInterval(duration),
-                                               durationAnimation: interval
-                    )
+    func spawnChainInstedArmorMod() {
+        if self.spawnChainInstedArmor {
+            print("GO CHAIN")
+            var duration: Double = 0
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
+            for i in 0...self.gameScene.matchBoard.verticalCount-1 {
+                for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
+                    if self.gameScene.levelArr[i][j] == Match.armor  {
+                        duration += interval
+                        gameScene.matchMoveToBoard(matchType: Match.chain,
+                                                   nodePosition: self,
+                                                   i: i,
+                                                   j: j,
+                                                   waitTimeToAnimation: TimeInterval(duration),
+                                                   durationAnimation: interval
+                        )
+                    }
                 }
             }
         }

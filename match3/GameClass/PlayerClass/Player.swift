@@ -111,9 +111,9 @@ class Player: SKSpriteNode {
         }
         
         self.zPosition = 3000
-        print(self.labelBoard.zPosition)
-        print(self.labelHealth.zPosition)
-        print(self.labelShield.zPosition)
+//        print(self.labelBoard.zPosition)
+//        print(self.labelHealth.zPosition)
+//        print(self.labelShield.zPosition)
         
     }
     

@@ -26,8 +26,6 @@ class MovingScreen: SKScene {
     
     func presentScene() {
         print("NewScene")
-        print(loadEnemy)
-        print(loadEnemy[indexLevel])
         
         let secondScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
                                     playerSpell: ["","","",""],
@@ -60,7 +58,7 @@ class MovingScreen: SKScene {
     
     func checkBoardSize(size: [Int]) -> CGSize {
         if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
-            return CGSize(width: (Int(arc4random_uniform(UInt32(5)))+3), height: (Int(arc4random_uniform(UInt32(5)))+3))
+            return CGSize(width: (Int(arc4random_uniform(UInt32(4)))+4), height: (Int(arc4random_uniform(UInt32(4)))+4))
         }
         else {
             return CGSize(width: loadBoardSize[indexLevel][0], height: loadBoardSize[indexLevel][1])
@@ -81,8 +79,6 @@ class MovingScreen: SKScene {
         let player = Player()
         self.addChild(player)
         player.animationWalking()
-        
-        let qwe = GameScene()
         
         let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
         blackSreen.size = CGSize(width: 600, height: 900)

@@ -12,32 +12,24 @@ import SpriteKit
 extension EnemyUnit {
     
     func defenseMod() {
-        switch self.enemyName {
-            case "SteamPunkWalker":
-                spawnCog(number: 2)
-            case "SteamPunkPunch":
-                spawnCog(number: 1)
-            case "SteamPunkFlameThrower":
-                spawnCog(number: 1)
-            default:
-                break
-        }
+        spawnCogOnDefense(number: spawnCogOnDefense)
     }
     
-    func spawnCog(number: Int) {
-        var duration: Double = 0
-        let interval: Double = self.gameScene.durationSpawnMatchAnimation()
-        for _ in 1...number {
-            self.gameScene.matchMoveToBoard(matchIndex: Match.cog,
-                                       nodePosition: self,
-                                       i: self.gameScene.matchBoard.getRandomMatchVertical(),
-                                       j: self.gameScene.matchBoard.getRandomMatchHorizontal(),
-                                       waitTimeToAnimation: TimeInterval(duration),
-                                       durationAnimation: interval
-            )
-            duration += interval
+    func spawnCogOnDefense(number: Int) {
+        if number != 0 {
+            var duration: Double = 0
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
+            for _ in 1...number {
+                self.gameScene.matchMoveToBoard(matchType: Match.cog,
+                                                nodePosition: self,
+                                                i: self.gameScene.matchBoard.getRandomMatchVertical(),
+                                                j: self.gameScene.matchBoard.getRandomMatchHorizontal(),
+                                                waitTimeToAnimation: TimeInterval(duration),
+                                                durationAnimation: interval
+                )
+                duration += interval
+            }
         }
-
     }
     
 }

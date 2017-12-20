@@ -11,8 +11,6 @@ import SpriteKit
 
 class EnemyUnit: SKSpriteNode {
     
-    
-    
     //Texture staff
     var enemyArrAttack = [SKTexture]()
     var enemyAtlasAttack = SKTextureAtlas()
@@ -26,15 +24,22 @@ class EnemyUnit: SKSpriteNode {
     var health: Int = 0
     var shield: Int = 0
     
+    //Modificator
+        //Attack modificator
+        var vampireAttack: Float = 0
+        var reactiveArmor: Int = 0
+        var spawnPoisonOnBoard: Int = 0
+        var spawnSkullOnBoard: Int = 0
     
-    //Attack modificator
-    var vampireAttack: Float = 0
-    var reactiveArmor: Int = 0
-    var spawnPoisonOnBoard = 1
-    var spawnSkullOnBoard: Int = 0
+        //Defense modificator
+        var spawnCogOnDefense = 0
     
-    //Death modificator
-    var spawnSkullOnDie = 0
+        //BreakArmor modificator
+        var spawnChainInstedArmor = false
+    
+        //Death modificator
+        var spawnSkullOnDie = 0
+    
     
     //Bool for special spell
     var specialSpell = true
@@ -64,7 +69,17 @@ class EnemyUnit: SKSpriteNode {
     
     init(enemyName: String, attack: Int, health: Int, shield: Int,
          size: CGSize,
-         vampire: Float, reactiveArmor: Int, gameScene: GameScene) {
+         //Attack
+         vampireOnAttack: Float,
+         armorOnAttack: Int,
+         poisonOnAttack: Int,
+         skullOnAttack: Int,
+         //Break Armor
+         chainInstedArmorOnBreakArmor: Bool,
+         //Defense
+         cogOnDefense: Int,
+         gameScene: GameScene) {
+        
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
         self.gameScene = gameScene
@@ -86,13 +101,20 @@ class EnemyUnit: SKSpriteNode {
         self.attack = attack
         self.health = health
         self.shield = shield
-        self.vampireAttack = vampire
-        self.reactiveArmor = reactiveArmor
+        
+        
+        self.vampireAttack = vampireOnAttack
+        self.reactiveArmor = armorOnAttack
+        self.spawnPoisonOnBoard = poisonOnAttack
+        self.spawnSkullOnBoard = skullOnAttack
+        
+        self.spawnChainInstedArmor = chainInstedArmorOnBreakArmor
+        
+        self.spawnCogOnDefense = cogOnDefense
         
         self.colorBlendFactor = CGFloat(0)
 
  
-        
         initShadow()
 
         setLabelOverHead(shield: self.attack, health: self.health, initLabel: true)
@@ -191,7 +213,8 @@ class EnemyUnit: SKSpriteNode {
                 self.health += self.shield
                 self.shield = 0
                 //On Break Armor
-                breakArmor()
+                print("ARMOR GO")
+                breakArmorMod()
             }
         }
         else {
@@ -205,7 +228,7 @@ class EnemyUnit: SKSpriteNode {
             }
             //On Die
             self.run(SKAction.sequence([
-                self.spawnSkullOnDieMod(),
+//                self.spawnSkullOnDieMod(),
                 spawnNewEnemy
             ]))
         }

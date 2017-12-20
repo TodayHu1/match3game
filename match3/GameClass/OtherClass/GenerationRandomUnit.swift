@@ -68,7 +68,12 @@ class GeneratRandomUnit {
                          health: unitNumberHealth,
                          shield: unitNumberArmor,
                          size: CGSize(width: 150, height: 150),
-                         vampire: 0, reactiveArmor: 0,
+                         vampireOnAttack: 0,
+                         armorOnAttack: 0,
+                         poisonOnAttack: 0,
+                         skullOnAttack: 0,
+                         chainInstedArmorOnBreakArmor: false,
+                         cogOnDefense: 0,
                          gameScene: gameScene)
         return unit
     }

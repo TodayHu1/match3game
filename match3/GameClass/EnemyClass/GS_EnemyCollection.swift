@@ -14,59 +14,97 @@ import GameplayKit
 extension GameScene {
 
     func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
+        
+        var size = CGSize(width: 150, height: 150)
+        
+        var attack = 5
+        var health = 10
+        var armor = 30
+        
+        //Attack
+        var vampireOnAttack = 0
+        var reactiveArmorOnAttack = 0
+        var poisonOnAttack = 0
+        var skullOnAttack = 0
+        
+        //BreakArmor
+        var chainInstedArmorOnBreakArmor = false
+        
+        //Defense
+        var cogOnDefense = 0
+        
         switch enemyName {
         case "Stony":
-            return EnemyUnit(enemyName: "Stony",
-                             attack: 5, health: 1, shield: 1,
-                             size: CGSize(width: 130, height: 130),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
-        case "MotherStony":
-            return EnemyUnit(enemyName: "Stony",
-                             attack: 5, health: 1, shield: 1,
-                             size: CGSize(width: 150, height: 150),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
-        case "StoneScale":
-            return EnemyUnit(enemyName: "StoneScale",
-                             attack: 5, health: 30, shield: 70,
-                             size: CGSize(width: 150, height: 150),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
+            //Size
+            size = CGSize(width: 130, height: 130)
+            
+            //Stat
+            attack = 5
+            health = 30
+            armor = 10
+            
+            //Special
+            poisonOnAttack = 1
+            chainInstedArmorOnBreakArmor = true
+            
         case "RoyalMage":
-            return EnemyUnit(enemyName: "RoyalMage",
-                             attack: 5, health: 30, shield: 70,
-                             size: CGSize(width: 140, height: 140),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
+            //Size
+            size = CGSize(width: 140, height: 140)
+            
+            //Stat
+            attack = 5
+            health = 30
+            armor = 70
+            
         case "SteamPunkPunch":
-            return EnemyUnit(enemyName: "SteamPunkPunch",
-                             attack: 4, health: 40, shield: 10,
-                             size: CGSize(width: 120, height: 120),
-                             vampire: 0, reactiveArmor: 3, gameScene: self)
+            //Size
+            size = CGSize(width: 120, height: 120)
+            
+            //Stat
+            attack = 4
+            health = 40
+            armor = 10
+            
+            //Special
+            reactiveArmorOnAttack = 3
+            
         case "SteamPunkFlameThrower":
-            return EnemyUnit(enemyName: "SteamPunkFlameThrower",
-                             attack: 5, health: 30, shield: 70,
-                             size: CGSize(width: 270, height: 120),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
+            
+            //Size
+            size = CGSize(width: 270, height: 120)
+            
+            //Stat
+            attack = 5
+            health = 30
+            armor = 70
+            
         case "SteamPunkWalker":
-            return EnemyUnit(enemyName: "SteamPunkWalker",
-                             attack: 8, health: 1, shield: 60,
-                             size: CGSize(width: 260, height: 160),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
-        case "ShadowRin":
-            return EnemyUnit(enemyName: "ShadowRin",
-                             attack: 3, health: 200, shield: 0,
-                             size: CGSize(width: 150, height: 150),
-                             vampire: 1, reactiveArmor: 0, gameScene: self)
-        case "Test":
-            return EnemyUnit(enemyName: "ShadowRin",
-                             attack: 3, health: 1, shield: 0,
-                             size: CGSize(width: 150, height: 150),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
+            
+            //Size
+            size = CGSize(width: 260, height: 160)
+            
+            //Stat
+            attack = 8
+            health = 40
+            armor = 40
         case "Random":
+            //Генерация юнита
             return randomUnit.generate()
+            
         default:
-            return EnemyUnit(enemyName: "SteamPunkWalker",
-                             attack: 5, health: 999, shield: 999,
-                             size: CGSize(width: 999, height: 999),
-                             vampire: 0, reactiveArmor: 0, gameScene: self)
+            break
         }
+        
+        return EnemyUnit(enemyName: enemyName,
+                         attack: attack, health: health, shield: armor,
+                         size: size,
+                         vampireOnAttack: Float(vampireOnAttack),
+                         armorOnAttack: reactiveArmorOnAttack,
+                         poisonOnAttack: poisonOnAttack,
+                         skullOnAttack: skullOnAttack,
+                         chainInstedArmorOnBreakArmor: chainInstedArmorOnBreakArmor,
+                         cogOnDefense: cogOnDefense,
+                         gameScene: self)
+        
     }
 }
