@@ -87,7 +87,7 @@ extension GameScene {
             }
         case 3:
             objectForAnimation = manaPoolNode
-            positionToMove = manaPoolNode.position
+            positionToMove = (manaPoolNode.parent?.position)!
             print("Движние к манапулу \(positionToMove)")
             specialActionOnEnd = SKAction.run {
                 self.changeManaLabel()

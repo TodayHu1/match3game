@@ -124,6 +124,7 @@ class GameScene: SKScene {
         spellBoardA.addChild(self.manaPoolNode)
         self.manaPoolNode.zPosition += 1
         print(" Мана пул позититон \(manaPoolNode.position)")
+        print(" Мана пул позититон парент \(manaPoolNode.parent?.position)")
         
         //Mana Holder
         let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))

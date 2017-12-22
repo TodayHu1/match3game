@@ -56,6 +56,9 @@
 		1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */; };
 		1F815F0B1FD3059C00133AC1 /* SteamPunkBackground.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */; };
 		1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */; };
+		1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A601FED403100CE4FBC /* Dungeon.atlas */; };
+		1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */; };
+		1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */; };
 		1F9C4B981FCEB1EF0090714E /* MovingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */; };
 		1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1A1591F009BF0004EEA96 /* GS_Match.swift */; };
 		1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB431441FB4908B00039960 /* MatchParamerts.swift */; };
@@ -151,6 +154,9 @@
 		1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_BreakArmorMod.swift; sourceTree = "<group>"; };
 		1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SteamPunkBackground.atlas; sourceTree = "<group>"; };
 		1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Defense.swift; sourceTree = "<group>"; };
+		1F983A601FED403100CE4FBC /* Dungeon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dungeon.atlas; sourceTree = "<group>"; };
+		1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Attack.atlas"; sourceTree = "<group>"; };
+		1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Stand.atlas"; sourceTree = "<group>"; };
 		1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingScreen.swift; sourceTree = "<group>"; };
 		1FB1A1591F009BF0004EEA96 /* GS_Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Match.swift; sourceTree = "<group>"; };
 		1FB431441FB4908B00039960 /* MatchParamerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchParamerts.swift; sourceTree = "<group>"; };
@@ -336,10 +342,20 @@
 		1F815F091FD3058500133AC1 /* BG */ = {
 			isa = PBXGroup;
 			children = (
+				1F983A601FED403100CE4FBC /* Dungeon.atlas */,
 				1FED406D1FD5AB95008CD005 /* GrassLand.atlas */,
 				1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */,
 			);
 			path = BG;
+			sourceTree = "<group>";
+		};
+		1F983A661FED462100CE4FBC /* Bee */ = {
+			isa = PBXGroup;
+			children = (
+				1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */,
+				1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */,
+			);
+			path = Bee;
 			sourceTree = "<group>";
 		};
 		1FB431B41FB5B28D00039960 /* Assets */ = {
@@ -374,6 +390,7 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F983A661FED462100CE4FBC /* Bee */,
 				1F70F9E81FC6AB1100A0BAFD /* RandomTestUnit */,
 				1FB431BA1FB753E000039960 /* ShadowRin */,
 				1F00B7071FAF588300C002B3 /* SteamPunkWalker */,
@@ -607,13 +624,16 @@
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
+				1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */,
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
+				1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
 				1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */,
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
+				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,

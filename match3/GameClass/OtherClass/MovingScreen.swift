@@ -28,7 +28,7 @@ class MovingScreen: SKScene {
         print("NewScene")
         
         let secondScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
-                                    playerSpell: ["","","",""],
+                                    playerSpell: ["Null","SpellNull","",""],
                                     bg: checkBG(bgName: loadBg[indexLevel]),
                                     size: checkBoardSize(size: loadBoardSize[indexLevel]))
         
@@ -67,7 +67,7 @@ class MovingScreen: SKScene {
     
     
     func getRandomBG() -> String {
-        let bg = ["GrassLand"]
+        let bg = ["GrassLand", "Dungeon"]
         let x = bg[Int(arc4random_uniform(UInt32(bg.count)))]
         print("Random BG ---- \(x)");
         return x

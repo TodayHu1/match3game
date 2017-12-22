@@ -44,9 +44,9 @@ class GeneratRandomUnit {
     
     func echo() {
         print("==================================")
-//        print("\(unitPower) -- Сила юнита")
+        print("\(unitPower) -- Сила юнита")
         print("\(unitStat) -- Статы юнита")
-//        print("\(unitSpell) -- Магия юнита")
+        print("\(unitSpell) -- Магия юнита")
         print("==================================")
         print("\(unitNumberAttack) -- Атака юнита")
         print("\(unitNumberArmor) -- Защита юнита")
@@ -55,23 +55,43 @@ class GeneratRandomUnit {
     }
     
     func getSprite() -> String {
-        let spriteArr = ["ShadowRin", "Stony"]
+        let spriteArr = ["ShadowRin", "Stony", "Bee"]
         let x = spriteArr[Int(arc4random_uniform(UInt32(spriteArr.count)))]
         print("Random Sprite \(x)");
         return x
     }
 
+
+    
     func generate() -> EnemyUnit {
         echo()
+        
+        var skills = [0,0,0]
+        
+        var numberOfSpell = lroundf(Float(unitSpell / 10))
+        
+        print("Number of spell --- \(numberOfSpell)")
+        
+        for i in 0...numberOfSpell {
+            skills[(self.gameScene.random(number: skills.count))-1] = 1
+        }
+        
+        print("Скиллы --  \(skills)")
+        
+        let armorOnAttack = skills[0]
+        let poisonOnAttack = skills[1]
+        let skullOnAttack = skills[2]
+        
+
         unit = EnemyUnit(enemyName: getSprite(),
                          attack: unitNumberAttack,
                          health: unitNumberHealth,
                          shield: unitNumberArmor,
                          size: CGSize(width: 150, height: 150),
                          vampireOnAttack: 0,
-                         armorOnAttack: 0,
-                         poisonOnAttack: 0,
-                         skullOnAttack: 0,
+                         armorOnAttack: armorOnAttack,
+                         poisonOnAttack: poisonOnAttack,
+                         skullOnAttack: skullOnAttack,
                          chainInstedArmorOnBreakArmor: false,
                          cogOnDefense: 0,
                          gameScene: gameScene)
