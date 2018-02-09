@@ -20,7 +20,6 @@
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
-		1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF721FA610B600FD51B7 /* Shit.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
 		1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F94F1FBD7104008DA2C9 /* CountClass.swift */; };
 		1F13F9521FBDCA49008DA2C9 /* GS_HelpFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */; };
@@ -42,8 +41,12 @@
 		1F2D822B1F88D87700710D50 /* StoneScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */; };
 		1F2D822C1F88D87700710D50 /* StoneScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */; };
 		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
+		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
+		1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F29202B014100B43E1C /* PlayerStat.swift */; };
+		1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */; };
+		1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2F202B204800B43E1C /* MainMenuViewController.swift */; };
 		1F4E253E1FE644C8002731AF /* ArrayTest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E253D1FE644C8002731AF /* ArrayTest.json */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
@@ -68,6 +71,7 @@
 		1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */; };
 		1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BF1FB835F900039960 /* SpellTexture.xcassets */; };
 		1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */; };
+		1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */; };
 		1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */; };
 		1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */; };
 		1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */; };
@@ -112,7 +116,6 @@
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
-		1F11EF721FA610B600FD51B7 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
 		1F13F94F1FBD7104008DA2C9 /* CountClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClass.swift; sourceTree = "<group>"; };
 		1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_HelpFunction.swift; sourceTree = "<group>"; };
@@ -141,8 +144,12 @@
 		1F2D82291F88D87700710D50 /* StoneScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822A1F88D87700710D50 /* StoneScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "StoneScale-Stand.atlas"; sourceTree = "<group>"; };
 		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
+		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		1F455F29202B014100B43E1C /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
+		1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownHallViewController.swift; sourceTree = "<group>"; };
+		1F455F2F202B204800B43E1C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		1F4E253D1FE644C8002731AF /* ArrayTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ArrayTest.json; sourceTree = SOURCE_ROOT; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
@@ -166,6 +173,7 @@
 		1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Stand.atlas"; sourceTree = "<group>"; };
 		1FB431BF1FB835F900039960 /* SpellTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellTexture.xcassets; sourceTree = "<group>"; };
 		1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Walking.atlas"; sourceTree = "<group>"; };
+		1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = EnemyIcon.xcassets; path = Assets/EnemyIcon.xcassets; sourceTree = "<group>"; };
 		1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Stand.atlas"; sourceTree = "<group>"; };
 		1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Attack.atlas"; sourceTree = "<group>"; };
 		1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Stand.atlas"; sourceTree = "<group>"; };
@@ -278,7 +286,8 @@
 				1FB431B41FB5B28D00039960 /* Assets */,
 				1F00B6F91FADB4AE00C002B3 /* munro */,
 				1F2D82101F7E385C00710D50 /* Assets.xcassets */,
-				1F11EF721FA610B600FD51B7 /* Shit.xcassets */,
+				1F38FFE8201F64370005FB35 /* Shit.xcassets */,
+				1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */,
 				1F2AEDB51EFD5862001AEBB7 /* AppDelegate.swift */,
 				1F2AEDB91EFD5863001AEBB7 /* Actions.sks */,
 				1F2AEDBD1EFD5863001AEBB7 /* GameViewController.swift */,
@@ -483,6 +492,7 @@
 				1FB431441FB4908B00039960 /* MatchParamerts.swift */,
 				1FF817A11FC2A1B900F07292 /* GenerationRandomUnit.swift */,
 				1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */,
+				1F455F29202B014100B43E1C /* PlayerStat.swift */,
 			);
 			path = OtherClass;
 			sourceTree = "<group>";
@@ -492,6 +502,8 @@
 			children = (
 				32280FA91FB9570600F954B1 /* PageViewController.swift */,
 				32280FAB1FB9577900F954B1 /* ChoiceLevelViewController.swift */,
+				1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */,
+				1F455F2F202B204800B43E1C /* MainMenuViewController.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -617,6 +629,7 @@
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
 				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
+				1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */,
 				1F815F0B1FD3059C00133AC1 /* SteamPunkBackground.atlas in Resources */,
 				1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
@@ -638,8 +651,8 @@
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
+				1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
-				1F11EF731FA610B600FD51B7 /* Shit.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
 				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
@@ -695,6 +708,9 @@
 				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
 				1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */,
+				1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */,
+				1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */,
+				1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
 				1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */,
 				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,
@@ -868,7 +884,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -882,7 +898,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GetAptSudo.Match4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

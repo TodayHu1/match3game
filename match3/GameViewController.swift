@@ -41,34 +41,61 @@ var loadBg: [String]!
 var loadBoardSize: [[Int]]!
 var indexLevel = 0
 
+
+
 class GameViewController: UIViewController {
+    
+    var lvlName: String = "ArrayTest"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        loadLevel(jsonFileName: lvlName)
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "ArrayTest") else { return }
-        
         
         loadEnemy = dictionary["Enemy"] as! [[String]]
         loadBg = dictionary["Bg"] as! [String]
         loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
-        let View = view as! SKView
+//        let View = view as! SKView
         let scene = MovingScreen()
-        let movingScreen = scene
-        movingScreen.scaleMode = SKSceneScaleMode.aspectFit
+//        let movingScreen = scene
+//        movingScreen.scaleMode = SKSceneScaleMode.aspectFit
+//
+//        View.presentScene(movingScreen)
         
-        View.presentScene( movingScreen )
+        
+        presentScene(scene: scene)
+        
+        
+        
     }
     
+    
+    
+//    public func loadLevel(jsonFileName: String) {
+
+        
+        
+
+//    }
+    
     func presentScene(scene: SKScene) {
-        let view = self.view as! SKView
-        scene.scaleMode = .aspectFill
-        view.ignoresSiblingOrder = true
-        view.showsFPS = true
-        view.showsNodeCount = true
-        view.presentScene(scene)
+        let sceneView = SKView()
+        self.view = sceneView
+//        let view = self.view as! SKView
+//        scene.scaleMode = .aspectFill
+//        view.ignoresSiblingOrder = true
+//        view.showsFPS = true
+//        view.showsNodeCount = true
+//        view.presentScene(scene)
+        sceneView.presentScene(scene)
     }
+
+
+    
+    
+
 
     override var shouldAutorotate: Bool {
         return true

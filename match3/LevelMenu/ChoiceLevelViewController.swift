@@ -8,8 +8,17 @@
 
 import UIKit
 
-class ChoiceLevelViewController: UIViewController {
 
+var lvlContainer = [
+    "nameLevel": "1123",
+    "nowLevel": 1,
+    "maxLevel": 10,
+    "difficulty": 0,
+    "access": true
+    ] as [String : Any]
+
+class ChoiceLevelViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +30,21 @@ class ChoiceLevelViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToLvl" {
+            if let vc = segue.destination as? GameViewController {
+                print("sender ", sender)
+                vc.lvlName = sender as! String
+            }
+        }
+    }
+    
+    @IBAction func StartLvl_SteamPunk(_ sender: Any) {
+        print(Int("01"))
+        self.performSegue(withIdentifier: "ToLvl", sender: "ArrayTest")
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -33,3 +56,4 @@ class ChoiceLevelViewController: UIViewController {
     */
 
 }
+

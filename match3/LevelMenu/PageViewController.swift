@@ -15,8 +15,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     // dnl: просто вписываешь сюда все контроллеры
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "firstLevelScreen"),
-                self.newVc(viewController: "secondLevelScreen")]
+        return [
+            self.newVc(viewController: "LevelScreen1"),
+            self.newVc(viewController: "LevelScreen2")
+        ]
     }()
     
     override func viewDidLoad() {

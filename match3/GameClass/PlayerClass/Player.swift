@@ -88,6 +88,13 @@ class Player: SKSpriteNode {
         self.anchorPoint.y = 0
         self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         
+        self.attack = playerStat.attack
+        self.shield = playerStat.armor
+        self.health = playerStat.health
+        self.mana = playerStat.mana
+        self.coin = playerStat.gold
+        
+        
         initShadow()
         labelOverHead(shield: self.shield, health: self.health, initLabel: true)
         

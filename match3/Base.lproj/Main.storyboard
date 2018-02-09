@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m0h-0w-7RR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m0h-0w-7RR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="munro.ttf">
             <string>Munro</string>
         </array>
+        <array key="munro_small.ttf">
+            <string>MunroSmall</string>
+        </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="Ia3-se-fmu">
             <objects>
-                <viewController id="m0h-0w-7RR" sceneMemberID="viewController">
+                <viewController id="m0h-0w-7RR" customClass="MainMenuViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F6Z-5T-GuM"/>
                         <viewControllerLayoutGuide type="bottom" id="wu5-Fa-Iqf"/>
@@ -26,34 +29,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-1" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-xI-rp7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-js-ui5" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="125" width="290" height="253"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="43" y="128" width="290" height="213"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <size key="titleShadowOffset" width="0.0" height="3"/>
                                         <state key="normal" backgroundImage="Table"/>
                                         <connections>
                                             <segue destination="ZKV-Dx-BEr" kind="show" id="Im9-VZ-Z7o"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTj-xJ-sUo">
+                                        <rect key="frame" x="209" y="402" width="153" height="141"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" image="skillCell"/>
+                                        <connections>
+                                            <segue destination="L8e-9N-R5V" kind="show" id="fvV-PQ-OSh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-Vd-ZrS" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="557" width="343" height="90"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="35"/>
-                                <size key="titleShadowOffset" width="0.0" height="3"/>
-                                <state key="normal" title="Battle" backgroundImage="UI-Test3">
-                                    <color key="titleShadowColor" red="0.1803921568627451" green="0.33333333333333331" blue="0.396078431372549" alpha="1" colorSpace="deviceRGB"/>
-                                </state>
-                                <state key="highlighted" title="Battle"/>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="ILd-UJ-P9V"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18133370539999999" green="0.3321355198" blue="0.39667968749999999" alpha="1" colorSpace="deviceRGB"/>
                     </view>
@@ -61,6 +63,132 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF7-ML-msY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-727.20000000000005" y="108.39580209895054"/>
+        </scene>
+        <!--Town Hall View Controller-->
+        <scene sceneID="Pnf-Hy-zdn">
+            <objects>
+                <viewController id="L8e-9N-R5V" customClass="TownHallViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SLv-z3-mdY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lvi-u4-Rbg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFill" id="zVQ-nv-rer">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-Rj-4kc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TownHall" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-9B-mUp">
+                                        <rect key="frame" x="-1" y="-2" width="377" height="669"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-ki-HOi">
+                                        <rect key="frame" x="110" y="255" width="139" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
+                                        <rect key="frame" x="-1" y="392" width="377" height="91"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
+                                        <rect key="frame" x="-1" y="293" width="377" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="or6-ZN-51i">
+                                        <rect key="frame" x="142" y="392" width="90" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-2m-XAr">
+                                        <rect key="frame" x="141" y="317" width="92" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
+                                        <size key="titleShadowOffset" width="0.0" height="3"/>
+                                        <state key="normal" title="2" backgroundImage="BuyArmor">
+                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ArmorUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="zNq-Jf-Fat"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="wi7-8J-Vho">
+                                        <rect key="frame" x="250" y="392" width="90" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-jd-hun">
+                                        <rect key="frame" x="249" y="317" width="91" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
+                                        <size key="titleShadowOffset" width="0.0" height="3"/>
+                                        <state key="normal" title="2" backgroundImage="BuyMagic">
+                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ManaUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="gGv-5V-BY0"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="dpg-eb-QwN">
+                                        <rect key="frame" x="34" y="392" width="90" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="tpn-Va-4kw">
+                                        <rect key="frame" x="34" y="317" width="90" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
+                                        <size key="titleShadowOffset" width="0.0" height="3"/>
+                                        <state key="normal" title="2" backgroundImage="BuyAttack">
+                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SwordUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="7xg-sQ-ZVl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rel-Ov-Z6f">
+                                        <rect key="frame" x="49" y="21" width="89" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
+                                        <color key="textColor" red="0.95108264593908631" green="0.87778341846124441" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.16168434747615615" green="0.24809788685227052" blue="0.34252062182741116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="0.0" height="3"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CoinIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ub2-d3-74v">
+                                        <rect key="frame" x="14" y="26" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
+                                        <rect key="frame" x="14" y="561" width="92" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="23"/>
+                                        <state key="normal" title="Back" backgroundImage="UI_StoneButton"/>
+                                        <connections>
+                                            <action selector="test:" destination="L8e-9N-R5V" eventType="touchUpInside" id="0Hg-Tr-boj"/>
+                                            <segue destination="m0h-0w-7RR" kind="show" id="aX9-kC-apc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16326683759689331" green="0.20754721760749817" blue="0.23265007138252258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="NumberOfGold" destination="rel-Ov-Z6f" id="nHX-YD-mI5"/>
+                        <outlet property="UpgradeArmorButton" destination="KdM-2m-XAr" id="FZG-un-SRU"/>
+                        <outlet property="UpgradeManaButton" destination="mNs-jd-hun" id="YbM-3R-tQY"/>
+                        <outlet property="UpgradeSwordButton" destination="tpn-Va-4kw" id="YCd-NL-bCc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TaM-In-cF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="530.39999999999998" y="129.31034482758622"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="nc4-hT-Ixe">
@@ -72,30 +200,30 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy7-Kp-TNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="-608"/>
+            <point key="canvasLocation" x="57" y="-659"/>
         </scene>
         <!--Game View Controller-->
-        <scene sceneID="tXr-a1-R10">
+        <scene sceneID="25b-t3-IpQ">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qrc-3t-sS0" customClass="GameViewController" customModule="match3" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
-                        <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
+                        <viewControllerLayoutGuide type="top" id="wmk-ez-nrt"/>
+                        <viewControllerLayoutGuide type="bottom" id="IoI-Hh-VeD"/>
                     </layoutGuides>
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                    <view key="view" contentMode="scaleToFill" id="Tx7-sS-ker">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95108264590000002" green="0.87778341849999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-zw-s9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727" y="834"/>
+            <point key="canvasLocation" x="1132" y="-1397"/>
         </scene>
         <!--Choice Level View Controller-->
         <scene sceneID="Dka-dH-rUd">
             <objects>
-                <viewController storyboardIdentifier="firstLevelScreen" id="Upr-t4-Bgq" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LevelScreen1" id="Upr-t4-Bgq" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KSh-of-ySx"/>
                         <viewControllerLayoutGuide type="bottom" id="ICS-iZ-lpC"/>
@@ -106,135 +234,169 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="a1b-hR-uEM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8z-ME-FWU">
-                                <rect key="frame" x="81" y="473" width="223" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="20"/>
-                                <state key="normal" title="Start a challenge" backgroundImage="UI - Small - Green">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u8F-Cg-uT5">
-                                <rect key="frame" x="72" y="131" width="240" height="322"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tiv-kX-3CU">
+                                <rect key="frame" x="68" y="90" width="240" height="427"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="ssb-02-bQ1">
-                                        <rect key="frame" x="0.0" y="-31" width="240" height="358"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="Emg-p5-rtj">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETN-W5-fvB">
-                                        <rect key="frame" x="61" y="0.0" width="117" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzr-ih-RbA">
+                                        <rect key="frame" x="16" y="307" width="110" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
+                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwz-tA-Rho">
+                                        <rect key="frame" x="180" y="252" width="41" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
+                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="b7X-Qb-LMT">
+                                        <rect key="frame" x="0.0" y="406" width="240" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8z-ME-FWU">
+                                        <rect key="frame" x="0.0" y="374" width="240" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="25"/>
+                                        <state key="normal" title="Start a challenge" backgroundImage="UI_WoodenButtonSuperLong">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="StartLvl_SteamPunk:" destination="Upr-t4-Bgq" eventType="touchUpInside" id="I3R-Xm-aao"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SteamPunkWalker" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-aj-in9">
+                                        <rect key="frame" x="8" y="116" width="224" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h86-ec-1be">
+                                        <rect key="frame" x="10" y="27" width="222" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
-                                        <color key="textColor" red="0.58085735103626945" green="0.38112239229230821" blue="0.084538122866737633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8/15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvD-Jg-WZa">
-                                        <rect key="frame" x="14" y="277" width="110" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735103626945" green="0.38112239229230821" blue="0.084538122866737633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgG-lI-tpA">
-                                        <rect key="frame" x="180" y="224" width="41" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735103626945" green="0.38112239229230821" blue="0.084538122866737633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SteamPunkWalker" translatesAutoresizingMaskIntoConstraints="NO" id="GD5-2a-s0z">
-                                        <rect key="frame" x="20" y="92" width="201" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2916910966663554" green="0.58085735100000002" blue="0.51306315424484339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="g9G-AB-KdB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="phq-Qt-FmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-727.20000000000005" y="-1316.4917541229386"/>
+            <point key="canvasLocation" x="-351.19999999999999" y="-2160.2698650674665"/>
         </scene>
         <!--Choice Level View Controller-->
-        <scene sceneID="DK1-21-GWZ">
+        <scene sceneID="8np-md-Lte">
             <objects>
-                <viewController storyboardIdentifier="secondLevelScreen" id="O7d-Su-N9I" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LevelScreen2" id="fPD-8s-ty0" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T8f-sb-IwP"/>
-                        <viewControllerLayoutGuide type="bottom" id="qGg-E7-Ejb"/>
+                        <viewControllerLayoutGuide type="top" id="O7E-S5-TxR"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZfW-I7-hYD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EbL-bv-2UN">
+                    <view key="view" contentMode="scaleToFill" id="FMP-wG-iTz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="6XV-cC-zhh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="r3l-Jz-LRw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wb-II-J9g">
-                                <rect key="frame" x="67" y="133" width="240" height="322"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vuq-HO-eg8">
+                                <rect key="frame" x="68" y="90" width="240" height="427"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="QH9-ix-WCq">
-                                        <rect key="frame" x="0.0" y="-31" width="240" height="358"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="Jmu-Aq-72Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnm-zY-hoN">
-                                        <rect key="frame" x="61" y="0.0" width="117" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfI-ih-ipz">
+                                        <rect key="frame" x="16" y="307" width="110" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
+                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90R-DU-giO">
+                                        <rect key="frame" x="180" y="252" width="41" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
+                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="9O5-Su-G3V">
+                                        <rect key="frame" x="8" y="387" width="223" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cip-Ye-oAx">
+                                        <rect key="frame" x="0.0" y="357" width="240" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="20"/>
+                                        <state key="normal" title="Start a challenge" backgroundImage="UI - Small - Green">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="StartLvl_SteamPunk:" destination="fPD-8s-ty0" eventType="touchUpInside" id="Se3-m2-5B5"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SteamPunkWalker" translatesAutoresizingMaskIntoConstraints="NO" id="ErB-qb-lNs">
+                                        <rect key="frame" x="8" y="116" width="224" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztk-MU-umt">
+                                        <rect key="frame" x="10" y="27" width="222" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
                                         <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrm-ae-pff">
-                                        <rect key="frame" x="14" y="277" width="110" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hph-MH-ddd">
-                                        <rect key="frame" x="180" y="224" width="41" height="41"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ShadowRin" translatesAutoresizingMaskIntoConstraints="NO" id="C46-a0-C3L">
-                                        <rect key="frame" x="61" y="96" width="119" height="114"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZ4-3U-zn5">
-                                <rect key="frame" x="76" y="471" width="223" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="20"/>
-                                <state key="normal" title="Start a challenge" backgroundImage="UI - Small - Green">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl//" id="hmh-gI-mgK"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AZf-48-OGt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lBS-pX-scR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63.200000000000003" y="-1316.4917541229386"/>
+            <point key="canvasLocation" x="286" y="-2160"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ShadowRin" width="256" height="256"/>
+        <image name="BuyArmor" width="256" height="256"/>
+        <image name="BuyAttack" width="256" height="256"/>
+        <image name="BuyMagic" width="256" height="256"/>
+        <image name="CoinIcon" width="256" height="256"/>
+        <image name="Grass-1" width="308" height="552"/>
+        <image name="SkillTableForTownHall" width="256" height="108"/>
         <image name="SteamPunkWalker" width="416" height="256"/>
-        <image name="Table" width="341" height="256"/>
+        <image name="Table" width="332" height="230"/>
         <image name="TableInner" width="398" height="702"/>
+        <image name="TownHall" width="256" height="456"/>
         <image name="UI - Small - Green" width="364" height="164"/>
-        <image name="UI-Test3" width="512" height="164"/>
+        <image name="UI_StoneButton" width="256" height="256"/>
+        <image name="UI_WoodenButtonSuperLong" width="768" height="256"/>
+        <image name="UI_shadow" width="600" height="300"/>
+        <image name="WallTownHall" width="256" height="512"/>
         <image name="WantedList" width="266" height="418"/>
+        <image name="shadow" width="600" height="600"/>
+        <image name="skillCell" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="g9G-AB-KdB"/>
+        <segue reference="aX9-kC-apc"/>
+    </inferredMetricsTieBreakers>
 </document>
