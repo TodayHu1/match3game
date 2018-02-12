@@ -17,7 +17,7 @@ class ChoiceLevelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //kek1.isEnabled = false
+        kek1.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
