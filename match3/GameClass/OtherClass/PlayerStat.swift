@@ -10,12 +10,12 @@ import Foundation
 
 class PlayerStat {
     
-    var mana = 10
-    var health = 20
-    var armor = 30
-    var attack = 10
+    var mana = 0
+    var health = 0
+    var armor = 0
+    var attack = 0
     
-    var gold = 40
+    var gold = 0
     
     init(mana: Int, health: Int, armor: Int, gold: Int, attack: Int) {
         self.mana = mana

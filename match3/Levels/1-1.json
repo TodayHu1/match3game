@@ -2,30 +2,27 @@
     "BoardSize":
     [
         [
-            0,
-            0
+            3,
+            3
         ],
         [
             6,
-            5
+            6
         ]
     ],
     "Bg":
     [
-        "",
+        "GrassLand",
         "SteamPunkBackground"
     ],    
 	"Enemy":
     [
         [
-            "",
-            "",
-            ""
+            "RoyalMage",
+            "Stony"
         ],
         [
             "SteamPunkPunch",
-            "SteamPunkFlameThrower",
-            "SteamPunkWalker"
-        ]
+            "SteamPunkFlameThrower"]
     ]
 }

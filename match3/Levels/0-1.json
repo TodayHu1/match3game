@@ -1,0 +1,16 @@
+{
+    "BoardSize": [
+        [
+            5,
+            5
+        ]
+    ],
+    "Bg": [
+        "GrassLand"
+    ],
+    "Enemy": [
+        [
+            "Dummy"
+        ]
+    ]
+}

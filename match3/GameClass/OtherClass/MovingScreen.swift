@@ -15,6 +15,11 @@ class MovingScreen: SKScene {
     var bg: String!
     var boardSize: [Int]!
     
+    var lvlName: String!
+    
+    var gameViewController: GameViewController!
+    var gameScene: GameScene!
+    
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -27,14 +32,44 @@ class MovingScreen: SKScene {
     func presentScene() {
         print("NewScene")
         
-        let secondScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
+
+//        print("-!-")
+        print(self.gameViewController)
+        gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
                                     playerSpell: ["Null","SpellNull","",""],
                                     bg: checkBG(bgName: loadBg[indexLevel]),
                                     size: checkBoardSize(size: loadBoardSize[indexLevel]))
         
+        gameScene.gameViewController = self.gameViewController
+        
+        if lvlName == "0-1" {
+            gameScene.levelArr = [
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain],
+                [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
+            ]
+        }
+        
+        if lvlName == "0-2" {
+            gameScene.levelArr = [
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain],
+                [Match.chain, Match.attack, Match.skull ,Match.attack, Match.chain],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
+            ]
+        }
+        
+        
+        
+        
+
         let transition = SKTransition.crossFade(withDuration: 0.0)
-        secondScene.scaleMode = SKSceneScaleMode.aspectFit
-        self.scene!.view?.presentScene(secondScene, transition: transition)
+        gameScene.scaleMode = SKSceneScaleMode.aspectFit
+        self.scene!.view?.presentScene(gameScene, transition: transition)
     }
     
     func checkBG(bgName: String) -> String {
@@ -72,7 +107,8 @@ class MovingScreen: SKScene {
         print("Random BG ---- \(x)");
         return x
     }
-    
+
+
     
     override func didMove(to view: SKView) {
         
@@ -95,23 +131,16 @@ class MovingScreen: SKScene {
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let wait = SKAction.wait(forDuration: 1)
         
-//        var unit: EnemyUnit!
-        
-//        for i in 0...3 {
-//            unit = qwe.initNewClassForEnemy(enemyName: enemyA[enemyIndexA][i])
-//            unit.position.x = unit.position.x + CGFloat((i * 30))
-////            unit.zPosition -= CGFloat(i)
-//            self.addChild(unit)
-//            unit.animationStand()
-//        }
 
         let startLevel = SKAction.run {
-            self.presentScene()
             if indexLevel < loadEnemy.count {
+                print("==============================")
+                print("\(indexLevel) < \(loadEnemy.count)")
                 self.presentScene()
             }
             else {
-
+                print("\(indexLevel) > \(loadEnemy.count)")
+                self.gameViewController.presentMenu()
             }
 
         }

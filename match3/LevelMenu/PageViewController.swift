@@ -11,6 +11,10 @@ import UIKit
 class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     
+
+    
+    
+    
     var pageControl = UIPageControl()
     
     // dnl: просто вписываешь сюда все контроллеры
@@ -40,6 +44,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
         
         configurePageControl()
+        
+//        print((levelStorage[0]["Access"] != nil))
+//        
+//        tutorialButton.isEnabled = false
         
         // Do any additional setup after loading the view.
     }

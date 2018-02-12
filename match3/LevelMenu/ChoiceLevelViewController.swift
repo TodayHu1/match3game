@@ -9,18 +9,15 @@
 import UIKit
 
 
-var lvlContainer = [
-    "nameLevel": "1123",
-    "nowLevel": 1,
-    "maxLevel": 10,
-    "difficulty": 0,
-    "access": true
-    ] as [String : Any]
-
 class ChoiceLevelViewController: UIViewController {
+    
+    
+    @IBOutlet weak var kek1: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //kek1.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
@@ -34,16 +31,25 @@ class ChoiceLevelViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToLvl" {
             if let vc = segue.destination as? GameViewController {
-                print("sender ", sender)
+                print("sender --------- ", sender)
                 vc.lvlName = sender as! String
             }
         }
+        else {
+            print("segue identifier")
+        }
     }
     
-    @IBAction func StartLvl_SteamPunk(_ sender: Any) {
-        print(Int("01"))
-        self.performSegue(withIdentifier: "ToLvl", sender: "ArrayTest")
+    
+    @IBAction func ToLvl_Tutorial(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToLvl", sender: "0-1")
     }
+    
+    
+    @IBAction func ToLvl_SteamPunk(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToLvl", sender: "1-1")
+    }
+    
     
     /*
     // MARK: - Navigation

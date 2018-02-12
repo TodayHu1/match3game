@@ -34,6 +34,15 @@ extension GameScene {
         var cogOnDefense = 0
         
         switch enemyName {
+        case "Dummy":
+            //Size
+            size = CGSize(width: 100, height: 100)
+            
+            //Stat
+            attack = 999
+            health = 1
+            armor = 0
+            
         case "Stony":
             //Size
             size = CGSize(width: 130, height: 130)
@@ -41,11 +50,10 @@ extension GameScene {
             //Stat
             attack = 5
             health = 30
-            armor = 10
+            armor = 30
             
             //Special
             poisonOnAttack = 1
-            chainInstedArmorOnBreakArmor = true
             
         case "RoyalMage":
             //Size
@@ -53,15 +61,15 @@ extension GameScene {
             
             //Stat
             attack = 5
-            health = 30
-            armor = 70
+            health = 20
+            armor = 0
             
         case "SteamPunkPunch":
             //Size
             size = CGSize(width: 120, height: 120)
             
             //Stat
-            attack = 4
+            attack = 8
             health = 40
             armor = 10
             

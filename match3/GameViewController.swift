@@ -6,31 +6,6 @@
 //  Copyright © 2017 Женя. All rights reserved.
 //
 
-extension Dictionary {
-    static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
-        var dataOK: Data
-        var dictionaryOK: NSDictionary = NSDictionary()
-        if let path = Bundle.main.path(forResource: filename, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions()) as Data!
-                dataOK = data!
-            }
-            catch {
-                print("Could not load level file: \(filename), error: \(error)")
-                return nil
-            }
-            do {
-                let dictionary = try JSONSerialization.jsonObject(with: dataOK, options: JSONSerialization.ReadingOptions()) as AnyObject!
-                dictionaryOK = (dictionary as! NSDictionary as? Dictionary<String, AnyObject>)! as NSDictionary
-            }
-            catch {
-                print("Level file '\(filename)' is not valid JSON: \(error)")
-                return nil
-            }
-        }
-        return dictionaryOK as? Dictionary<String, AnyObject>
-    }
-}
 
 import UIKit
 import SpriteKit
@@ -42,59 +17,54 @@ var loadBoardSize: [[Int]]!
 var indexLevel = 0
 
 
+var levelStorage = [
+    ["Name": "Tutorial",
+     "LvlNow": 1,
+     "LvlMax": 5,
+     "Access": true
+    ]
+]
+
+
 
 class GameViewController: UIViewController {
     
-    var lvlName: String = "ArrayTest"
+    var lvlName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadLevel(jsonFileName: lvlName)
         
-        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: "ArrayTest") else { return }
+        lvlName = "0-1"
         
+        print(levelStorage[0]["lvlNow"])
+        
+        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
+
         loadEnemy = dictionary["Enemy"] as! [[String]]
         loadBg = dictionary["Bg"] as! [String]
         loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
-//        let View = view as! SKView
+
         let scene = MovingScreen()
-//        let movingScreen = scene
-//        movingScreen.scaleMode = SKSceneScaleMode.aspectFit
-//
-//        View.presentScene(movingScreen)
-        
-        
+        scene.gameViewController = self
+        scene.lvlName = lvlName
         presentScene(scene: scene)
-        
-        
         
     }
     
     
+    func presentMenu() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+        self.present(newViewController, animated: true, completion: nil)
+    }
     
-//    public func loadLevel(jsonFileName: String) {
-
-        
-        
-
-//    }
     
     func presentScene(scene: SKScene) {
         let sceneView = SKView()
         self.view = sceneView
-//        let view = self.view as! SKView
-//        scene.scaleMode = .aspectFill
-//        view.ignoresSiblingOrder = true
-//        view.showsFPS = true
-//        view.showsNodeCount = true
-//        view.presentScene(scene)
         sceneView.presentScene(scene)
     }
-
-
-    
-    
 
 
     override var shouldAutorotate: Bool {

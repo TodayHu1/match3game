@@ -15,7 +15,7 @@ class MainMenuViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        playerStat = PlayerStat(mana: 20, health: 30, armor: 40, gold: 50, attack: 10)
+        playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1)
         print(playerStat)
         super.viewDidLoad()
     }

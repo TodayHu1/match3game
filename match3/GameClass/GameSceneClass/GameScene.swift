@@ -14,6 +14,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var gameViewController: GameViewController!
     var matchBoard: MatchParametrs!
     var randomUnit: GeneratRandomUnit!
     var gestureLabel = SKLabelNode(text: "")
@@ -32,6 +33,8 @@ class GameScene: SKScene {
     var spell4: Spell!
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var enemyOnLevelArr = [String]()
+    
+
 
     
 
@@ -297,6 +300,7 @@ class GameScene: SKScene {
     func presentScene() {
         print("NewScene")
         let secondScene = MovingScreen()
+        secondScene.gameViewController = self.gameViewController
         let transition = SKTransition.crossFade(withDuration: 1.0)
         secondScene.scaleMode = SKSceneScaleMode.aspectFill
         self.scene!.view?.presentScene(secondScene, transition: transition)
