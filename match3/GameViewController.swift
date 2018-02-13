@@ -16,6 +16,8 @@ var loadBg: [String]!
 var loadBoardSize: [[Int]]!
 var indexLevel = 0
 
+var lvlOnReady = 0
+
 
 var levelStorage = [
     ["Name": "Tutorial",

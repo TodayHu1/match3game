@@ -130,7 +130,6 @@ class MovingScreen: SKScene {
         let fadeOut = SKAction.fadeOut(withDuration: 1)
         let fadeIn = SKAction.fadeIn(withDuration: 1)
         let wait = SKAction.wait(forDuration: 1)
-        
 
         let startLevel = SKAction.run {
             if indexLevel < loadEnemy.count {
@@ -140,10 +139,12 @@ class MovingScreen: SKScene {
             }
             else {
                 print("\(indexLevel) > \(loadEnemy.count)")
+//                levelStorage[lvlOnReady]["LvlNow"] = 1
+//                var x = (levelStorage[lvlOnReady]["LvlNow"] is Int?) + 1
                 self.gameViewController.presentMenu()
             }
-
         }
+        
         let chageLabel = SKAction.run {
             if indexLevel < loadEnemy.count {
                 movingLabel.text = "ENEMY AHEAD!"

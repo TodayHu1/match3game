@@ -294,7 +294,7 @@
                         <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="kek1" destination="sAB-gG-tT5" id="tGD-bf-56O"/>
+                        <outlet property="lol1" destination="sAB-gG-tT5" id="s5a-nD-cc1"/>
                         <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="MFL-Kg-3Yh"/>
                     </connections>
                 </viewController>
@@ -372,7 +372,7 @@
                         <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="kek1" destination="lDX-Kf-WKJ" id="Usx-d4-172"/>
+                        <outlet property="lol2" destination="lDX-Kf-WKJ" id="9Xc-nd-14i"/>
                         <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="syL-RH-VqN"/>
                     </connections>
                 </viewController>
@@ -402,7 +402,7 @@
         <image name="skillCell" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="syL-RH-VqN"/>
+        <segue reference="MFL-Kg-3Yh"/>
         <segue reference="hfA-ga-LLP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,17 +11,13 @@ import UIKit
 
 class ChoiceLevelViewController: UIViewController {
     
-    @IBOutlet weak var lol1: UIButton!
     
-    @IBOutlet weak var lol2: UIButton!
+    @IBOutlet weak var kek1: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lol1.isEnabled = false
-        lol2.isEnabled = false
-
-
+        kek1.isEnabled = false
 
         // Do any additional setup after loading the view.
     }
@@ -46,8 +42,7 @@ class ChoiceLevelViewController: UIViewController {
     
     
     @IBAction func ToLvl_Tutorial(_ sender: Any) {
-        lvlOnReady = 0
-        self.performSegue(withIdentifier: "ToLvl", sender: "0-\(levelStorage[0]["LvlNow"])")
+        self.performSegue(withIdentifier: "ToLvl", sender: "0-1")
     }
     
     
