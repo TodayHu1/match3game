@@ -160,6 +160,10 @@ class Player: SKSpriteNode {
         
         self.run(SKAction.sequence([getDamage,toNormalColor]))
         
+        if self.health <= 0 {
+            gameScene.toMainMenu()
+        }
+        
     }
     
     func fullAttackStandAnimation(damage: Int) {

@@ -10,13 +10,14 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
-//  -1 up
-//  -2 down
-//  1 left
-//  2 right
+
 
 extension GameScene {
     
+    //  -1 up
+    //  -2 down
+    //  1 left
+    //  2 right
     
     func direction(dir: Int, point: CGPoint){
         actionGesture(gesture: false)

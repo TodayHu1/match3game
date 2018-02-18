@@ -33,9 +33,7 @@ class GameScene: SKScene {
     var spell4: Spell!
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var enemyOnLevelArr = [String]()
-    
-
-
+    var matchChance: [Int]!
     
 
     override init() {
@@ -251,6 +249,8 @@ class GameScene: SKScene {
         
         print("\(player.size) ------- \(self.size)")
         
+        self.gameViewController.presentImageTip(imgName: "MatchPoison", title: "Tip")
+        
         print("DIDMOVE DONE")
 
     }
@@ -298,12 +298,20 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-        print("NewScene")
+        print("New Scene")
         let secondScene = MovingScreen()
         secondScene.gameViewController = self.gameViewController
         let transition = SKTransition.crossFade(withDuration: 1.0)
         secondScene.scaleMode = SKSceneScaleMode.aspectFill
         self.scene!.view?.presentScene(secondScene, transition: transition)
+    }
+    
+    func toMainMenu() {
+//        let secondScene = MovingScreen()
+//        secondScene.gameViewController = self.gameViewController
+//        secondScene.present
+        print("Main Menu")
+        self.gameViewController.presentMenu()
     }
     
     

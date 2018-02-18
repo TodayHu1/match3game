@@ -80,7 +80,7 @@ extension GameScene {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
                 if(levelArr[i][j] == Match.null) {
-                    levelArr[i][j] = self.customRandom()
+                    levelArr[i][j] = self.customRandom(matchChance: loadMatchChance)
                 }
             }
         }
@@ -97,7 +97,7 @@ extension GameScene {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(levelArr[i][j] == Match.null) {
-                        levelArr[i][j] = self.customRandom()
+                        levelArr[i][j] = self.customRandom(matchChance: loadMatchChance)
                     }
                 }
             }

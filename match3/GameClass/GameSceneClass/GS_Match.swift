@@ -24,15 +24,6 @@ public enum Match: Int {
 
 extension GameScene {
     
-     /**
-     0 –– MatchChain.png
-     1 –– MatchSkull.png
-     2 –– MatchArmor.png
-     3 –– MatchEnergy.png
-     4 –– MatchAttack.png
-     5 –– MatchCoin.png
-     6 –– MatchPoison.png
-     */
     
     func setTextureMatch(matchNumber: Match) -> SKTexture {
         switch matchNumber {
@@ -57,20 +48,14 @@ extension GameScene {
         }
     }
     
-    public func customRandom() -> Match{
+    public func customRandom(matchChance: [Int]) -> Match {
         let randomNumber = self.random(number: 100)-1
         //Процентная доля появления match от 100%
-//        let skull = 50
-//        let shield = 0
-//        let lightning = 50
-//        let sword = 0
-//        let coin = 0
-        
-        let skull = 45
-        let shield = 15
-        let lightning = 10
-        let sword = 25
-        let coin = 5
+        let skull = matchChance[0]
+        let shield = matchChance[1]
+        let lightning = matchChance[2]
+        let sword = matchChance[3]
+        let coin = matchChance[4] 
 
         switch randomNumber {
         // Череп
@@ -89,7 +74,7 @@ extension GameScene {
         case skull+shield+lightning+sword..<skull+shield+lightning+sword+coin:
             return Match.coin
         default:
-            return Match.attack
+            return Match.chain
         }
     }
         
@@ -101,7 +86,7 @@ extension GameScene {
         swipeAnimationLeft(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             self.levelArr[index].remove(at: 0)
-            self.levelArr[index].append(self.customRandom())
+            self.levelArr[index].append(self.customRandom(matchChance: loadMatchChance))
             self.matchAnimationPulseRevers(indexIandJ: String(index) + String(self.matchBoard.horizontalCount-1))
         }
     }
@@ -110,7 +95,7 @@ extension GameScene {
         swipeAnimationRight(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             self.levelArr[index].remove(at: self.matchBoard.horizontalCount-1)
-            self.levelArr[index].insert(self.customRandom(), at: 0)
+            self.levelArr[index].insert(self.customRandom(matchChance: loadMatchChance), at: 0)
             self.matchAnimationPulseRevers(indexIandJ: String(index) + "0")
         }
     }
@@ -121,7 +106,7 @@ extension GameScene {
             for i in (1...self.matchBoard.verticalCount-1).reversed() {
                 self.levelArr[i][index] = self.levelArr[i-1][index]
             }
-            self.levelArr[0][index] = self.customRandom()
+            self.levelArr[0][index] = self.customRandom(matchChance: loadMatchChance)
             self.matchAnimationPulseRevers(indexIandJ: "0" + String(index))
         }
     }
@@ -132,7 +117,7 @@ extension GameScene {
             for i in 0...self.matchBoard.verticalCount-2 {
                 self.levelArr[i][index] = self.levelArr[i+1][index]
             }
-            self.levelArr[self.matchBoard.verticalCount-1][index] = self.customRandom()
+            self.levelArr[self.matchBoard.verticalCount-1][index] = self.customRandom(matchChance: loadMatchChance)
             self.matchAnimationPulseRevers(indexIandJ: String(self.matchBoard.verticalCount-1) + String(index))
         }
     }

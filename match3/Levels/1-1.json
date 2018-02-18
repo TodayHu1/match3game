@@ -10,6 +10,13 @@
             6
         ]
     ],
+    "MatchChance": [
+        45,
+        15,
+        10,
+        25,
+        5
+    ],
     "Bg":
     [
         "GrassLand",
@@ -18,7 +25,7 @@
 	"Enemy":
     [
         [
-            "RoyalMage",
+            "SteamPunkGuard",
             "Stony"
         ],
         [
@@ -26,3 +33,4 @@
             "SteamPunkFlameThrower"]
     ]
 }
+

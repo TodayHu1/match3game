@@ -15,7 +15,7 @@ class MainMenuViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1)
+        playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
         print(playerStat)
         super.viewDidLoad()
     }
@@ -25,7 +25,19 @@ class MainMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func test(_ sender: Any) {
+        print("Go")
+        let btn = UIButton()
+        btn.backgroundColor = UIColor.darkGray
+        
+        let view = UIView(frame: CGRect.init(x: 20, y: 20, width: 50, height: 50))
+        view.frame.origin = CGPoint(x: 30, y: 30)
+        
+        view.addSubview(btn)
+        
+        self.view.addSubview(view)
+    }
+    
     /*
     // MARK: - Navigation
 

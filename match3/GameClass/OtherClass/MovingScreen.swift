@@ -32,40 +32,37 @@ class MovingScreen: SKScene {
     func presentScene() {
         print("NewScene")
         
-
-//        print("-!-")
-        print(self.gameViewController)
-        gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
-                                    playerSpell: ["Null","SpellNull","",""],
-                                    bg: checkBG(bgName: loadBg[indexLevel]),
-                                    size: checkBoardSize(size: loadBoardSize[indexLevel]))
+        if lvlName == "0-2" {
+            playerStat.spellArr[0] = "SkullJail"
+            playerStat.mana = 6
+        }
         
-        gameScene.gameViewController = self.gameViewController
+        gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
+                              playerSpell: playerStat.spellArr,
+                              bg: checkBG(bgName: loadBg[indexLevel]),
+                              size: checkBoardSize(size: loadBoardSize[indexLevel]))
         
         if lvlName == "0-1" {
             gameScene.levelArr = [
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
+                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.skull],
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
+                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain]
             ]
         }
         
         if lvlName == "0-2" {
             gameScene.levelArr = [
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain],
-                [Match.chain, Match.attack, Match.skull ,Match.attack, Match.chain],
                 [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
+                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.skull],
+                [Match.chain, Match.attack, Match.skull ,Match.attack, Match.chain],
+                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain]
             ]
         }
         
-        
-        
-        
+        gameScene.gameViewController = self.gameViewController
 
         let transition = SKTransition.crossFade(withDuration: 0.0)
         gameScene.scaleMode = SKSceneScaleMode.aspectFit
@@ -73,6 +70,7 @@ class MovingScreen: SKScene {
     }
     
     func checkBG(bgName: String) -> String {
+        print("Current BG --- \(bg)")
         if bgName == "" {
             return getRandomBG()
         }
@@ -82,16 +80,19 @@ class MovingScreen: SKScene {
     }
     
     func checkEnemy(enemy: [String]) -> [String] {
+        print("Current enemy --- \(enemy)")
         var newArrEnemy = enemy
         for i in 0...newArrEnemy.count-1 {
             if newArrEnemy[i] == "" {
                 newArrEnemy[i] = "Random"
             }
         }
+        print("Random Arr Enemy ----- \(newArrEnemy)")
         return newArrEnemy
     }
     
     func checkBoardSize(size: [Int]) -> CGSize {
+        print("Current boardSize --- \(boardSize)")
         if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
             return CGSize(width: (Int(arc4random_uniform(UInt32(4)))+4), height: (Int(arc4random_uniform(UInt32(4)))+4))
         }
@@ -108,62 +109,68 @@ class MovingScreen: SKScene {
         return x
     }
 
-
-    
     override func didMove(to view: SKView) {
         
-        let player = Player()
-        self.addChild(player)
-        player.animationWalking()
+        print("Moving Screen")
         
-        let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
-        blackSreen.size = CGSize(width: 600, height: 900)
-        blackSreen.zPosition = 1
-        self.addChild(blackSreen)
-        
-        let movingLabel = SKLabelNode(text: "Moving...")
-        movingLabel.fontSize = 40
-        movingLabel.zPosition = 2
-        movingLabel.fontName = "MunroSmall"
-        self.addChild(movingLabel)
-        
-        let fadeOut = SKAction.fadeOut(withDuration: 1)
-        let fadeIn = SKAction.fadeIn(withDuration: 1)
-        let wait = SKAction.wait(forDuration: 1)
-
-        let startLevel = SKAction.run {
-            if indexLevel < loadEnemy.count {
-                print("==============================")
-                print("\(indexLevel) < \(loadEnemy.count)")
-                self.presentScene()
+        if indexLevel >= loadEnemy.count {
+            print("----------------WIN----------------")
+            var lvlNow = levelStorage[lvlOnReady]["LvlNow"] as! Int
+            var lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
+            if lvlNow > lvlMax {
+                lvlNow = lvlMax
             }
             else {
-                print("\(indexLevel) > \(loadEnemy.count)")
-//                levelStorage[lvlOnReady]["LvlNow"] = 1
-//                var x = (levelStorage[lvlOnReady]["LvlNow"] is Int?) + 1
-                self.gameViewController.presentMenu()
+                levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
             }
+            self.gameViewController.presentMenu()
         }
-        
-        let chageLabel = SKAction.run {
-            if indexLevel < loadEnemy.count {
-                movingLabel.text = "ENEMY AHEAD!"
+        else {
+            print("----------------LOAD LVL----------------")
+            
+            self.removeAllActions()
+            
+            let player = Player()
+            self.addChild(player)
+            player.animationWalking()
+            
+            let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
+            blackSreen.size = CGSize(width: 600, height: 900)
+            blackSreen.zPosition = 1
+            self.addChild(blackSreen)
+            
+            let movingLabel = SKLabelNode(text: "Moving...")
+            movingLabel.fontSize = 40
+            movingLabel.zPosition = 2
+            movingLabel.fontName = "MunroSmall"
+            self.addChild(movingLabel)
+            
+            let fadeOut = SKAction.fadeOut(withDuration: 1)
+            let fadeIn = SKAction.fadeIn(withDuration: 1)
+            let wait = SKAction.wait(forDuration: 1)
+            
+            let startLevel = SKAction.run {
+                if indexLevel < loadEnemy.count {
+                    print("\(indexLevel) < \(loadEnemy.count) --- Present scene")
+                    self.presentScene()
+                }
             }
-            else {
-                movingLabel.text = "JOURNEY DONE!"
+            
+            let chageLabel = SKAction.run {
+                if indexLevel >= loadEnemy.count {
+                    movingLabel.text = "ENEMY AHEAD!"
+                }
             }
+            
+            movingLabel.run(SKAction.sequence([fadeOut,
+                                               fadeIn,
+                                               fadeOut,
+                                               fadeIn,
+                                               chageLabel,
+                                               wait,
+                                               fadeOut,
+                                               startLevel]))
         }
-        movingLabel.run(SKAction.sequence([fadeOut,
-                                           fadeIn,
-                                           fadeOut,
-                                           fadeIn,
-                                           chageLabel,
-                                           wait,
-                                           fadeOut,
-                                           startLevel]))
-        
-        
-        print("\(player.size) ------- \(self.size)")
     }
 
 }

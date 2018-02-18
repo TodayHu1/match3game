@@ -2,8 +2,15 @@
     "BoardSize": [
         [
             5,
-            6
+            5
         ]
+    ],
+    "MatchChance": [
+        0,
+        0,
+        0,
+        0,
+        0
     ],
     "Bg": [
         "GrassLand"

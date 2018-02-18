@@ -11,24 +11,34 @@ import UIKit
 
 class ChoiceLevelViewController: UIViewController {
     
-    @IBOutlet weak var lol1: UIButton!
+    @IBOutlet var buttonCollection: [UIButton]!
     
-    @IBOutlet weak var lol2: UIButton!
+    @IBOutlet var labelCollection: [UILabel]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let pageIndex = Int(self.restorationIdentifier as! String)
+        let access = (levelStorage[pageIndex!]["Access"] as! Bool)
+        let nowLvl = (levelStorage[pageIndex!]["LvlNow"] as! Int)
+        let maxLvl = (levelStorage[pageIndex!]["LvlMax"] as! Int)
         
-        lol1.isEnabled = false
-        lol2.isEnabled = false
+        if !access {
+            buttonCollection[0].backgroundColor = UIColor.darkGray
+        }
+        
+        buttonCollection[0].isEnabled = access
+        if maxLvl == 0 {
+            labelCollection[0].text = String("???")
+        }
+        else {
+            labelCollection[0].text = String("\(nowLvl)/\(maxLvl)")
+        }
 
-
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -47,12 +57,17 @@ class ChoiceLevelViewController: UIViewController {
     
     @IBAction func ToLvl_Tutorial(_ sender: Any) {
         lvlOnReady = 0
-        self.performSegue(withIdentifier: "ToLvl", sender: "0-\(levelStorage[0]["LvlNow"])")
+        self.performSegue(withIdentifier: "ToLvl", sender: "\(lvlOnReady)-\(String(levelStorage[lvlOnReady]["LvlNow"] as! Int))")
     }
     
-    
     @IBAction func ToLvl_SteamPunk(_ sender: Any) {
-        self.performSegue(withIdentifier: "ToLvl", sender: "1-1")
+        lvlOnReady = 1
+        self.performSegue(withIdentifier: "ToLvl", sender: "\(lvlOnReady)-\(String(levelStorage[lvlOnReady]["LvlNow"] as! Int))")
+    }
+    
+    @IBAction func ToLvl_Dungeon(_ sender: Any) {
+        lvlOnReady = 2
+        self.performSegue(withIdentifier: "ToLvl", sender: "\(lvlOnReady)-\(String(levelStorage[lvlOnReady]["LvlNow"] as! Int))")
     }
     
     

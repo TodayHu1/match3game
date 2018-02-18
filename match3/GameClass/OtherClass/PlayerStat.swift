@@ -17,12 +17,17 @@ class PlayerStat {
     
     var gold = 0
     
-    init(mana: Int, health: Int, armor: Int, gold: Int, attack: Int) {
+    var spellArr = ["Null","Null","Null","Null"]
+    
+    init(mana: Int, health: Int, armor: Int, gold: Int, attack: Int, spellArr: [String]) {
         self.mana = mana
         self.health = health
         self.armor = armor
         self.attack = attack
         
         self.gold = gold
+        
+        self.spellArr = spellArr
+        
     }
 }
