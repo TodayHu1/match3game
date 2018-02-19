@@ -28,11 +28,17 @@ class ChoiceLevelViewController: UIViewController {
         }
         
         buttonCollection[0].isEnabled = access
+        
         if maxLvl == 0 {
             labelCollection[0].text = String("???")
         }
         else {
             labelCollection[0].text = String("\(nowLvl)/\(maxLvl)")
+            if nowLvl > maxLvl {
+                labelCollection[0].text = String("DONE")
+                buttonCollection[0].isEnabled = false
+                buttonCollection[0].backgroundColor = UIColor.darkGray
+            }
         }
 
     }

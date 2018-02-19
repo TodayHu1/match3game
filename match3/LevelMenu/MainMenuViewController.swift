@@ -15,7 +15,14 @@ class MainMenuViewController: UIViewController {
     
 
     override func viewDidLoad() {
-        playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
+        var playerStatXXX = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
+        if playerStat == nil {
+            playerStat = playerStatXXX
+            print("++++ PLAYER INIT ++++")
+        }
+        else {
+            print("---- PLAYER ALREADY INIT ----")
+        }
         print(playerStat)
         super.viewDidLoad()
     }

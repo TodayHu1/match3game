@@ -57,10 +57,10 @@
 		1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */; };
 		1F815F0B1FD3059C00133AC1 /* SteamPunkBackground.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */; };
 		1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */; };
-		1F88DE0320307E8C005257A5 /* 0-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE0220307E8B005257A5 /* 0-1.json */; };
+		1F88DE0320307E8C005257A5 /* 0-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE0220307E8B005257A5 /* 0-2.json */; };
 		1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE05203083FF005257A5 /* Dummy-Attack.atlas */; };
 		1F88DE082030840B005257A5 /* Dummy-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE072030840B005257A5 /* Dummy-Stand.atlas */; };
-		1F88DE0B20317B7E005257A5 /* 0-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE0A20317B7E005257A5 /* 0-2.json */; };
+		1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE0A20317B7E005257A5 /* 0-3.json */; };
 		1F88DE0D2031AFC4005257A5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88DE0C2031AFC4005257A5 /* Extension.swift */; };
 		1F937CD52032CB5E003F0C91 /* NeutralTurtle-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CD32032CB5D003F0C91 /* NeutralTurtle-Stand.atlas */; };
 		1F937CD62032CB5E003F0C91 /* NeutralTurtle-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CD42032CB5E003F0C91 /* NeutralTurtle-Attack.atlas */; };
@@ -72,6 +72,10 @@
 		1F937CE8203730DA003F0C91 /* LevelIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CE7203730DA003F0C91 /* LevelIcon.xcassets */; };
 		1F937CEC20384BC7003F0C91 /* SteamPunkGuard-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CEA20384BC7003F0C91 /* SteamPunkGuard-Attack.atlas */; };
 		1F937CED20384BC7003F0C91 /* SteamPunkGuard-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CEB20384BC7003F0C91 /* SteamPunkGuard-Stand.atlas */; };
+		1F937CEF2039EFCC003F0C91 /* ToolTip.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */; };
+		1F937CF3203AB587003F0C91 /* 0-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF0203AB586003F0C91 /* 0-4.json */; };
+		1F937CF4203AB587003F0C91 /* 0-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF1203AB587003F0C91 /* 0-5.json */; };
+		1F937CF5203AB587003F0C91 /* 0-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF2203AB587003F0C91 /* 0-1.json */; };
 		1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A601FED403100CE4FBC /* Dungeon.atlas */; };
 		1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */; };
 		1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */; };
@@ -172,10 +176,10 @@
 		1F70F9ED1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_BreakArmorMod.swift; sourceTree = "<group>"; };
 		1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SteamPunkBackground.atlas; sourceTree = "<group>"; };
 		1F86A34C1FC7026F00DBDBB5 /* Enemy_Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Defense.swift; sourceTree = "<group>"; };
-		1F88DE0220307E8B005257A5 /* 0-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-1.json"; sourceTree = "<group>"; };
+		1F88DE0220307E8B005257A5 /* 0-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-2.json"; sourceTree = "<group>"; };
 		1F88DE05203083FF005257A5 /* Dummy-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Dummy-Attack.atlas"; sourceTree = "<group>"; };
 		1F88DE072030840B005257A5 /* Dummy-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Dummy-Stand.atlas"; sourceTree = "<group>"; };
-		1F88DE0A20317B7E005257A5 /* 0-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-2.json"; sourceTree = "<group>"; };
+		1F88DE0A20317B7E005257A5 /* 0-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-3.json"; sourceTree = "<group>"; };
 		1F88DE0C2031AFC4005257A5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1F937CD32032CB5D003F0C91 /* NeutralTurtle-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "NeutralTurtle-Stand.atlas"; sourceTree = "<group>"; };
 		1F937CD42032CB5E003F0C91 /* NeutralTurtle-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "NeutralTurtle-Attack.atlas"; sourceTree = "<group>"; };
@@ -187,6 +191,10 @@
 		1F937CE7203730DA003F0C91 /* LevelIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LevelIcon.xcassets; sourceTree = "<group>"; };
 		1F937CEA20384BC7003F0C91 /* SteamPunkGuard-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkGuard-Attack.atlas"; sourceTree = "<group>"; };
 		1F937CEB20384BC7003F0C91 /* SteamPunkGuard-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkGuard-Stand.atlas"; sourceTree = "<group>"; };
+		1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ToolTip.xcassets; sourceTree = "<group>"; };
+		1F937CF0203AB586003F0C91 /* 0-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-4.json"; sourceTree = "<group>"; };
+		1F937CF1203AB587003F0C91 /* 0-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-5.json"; sourceTree = "<group>"; };
+		1F937CF2203AB587003F0C91 /* 0-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-1.json"; sourceTree = "<group>"; };
 		1F983A601FED403100CE4FBC /* Dungeon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dungeon.atlas; sourceTree = "<group>"; };
 		1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Attack.atlas"; sourceTree = "<group>"; };
 		1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Stand.atlas"; sourceTree = "<group>"; };
@@ -393,8 +401,11 @@
 		1F88DE0920317B05005257A5 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
-				1F88DE0220307E8B005257A5 /* 0-1.json */,
-				1F88DE0A20317B7E005257A5 /* 0-2.json */,
+				1F937CF2203AB587003F0C91 /* 0-1.json */,
+				1F88DE0220307E8B005257A5 /* 0-2.json */,
+				1F88DE0A20317B7E005257A5 /* 0-3.json */,
+				1F937CF0203AB586003F0C91 /* 0-4.json */,
+				1F937CF1203AB587003F0C91 /* 0-5.json */,
 				1F1D5993203052A70024EB0A /* 1-1.json */,
 				1F937CE520359A67003F0C91 /* 2-1.json */,
 			);
@@ -449,6 +460,7 @@
 				1FB431B21FB5B28000039960 /* MatchTexture.xcassets */,
 				1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */,
 				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
+				1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -699,15 +711,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F937CE4203438DE003F0C91 /* StoneScale-Attack.atlas in Resources */,
-				1F88DE0320307E8C005257A5 /* 0-1.json in Resources */,
+				1F88DE0320307E8C005257A5 /* 0-2.json in Resources */,
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
 				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
+				1F937CF3203AB587003F0C91 /* 0-4.json in Resources */,
 				1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */,
 				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
-				1F88DE0B20317B7E005257A5 /* 0-2.json in Resources */,
+				1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */,
 				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
 				1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */,
@@ -718,6 +731,7 @@
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
 				1F88DE082030840B005257A5 /* Dummy-Stand.atlas in Resources */,
 				1FFD4F701F76406100952F94 /* testStand.atlas in Resources */,
+				1F937CF5203AB587003F0C91 /* 0-1.json in Resources */,
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
 				1F937CDF2032CF10003F0C91 /* CultistsProphet-Stand.atlas in Resources */,
 				1F937CEC20384BC7003F0C91 /* SteamPunkGuard-Attack.atlas in Resources */,
@@ -727,6 +741,7 @@
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
+				1F937CF4203AB587003F0C91 /* 0-5.json in Resources */,
 				1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */,
 				1F937CED20384BC7003F0C91 /* SteamPunkGuard-Stand.atlas in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
@@ -753,6 +768,7 @@
 				1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */,
 				1F937CD52032CB5E003F0C91 /* NeutralTurtle-Stand.atlas in Resources */,
 				1F00B7061FADBC8900C002B3 /* Heart.sks in Resources */,
+				1F937CEF2039EFCC003F0C91 /* ToolTip.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

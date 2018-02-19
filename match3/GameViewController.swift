@@ -16,7 +16,7 @@ var loadBg: [String]!
 var loadBoardSize: [[Int]]!
 var loadMatchChance: [Int]!
 var indexLevel = 0
-
+var lvlNowName: String!
 var lvlOnReady = 0
 
 
@@ -52,6 +52,8 @@ class GameViewController: UIViewController {
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
 
+        lvlNowName = lvlName
+        
         loadEnemy = dictionary["Enemy"] as! [[String]]
         loadBg = dictionary["Bg"] as! [String]
         loadMatchChance = dictionary["MatchChance"] as! [Int]
@@ -69,7 +71,7 @@ class GameViewController: UIViewController {
     func presentImageTip(imgName: String, title: String) {
 
         let frameWidth = 320
-        let frameHeight = 450
+        let frameHeight = 475
         
         let viewx = UIView()
         viewx.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
@@ -84,9 +86,9 @@ class GameViewController: UIViewController {
     
         
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 25, y: frameHeight - 80, width: frameWidth - 50, height: 60)
+        button.frame = CGRect(x: 15, y: frameHeight - 80, width: frameWidth - 30, height: 60)
         button.backgroundColor = UIColor.darkGray
-        button.setTitle("Button", for: .normal)
+        button.setTitle("Ok", for: .normal)
         button.addTarget(self, action:#selector(imageTipAction), for: .touchUpInside)
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
@@ -95,14 +97,14 @@ class GameViewController: UIViewController {
 
         
         let image = UIImageView()
-        image.frame = CGRect(x: 25, y: 80, width: frameWidth - 50, height: 270)
+        image.frame = CGRect(x: 15, y: 60, width: frameWidth - 30, height: 320)
         image.image = UIImage(named: imgName)
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
         
         
         let label = UILabel()
-        label.frame = CGRect(x: 25, y: 25, width: frameWidth - 50, height: 40)
+        label.frame = CGRect(x: 25, y: 12, width: frameWidth - 50, height: 40)
         label.text = title
         label.textColor = UIColor.white
         label.textAlignment = .center

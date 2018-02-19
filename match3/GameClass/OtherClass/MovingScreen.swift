@@ -32,9 +32,15 @@ class MovingScreen: SKScene {
     func presentScene() {
         print("NewScene")
         
-        if lvlName == "0-2" {
+        print(playerStat)
+        
+        if lvlName == "0-3" {
             playerStat.spellArr[0] = "SkullJail"
-            playerStat.mana = 6
+            playerStat.mana = 10
+        }
+        
+        if lvlName == "0-4" {
+            playerStat.mana = 3
         }
         
         gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
@@ -44,21 +50,51 @@ class MovingScreen: SKScene {
         
         if lvlName == "0-1" {
             gameScene.levelArr = [
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
-                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.skull],
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
-                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain]
+                [Match.attack, Match.chain, Match.attack ,Match.chain, Match.attack],
+                [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
+                [Match.attack, Match.chain, Match.attack ,Match.chain, Match.attack],
+                [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain]
             ]
         }
         
         if lvlName == "0-2" {
             gameScene.levelArr = [
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
-                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.skull],
-                [Match.chain, Match.attack, Match.skull ,Match.attack, Match.chain],
                 [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
+                [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
+                [Match.skull, Match.attack, Match.chain ,Match.attack, Match.skull],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
+                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull]
+            ]
+        }
+        
+        if lvlName == "0-3" {
+            gameScene.levelArr = [
+                [Match.skull, Match.chain, Match.skull ,Match.chain, Match.skull],
+                [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
+                [Match.skull, Match.attack, Match.skull ,Match.attack, Match.skull],
+                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
+                [Match.skull, Match.chain, Match.skull ,Match.chain, Match.skull]
+            ]
+        }
+        
+        if lvlName == "0-4" {
+            gameScene.levelArr = [
+                [Match.skull, Match.energy, Match.skull ,Match.chain, Match.skull],
+                [Match.energy, Match.chain, Match.energy ,Match.skull, Match.chain],
+                [Match.skull, Match.chain, Match.skull ,Match.attack, Match.skull],
+                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.attack],
                 [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain]
+            ]
+        }
+        
+        if lvlName == "0-5" {
+            gameScene.levelArr = [
+                [Match.chain, Match.energy, Match.chain ,Match.energy, Match.chain],
+                [Match.chain, Match.coin, Match.energy ,Match.coin, Match.chain],
+                [Match.chain, Match.armor, Match.coin ,Match.armor, Match.chain],
+                [Match.chain, Match.attack, Match.armor ,Match.attack, Match.chain],
+                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain]
             ]
         }
         

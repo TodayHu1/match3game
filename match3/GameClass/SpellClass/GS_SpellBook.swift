@@ -52,7 +52,7 @@ extension GameScene {
         switch skillName {
         case "Null":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 1, health: 0, armor: 0, coin: 0,
+                         mana: 0, health: 0, armor: 0, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         case "SkullJail":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),

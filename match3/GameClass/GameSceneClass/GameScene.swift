@@ -249,7 +249,17 @@ class GameScene: SKScene {
         
         print("\(player.size) ------- \(self.size)")
         
-        self.gameViewController.presentImageTip(imgName: "MatchPoison", title: "Tip")
+        switch lvlNowName {
+        case "0-1":
+            self.gameViewController.presentImageTip(imgName: "SwipeToolTip", title: "Swipe")
+        case "0-2":
+            self.gameViewController.presentImageTip(imgName: "SkullToolTip", title: "Attack")
+        case "0-3":
+            self.gameViewController.presentImageTip(imgName: "SkillToolTip", title: "Skills")
+        default:
+            break
+        }
+
         
         print("DIDMOVE DONE")
 
@@ -307,9 +317,6 @@ class GameScene: SKScene {
     }
     
     func toMainMenu() {
-//        let secondScene = MovingScreen()
-//        secondScene.gameViewController = self.gameViewController
-//        secondScene.present
         print("Main Menu")
         self.gameViewController.presentMenu()
     }
