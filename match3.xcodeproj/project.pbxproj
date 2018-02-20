@@ -76,6 +76,7 @@
 		1F937CF3203AB587003F0C91 /* 0-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF0203AB586003F0C91 /* 0-4.json */; };
 		1F937CF4203AB587003F0C91 /* 0-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF1203AB587003F0C91 /* 0-5.json */; };
 		1F937CF5203AB587003F0C91 /* 0-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF2203AB587003F0C91 /* 0-1.json */; };
+		1F937CF7203C65D8003F0C91 /* 0-6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF6203C65D8003F0C91 /* 0-6.json */; };
 		1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A601FED403100CE4FBC /* Dungeon.atlas */; };
 		1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */; };
 		1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */; };
@@ -195,6 +196,7 @@
 		1F937CF0203AB586003F0C91 /* 0-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-4.json"; sourceTree = "<group>"; };
 		1F937CF1203AB587003F0C91 /* 0-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-5.json"; sourceTree = "<group>"; };
 		1F937CF2203AB587003F0C91 /* 0-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-1.json"; sourceTree = "<group>"; };
+		1F937CF6203C65D8003F0C91 /* 0-6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-6.json"; sourceTree = "<group>"; };
 		1F983A601FED403100CE4FBC /* Dungeon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dungeon.atlas; sourceTree = "<group>"; };
 		1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Attack.atlas"; sourceTree = "<group>"; };
 		1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Stand.atlas"; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				1F88DE0A20317B7E005257A5 /* 0-3.json */,
 				1F937CF0203AB586003F0C91 /* 0-4.json */,
 				1F937CF1203AB587003F0C91 /* 0-5.json */,
+				1F937CF6203C65D8003F0C91 /* 0-6.json */,
 				1F1D5993203052A70024EB0A /* 1-1.json */,
 				1F937CE520359A67003F0C91 /* 2-1.json */,
 			);
@@ -749,6 +752,7 @@
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,
+				1F937CF7203C65D8003F0C91 /* 0-6.json in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,

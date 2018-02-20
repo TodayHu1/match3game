@@ -43,6 +43,10 @@ class MovingScreen: SKScene {
             playerStat.mana = 3
         }
         
+        if lvlName == "0-6" {
+            playerStat.spellArr[1] = "HeartAttack"
+        }
+        
         gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
                               playerSpell: playerStat.spellArr,
                               bg: checkBG(bgName: loadBg[indexLevel]),
@@ -95,6 +99,16 @@ class MovingScreen: SKScene {
                 [Match.chain, Match.armor, Match.coin ,Match.armor, Match.chain],
                 [Match.chain, Match.attack, Match.armor ,Match.attack, Match.chain],
                 [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain]
+            ]
+        }
+        
+        if lvlName == "0-6" {
+            gameScene.levelArr = [
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
+                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
             ]
         }
         
@@ -159,7 +173,7 @@ class MovingScreen: SKScene {
             else {
                 levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
             }
-            self.gameViewController.presentMenu()
+            self.gameViewController.victoryScreen()
         }
         else {
             print("----------------LOAD LVL----------------")

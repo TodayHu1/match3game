@@ -316,9 +316,9 @@ class GameScene: SKScene {
         self.scene!.view?.presentScene(secondScene, transition: transition)
     }
     
-    func toMainMenu() {
-        print("Main Menu")
-        self.gameViewController.presentMenu()
+    func gameOverScreen() {
+        print("++++++++++++++++++++ GAME OVER ++++++++++++++++++++++++")
+        self.gameViewController.gameOverScreen()
     }
     
     

@@ -23,7 +23,7 @@ var lvlOnReady = 0
 var levelStorage = [
     ["Name": "Tutorial",
      "LvlNow": 1,
-     "LvlMax": 5,
+     "LvlMax": 6,
      "Access": true
     ],
     ["Name": "SteamPunk",
@@ -36,7 +36,6 @@ var levelStorage = [
      "LvlMax": 0,
      "Access": true
     ]
-    
 ]
 
 
@@ -131,9 +130,15 @@ class GameViewController: UIViewController {
     }
     
     
-    func presentMenu() {
+    func gameOverScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen")
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
+    func victoryScreen() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "VictoryScreen")
         self.present(newViewController, animated: true, completion: nil)
     }
     

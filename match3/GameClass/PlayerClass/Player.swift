@@ -153,17 +153,20 @@ class Player: SKSpriteNode {
             self.health -= damage
         }
         
+        if self.health < 1 {
+            print("МЕНЬШЕ 1")
+            gameScene.gameOverScreen()
+        }
+        else {
+            print("1 или больше 1 ")
+        }
+        
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)
     
         let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
         let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)
         
         self.run(SKAction.sequence([getDamage,toNormalColor]))
-        
-        if self.health <= 0 {
-            gameScene.toMainMenu()
-        }
-        
     }
     
     func fullAttackStandAnimation(damage: Int) {

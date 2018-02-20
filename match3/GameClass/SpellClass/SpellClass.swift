@@ -153,6 +153,16 @@ class Spell: SKSpriteNode {
 
         self.gameScene.changeManaLabel()
         self.gameScene.player.labelOverHead(shield: self.gameScene.player.shield, health: self.gameScene.player.health, initLabel: false)
+        
+        let wait = SKAction.wait(forDuration: 1)
+        let code = SKAction.run {
+            self.gameScene.player.takeDamage(damage: 0)
+        }
+        
+        let run = SKAction.sequence([wait,code])
+        self.gameScene.player.run(run)
     }
+    
+    
     
 }
