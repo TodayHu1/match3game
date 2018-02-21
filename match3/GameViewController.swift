@@ -18,6 +18,7 @@ var loadMatchChance: [Int]!
 var indexLevel = 0
 var lvlNowName: String!
 var lvlOnReady = 0
+var movingScreenNow: MovingScreen!
 
 
 var levelStorage = [
@@ -59,10 +60,10 @@ class GameViewController: UIViewController {
         loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
 
-        let scene = MovingScreen()
-        scene.gameViewController = self
-        scene.lvlName = lvlName
-        presentScene(scene: scene)
+        movingScreenNow = MovingScreen()
+        movingScreenNow.gameViewController = self
+        movingScreenNow.lvlName = lvlName
+        presentScene(scene: movingScreenNow)
         
     }
     

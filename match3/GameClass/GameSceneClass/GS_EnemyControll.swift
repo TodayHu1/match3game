@@ -75,7 +75,7 @@ extension GameScene {
                         enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[Match.skull.rawValue])
                     
                     case Match.armor.rawValue:
-                        player.shield += actionOnTurn[Match.armor.rawValue] * 10
+                        player.shield += actionOnTurn[Match.armor.rawValue] * 2
                     
                     case Match.energy.rawValue:
                         player.mana += actionOnTurn[Match.energy.rawValue]

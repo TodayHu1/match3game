@@ -45,6 +45,13 @@ class MovingScreen: SKScene {
         
         if lvlName == "0-6" {
             playerStat.spellArr[1] = "HeartAttack"
+            playerStat.mana = 6
+        }
+        
+        if lvlName == "1-1" {
+            playerStat.spellArr[0] = "SkullJail"
+            playerStat.spellArr[1] = "HeartAttack"
+            playerStat.mana = 6
         }
         
         gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
@@ -113,6 +120,8 @@ class MovingScreen: SKScene {
         }
         
         gameScene.gameViewController = self.gameViewController
+        
+        print("\(self.gameViewController) --- MOVING SCREEN")
 
         let transition = SKTransition.crossFade(withDuration: 0.0)
         gameScene.scaleMode = SKSceneScaleMode.aspectFit
@@ -161,10 +170,12 @@ class MovingScreen: SKScene {
 
     override func didMove(to view: SKView) {
         
-        print("Moving Screen")
+        self.name = String(RAND_MAX)
+        
+        print("\(self) --- Moving Screen")
         
         if indexLevel >= loadEnemy.count {
-            print("----------------WIN----------------")
+            print("\(indexLevel)----------------WIN---------------- >= \(loadEnemy.count)")
             var lvlNow = levelStorage[lvlOnReady]["LvlNow"] as! Int
             var lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
             if lvlNow > lvlMax {
@@ -173,12 +184,14 @@ class MovingScreen: SKScene {
             else {
                 levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
             }
+            self.removeAllActions()
+            self.removeFromParent()
+            self.removeAllChildren()
             self.gameViewController.victoryScreen()
         }
         else {
-            print("----------------LOAD LVL----------------")
+            print("\(indexLevel)----------------LOAD LVL---------------- < \(loadEnemy.count)")
             
-            self.removeAllActions()
             
             let player = Player()
             self.addChild(player)
@@ -195,12 +208,19 @@ class MovingScreen: SKScene {
             movingLabel.fontName = "MunroSmall"
             self.addChild(movingLabel)
             
+            print("DONE INIT SPRITE")
+            
+            
             let fadeOut = SKAction.fadeOut(withDuration: 1)
             let fadeIn = SKAction.fadeIn(withDuration: 1)
             let wait = SKAction.wait(forDuration: 1)
             
             let startLevel = SKAction.run {
                 if indexLevel < loadEnemy.count {
+                    print("\(indexLevel) < \(loadEnemy.count) --- PRE Present scene")
+                    self.removeAllActions()
+                    self.removeFromParent()
+                    self.removeAllChildren()
                     print("\(indexLevel) < \(loadEnemy.count) --- Present scene")
                     self.presentScene()
                 }
@@ -220,6 +240,8 @@ class MovingScreen: SKScene {
                                                wait,
                                                fadeOut,
                                                startLevel]))
+            
+            print("ANIMATION DONE")
         }
     }
 

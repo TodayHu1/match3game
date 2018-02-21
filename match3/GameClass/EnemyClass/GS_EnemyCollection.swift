@@ -55,7 +55,7 @@ extension GameScene {
     
             //Stat
             attack = 2
-            health = 10
+            health = 1
             armor = 20
         case "NeutralTurtle":
             size = CGSize(width: 125, height: 115)
@@ -71,22 +71,18 @@ extension GameScene {
             //Stat
             attack = 1
             health = 5
-            armor = 25
+            armor = 10
             
             //Special
-            poisonOnAttack = 1
+            skullOnAttack = 1
         case "Stony":
             //Size
             size = CGSize(width: 130, height: 130)
             
             //Stat
             attack = 1
-            health = 30
-            armor = 30
-            
-            //Special
-            poisonOnAttack = 1
-            
+            health = 5
+            armor = 5
         case "RoyalMage":
             //Size
             size = CGSize(width: 140, height: 140)
@@ -101,25 +97,20 @@ extension GameScene {
             size = CGSize(width: 120, height: 120)
             
             //Stat
-            attack = 8
-            health = 40
-            armor = 10
-            
-            //Special
-            reactiveArmorOnAttack = 3
+            attack = 1
+            health = 5
+            armor = 5
             
         case "SteamPunkFlameThrower":
-            
             //Size
             size = CGSize(width: 270, height: 120)
             
             //Stat
-            attack = 5
-            health = 30
-            armor = 70
+            attack = 2
+            health = 5
+            armor = 10
             
         case "SteamPunkWalker":
-            
             //Size
             size = CGSize(width: 260, height: 160)
             

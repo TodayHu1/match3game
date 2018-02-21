@@ -154,11 +154,7 @@ class Player: SKSpriteNode {
         }
         
         if self.health < 1 {
-            print("МЕНЬШЕ 1")
             gameScene.gameOverScreen()
-        }
-        else {
-            print("1 или больше 1 ")
         }
         
         labelOverHead(shield: self.shield, health: self.health, initLabel: false)

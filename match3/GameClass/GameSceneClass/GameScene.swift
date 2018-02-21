@@ -72,6 +72,8 @@ class GameScene: SKScene {
         buildScene(bgName: bg)
         
         print("INIT SIZE DONE")
+        
+        print("\(self.gameViewController) --- GAME VIEW CONTROLLER")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -124,8 +126,6 @@ class GameScene: SKScene {
         self.manaPoolNode = SKSpriteNode(texture: SKTexture(imageNamed: "manaBar-1.png"), size: CGSize(width: 64, height: 64))
         spellBoardA.addChild(self.manaPoolNode)
         self.manaPoolNode.zPosition += 1
-        print(" Мана пул позититон \(manaPoolNode.position)")
-        print(" Мана пул позититон парент \(manaPoolNode.parent?.position)")
         
         //Mana Holder
         let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))
@@ -255,7 +255,13 @@ class GameScene: SKScene {
         case "0-2":
             self.gameViewController.presentImageTip(imgName: "SkullToolTip", title: "Attack")
         case "0-3":
-            self.gameViewController.presentImageTip(imgName: "SkillToolTip", title: "Skills")
+            self.gameViewController.presentImageTip(imgName: "SkillToolTip", title: "New skill")
+        case "0-4":
+            self.gameViewController.presentImageTip(imgName: "EnergyToolTip", title: "Energy")
+        case "0-5":
+            self.gameViewController.presentImageTip(imgName: "CoinAndArmorToolTip", title: "Coin and Armor")
+        case "0-6":
+            self.gameViewController.presentImageTip(imgName: "SecondSkillToolTip", title: "New skill")
         default:
             break
         }
@@ -308,12 +314,14 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-        print("New Scene")
-        let secondScene = MovingScreen()
-        secondScene.gameViewController = self.gameViewController
-        let transition = SKTransition.crossFade(withDuration: 1.0)
-        secondScene.scaleMode = SKSceneScaleMode.aspectFill
-        self.scene!.view?.presentScene(secondScene, transition: transition)
+//        print("New Scene")
+//        let secondScene = MovingScreen()
+//        print("\(secondScene) --- MOVING SCREEN IN GAME SCENE")
+//        secondScene.gameViewController = self.gameViewController
+//        let transition = SKTransition.crossFade(withDuration: 1.0)
+//        secondScene.scaleMode = SKSceneScaleMode.aspectFill
+//        self.scene!.view?.presentScene(secondScene, transition: transition)
+        self.gameViewController.presentScene(scene: movingScreenNow)
     }
     
     func gameOverScreen() {
