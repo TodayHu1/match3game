@@ -38,9 +38,18 @@ class ChoiceLevelViewController: UIViewController {
                 labelCollection[0].text = String("DONE")
                 buttonCollection[0].isEnabled = false
                 buttonCollection[0].backgroundColor = UIColor.darkGray
+                
+                buttonOpenRule(page: pageIndex!)
             }
         }
 
+    }
+    
+    func buttonOpenRule(page: Int) {
+        if page == 0 {
+            levelStorage[1]["Access"] = true
+            levelStorage[2]["Access"] = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

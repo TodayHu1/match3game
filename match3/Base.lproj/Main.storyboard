@@ -30,7 +30,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-BG" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-mE-BEj">
-                                <rect key="frame" x="0.0" y="-41" width="375" height="708"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
@@ -46,7 +46,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="25"/>
                                         <size key="titleShadowOffset" width="0.0" height="2"/>
-                                        <state key="normal" title="Table" backgroundImage="Table">
+                                        <state key="normal" backgroundImage="Table">
                                             <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -58,19 +58,29 @@
                                         <rect key="frame" x="117" y="377" width="95" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player-Attack-0.png" translatesAutoresizingMaskIntoConstraints="NO" id="3S7-dP-V0F">
-                                        <rect key="frame" x="85" y="244" width="166" height="149"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player" translatesAutoresizingMaskIntoConstraints="NO" id="3S7-dP-V0F">
+                                        <rect key="frame" x="85" y="256" width="166" height="137"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAt-nd-ium">
+                                        <rect key="frame" x="61" y="120" width="197" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="27"/>
+                                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.5000912838745859" green="0.89683802066274876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="labelForTable" destination="uAt-nd-ium" id="F5E-vp-Pzd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF7-ML-msY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-763.125" y="138.38028169014083"/>
+            <point key="canvasLocation" x="-764" y="138.0809595202399"/>
         </scene>
         <!--Town Hall View Controller-->
         <scene sceneID="Pnf-Hy-zdn">
@@ -231,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="854" y="-660"/>
         </scene>
-        <!--View Controller-->
+        <!--Loose And Win View Controller-->
         <scene sceneID="obA-oa-iyH">
             <objects>
-                <viewController storyboardIdentifier="GameOverScreen" modalTransitionStyle="crossDissolve" id="zZe-1K-7zI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverScreen" modalTransitionStyle="crossDissolve" id="zZe-1K-7zI" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PTG-CM-WmY"/>
                         <viewControllerLayoutGuide type="bottom" id="ntc-bc-a2a"/>
@@ -533,10 +543,10 @@
             </objects>
             <point key="canvasLocation" x="585" y="-1471"/>
         </scene>
-        <!--View Controller-->
+        <!--Loose And Win View Controller-->
         <scene sceneID="G3T-kb-u4O">
             <objects>
-                <viewController storyboardIdentifier="VictoryScreen" modalTransitionStyle="crossDissolve" id="Hny-AW-O6Z" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VictoryScreen" modalTransitionStyle="crossDissolve" id="Hny-AW-O6Z" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qNx-GD-eDo"/>
                         <viewControllerLayoutGuide type="bottom" id="n0B-UR-W7F"/>
@@ -603,11 +613,11 @@
         <image name="BuyMagic" width="256" height="256"/>
         <image name="CoinIcon" width="256" height="256"/>
         <image name="Grass-4" width="256" height="460"/>
-        <image name="Grass-BG" width="308" height="552"/>
+        <image name="Grass-BG" width="256" height="460"/>
         <image name="LvlIcon_RandomDungeon" width="256" height="128"/>
         <image name="LvlIcon_SteamPunk" width="256" height="256"/>
         <image name="LvlIcon_Tutorial" width="256" height="317"/>
-        <image name="Player-Attack-0.png" width="304" height="272"/>
+        <image name="Player" width="304" height="272"/>
         <image name="SkillTableForTownHall" width="256" height="108"/>
         <image name="Table" width="332" height="230"/>
         <image name="TableInner" width="398" height="702"/>
@@ -624,6 +634,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MFL-Kg-3Yh"/>
         <segue reference="Im9-VZ-Z7o"/>
-        <segue reference="IRX-Cc-gBJ"/>
+        <segue reference="WWl-aA-aaC"/>
     </inferredMetricsTieBreakers>
 </document>

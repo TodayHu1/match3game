@@ -29,11 +29,7 @@ class MovingScreen: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func presentScene() {
-        print("NewScene")
-        
-        print(playerStat)
-        
+    func skillLevelRule() {
         if lvlName == "0-3" {
             playerStat.spellArr[0] = "SkullJail"
             playerStat.mana = 10
@@ -47,18 +43,9 @@ class MovingScreen: SKScene {
             playerStat.spellArr[1] = "HeartAttack"
             playerStat.mana = 6
         }
-        
-        if lvlName == "1-1" {
-            playerStat.spellArr[0] = "SkullJail"
-            playerStat.spellArr[1] = "HeartAttack"
-            playerStat.mana = 6
-        }
-        
-        gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
-                              playerSpell: playerStat.spellArr,
-                              bg: checkBG(bgName: loadBg[indexLevel]),
-                              size: checkBoardSize(size: loadBoardSize[indexLevel]))
-        
+    }
+    
+    func arrLevelRule() {
         if lvlName == "0-1" {
             gameScene.levelArr = [
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
@@ -118,6 +105,18 @@ class MovingScreen: SKScene {
                 [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
             ]
         }
+    }
+    
+    func presentScene() {
+
+        skillLevelRule()
+        
+        gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
+                              playerSpell: playerStat.spellArr,
+                              bg: checkBG(bgName: loadBg[indexLevel]),
+                              size: checkBoardSize(size: loadBoardSize[indexLevel]))
+        
+        arrLevelRule()
         
         gameScene.gameViewController = self.gameViewController
         

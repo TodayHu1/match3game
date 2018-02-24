@@ -83,7 +83,7 @@ extension GameScene {
             size = CGSize(width: 130, height: 130)
             
             //Stat
-            attack = 1
+            attack = 111
             health = 5
             armor = 5
         case "RoyalMage":

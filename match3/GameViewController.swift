@@ -10,6 +10,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import GoogleMobileAds
 
 var loadEnemy: [[String]]!
 var loadBg: [String]!
@@ -19,7 +20,13 @@ var indexLevel = 0
 var lvlNowName: String!
 var lvlOnReady = 0
 var movingScreenNow: MovingScreen!
+var ad: GADInterstitial!
 
+//ca-app-pub-2270286479492772~6057888883
+
+//ca-app-pub-2270286479492772~6057888883
+
+//ca-app-pub-2270286479492772/5263681969
 
 var levelStorage = [
     ["Name": "Tutorial",
@@ -30,12 +37,12 @@ var levelStorage = [
     ["Name": "SteamPunk",
      "LvlNow": 1,
      "LvlMax": 10,
-     "Access": true
+     "Access": false
     ],
     ["Name": "RandomDungeon",
      "LvlNow": 1,
      "LvlMax": 0,
-     "Access": true
+     "Access": false
     ]
 ]
 
@@ -45,8 +52,13 @@ class GameViewController: UIViewController {
     
     var lvlName: String!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
+        let request = GADRequest()
+        ad.load(request)
         
         indexLevel = 0
         
@@ -129,6 +141,7 @@ class GameViewController: UIViewController {
             }
         }
     }
+
     
     func saveGameProgress() {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
@@ -149,24 +162,25 @@ class GameViewController: UIViewController {
         
         if let heroObject = UserDefaults.standard.value(forKey: "playerStat") as? NSData {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
-            print("\(playerStat.health) ДАРОВА")
-            print("\(playerStat.spellArr) ДАРОВА")
         }
         
-        print("LOAD DONE")
+        UserDefaults.standard.removeObject(forKey: "levelStorage")
+        
     }
     
+        
     func gameOverScreen() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "GameOverScreen")
-        self.present(newViewController, animated: true, completion: nil)
+        goToView(id: "GameOverScreen")
     }
     
     func victoryScreen() {
-        print("SAVE")
         saveGameProgress()
+        goToView(id: "VictoryScreen")
+    }
+    
+    func goToView(id: String) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "VictoryScreen")
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: id)
         self.present(newViewController, animated: true, completion: nil)
     }
     
@@ -189,13 +203,5 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+    
 }

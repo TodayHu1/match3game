@@ -14,7 +14,8 @@ var gameViewController: GameViewController!
 class MainMenuViewController: UIViewController {
     
     
-
+    @IBOutlet weak var labelForTable: UILabel!
+    
     override func viewDidLoad() {
         
         if gameViewController == nil {
@@ -32,26 +33,22 @@ class MainMenuViewController: UIViewController {
         else {
             print("---- PLAYER ALREADY INIT ----")
         }
-        print(playerStat)
+
+        UILabel.animate(withDuration: 1, animations: {
+            self.labelForTable.frame.size.width += 10
+            self.labelForTable.frame.size.height += 10
+        }) { _ in
+            UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
+                self.labelForTable.frame.origin.y -= 10
+            })
+        }
+        
         super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func test(_ sender: Any) {
-        print("Go")
-        let btn = UIButton()
-        btn.backgroundColor = UIColor.darkGray
-        
-        let view = UIView(frame: CGRect.init(x: 20, y: 20, width: 50, height: 50))
-        view.frame.origin = CGPoint(x: 30, y: 30)
-        
-        view.addSubview(btn)
-        
-        self.view.addSubview(view)
     }
     
     /*
