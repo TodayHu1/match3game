@@ -33,7 +33,7 @@ extension GameScene {
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         case "HeartAttack":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 0, health: 10, armor: 0, coin: 0,
+                         mana: 0, health: 4, armor: 0, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         case "TouchOfMidas":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),

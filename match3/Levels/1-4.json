@@ -25,10 +25,12 @@
 	"Enemy":
     [
         [
-            "Stony"
+            "StoneScale",
+            "StoneScale"
         ],
         [
-            "SteamPunkPunch"
+            "SteamPunkPunch",
+            "SteamPunkFlameThrower"
         ]
     ]
 }

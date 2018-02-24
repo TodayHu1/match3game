@@ -13,7 +13,7 @@ import GameplayKit
 
 var matchActionGesture = true
 var loopOnSpawnMatch = false //Появление собирающихся матчей после генерации
-var boardSizeUp = true //Увеличение доски после победы над врагом
+var boardSizeUp = false //Увеличение доски после победы над врагом
 
 extension GameScene {
     
@@ -81,8 +81,21 @@ extension GameScene {
                         player.mana += actionOnTurn[Match.energy.rawValue]
                     
                     case Match.attack.rawValue:
-                        player.fullAttackStandAnimation(damage: (player.attack * actionOnTurn[Match.attack.rawValue]))
-                    
+                        let damag = player.attack * actionOnTurn[Match.attack.rawValue]
+                        var strongAttack = false
+                        
+                        print("\(damag) > \(player.attack * 3)")
+                        
+                        if damag > player.attack * 3 {
+                            strongAttack = false
+                            print("STRONG false")
+                        }
+                        else {
+                            print("STRONG true")
+                            strongAttack = true
+                        }
+                        
+                        player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)
                     case Match.cog.rawValue:
                         enemyUnit.shield += 20
                     

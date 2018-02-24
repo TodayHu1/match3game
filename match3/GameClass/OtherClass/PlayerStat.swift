@@ -8,7 +8,32 @@
 
 import Foundation
 
-class PlayerStat {
+class PlayerStat: NSObject, NSCoding {
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(mana, forKey: "mana")
+        aCoder.encode(health, forKey: "health")
+        aCoder.encode(armor, forKey: "armor")
+        aCoder.encode(attack, forKey: "attack")
+        
+        aCoder.encode(gold, forKey: "gold")
+        
+        aCoder.encode(spellArr, forKey: "spellArr")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let mana = aDecoder.decodeInteger(forKey: "mana")
+        let health = aDecoder.decodeInteger(forKey: "health")
+        let armor = aDecoder.decodeInteger(forKey: "armor")
+        let attack = aDecoder.decodeInteger(forKey: "attack")
+        
+        let gold = aDecoder.decodeInteger(forKey: "gold")
+        
+        let spellArr = aDecoder.decodeObject(forKey: "spellArr") as! [String]
+        
+        self.init(mana: mana, health: health, armor: armor, gold: gold, attack: attack, spellArr: spellArr)
+    }
+    
     
     var mana = 0
     var health = 0

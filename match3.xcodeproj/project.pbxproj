@@ -19,6 +19,7 @@
 		1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */; };
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
+		1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
 		1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F94F1FBD7104008DA2C9 /* CountClass.swift */; };
@@ -77,6 +78,25 @@
 		1F937CF4203AB587003F0C91 /* 0-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF1203AB587003F0C91 /* 0-5.json */; };
 		1F937CF5203AB587003F0C91 /* 0-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF2203AB587003F0C91 /* 0-1.json */; };
 		1F937CF7203C65D8003F0C91 /* 0-6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF6203C65D8003F0C91 /* 0-6.json */; };
+		1F937D0B203EA58C003F0C91 /* 1-16.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF8203EA587003F0C91 /* 1-16.json */; };
+		1F937D0C203EA58C003F0C91 /* 1-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CF9203EA587003F0C91 /* 1-5.json */; };
+		1F937D0D203EA58C003F0C91 /* 1-18.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFA203EA588003F0C91 /* 1-18.json */; };
+		1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFB203EA588003F0C91 /* 1-12.json */; };
+		1F937D0F203EA58C003F0C91 /* 1-13.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFC203EA588003F0C91 /* 1-13.json */; };
+		1F937D10203EA58C003F0C91 /* 1-14.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFD203EA589003F0C91 /* 1-14.json */; };
+		1F937D11203EA58C003F0C91 /* 1-19.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFE203EA589003F0C91 /* 1-19.json */; };
+		1F937D12203EA58C003F0C91 /* 1-20.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CFF203EA589003F0C91 /* 1-20.json */; };
+		1F937D13203EA58C003F0C91 /* 1-8.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D00203EA589003F0C91 /* 1-8.json */; };
+		1F937D14203EA58C003F0C91 /* 1-10.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D01203EA58A003F0C91 /* 1-10.json */; };
+		1F937D15203EA58C003F0C91 /* 1-3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D02203EA58A003F0C91 /* 1-3.json */; };
+		1F937D16203EA58C003F0C91 /* 1-17.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D03203EA58A003F0C91 /* 1-17.json */; };
+		1F937D17203EA58C003F0C91 /* 1-2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D04203EA58A003F0C91 /* 1-2.json */; };
+		1F937D18203EA58C003F0C91 /* 1-4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D05203EA58A003F0C91 /* 1-4.json */; };
+		1F937D19203EA58C003F0C91 /* 1-7.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D06203EA58B003F0C91 /* 1-7.json */; };
+		1F937D1A203EA58C003F0C91 /* 1-6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D07203EA58B003F0C91 /* 1-6.json */; };
+		1F937D1B203EA58C003F0C91 /* 1-15.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D08203EA58B003F0C91 /* 1-15.json */; };
+		1F937D1C203EA58C003F0C91 /* 1-11.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D09203EA58B003F0C91 /* 1-11.json */; };
+		1F937D1D203EA58C003F0C91 /* 1-9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F937D0A203EA58C003F0C91 /* 1-9.json */; };
 		1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A601FED403100CE4FBC /* Dungeon.atlas */; };
 		1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */; };
 		1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */; };
@@ -133,6 +153,7 @@
 		1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Attack.atlas"; sourceTree = "<group>"; };
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
+		1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-StrongAttack.atlas"; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
 		1F13F94F1FBD7104008DA2C9 /* CountClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClass.swift; sourceTree = "<group>"; };
@@ -197,6 +218,25 @@
 		1F937CF1203AB587003F0C91 /* 0-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-5.json"; sourceTree = "<group>"; };
 		1F937CF2203AB587003F0C91 /* 0-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-1.json"; sourceTree = "<group>"; };
 		1F937CF6203C65D8003F0C91 /* 0-6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-6.json"; sourceTree = "<group>"; };
+		1F937CF8203EA587003F0C91 /* 1-16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-16.json"; sourceTree = "<group>"; };
+		1F937CF9203EA587003F0C91 /* 1-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-5.json"; sourceTree = "<group>"; };
+		1F937CFA203EA588003F0C91 /* 1-18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-18.json"; sourceTree = "<group>"; };
+		1F937CFB203EA588003F0C91 /* 1-12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-12.json"; sourceTree = "<group>"; };
+		1F937CFC203EA588003F0C91 /* 1-13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-13.json"; sourceTree = "<group>"; };
+		1F937CFD203EA589003F0C91 /* 1-14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-14.json"; sourceTree = "<group>"; };
+		1F937CFE203EA589003F0C91 /* 1-19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-19.json"; sourceTree = "<group>"; };
+		1F937CFF203EA589003F0C91 /* 1-20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-20.json"; sourceTree = "<group>"; };
+		1F937D00203EA589003F0C91 /* 1-8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-8.json"; sourceTree = "<group>"; };
+		1F937D01203EA58A003F0C91 /* 1-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-10.json"; sourceTree = "<group>"; };
+		1F937D02203EA58A003F0C91 /* 1-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-3.json"; sourceTree = "<group>"; };
+		1F937D03203EA58A003F0C91 /* 1-17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-17.json"; sourceTree = "<group>"; };
+		1F937D04203EA58A003F0C91 /* 1-2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-2.json"; sourceTree = "<group>"; };
+		1F937D05203EA58A003F0C91 /* 1-4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-4.json"; sourceTree = "<group>"; };
+		1F937D06203EA58B003F0C91 /* 1-7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-7.json"; sourceTree = "<group>"; };
+		1F937D07203EA58B003F0C91 /* 1-6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-6.json"; sourceTree = "<group>"; };
+		1F937D08203EA58B003F0C91 /* 1-15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-15.json"; sourceTree = "<group>"; };
+		1F937D09203EA58B003F0C91 /* 1-11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-11.json"; sourceTree = "<group>"; };
+		1F937D0A203EA58C003F0C91 /* 1-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1-9.json"; sourceTree = "<group>"; };
 		1F983A601FED403100CE4FBC /* Dungeon.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Dungeon.atlas; sourceTree = "<group>"; };
 		1F983A621FED460E00CE4FBC /* Bee-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Attack.atlas"; sourceTree = "<group>"; };
 		1F983A631FED460E00CE4FBC /* Bee-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Bee-Stand.atlas"; sourceTree = "<group>"; };
@@ -288,6 +328,7 @@
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */,
 				1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */,
 				1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */,
 				1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */,
@@ -410,6 +451,25 @@
 				1F937CF1203AB587003F0C91 /* 0-5.json */,
 				1F937CF6203C65D8003F0C91 /* 0-6.json */,
 				1F1D5993203052A70024EB0A /* 1-1.json */,
+				1F937D04203EA58A003F0C91 /* 1-2.json */,
+				1F937D02203EA58A003F0C91 /* 1-3.json */,
+				1F937D05203EA58A003F0C91 /* 1-4.json */,
+				1F937CF9203EA587003F0C91 /* 1-5.json */,
+				1F937D07203EA58B003F0C91 /* 1-6.json */,
+				1F937D06203EA58B003F0C91 /* 1-7.json */,
+				1F937D00203EA589003F0C91 /* 1-8.json */,
+				1F937D0A203EA58C003F0C91 /* 1-9.json */,
+				1F937D01203EA58A003F0C91 /* 1-10.json */,
+				1F937D09203EA58B003F0C91 /* 1-11.json */,
+				1F937CFB203EA588003F0C91 /* 1-12.json */,
+				1F937CFC203EA588003F0C91 /* 1-13.json */,
+				1F937CFD203EA589003F0C91 /* 1-14.json */,
+				1F937D08203EA58B003F0C91 /* 1-15.json */,
+				1F937CF8203EA587003F0C91 /* 1-16.json */,
+				1F937D03203EA58A003F0C91 /* 1-17.json */,
+				1F937CFA203EA588003F0C91 /* 1-18.json */,
+				1F937CFE203EA589003F0C91 /* 1-19.json */,
+				1F937CFF203EA589003F0C91 /* 1-20.json */,
 				1F937CE520359A67003F0C91 /* 2-1.json */,
 			);
 			path = Levels;
@@ -718,13 +778,17 @@
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
+				1F937D17203EA58C003F0C91 /* 1-2.json in Resources */,
 				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
 				1F937CF3203AB587003F0C91 /* 0-4.json in Resources */,
 				1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */,
 				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
+				1F937D1D203EA58C003F0C91 /* 1-9.json in Resources */,
+				1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
 				1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */,
 				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
+				1F937D13203EA58C003F0C91 /* 1-8.json in Resources */,
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
 				1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */,
 				1F937CD62032CB5E003F0C91 /* NeutralTurtle-Attack.atlas in Resources */,
@@ -732,7 +796,12 @@
 				1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */,
 				1F937CE8203730DA003F0C91 /* LevelIcon.xcassets in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
+				1F937D0C203EA58C003F0C91 /* 1-5.json in Resources */,
 				1F88DE082030840B005257A5 /* Dummy-Stand.atlas in Resources */,
+				1F937D11203EA58C003F0C91 /* 1-19.json in Resources */,
+				1F937D19203EA58C003F0C91 /* 1-7.json in Resources */,
+				1F937D1C203EA58C003F0C91 /* 1-11.json in Resources */,
+				1F937D1B203EA58C003F0C91 /* 1-15.json in Resources */,
 				1FFD4F701F76406100952F94 /* testStand.atlas in Resources */,
 				1F937CF5203AB587003F0C91 /* 0-1.json in Resources */,
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
@@ -741,14 +810,18 @@
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */,
+				1F937D16203EA58C003F0C91 /* 1-17.json in Resources */,
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
 				1F937CF4203AB587003F0C91 /* 0-5.json in Resources */,
+				1F937D0F203EA58C003F0C91 /* 1-13.json in Resources */,
+				1F937D18203EA58C003F0C91 /* 1-4.json in Resources */,
 				1F983A651FED460E00CE4FBC /* Bee-Stand.atlas in Resources */,
 				1F937CED20384BC7003F0C91 /* SteamPunkGuard-Stand.atlas in Resources */,
 				1F2AEDC61EFD5863001AEBB7 /* LaunchScreen.storyboard in Resources */,
 				1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */,
+				1F937D1A203EA58C003F0C91 /* 1-6.json in Resources */,
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,
@@ -757,9 +830,14 @@
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
+				1F937D14203EA58C003F0C91 /* 1-10.json in Resources */,
 				1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */,
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
+				1F937D12203EA58C003F0C91 /* 1-20.json in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
+				1F937D0B203EA58C003F0C91 /* 1-16.json in Resources */,
+				1F937D0D203EA58C003F0C91 /* 1-18.json in Resources */,
+				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
 				1F1D5994203052A80024EB0A /* 1-1.json in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
@@ -770,8 +848,10 @@
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
 				1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */,
+				1F937D15203EA58C003F0C91 /* 1-3.json in Resources */,
 				1F937CD52032CB5E003F0C91 /* NeutralTurtle-Stand.atlas in Resources */,
 				1F00B7061FADBC8900C002B3 /* Heart.sks in Resources */,
+				1F937D10203EA58C003F0C91 /* 1-14.json in Resources */,
 				1F937CEF2039EFCC003F0C91 /* ToolTip.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

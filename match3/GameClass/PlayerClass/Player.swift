@@ -21,6 +21,9 @@ class Player: SKSpriteNode {
     var playerArrWalking = [SKTexture]()
     var playerAtlasWalking = SKTextureAtlas()
     
+    var playerArrStrongAttack = [SKTexture]()
+    var playerAtlasStrongAttack = SKTextureAtlas()
+    
     //Label
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
@@ -60,6 +63,7 @@ class Player: SKSpriteNode {
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
+        playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -75,6 +79,12 @@ class Player: SKSpriteNode {
             let name = self.name! + "-" + "Walking" + "-\(i).png"
             playerArrWalking.append(SKTexture(imageNamed: name))
         }
+        
+        for i in 0...playerAtlasStrongAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "StrongAttack" + "-\(i).png"
+            playerArrStrongAttack.append(SKTexture(imageNamed: name))
+        }
+        
     }
     
     init(gameScene: GameScene) {
@@ -101,6 +111,7 @@ class Player: SKSpriteNode {
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
+        playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -116,6 +127,12 @@ class Player: SKSpriteNode {
             let name = self.name! + "-" + "Walking" + "-\(i).png"
             playerArrWalking.append(SKTexture(imageNamed: name))
         }
+        
+        for i in 0...playerAtlasStrongAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "StrongAttack" + "-\(i).png"
+            playerArrStrongAttack.append(SKTexture(imageNamed: name))
+        }
+        
         
         self.zPosition = 3000
 //        print(self.labelBoard.zPosition)
@@ -165,7 +182,7 @@ class Player: SKSpriteNode {
         self.run(SKAction.sequence([getDamage,toNormalColor]))
     }
     
-    func fullAttackStandAnimation(damage: Int) {
+    func fullAttackStandAnimation(damage: Int, strongAttack: Bool) {
         self.removeAllActions()
         
         let moveForward = SKAction.move(to: CGPoint(x: -50, y: positionAnchor.y), duration: 0.25)
@@ -181,10 +198,11 @@ class Player: SKSpriteNode {
         let shakeScene = SKAction.run {
             self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
+
         let fullAttackAnimation = SKAction.sequence([
             SKAction.wait(forDuration: 0.6),
             moveForward,
-            animationAttack(),
+            animationAttack(strongAttack: strongAttack),
             shakeScene,
             attackMod,
             SKAction.wait(forDuration: 0.6),
@@ -195,10 +213,20 @@ class Player: SKSpriteNode {
         self.run(fullAttackAnimation)
     }
     
-    func animationAttack() -> SKAction {
+    func animationAttack(strongAttack: Bool) -> SKAction {
         self.removeAllActions()
         
-        let playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+        var playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+        
+        if strongAttack {
+            print("STRONG ATTACK ATTACK")
+            playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
+        }
+        else {
+            print("NORMAL ATTACK")
+            playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+        }
+
         
         self.run(playerAnimAttack)
         return playerAnimAttack

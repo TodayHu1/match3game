@@ -9,16 +9,25 @@
 import UIKit
 
 var playerStat: PlayerStat!
+var gameViewController: GameViewController!
 
 class MainMenuViewController: UIViewController {
     
     
 
     override func viewDidLoad() {
-        var playerStatXXX = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
+        
+        if gameViewController == nil {
+            gameViewController = GameViewController()
+        }
+        
         if playerStat == nil {
-            playerStat = playerStatXXX
-            print("++++ PLAYER INIT ++++")
+            print("////// PLAYER INIT LOAD ////////")
+            gameViewController.loadGameProgress()
+            if playerStat == nil {
+                playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
+                print("++++ PLAYER INIT BASIC ++++")
+            }
         }
         else {
             print("---- PLAYER ALREADY INIT ----")

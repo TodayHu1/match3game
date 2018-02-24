@@ -130,6 +130,31 @@ class GameViewController: UIViewController {
         }
     }
     
+    func saveGameProgress() {
+        UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
+//        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStat")
+        
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStat")
+        UserDefaults.standard.synchronize()
+        
+        print("SAVE DONE")
+        
+    }
+    
+    func loadGameProgress() {
+        
+        if UserDefaults.standard.object(forKey: "levelStorage") as? [[String : Any]] != nil {
+            levelStorage = UserDefaults.standard.object(forKey: "levelStorage") as! [[String : Any]]
+        }
+        
+        if let heroObject = UserDefaults.standard.value(forKey: "playerStat") as? NSData {
+            playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
+            print("\(playerStat.health) ДАРОВА")
+            print("\(playerStat.spellArr) ДАРОВА")
+        }
+        
+        print("LOAD DONE")
+    }
     
     func gameOverScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -138,6 +163,8 @@ class GameViewController: UIViewController {
     }
     
     func victoryScreen() {
+        print("SAVE")
+        saveGameProgress()
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "VictoryScreen")
         self.present(newViewController, animated: true, completion: nil)
