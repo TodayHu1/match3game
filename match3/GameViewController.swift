@@ -86,8 +86,7 @@ class GameViewController: UIViewController {
         let frameHeight = 475
         
         let viewx = UIView()
-        viewx.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
-        viewx.center = self.view.center
+        viewx.frame = CGRect(x: 0, y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
         viewx.tag = 252
         
         
@@ -129,6 +128,17 @@ class GameViewController: UIViewController {
         viewx.addSubview(label)
         
         self.view.addSubview(viewx)
+        
+
+        
+        UIView.animate(withDuration: 1, delay: 0.25, animations: {
+            viewx.center.x = self.view.center.x
+            viewx.center.y = self.view.center.y - 20
+        }) { _ in
+            UIView.animate(withDuration: 0.5, animations: {
+                viewx.center.y = self.view.center.y + 20
+            })
+        }
         
     }
     
