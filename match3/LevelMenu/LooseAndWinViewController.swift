@@ -21,7 +21,6 @@ class LooseAndWinViewController: UIViewController {
     }
     
     func showAD() {
-        print("\(ad) --- REKLAMA")
         if ad.isReady {
             print("Ad ready")
             ad.present(fromRootViewController: topMostController())

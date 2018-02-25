@@ -86,7 +86,7 @@ class GameViewController: UIViewController {
         let frameHeight = 475
         
         let viewx = UIView()
-        viewx.frame = CGRect(x: 0, y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
+        viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
         viewx.tag = 252
         
         

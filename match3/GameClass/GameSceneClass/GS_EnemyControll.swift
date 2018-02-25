@@ -87,12 +87,12 @@ extension GameScene {
                         print("\(damag) > \(player.attack * 3)")
                         
                         if damag > player.attack * 3 {
-                            strongAttack = false
-                            print("STRONG false")
-                        }
-                        else {
                             print("STRONG true")
                             strongAttack = true
+                        }
+                        else {
+                            strongAttack = false
+                            print("STRONG false")
                         }
                         
                         player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)

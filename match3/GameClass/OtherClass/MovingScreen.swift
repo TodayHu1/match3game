@@ -169,6 +169,10 @@ class MovingScreen: SKScene {
 
     override func didMove(to view: SKView) {
         
+        self.removeAllActions()
+        self.removeFromParent()
+        self.removeAllChildren()
+        
         print("\(self) --- Moving Screen")
         
         if indexLevel >= loadEnemy.count {
@@ -216,9 +220,6 @@ class MovingScreen: SKScene {
                 if indexLevel < loadEnemy.count {
                     print("\(indexLevel) < \(loadEnemy.count) --- PRE Present scene")
                     print("\(indexLevel) < \(loadEnemy.count) --- Present scene")
-                    self.removeAllActions()
-                    self.removeFromParent()
-                    self.removeAllChildren()
                     self.presentScene()
                 }
             }
