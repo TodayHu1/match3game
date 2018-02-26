@@ -21,7 +21,6 @@ extension GameScene {
     func boardSizeChange() {
         let plusValue = 1
         if boardSizeUp {
-            //print(" -> MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             matchBoard = MatchParametrs(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue, gameScene: self)
             var subArr = [[Match]]()
             subArr = levelArr
@@ -34,7 +33,6 @@ extension GameScene {
                 }
             }
             
-            //print("MatchBoard size –– \(matchBoard.horizontalCount) - \(matchBoard.verticalCount)")
             self.buildLevel(hardBuild: true)
             self.fillArrOnVoidNoLoop()
             self.buildLevel(hardBuild: false)

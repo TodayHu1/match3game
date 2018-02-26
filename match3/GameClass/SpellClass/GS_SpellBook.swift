@@ -35,9 +35,9 @@ extension GameScene {
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
                          mana: 0, health: 4, armor: 0, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
-        case "TouchOfMidas":
+        case "Nemesis":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 6, health: 0, armor: 0, coin: 0,
+                         mana: 4, health: 1, armor: 2, coin: 0,
                          name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
         case "NoOneStepBack":
             return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
@@ -86,7 +86,7 @@ extension GameScene {
                                  durationAnimation: interval
                 )
             }
-        case "TouchOfMidas":
+        case "qwe":
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
             for _ in 0...5 {
@@ -99,15 +99,15 @@ extension GameScene {
                                  durationAnimation: interval
                 )
             }
-        //  - заменяет все матчиАтака на матчиЗащиты "NoOneStepBack"
-        case "NoOneStepBack":
+
+        case "Nemesis":
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == Match.attack  {
+                    if levelArr[i][j] == Match.armor  {
                         duration += interval
-                        matchMoveToBoard(matchType: Match.armor,
+                        matchMoveToBoard(matchType: Match.attack,
                                          nodePosition: player,
                                          i: i,
                                          j: j,

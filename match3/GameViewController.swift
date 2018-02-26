@@ -37,12 +37,12 @@ var levelStorage = [
     ["Name": "SteamPunk",
      "LvlNow": 1,
      "LvlMax": 10,
-     "Access": false
+     "Access": true
     ],
     ["Name": "RandomDungeon",
      "LvlNow": 1,
      "LvlMax": 0,
-     "Access": false
+     "Access": true
     ]
 ]
 
@@ -79,6 +79,60 @@ class GameViewController: UIViewController {
         
     }
     
+    func presentText(text: String, color: UIColor) {
+        
+        let frameWidth = 200
+        let frameHeight = 60
+        
+        let viewx = UIView()
+        viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
+        viewx.tag = 341
+        
+        
+        let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        testView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
+        testView.layer.cornerRadius = 10
+        testView.clipsToBounds = true
+        
+        
+        let label = UILabel()
+        label.frame = CGRect(x: 25, y: 10, width: frameWidth - 50, height: 40)
+        label.text = text
+        label.textColor = color
+        label.textAlignment = .center
+        label.shadowColor = .white
+        label.shadowOffset.height = 5
+        label.font = UIFont(name: "Munro", size: 30)
+        
+        
+        viewx.addSubview(testView)
+        viewx.addSubview(label)
+        
+        self.view.addSubview(viewx)
+        
+        
+        UIView.animate(withDuration: 1, delay: 0.25, animations: {
+            viewx.center.x = self.view.center.x
+            viewx.center.y = self.view.center.y
+        }) { _ in
+            UIView.animate(withDuration: 2.5, animations: {
+                viewx.center.y += 20
+            }) { _ in
+                UIView.animate(withDuration: 2, animations: {
+                    let subViews = self.view.subviews
+                    for subview in subViews{
+                        if subview.tag == 341 {
+                            subview.removeFromSuperview()
+                        }
+                    }
+                })
+            }
+        }
+        
+
+        
+        print("presentText")
+    }
     
     func presentImageTip(imgName: String, title: String) {
 
@@ -155,13 +209,8 @@ class GameViewController: UIViewController {
     
     func saveGameProgress() {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
-//        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStat")
-        
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStat")
         UserDefaults.standard.synchronize()
-        
-        print("SAVE DONE")
-        
     }
     
     func loadGameProgress() {

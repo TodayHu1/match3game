@@ -27,16 +27,14 @@ class GeneratRandomUnit {
     
     init(playerLvl: Int, gameScene: GameScene) {
         self.gameScene = gameScene
-        let lvl = playerLvl * 10
+        let lvl = playerLvl
         unitPower = lroundf(Float(lvl/2))+1
         unitSpell = (unitPower / (self.gameScene.random(number: 10) + 1)) + 1
         unitStat = unitPower - unitSpell
 
         
         numberUnitSpell = lroundf(Float(lvl/10))
-        //Добавить способности
-        //...
-        
+
         unitNumberAttack = 1 + (lroundf(Float(unitStat)))
         unitNumberArmor = self.gameScene.random(number: lroundf(Float(unitStat/2)))*10
         unitNumberHealth = (unitStat * 5) + self.gameScene.random(number: unitStat)
@@ -55,7 +53,7 @@ class GeneratRandomUnit {
     }
     
     func getSprite() -> String {
-        let spriteArr = ["ShadowRin", "Stony", "Bee"]
+        let spriteArr = ["ShadowRin", "Stony", "StoneScale", "RoyalMage", "NeutralTurtle"]
         let x = spriteArr[Int(arc4random_uniform(UInt32(spriteArr.count)))]
         print("Random Sprite \(x)");
         return x

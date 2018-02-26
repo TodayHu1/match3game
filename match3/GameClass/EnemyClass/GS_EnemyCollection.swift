@@ -12,7 +12,9 @@ import SpriteKit
 import GameplayKit
 
 extension GameScene {
-
+//Dungeon
+//GrassLand
+//SteamPunkBackground
     func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
         
         var size = CGSize(width: 150, height: 150)
@@ -50,6 +52,9 @@ extension GameScene {
             attack = 3
             health = 10
             armor = 1
+            
+            //Special
+            vampireOnAttack = 1
         case "SteamPunkGuard":
             size = CGSize(width: 180, height: 150)
     
@@ -59,14 +64,17 @@ extension GameScene {
             armor = 20
             
             //Special
-            cogOnDefense = 1
+            cogOnDefense = 2
         case "NeutralTurtle":
             size = CGSize(width: 125, height: 115)
             
             //Stat
-            attack = 1
-            health = 1
-            armor = 20
+            attack = 2
+            health = 15
+            armor = 25
+            
+            //Special
+            chainInstedArmorOnBreakArmor = true
         case "StoneScale":
             //Size
             size = CGSize(width: 130, height: 130)
@@ -83,7 +91,7 @@ extension GameScene {
             size = CGSize(width: 130, height: 130)
             
             //Stat
-            attack = 111
+            attack = 1
             health = 5
             armor = 5
         case "RoyalMage":

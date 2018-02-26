@@ -73,37 +73,35 @@ extension GameScene {
                 switch i {
                     case Match.skull.rawValue:
                         enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[Match.skull.rawValue])
-                    
                     case Match.armor.rawValue:
                         player.shield += actionOnTurn[Match.armor.rawValue] * 2
-                    
+                        positiveWords(number: actionOnTurn[Match.armor.rawValue])
                     case Match.energy.rawValue:
                         player.mana += actionOnTurn[Match.energy.rawValue]
-                    
+                        positiveWords(number: actionOnTurn[Match.energy.rawValue])
                     case Match.attack.rawValue:
                         let damag = player.attack * actionOnTurn[Match.attack.rawValue]
                         var strongAttack = false
-                        
-                        print("\(damag) > \(player.attack * 3)")
-                        
-                        if damag > player.attack * 3 {
-                            print("STRONG true")
+                        if actionOnTurn[Match.attack.rawValue] > 3 {
                             strongAttack = true
+                            player.mana += actionOnTurn[Match.attack.rawValue]
+                            changeManaLabel()
                         }
                         else {
                             strongAttack = false
-                            print("STRONG false")
                         }
-                        
+                        positiveWords(number: actionOnTurn[Match.attack.rawValue])
                         player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)
+                    case Match.coin.rawValue:
+                        player.coin += actionOnTurn[Match.coin.rawValue]
+                    case Match.poison.rawValue:
+                        player.health -= actionOnTurn[Match.poison.rawValue]
                     case Match.cog.rawValue:
-                        enemyUnit.shield += 20
-                    
+                        enemyUnit.shield += 6
                     default: break
                 }
             }
         }
-        
         
         
 //        let statIn = SKAction.fadeIn(withDuration: 0.1)
@@ -122,5 +120,20 @@ extension GameScene {
 //                [statIn,statText,statWait,statHide,statInitArr]
 //            )
 //        )
+    }
+    
+    func positiveWords(number: Int) {
+        switch number {
+        case 4:
+            self.gameViewController.presentText(text: "Good!", color: .white)
+        case 5:
+            self.gameViewController.presentText(text: "Excellent", color: .yellow)
+        case 6:
+            self.gameViewController.presentText(text: "Fantastic!", color: .purple)
+        case 6:
+            self.gameViewController.presentText(text: "Incredibly!", color: .orange)
+        default:
+            break
+        }
     }
 }

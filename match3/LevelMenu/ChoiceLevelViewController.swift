@@ -60,12 +60,8 @@ class ChoiceLevelViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToLvl" {
             if let vc = segue.destination as? GameViewController {
-                print("sender --------- ", sender)
                 vc.lvlName = sender as! String
             }
-        }
-        else {
-            print("segue identifier")
         }
     }
     

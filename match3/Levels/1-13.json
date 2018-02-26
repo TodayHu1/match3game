@@ -2,8 +2,8 @@
     "BoardSize":
     [
         [
-            5,
-            5
+            3,
+            3
         ],
         [
             6,
@@ -19,13 +19,13 @@
     ],
     "Bg":
     [
-        "GrassLand",
+        "Dungeon",
         "SteamPunkBackground"
     ],    
 	"Enemy":
     [
         [
-            "SteamPunkGuard",
+            "StoneScale",
             "StoneScale"
         ],
         [

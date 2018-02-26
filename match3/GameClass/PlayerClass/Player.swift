@@ -90,6 +90,9 @@ class Player: SKSpriteNode {
     init(gameScene: GameScene) {
         super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: playerSize)
         
+        self.name = String(RAND_MAX)
+        print("\(self) --- Player")
+        
         self.gameScene = gameScene
         self.setScale(0.3)
         self.position = positionAnchor
@@ -133,12 +136,7 @@ class Player: SKSpriteNode {
             playerArrStrongAttack.append(SKTexture(imageNamed: name))
         }
         
-        
         self.zPosition = 3000
-//        print(self.labelBoard.zPosition)
-//        print(self.labelHealth.zPosition)
-//        print(self.labelShield.zPosition)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -171,6 +169,7 @@ class Player: SKSpriteNode {
         }
         
         if self.health < 1 {
+            print("GameOver")
             gameScene.gameOverScreen()
         }
         
@@ -219,11 +218,9 @@ class Player: SKSpriteNode {
         var playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
         
         if strongAttack {
-            print("STRONG ATTACK ATTACK")
             playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
         }
         else {
-            print("NORMAL ATTACK")
             playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
         }
 
@@ -243,11 +240,11 @@ class Player: SKSpriteNode {
 //                 SKAction.wait(forDuration: 1.5)]
 //            )
 //        )
-        
+//
         let playerAnimStand = SKAction.repeatForever(
                 SKAction.animate(with: playerArrStand, timePerFrame: 0.2)
             )
-
+        //let playerAnimStand = SKAction.wait(forDuration: 1)
         
         self.run(playerAnimStand)
         return playerAnimStand

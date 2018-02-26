@@ -41,8 +41,11 @@ class GameScene: SKScene {
     }
     
     init(enemyArr: [String], playerSpell: [String], bg: String, size: CGSize) {
-        print("INIT SIZE")
         super.init(size: CGSize(width: 375, height: 665))
+        
+        self.removeAllActions()
+        self.removeFromParent()
+        self.removeAllChildren()
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 //        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
@@ -70,16 +73,10 @@ class GameScene: SKScene {
         self.addChild(spell4)
         
         buildScene(bgName: bg)
-        
-        print("INIT SIZE DONE")
-        
-        print("\(self.gameViewController) --- GAME VIEW CONTROLLER")
     }
     
     required init?(coder aDecoder: NSCoder) {
-        print("INIT CODER - \(aDecoder)")
         super.init(coder: aDecoder)
-        print("INIT CODER DONE")
     }
     
     func swipedLeft(sender:UISwipeGestureRecognizer){
@@ -195,8 +192,8 @@ class GameScene: SKScene {
     }
 
     override func didMove(to view: SKView) {
-        
-        print("DIDMOVE GO")
+        self.name = String(RAND_MAX)
+        print("\(self) --- GameScene")
         
         self.enemyUnit = self.initNewClassForEnemy(enemyName: self.enemyOnLevelArr[self.enemyIndexNow])
 
@@ -247,8 +244,6 @@ class GameScene: SKScene {
         
         fadeInStart()
         
-        print("\(player.size) ------- \(self.size)")
-        
         switch lvlNowName {
         case "0-1":
             self.gameViewController.presentImageTip(imgName: "SwipeToolTip", title: "Swipe")
@@ -265,10 +260,6 @@ class GameScene: SKScene {
         default:
             break
         }
-
-        
-        print("DIDMOVE DONE")
-
     }
     
     func fadeInStart() {
@@ -325,7 +316,6 @@ class GameScene: SKScene {
     }
     
     func gameOverScreen() {
-        print("++++++++++++++++++++ GAME OVER ++++++++++++++++++++++++")
         self.gameViewController.gameOverScreen()
     }
     

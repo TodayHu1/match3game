@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 extension Player {
-    
+
     func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
         
         if initLabel {

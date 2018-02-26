@@ -4,10 +4,6 @@
         [
             5,
             5
-        ],
-        [
-            6,
-            6
         ]
     ],
     "MatchChance": [
@@ -19,18 +15,15 @@
     ],
     "Bg":
     [
-        "GrassLand",
-        "SteamPunkBackground"
+        "GrassLand"
     ],    
 	"Enemy":
     [
         [
-            "SteamPunkGuard",
-            "StoneScale"
-        ],
-        [
-            "SteamPunkPunch",
-            "SteamPunkFlameThrower"
+            "Stony",
+            "Stony",
+            "StoneScale",
+            "NeutralTurtle"
         ]
     ]
 }

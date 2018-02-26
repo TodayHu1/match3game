@@ -82,6 +82,9 @@ class EnemyUnit: SKSpriteNode {
         
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
+        self.name = String(RAND_MAX)
+        print("\(self) --- Enemy")
+        
         self.gameScene = gameScene
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
@@ -143,6 +146,7 @@ class EnemyUnit: SKSpriteNode {
             SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
         )
         self.run(enemyAnimStand)
+        //let enemyAnimStand = SKAction.wait(forDuration: 1)
         return enemyAnimStand
 
     }
@@ -213,7 +217,6 @@ class EnemyUnit: SKSpriteNode {
                 self.health += self.shield
                 self.shield = 0
                 //On Break Armor
-                print("ARMOR GO")
                 breakArmorMod()
             }
         }

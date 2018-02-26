@@ -23,6 +23,9 @@ class MovingScreen: SKScene {
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.removeAllActions()
+        self.removeFromParent()
+        self.removeAllChildren()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +44,11 @@ class MovingScreen: SKScene {
         
         if lvlName == "0-6" {
             playerStat.spellArr[1] = "HeartAttack"
+            playerStat.mana = 6
+        }
+        
+        if lvlName == "1-1" {
+            playerStat.spellArr[2] = "Nemesis"
             playerStat.mana = 6
         }
     }
@@ -119,8 +127,6 @@ class MovingScreen: SKScene {
         arrLevelRule()
         
         gameScene.gameViewController = self.gameViewController
-        
-        print("\(self.gameViewController) --- MOVING SCREEN")
 
         let transition = SKTransition.crossFade(withDuration: 0.0)
         gameScene.scaleMode = SKSceneScaleMode.aspectFit
@@ -128,7 +134,6 @@ class MovingScreen: SKScene {
     }
     
     func checkBG(bgName: String) -> String {
-        print("Current BG --- \(bg)")
         if bgName == "" {
             return getRandomBG()
         }
@@ -138,19 +143,16 @@ class MovingScreen: SKScene {
     }
     
     func checkEnemy(enemy: [String]) -> [String] {
-        print("Current enemy --- \(enemy)")
         var newArrEnemy = enemy
         for i in 0...newArrEnemy.count-1 {
             if newArrEnemy[i] == "" {
                 newArrEnemy[i] = "Random"
             }
         }
-        print("Random Arr Enemy ----- \(newArrEnemy)")
         return newArrEnemy
     }
     
     func checkBoardSize(size: [Int]) -> CGSize {
-        print("Current boardSize --- \(boardSize)")
         if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
             return CGSize(width: (Int(arc4random_uniform(UInt32(4)))+4), height: (Int(arc4random_uniform(UInt32(4)))+4))
         }
@@ -163,7 +165,6 @@ class MovingScreen: SKScene {
     func getRandomBG() -> String {
         let bg = ["GrassLand", "Dungeon"]
         let x = bg[Int(arc4random_uniform(UInt32(bg.count)))]
-        print("Random BG ---- \(x)");
         return x
     }
 
@@ -173,7 +174,8 @@ class MovingScreen: SKScene {
         self.removeFromParent()
         self.removeAllChildren()
         
-        print("\(self) --- Moving Screen")
+        self.name = String(RAND_MAX)
+        print("\(self) --- MovingScreen")
         
         if indexLevel >= loadEnemy.count {
             print("\(indexLevel)----------------WIN---------------- >= \(loadEnemy.count)")
@@ -193,6 +195,9 @@ class MovingScreen: SKScene {
         else {
             print("\(indexLevel)----------------LOAD LVL---------------- < \(loadEnemy.count)")
             
+            self.removeAllActions()
+            self.removeFromParent()
+            self.removeAllChildren()
             
             let player = Player()
             self.addChild(player)
@@ -218,8 +223,6 @@ class MovingScreen: SKScene {
             
             let startLevel = SKAction.run {
                 if indexLevel < loadEnemy.count {
-                    print("\(indexLevel) < \(loadEnemy.count) --- PRE Present scene")
-                    print("\(indexLevel) < \(loadEnemy.count) --- Present scene")
                     self.presentScene()
                 }
             }
@@ -239,7 +242,6 @@ class MovingScreen: SKScene {
                                                fadeOut,
                                                startLevel]))
             
-            print("ANIMATION DONE")
         }
     }
 

@@ -13,7 +13,6 @@ import SpriteKit
 extension EnemyUnit {
     
     func breakArmorMod() {
-        print("GO BREAK ARMOR")
         spawnChainInstedArmorMod()
         
         
@@ -26,7 +25,6 @@ extension EnemyUnit {
     
     func spawnChainInstedArmorMod() {
         if self.spawnChainInstedArmor {
-            print("GO CHAIN")
             var duration: Double = 0
             let interval: Double = gameScene.durationSpawnMatchAnimation()
             for i in 0...self.gameScene.matchBoard.verticalCount-1 {

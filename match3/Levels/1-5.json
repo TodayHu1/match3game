@@ -2,12 +2,12 @@
     "BoardSize":
     [
         [
-            5,
-            5
+            4,
+            6
         ],
         [
             6,
-            6
+            5
         ]
     ],
     "MatchChance": [
@@ -20,17 +20,17 @@
     "Bg":
     [
         "GrassLand",
-        "SteamPunkBackground"
+        "Dungeon"
     ],    
 	"Enemy":
     [
         [
-            "SteamPunkGuard",
-            "StoneScale"
+            "Stony",
+            "Stony"
         ],
         [
-            "SteamPunkPunch",
-            "SteamPunkFlameThrower"
+            "StoneScale",
+            "StoneScale"
         ]
     ]
 }

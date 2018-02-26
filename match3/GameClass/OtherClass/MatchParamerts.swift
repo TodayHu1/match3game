@@ -32,7 +32,6 @@ class MatchParametrs {
         self.horizontalCount = horizontalCount
         self.verticalCount = verticalCount
         self.numberOfMatch = self.horizontalCount * self.verticalCount
-        print(" ---> \(self.numberOfMatch)")
         self.halfBoardSize = self.boardSize / 2
         if self.horizontalCount > self.verticalCount {
             self.matchSize = self.boardSize / self.horizontalCount

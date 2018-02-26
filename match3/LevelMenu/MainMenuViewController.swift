@@ -23,15 +23,10 @@ class MainMenuViewController: UIViewController {
         }
         
         if playerStat == nil {
-            print("////// PLAYER INIT LOAD ////////")
             gameViewController.loadGameProgress()
             if playerStat == nil {
                 playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
-                print("++++ PLAYER INIT BASIC ++++")
             }
-        }
-        else {
-            print("---- PLAYER ALREADY INIT ----")
         }
 
         UILabel.animate(withDuration: 1, animations: {

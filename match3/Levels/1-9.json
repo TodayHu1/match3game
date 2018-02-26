@@ -3,11 +3,11 @@
     [
         [
             5,
-            5
+            3
         ],
         [
-            6,
-            6
+            5,
+            5
         ]
     ],
     "MatchChance": [
@@ -20,17 +20,15 @@
     "Bg":
     [
         "GrassLand",
-        "SteamPunkBackground"
+        "GrassLand"
     ],    
 	"Enemy":
     [
         [
-            "SteamPunkGuard",
             "StoneScale"
         ],
         [
-            "SteamPunkPunch",
-            "SteamPunkFlameThrower"
+            "CultistsProphet"
         ]
     ]
 }

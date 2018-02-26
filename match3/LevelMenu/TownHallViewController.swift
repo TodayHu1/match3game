@@ -47,11 +47,7 @@ class TownHallViewController: UIViewController {
     
 
     @IBAction func test(_ sender: Any) {
-        print(playerStat.armor)
-        print(playerStat.gold)
-        print(playerStat.health)
-        print(playerStat.attack)
-        print(playerStat.mana)
+
     }
     
     
