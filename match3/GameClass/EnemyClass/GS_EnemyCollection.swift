@@ -29,6 +29,9 @@ extension GameScene {
         var poisonOnAttack = 0
         var skullOnAttack = 0
         
+        //Attack on move
+        var attackOnMove = 0
+        
         //BreakArmor
         var chainInstedArmorOnBreakArmor = false
         
@@ -126,9 +129,14 @@ extension GameScene {
             size = CGSize(width: 260, height: 160)
             
             //Stat
-            attack = 8
-            health = 40
-            armor = 40
+            attack = 2
+            health = 15
+            armor = 30
+            
+            //Special
+            chainInstedArmorOnBreakArmor = true
+            cogOnDefense = 2
+            attackOnMove = 6
         case "Random":
             //Генерация юнита
             return randomUnit.generate()
@@ -146,6 +154,7 @@ extension GameScene {
                          skullOnAttack: skullOnAttack,
                          chainInstedArmorOnBreakArmor: chainInstedArmorOnBreakArmor,
                          cogOnDefense: cogOnDefense,
+                         attackOnMove: attackOnMove,
                          gameScene: self)
         
     }

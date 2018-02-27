@@ -11,6 +11,15 @@ import SpriteKit
 
 extension EnemyUnit {
     
+    func attackOnMove() {
+        if self.playerMove != 0 {
+            print("\(self.playerMove) %%% \(self.gameScene.player.move) --- \(self.gameScene.player.move % self.playerMove) == 1")
+            if self.gameScene.player.move % self.playerMove == 1 {
+                self.fullAttackStandAnimation(damage: self.attack)
+            }
+        }
+    }
+    
     func attackMod() {
         self.vampireOnAttackMod()
         self.reactiveArmorOnAttackMod()

@@ -40,6 +40,8 @@ class EnemyUnit: SKSpriteNode {
         //Death modificator
         var spawnSkullOnDie = 0
     
+        //Player Move
+        var playerMove = 0
     
     //Bool for special spell
     var specialSpell = true
@@ -78,6 +80,8 @@ class EnemyUnit: SKSpriteNode {
          chainInstedArmorOnBreakArmor: Bool,
          //Defense
          cogOnDefense: Int,
+         //AttackWhenMatchMove
+         attackOnMove: Int,
          gameScene: GameScene) {
         
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
@@ -112,8 +116,10 @@ class EnemyUnit: SKSpriteNode {
         self.spawnSkullOnBoard = skullOnAttack
         
         self.spawnChainInstedArmor = chainInstedArmorOnBreakArmor
-        
+
         self.spawnCogOnDefense = cogOnDefense
+        
+        self.playerMove = attackOnMove
         
         self.colorBlendFactor = CGFloat(0)
 

@@ -92,6 +92,7 @@ class GeneratRandomUnit {
                          skullOnAttack: skullOnAttack,
                          chainInstedArmorOnBreakArmor: false,
                          cogOnDefense: 0,
+                         attackOnMove: 0,
                          gameScene: gameScene)
         return unit
     }

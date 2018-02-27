@@ -19,7 +19,7 @@ extension GameScene {
     
     public func actionGesture(gesture: Bool) {
         matchActionGesture = gesture
-        testGameLabel.text = "Game gesture - \(gesture)"
+        testGameLabel.text = ""
     }
     
     public func newEnemy() {
@@ -127,9 +127,9 @@ extension GameScene {
         case 4:
             self.gameViewController.presentText(text: "Good!", color: .white)
         case 5:
-            self.gameViewController.presentText(text: "Excellent", color: .yellow)
+            self.gameViewController.presentText(text: "Excellent", color: .green)
         case 6:
-            self.gameViewController.presentText(text: "Fantastic!", color: .purple)
+            self.gameViewController.presentText(text: "Fantastic!", color: .blue)
         case 6:
             self.gameViewController.presentText(text: "Incredibly!", color: .orange)
         default:

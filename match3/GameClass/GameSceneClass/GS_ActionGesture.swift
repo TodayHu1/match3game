@@ -21,6 +21,8 @@ extension GameScene {
     
     func direction(dir: Int, point: CGPoint){
         actionGesture(gesture: false)
+        self.player.move += 1
+        self.enemyUnit.attackOnMove()
         if point.y < 0 {
             if dir > 0 {
                 rowEvent(touchY: Int(point.y), dir: dir)

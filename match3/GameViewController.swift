@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
     
     var lvlName: String!
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,8 @@ class GameViewController: UIViewController {
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
         let request = GADRequest()
         ad.load(request)
-        
+//
+        lvlName = "1-15"
         indexLevel = 0
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
@@ -101,7 +103,7 @@ class GameViewController: UIViewController {
         label.textColor = color
         label.textAlignment = .center
         label.shadowColor = .white
-        label.shadowOffset.height = 5
+        label.shadowOffset.height = 1
         label.font = UIFont(name: "Munro", size: 30)
         
         
@@ -224,6 +226,7 @@ class GameViewController: UIViewController {
         }
         
         UserDefaults.standard.removeObject(forKey: "levelStorage")
+        UserDefaults.standard.removeObject(forKey: "playerStat")
         
     }
     

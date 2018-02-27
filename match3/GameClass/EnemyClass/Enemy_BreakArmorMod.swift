@@ -13,6 +13,7 @@ import SpriteKit
 extension EnemyUnit {
     
     func breakArmorMod() {
+        print("Break Armor Mod")
         spawnChainInstedArmorMod()
         
         
