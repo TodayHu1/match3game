@@ -18,7 +18,7 @@ class ChoiceLevelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pageIndex = Int(self.restorationIdentifier as! String)
+        let pageIndex = Int((self.restorationIdentifier)!)
         let access = (levelStorage[pageIndex!]["Access"] as! Bool)
         let nowLvl = (levelStorage[pageIndex!]["LvlNow"] as! Int)
         let maxLvl = (levelStorage[pageIndex!]["LvlMax"] as! Int)

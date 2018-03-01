@@ -25,8 +25,8 @@ extension GameScene {
         
         //Attack
         var vampireOnAttack = 0
-        var reactiveArmorOnAttack = 0
-        var poisonOnAttack = 0
+        let reactiveArmorOnAttack = 0
+        let poisonOnAttack = 0
         var skullOnAttack = 0
         
         //Attack on move

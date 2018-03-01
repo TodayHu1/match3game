@@ -35,8 +35,8 @@ var levelStorage = [
      "Access": true
     ],
     ["Name": "SteamPunk",
-     "LvlNow": 1,
-     "LvlMax": 10,
+     "LvlNow": 10,
+     "LvlMax": 15,
      "Access": true
     ],
     ["Name": "RandomDungeon",
@@ -51,17 +51,16 @@ var levelStorage = [
 class GameViewController: UIViewController {
     
     var lvlName: String!
-
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("\(navigationController?.viewControllers) --- View")
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
         let request = GADRequest()
         ad.load(request)
 //
-        lvlName = "1-15"
+        //lvlName = "1-15"
         indexLevel = 0
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
@@ -73,12 +72,30 @@ class GameViewController: UIViewController {
         loadMatchChance = dictionary["MatchChance"] as! [Int]
         loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
-
         movingScreenNow = MovingScreen()
         movingScreenNow.gameViewController = self
         movingScreenNow.lvlName = lvlName
         presentScene(scene: movingScreenNow)
         
+    }
+    
+    func isHiddenStatusBar() -> Bool {
+        var isHiddenstatusBarVal = true
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 2436:
+                isHiddenstatusBarVal = false
+            default:
+                isHiddenstatusBarVal = true
+            }
+        }
+        
+        return isHiddenstatusBarVal
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return isHiddenStatusBar()
     }
     
     func presentText(text: String, color: UIColor) {
@@ -241,15 +258,24 @@ class GameViewController: UIViewController {
     }
     
     func goToView(id: String) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: id)
-        self.present(newViewController, animated: true, completion: nil)
+
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: id)
+//        self.present(newViewController, animated: true, completion: nil)
+        
+        if let storyboard = storyboard {
+            print(storyboard)
+            let toMainMenu = storyboard.instantiateViewController(withIdentifier: id) as! LooseAndWinViewController
+            navigationController?.pushViewController(toMainMenu, animated: true)
+
+        }
     }
     
     
     func presentScene(scene: SKScene) {
         let sceneView = SKView()
         self.view = sceneView
+        scene.scaleMode = .aspectFit
         sceneView.presentScene(scene)
     }
 

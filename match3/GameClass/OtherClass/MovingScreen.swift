@@ -129,7 +129,7 @@ class MovingScreen: SKScene {
         gameScene.gameViewController = self.gameViewController
 
         let transition = SKTransition.crossFade(withDuration: 0.0)
-        gameScene.scaleMode = SKSceneScaleMode.aspectFit
+        gameScene.scaleMode = .aspectFit
         self.scene!.view?.presentScene(gameScene, transition: transition)
     }
     
@@ -180,7 +180,7 @@ class MovingScreen: SKScene {
         if indexLevel >= loadEnemy.count {
             print("\(indexLevel)----------------WIN---------------- >= \(loadEnemy.count)")
             var lvlNow = levelStorage[lvlOnReady]["LvlNow"] as! Int
-            var lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
+            let lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
             if lvlNow > lvlMax {
                 lvlNow = lvlMax
             }
@@ -202,6 +202,7 @@ class MovingScreen: SKScene {
             let player = Player()
             self.addChild(player)
             player.animationWalking()
+            player.name = "bob"
             
             let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
             blackSreen.size = CGSize(width: 600, height: 900)
@@ -216,6 +217,14 @@ class MovingScreen: SKScene {
             
             print("DONE INIT SPRITE")
             
+            for child in self.children {
+                
+                //Determine Details
+                if child.name == "bob" {
+                    print("\(child)")
+//                    child.removeFromParent()
+                }
+            }
             
             let fadeOut = SKAction.fadeOut(withDuration: 1)
             let fadeIn = SKAction.fadeIn(withDuration: 1)

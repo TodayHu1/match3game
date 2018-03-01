@@ -19,7 +19,7 @@ extension GameScene {
     
     public func actionGesture(gesture: Bool) {
         matchActionGesture = gesture
-        testGameLabel.text = ""
+//        testGameLabel.text = ""
     }
     
     public func newEnemy() {

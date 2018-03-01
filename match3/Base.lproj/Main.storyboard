@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m0h-0w-7RR">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2QV-px-ki3">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,24 +18,35 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="yMg-cb-bVn">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="2QV-px-ki3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GDM-xo-5yJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="m0h-0w-7RR" kind="relationship" relationship="rootViewController" id="SHH-Sl-HUl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXc-tk-kZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1586" y="138"/>
+        </scene>
         <!--MainMenu-->
         <scene sceneID="Ia3-se-fmu">
             <objects>
                 <viewController storyboardIdentifier="MainMenuViewController" title="MainMenu" modalTransitionStyle="crossDissolve" id="m0h-0w-7RR" customClass="MainMenuViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="F6Z-5T-GuM"/>
-                        <viewControllerLayoutGuide type="bottom" id="wu5-Fa-Iqf"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="61i-LN-FfN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-BG" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-mE-BEj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
-                                <rect key="frame" x="28" y="50" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-4" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-xI-rp7">
@@ -73,7 +85,9 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.5000912838745859" green="0.89683802066274876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="FOc-oy-TEO"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nix-Ee-c2O"/>
                     <connections>
                         <outlet property="labelForTable" destination="uAt-nd-ium" id="F5E-vp-Pzd"/>
                     </connections>
@@ -86,20 +100,16 @@
         <scene sceneID="Pnf-Hy-zdn">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="L8e-9N-R5V" customClass="TownHallViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SLv-z3-mdY"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lvi-u4-Rbg"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleAspectFill" id="zVQ-nv-rer">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-Rj-4kc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="-27" y="-49" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TownHall" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-9B-mUp">
@@ -196,6 +206,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16326683759689331" green="0.20754721760749817" blue="0.23265007138252258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="eXx-cr-71q"/>
                     </view>
                     <connections>
                         <outlet property="NumberOfGold" destination="rel-Ov-Z6f" id="nHX-YD-mI5"/>
@@ -224,14 +235,23 @@
         <scene sceneID="25b-t3-IpQ">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="qrc-3t-sS0" customClass="GameViewController" customModule="match3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wmk-ez-nrt"/>
-                        <viewControllerLayoutGuide type="bottom" id="IoI-Hh-VeD"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tx7-sS-ker">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-CR-M8P">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.95108264590000002" green="0.87778341849999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kej-l5-LFb" firstAttribute="bottom" secondItem="0wN-CR-M8P" secondAttribute="bottom" id="5Gc-sJ-B83"/>
+                            <constraint firstItem="0wN-CR-M8P" firstAttribute="top" secondItem="Kej-l5-LFb" secondAttribute="top" id="Osg-cB-bVg"/>
+                            <constraint firstItem="0wN-CR-M8P" firstAttribute="leading" secondItem="Kej-l5-LFb" secondAttribute="leading" id="dc5-Bz-NM6"/>
+                            <constraint firstItem="0wN-CR-M8P" firstAttribute="trailing" secondItem="Kej-l5-LFb" secondAttribute="trailing" id="qWe-xo-Uw9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kej-l5-LFb"/>
                     </view>
                     <connections>
                         <segue destination="m0h-0w-7RR" kind="show" identifier="Test" id="IRX-Cc-gBJ"/>
@@ -239,22 +259,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-zw-s9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="-660"/>
+            <point key="canvasLocation" x="853.60000000000002" y="-661.33004926108379"/>
         </scene>
         <!--Loose And Win View Controller-->
         <scene sceneID="obA-oa-iyH">
             <objects>
                 <viewController storyboardIdentifier="GameOverScreen" modalTransitionStyle="crossDissolve" id="zZe-1K-7zI" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PTG-CM-WmY"/>
-                        <viewControllerLayoutGuide type="bottom" id="ntc-bc-a2a"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qnx-v2-ber">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-c4-tCl">
-                                <rect key="frame" x="48" y="123" width="280" height="422"/>
+                                <rect key="frame" x="20" y="73" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-EC-JAK">
@@ -298,6 +314,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.17635628170000001" green="0.17635628170000001" blue="0.17635628170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ngv-4g-m5x"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoP-Yg-FYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -308,20 +325,16 @@
         <scene sceneID="RgV-xg-NTN">
             <objects>
                 <viewController restorationIdentifier="0" storyboardIdentifier="LevelScreen1" modalTransitionStyle="crossDissolve" id="Gam-B8-e0m" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qVe-nw-SEN"/>
-                        <viewControllerLayoutGuide type="bottom" id="evM-LZ-PKe"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BSG-4h-819">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="gac-Ji-FuN">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vh-yz-QD2">
-                                <rect key="frame" x="68" y="90" width="240" height="427"/>
+                                <rect key="frame" x="40" y="53" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="986-uE-gme">
@@ -373,6 +386,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="dxZ-Lw-LfJ"/>
                     </view>
                     <connections>
                         <outletCollection property="buttonCollection" destination="sAB-gG-tT5" collectionClass="NSMutableArray" id="Vn4-u0-IcQ"/>
@@ -382,26 +396,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ij-7N-b0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-803" y="-1471"/>
+            <point key="canvasLocation" x="-806.25" y="-1472.5352112676057"/>
         </scene>
         <!--Choice Level View Controller-->
         <scene sceneID="dKy-VO-9d0">
             <objects>
                 <viewController restorationIdentifier="1" storyboardIdentifier="LevelScreen2" modalTransitionStyle="crossDissolve" id="bHn-F7-tDW" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L0Q-yA-Lrv"/>
-                        <viewControllerLayoutGuide type="bottom" id="nR8-4m-5dk"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AIu-Qv-41j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-zx-8jA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-8j-rCN">
-                                <rect key="frame" x="68" y="90" width="240" height="427"/>
+                                <rect key="frame" x="40" y="53" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="nd7-qy-ppZ">
@@ -452,6 +462,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="sAD-Zi-AY3"/>
                     </view>
                     <connections>
                         <outletCollection property="buttonCollection" destination="lDX-Kf-WKJ" collectionClass="NSMutableArray" id="oN5-ja-amX"/>
@@ -461,26 +472,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXd-OU-zdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-109" y="-1471"/>
+            <point key="canvasLocation" x="-109.59999999999999" y="-1471.2143928035982"/>
         </scene>
         <!--Choice Level View Controller-->
         <scene sceneID="bkd-oG-Upm">
             <objects>
                 <viewController restorationIdentifier="2" storyboardIdentifier="LevelScreen3" modalTransitionStyle="crossDissolve" id="VXV-Ao-3Ym" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XHj-cW-z2p"/>
-                        <viewControllerLayoutGuide type="bottom" id="4fJ-6K-GxP"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pM7-8E-Oee">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="V4a-pS-Oa0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7SA-fS-hnY">
-                                <rect key="frame" x="68" y="90" width="240" height="427"/>
+                                <rect key="frame" x="40" y="53" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-cb-3Us">
@@ -505,7 +512,7 @@
                                         <rect key="frame" x="0.0" y="393" width="240" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlO-mD-6eV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUNGEON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlO-mD-6eV">
                                         <rect key="frame" x="10" y="27" width="222" height="53"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
@@ -531,6 +538,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="4Ue-hJ-XK5"/>
                     </view>
                     <connections>
                         <outletCollection property="labelCollection" destination="k9c-Zf-OEi" collectionClass="NSMutableArray" id="7O6-XX-9oK"/>
@@ -541,22 +549,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ni0-hs-WvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-1471"/>
+            <point key="canvasLocation" x="584.79999999999995" y="-1471.2143928035982"/>
         </scene>
         <!--Loose And Win View Controller-->
         <scene sceneID="G3T-kb-u4O">
             <objects>
                 <viewController storyboardIdentifier="VictoryScreen" modalTransitionStyle="crossDissolve" id="Hny-AW-O6Z" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qNx-GD-eDo"/>
-                        <viewControllerLayoutGuide type="bottom" id="n0B-UR-W7F"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Siq-hF-cIE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjC-jO-D1o">
-                                <rect key="frame" x="48" y="123" width="280" height="422"/>
+                                <rect key="frame" x="20" y="73" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VictoryMainChar" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-Re-LQ8">
@@ -600,6 +604,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.17635628170000001" green="0.17635628170000001" blue="0.17635628170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="B0H-jT-MsF"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Py2-Mc-Zc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -632,8 +637,8 @@
         <image name="shadow" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MFL-Kg-3Yh"/>
-        <segue reference="Im9-VZ-Z7o"/>
-        <segue reference="WWl-aA-aaC"/>
+        <segue reference="eQd-Db-IgD"/>
+        <segue reference="8bZ-kg-QOH"/>
+        <segue reference="IRX-Cc-gBJ"/>
     </inferredMetricsTieBreakers>
 </document>

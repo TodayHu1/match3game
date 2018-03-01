@@ -19,7 +19,7 @@ class GameScene: SKScene {
     var randomUnit: GeneratRandomUnit!
     var gestureLabel = SKLabelNode(text: "")
     var enemyIndexNow = 0
-    var testGameLabel = SKLabelNode(fontNamed: "Arial")
+//    var testGameLabel = SKLabelNode(fontNamed: "Arial")
     var manaLabel: SKCountingLabel = SKCountingLabel(fontNamed: "Arial")
     var manaPoolNode = SKSpriteNode(imageNamed: "")
     var levelArr = [[Match]]()
@@ -51,6 +51,7 @@ class GameScene: SKScene {
 //        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
         self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         self.player = Player(gameScene: self)
+        self.player.name = "bob"
         self.enemyOnLevelArr = enemyArr
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
@@ -200,13 +201,13 @@ class GameScene: SKScene {
         buildLevel(hardBuild: true)
         checkArrOnAction(loop: loopOnSpawnMatch)
 
-        testGameLabel.zPosition = 1000
-        testGameLabel.horizontalAlignmentMode = .left
-        testGameLabel.position = CGPoint(x: -self.size.width/2 + 5 , y: -self.size.height/2 + 5)
-        testGameLabel.fontName = "MunroSmall"
-        testGameLabel.fontSize = 20
-        testGameLabel.text = "SOME LOG HERE..."
-        self.addChild(testGameLabel)
+//        testGameLabel.zPosition = 1000
+//        testGameLabel.horizontalAlignmentMode = .left
+//        testGameLabel.position = CGPoint(x: -self.size.width/2 + 5 , y: -self.size.height/2 + 5)
+//        testGameLabel.fontName = "MunroSmall"
+//        testGameLabel.fontSize = 20
+//        testGameLabel.text = "SOME LOG HERE..."
+//        self.addChild(testGameLabel)
     
         
         let swipeRight = UISwipeGestureRecognizer()
@@ -259,6 +260,15 @@ class GameScene: SKScene {
             self.gameViewController.presentImageTip(imgName: "SecondSkillToolTip", title: "New skill")
         default:
             break
+        }
+        
+        for child in self.children {
+            
+            //Determine Details
+            if child.name == "bob" {
+                print("\(child)")
+                //                    child.removeFromParent()
+            }
         }
     }
     

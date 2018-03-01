@@ -66,11 +66,11 @@ class GeneratRandomUnit {
         
         var skills = [0,0,0]
         
-        var numberOfSpell = lroundf(Float(unitSpell / 10))
+        let numberOfSpell = lroundf(Float(unitSpell / 10))
         
         print("Number of spell --- \(numberOfSpell)")
         
-        for i in 0...numberOfSpell {
+        for _ in 0...numberOfSpell {
             skills[(self.gameScene.random(number: skills.count))-1] = 1
         }
         
