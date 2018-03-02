@@ -330,19 +330,11 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-//        print("New Scene")
-//        let secondScene = MovingScreen()
-//        print("\(secondScene) --- MOVING SCREEN IN GAME SCENE")
-//        secondScene.gameViewController = self.gameViewController
-//        let transition = SKTransition.crossFade(withDuration: 1.0)
-//        secondScene.scaleMode = SKSceneScaleMode.aspectFill
-//        self.scene!.view?.presentScene(secondScene, transition: transition)
         self.gameViewController.presentScene(scene: movingScreenNow)
     }
     
     func gameOverScreen() {
-        let articleParams = ["Lvl": lvlNowName, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]]
-        Flurry.logEvent("DeathBy", withParameters: articleParams)
+        Flurry.logEvent("DeathBy", withParameters: ["Lvl": lvlNowName, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]])
         self.gameViewController.gameOverScreen()
     }
     

@@ -193,8 +193,7 @@ class MovingScreen: SKScene {
             self.removeFromParent()
             self.removeAllChildren()
             
-            let articleParams = ["Victory": lvlNowName, "VictoryPlayer": playerStat] as [String : Any];
-            Flurry.logEvent("Article_Read", withParameters: articleParams);
+            Flurry.logEvent("Victory", withParameters: ["VictoryLvl": lvlNowName])
             
             self.gameViewController.victoryScreen()
         }
@@ -233,17 +232,15 @@ class MovingScreen: SKScene {
             }
             
             let chageLabel = SKAction.run {
-                if indexLevel >= loadEnemy.count {
-                    movingLabel.text = "ENEMY AHEAD!"
-                }
+                movingLabel.text = "ENEMY AHEAD!"
             }
             
             movingLabel.run(SKAction.sequence([fadeOut,
                                                fadeIn,
-                                               fadeOut,
-                                               fadeIn,
-                                               chageLabel,
-                                               wait,
+//                                               fadeOut,
+//                                               fadeIn,
+//                                               chageLabel,
+//                                               wait,
                                                fadeOut,
                                                startLevel]))
             

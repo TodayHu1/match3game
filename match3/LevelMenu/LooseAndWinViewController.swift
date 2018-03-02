@@ -20,6 +20,7 @@ class LooseAndWinViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    ///Функция для вызова рекламного блока
     func showAD() {
         if ad.isReady {
             print("Ad ready")
@@ -29,10 +30,12 @@ class LooseAndWinViewController: UIViewController {
         }
     }
     
+    ///Функция скрывающая Status Bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    ///Возвращает самый верхний View из иерархии
     func topMostController() -> UIViewController {
         var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
         while (topController.presentedViewController != nil) {
@@ -41,22 +44,12 @@ class LooseAndWinViewController: UIViewController {
         return topController
     }
     
+
     override func viewWillAppear(_ animated: Bool) {
         if (levelStorage[1]["Access"] as! Bool) == true {
             showAD()
         }
-
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

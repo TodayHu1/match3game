@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import Flurry_iOS_SDK
 
 class Spell: SKSpriteNode {
     
@@ -59,6 +60,7 @@ class Spell: SKSpriteNode {
             self.changePlayerStat()
             gameScene.nodeAnimationPulseUp(node: self, duration: 0.3, percentValuePulsation: 40)
             gameScene.castSpell(skillName: skillName)
+            Flurry.logEvent("SkillUse", withParameters: ["Skill": skillName])
         }
     }
     

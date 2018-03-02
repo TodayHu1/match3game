@@ -106,7 +106,6 @@ class GameViewController: UIViewController {
     
     enum UIUserInterfaceIdiom : Int {
         case unspecified
-        
         case phone // iPhone and iPod touch style UI
         case pad // iPad style UI
     }
@@ -216,7 +215,7 @@ class GameViewController: UIViewController {
         
 
         
-        UIView.animate(withDuration: 1, delay: 0.25, animations: {
+        UIView.animate(withDuration: 1, delay: 1.75, animations: {
             viewx.center.x = self.view.center.x
             viewx.center.y = self.view.center.y - 20
         }) { _ in
@@ -273,11 +272,6 @@ class GameViewController: UIViewController {
     }
     
     func goToView(id: String) {
-
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: id)
-//        self.present(newViewController, animated: true, completion: nil)
-        
         if let storyboard = storyboard {
             print(storyboard)
             let toMainMenu = storyboard.instantiateViewController(withIdentifier: id) as! LooseAndWinViewController
