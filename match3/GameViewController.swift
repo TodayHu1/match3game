@@ -41,7 +41,15 @@ class GameViewController: UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             print("Its phone")
-            scaleMode = .resizeFill
+
+            switch UIScreen.main.nativeBounds.height {
+            case 2436:
+                scaleMode = .resizeFill
+                print("Its phone X")
+            default:
+                scaleMode = .aspectFit
+                print("Its phone 5s/6/7/8")
+            }
         case .pad:
             print("Its pad")
             scaleMode = .aspectFit

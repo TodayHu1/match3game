@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-CR-M8P">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-zw-s9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="-661.33004926108379"/>
+            <point key="canvasLocation" x="853.125" y="-662.32394366197184"/>
         </scene>
         <!--Loose And Win View Controller-->
         <scene sceneID="obA-oa-iyH">
@@ -591,6 +591,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="MFL-Kg-3Yh"/>
         <segue reference="bZl-Zw-2KE"/>
-        <segue reference="eSD-xd-MWU"/>
+        <segue reference="IRX-Cc-gBJ"/>
     </inferredMetricsTieBreakers>
 </document>
