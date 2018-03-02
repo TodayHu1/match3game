@@ -8,6 +8,8 @@
 
 import SpriteKit
 import GameplayKit
+import Flurry_iOS_SDK
+
 
 class MovingScreen: SKScene {
     
@@ -129,7 +131,7 @@ class MovingScreen: SKScene {
         gameScene.gameViewController = self.gameViewController
 
         let transition = SKTransition.crossFade(withDuration: 0.0)
-        gameScene.scaleMode = .aspectFit
+        gameScene.scaleMode = scaleMode
         self.scene!.view?.presentScene(gameScene, transition: transition)
     }
     
@@ -190,6 +192,10 @@ class MovingScreen: SKScene {
             self.removeAllActions()
             self.removeFromParent()
             self.removeAllChildren()
+            
+            let articleParams = ["Victory": lvlNowName, "VictoryPlayer": playerStat] as [String : Any];
+            Flurry.logEvent("Article_Read", withParameters: articleParams);
+            
             self.gameViewController.victoryScreen()
         }
         else {
@@ -202,7 +208,6 @@ class MovingScreen: SKScene {
             let player = Player()
             self.addChild(player)
             player.animationWalking()
-            player.name = "bob"
             
             let blackSreen = SKSpriteNode(imageNamed: "BlackScreen.png")
             blackSreen.size = CGSize(width: 600, height: 900)
@@ -216,15 +221,6 @@ class MovingScreen: SKScene {
             self.addChild(movingLabel)
             
             print("DONE INIT SPRITE")
-            
-            for child in self.children {
-                
-                //Determine Details
-                if child.name == "bob" {
-                    print("\(child)")
-//                    child.removeFromParent()
-                }
-            }
             
             let fadeOut = SKAction.fadeOut(withDuration: 1)
             let fadeIn = SKAction.fadeIn(withDuration: 1)

@@ -9,7 +9,7 @@
 
 import SpriteKit
 import GameplayKit
-
+import Flurry_iOS_SDK
 
 
 class GameScene: SKScene {
@@ -51,7 +51,6 @@ class GameScene: SKScene {
 //        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
         self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         self.player = Player(gameScene: self)
-        self.player.name = "bob"
         self.enemyOnLevelArr = enemyArr
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
@@ -159,6 +158,31 @@ class GameScene: SKScene {
         )
         bg.run(bgAction)
         
+        self.backgroundColor = UIColor.red
+        
+        
+        
+        //MatchBoard
+        let matchBoardz = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 875, height: 875))
+        matchBoardz.position = CGPoint(x: 0, y: 0)
+        matchBoardz.zPosition = -1
+        print("\(matchBoardz.position) -- self.frame.height")
+        self.addChild(matchBoardz)
+        
+        
+        //MatchBoard
+        let matchBoardx = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 375, height: 375))
+        matchBoardx.position = CGPoint(x: 0, y: 400)
+        matchBoardx.zPosition = -1
+        print("\(matchBoardx.position) -- self.frame.height")
+        self.addChild(matchBoardx)
+        
+        //MatchBoard
+        let matchBoardy = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 375, height: 375))
+        matchBoardy.position = CGPoint(x: 0, y: -400)
+        matchBoardy.zPosition = -1
+        print("\(matchBoardy.position) -- self.frame.height")
+        self.addChild(matchBoardy)
         
         //MatchBoard
         let matchBoard = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 375, height: 375))
@@ -261,15 +285,6 @@ class GameScene: SKScene {
         default:
             break
         }
-        
-        for child in self.children {
-            
-            //Determine Details
-            if child.name == "bob" {
-                print("\(child)")
-                //                    child.removeFromParent()
-            }
-        }
     }
     
     func fadeInStart() {
@@ -326,6 +341,8 @@ class GameScene: SKScene {
     }
     
     func gameOverScreen() {
+        let articleParams = ["Lvl": lvlNowName, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]]
+        Flurry.logEvent("DeathBy", withParameters: articleParams)
         self.gameViewController.gameOverScreen()
     }
     

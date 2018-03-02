@@ -1,12 +1,15 @@
 PODS:
+  - Flurry-iOS-SDK/FlurrySDK (8.3.4)
   - Google-Mobile-Ads-SDK (7.27.0)
 
 DEPENDENCIES:
+  - Flurry-iOS-SDK/FlurrySDK
   - Google-Mobile-Ads-SDK
 
 SPEC CHECKSUMS:
+  Flurry-iOS-SDK: eed8399800cf16fe7e0121831150a7957297df99
   Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
 
-PODFILE CHECKSUM: b8871ea64741e22e0ddda8aba1326dbda71853e9
+PODFILE CHECKSUM: 34c172a2e4b11135f46e546727f3dd6f454ff1c0
 
 COCOAPODS: 1.4.0

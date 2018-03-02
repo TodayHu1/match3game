@@ -7,7 +7,7 @@ target 'match3' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'Google-Mobile-Ads-SDK'
-
+  pod 'Flurry-iOS-SDK/FlurrySDK'
   # Pods for match3
 
   target 'match3Tests' do

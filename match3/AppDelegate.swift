@@ -8,7 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
-
+import Flurry_iOS_SDK
 
 
 @UIApplicationMain
@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-2270286479492772~6057888883")
+        
+        Flurry.startSession("BMPW8J3XDNMCK3F6GJG2", with: FlurrySessionBuilder
+            .init()
+            .withCrashReporting(true)
+            .withLogLevel(FlurryLogLevelAll))
         
         return true
     }

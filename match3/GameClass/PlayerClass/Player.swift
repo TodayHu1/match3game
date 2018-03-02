@@ -170,6 +170,9 @@ class Player: SKSpriteNode {
         
         if self.health < 1 {
             print("GameOver")
+            self.removeFromParent()
+            self.removeAllActions()
+            self.removeAllChildren()
             gameScene.gameOverScreen()
         }
         

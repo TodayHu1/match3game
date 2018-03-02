@@ -22,6 +22,8 @@ var lvlOnReady = 0
 var movingScreenNow: MovingScreen!
 var ad: GADInterstitial!
 
+var scaleMode = SKSceneScaleMode.resizeFill
+
 //ca-app-pub-2270286479492772~6057888883
 
 //ca-app-pub-2270286479492772~6057888883
@@ -37,12 +39,12 @@ var levelStorage = [
     ["Name": "SteamPunk",
      "LvlNow": 10,
      "LvlMax": 15,
-     "Access": true
+     "Access": false
     ],
     ["Name": "RandomDungeon",
      "LvlNow": 1,
      "LvlMax": 0,
-     "Access": true
+     "Access": false
     ]
 ]
 
@@ -54,6 +56,21 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            print("Its phone")
+            scaleMode = .resizeFill
+        case .pad:
+            print("Its pad")
+            scaleMode = .aspectFit
+        case .unspecified:
+            print("Its unspecified")
+        case .tv:
+            print("Its tv")
+        case .carPlay:
+            print("Its carPlay")
+        }
         
         print("\(navigationController?.viewControllers) --- View")
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
@@ -98,6 +115,13 @@ class GameViewController: UIViewController {
         return isHiddenStatusBar()
     }
     
+    enum UIUserInterfaceIdiom : Int {
+        case unspecified
+        
+        case phone // iPhone and iPod touch style UI
+        case pad // iPad style UI
+    }
+    
     func presentText(text: String, color: UIColor) {
         
         let frameWidth = 200
@@ -134,17 +158,16 @@ class GameViewController: UIViewController {
             viewx.center.x = self.view.center.x
             viewx.center.y = self.view.center.y
         }) { _ in
-            UIView.animate(withDuration: 2.5, animations: {
+            UIView.animate(withDuration: 1, animations: {
                 viewx.center.y += 20
             }) { _ in
-                UIView.animate(withDuration: 2, animations: {
-                    let subViews = self.view.subviews
-                    for subview in subViews{
-                        if subview.tag == 341 {
-                            subview.removeFromSuperview()
-                        }
-                    }
-                })
+                UIView.animate(withDuration: 1, animations: {
+                    viewx.alpha = 0
+                }) {_ in
+                    UIView.animate(withDuration: 0.1, animations: {
+                        self.removeSubViewByTag(tag: 341)
+                    })
+                }
             }
         }
         
@@ -217,14 +240,17 @@ class GameViewController: UIViewController {
     
     
     func imageTipAction(sender: UIButton){
+        self.removeSubViewByTag(tag: 252)
+    }
+    
+    func removeSubViewByTag(tag: Int) {
         let subViews = self.view.subviews
         for subview in subViews{
-            if subview.tag == 252 {
+            if subview.tag == tag {
                 subview.removeFromSuperview()
             }
         }
     }
-
     
     func saveGameProgress() {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
@@ -242,8 +268,8 @@ class GameViewController: UIViewController {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
         }
         
-        UserDefaults.standard.removeObject(forKey: "levelStorage")
-        UserDefaults.standard.removeObject(forKey: "playerStat")
+//        UserDefaults.standard.removeObject(forKey: "levelStorage")
+//        UserDefaults.standard.removeObject(forKey: "playerStat")
         
     }
     
@@ -275,7 +301,7 @@ class GameViewController: UIViewController {
     func presentScene(scene: SKScene) {
         let sceneView = SKView()
         self.view = sceneView
-        scene.scaleMode = .aspectFit
+        scene.scaleMode = scaleMode
         sceneView.presentScene(scene)
     }
 

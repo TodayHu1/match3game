@@ -84,7 +84,7 @@ extension GameScene {
                         var strongAttack = false
                         if actionOnTurn[Match.attack.rawValue] > 3 {
                             strongAttack = true
-                            player.mana += actionOnTurn[Match.attack.rawValue]
+                            player.mana += Int(actionOnTurn[Match.attack.rawValue]/2)
                             changeManaLabel()
                         }
                         else {
@@ -93,7 +93,7 @@ extension GameScene {
                         positiveWords(number: actionOnTurn[Match.attack.rawValue])
                         player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)
                     case Match.coin.rawValue:
-                        player.coin += actionOnTurn[Match.coin.rawValue]
+                        playerStat.gold += actionOnTurn[Match.coin.rawValue]
                     case Match.poison.rawValue:
                         player.health -= actionOnTurn[Match.poison.rawValue]
                     case Match.cog.rawValue:
@@ -127,11 +127,11 @@ extension GameScene {
         case 4:
             self.gameViewController.presentText(text: "Good!", color: .white)
         case 5:
-            self.gameViewController.presentText(text: "Excellent", color: .green)
+            self.gameViewController.presentText(text: "Excellent", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
         case 6:
-            self.gameViewController.presentText(text: "Fantastic!", color: .blue)
-        case 6:
-            self.gameViewController.presentText(text: "Incredibly!", color: .orange)
+            self.gameViewController.presentText(text: "Fantastic!", color: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) )
+        case 7..<15:
+            self.gameViewController.presentText(text: "Incredibly!", color: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
         default:
             break
         }

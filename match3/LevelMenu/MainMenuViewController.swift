@@ -25,7 +25,7 @@ class MainMenuViewController: UIViewController {
         if playerStat == nil {
             gameViewController.loadGameProgress()
             if playerStat == nil {
-                playerStat = PlayerStat(mana: 110, health: 110, armor: 5, gold: 0, attack: 5, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
             }
         }
 

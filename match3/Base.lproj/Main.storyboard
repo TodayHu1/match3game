@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,16 +47,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="494"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-4" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-xI-rp7">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="-1" y="1" width="321" height="528"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-js-ui5" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                        <rect key="frame" x="59" y="167" width="199" height="146"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="41" y="123" width="234" height="185"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="25"/>
                                         <size key="titleShadowOffset" width="0.0" height="2"/>
                                         <state key="normal" backgroundImage="Table">
@@ -66,25 +67,31 @@
                                             <segue destination="ZKV-Dx-BEr" kind="show" id="Im9-VZ-Z7o"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="agS-Gj-EE5">
-                                        <rect key="frame" x="117" y="377" width="95" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player" translatesAutoresizingMaskIntoConstraints="NO" id="3S7-dP-V0F">
-                                        <rect key="frame" x="85" y="256" width="166" height="137"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAt-nd-ium">
-                                        <rect key="frame" x="61" y="120" width="197" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="74" y="101" width="168" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="27"/>
                                         <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-HY-Z4t">
+                                        <rect key="frame" x="41" y="146" width="240" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="agS-Gj-EE5">
+                                                <rect key="frame" x="56" y="197" width="113" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player" translatesAutoresizingMaskIntoConstraints="NO" id="3S7-dP-V0F">
+                                                <rect key="frame" x="24" y="46" width="192" height="174"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                    </view>
                                 </subviews>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.5000912838745859" green="0.89683802066274876" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.50009128390000002" green="0.89683802069999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="FOc-oy-TEO"/>
                     </view>
                     <navigationItem key="navigationItem" id="nix-Ee-c2O"/>
@@ -94,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF7-ML-msY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-764" y="138.0809595202399"/>
+            <point key="canvasLocation" x="-765" y="137.32394366197184"/>
         </scene>
         <!--Town Hall View Controller-->
         <scene sceneID="Pnf-Hy-zdn">
@@ -108,73 +115,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
-                                <rect key="frame" x="-27" y="-49" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" ambiguous="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TownHall" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-9B-mUp">
-                                        <rect key="frame" x="-1" y="-2" width="377" height="669"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <rect key="frame" x="-1" y="-1" width="321" height="570"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
-                                        <rect key="frame" x="-1" y="392" width="377" height="91"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
-                                        <rect key="frame" x="-1" y="293" width="377" height="134"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="or6-ZN-51i">
-                                        <rect key="frame" x="142" y="392" width="90" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KdM-2m-XAr">
-                                        <rect key="frame" x="141" y="317" width="92" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
-                                        <size key="titleShadowOffset" width="0.0" height="3"/>
-                                        <state key="normal" title="2" backgroundImage="BuyArmor">
-                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ArmorUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="zNq-Jf-Fat"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="wi7-8J-Vho">
-                                        <rect key="frame" x="250" y="392" width="90" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-jd-hun">
-                                        <rect key="frame" x="249" y="317" width="91" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
-                                        <size key="titleShadowOffset" width="0.0" height="3"/>
-                                        <state key="normal" title="2" backgroundImage="BuyMagic">
-                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ManaUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="gGv-5V-BY0"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="dpg-eb-QwN">
-                                        <rect key="frame" x="34" y="392" width="90" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="tpn-Va-4kw">
-                                        <rect key="frame" x="34" y="317" width="90" height="89"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="50"/>
-                                        <size key="titleShadowOffset" width="0.0" height="3"/>
-                                        <state key="normal" title="2" backgroundImage="BuyAttack">
-                                            <color key="titleColor" red="1" green="0.92781131279999995" blue="0.36952172259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="SwordUpgrade:" destination="L8e-9N-R5V" eventType="touchUpInside" id="7xg-sQ-ZVl"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rel-Ov-Z6f">
                                         <rect key="frame" x="49" y="21" width="89" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -188,36 +135,44 @@
                                         <rect key="frame" x="14" y="26" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
-                                        <rect key="frame" x="14" y="561" width="92" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="23"/>
-                                        <state key="normal" title="Back" backgroundImage="UI_StoneButton"/>
-                                        <connections>
-                                            <action selector="test:" destination="L8e-9N-R5V" eventType="touchUpInside" id="0Hg-Tr-boj"/>
-                                            <segue destination="m0h-0w-7RR" kind="show" id="aX9-kC-apc"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-ki-HOi">
-                                        <rect key="frame" x="118" y="252" width="139" height="39"/>
+                                        <rect key="frame" x="93" y="217" width="139" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
+                                <rect key="frame" x="14" y="465" width="83" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="23"/>
+                                <state key="normal" title="Back" backgroundImage="UI_StoneButton"/>
+                                <connections>
+                                    <action selector="test:" destination="L8e-9N-R5V" eventType="touchUpInside" id="0Hg-Tr-boj"/>
+                                    <segue destination="m0h-0w-7RR" kind="show" id="aX9-kC-apc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
+                                <rect key="frame" x="0.0" y="353" width="320" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
+                                <rect key="frame" x="0.0" y="267" width="319" height="104"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16326683759689331" green="0.20754721760749817" blue="0.23265007138252258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oHB-VT-hQH" firstAttribute="width" secondItem="zVQ-nv-rer" secondAttribute="height" multiplier="40:71" id="JQ9-qh-Fxl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eXx-cr-71q"/>
                     </view>
                     <connections>
                         <outlet property="NumberOfGold" destination="rel-Ov-Z6f" id="nHX-YD-mI5"/>
-                        <outlet property="UpgradeArmorButton" destination="KdM-2m-XAr" id="FZG-un-SRU"/>
-                        <outlet property="UpgradeManaButton" destination="mNs-jd-hun" id="YbM-3R-tQY"/>
-                        <outlet property="UpgradeSwordButton" destination="tpn-Va-4kw" id="YCd-NL-bCc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaM-In-cF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="108"/>
+            <point key="canvasLocation" x="466.875" y="107.74647887323944"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="nc4-hT-Ixe">
@@ -331,7 +286,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="gac-Ji-FuN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vh-yz-QD2">
                                 <rect key="frame" x="40" y="53" width="240" height="427"/>
@@ -339,7 +294,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="986-uE-gme">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
-                                        <autoresizingMask key="autoresizingMask"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3A-5Z-bi2">
                                         <rect key="frame" x="16" y="307" width="110" height="37"/>
@@ -613,9 +568,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BuyArmor" width="256" height="256"/>
-        <image name="BuyAttack" width="256" height="256"/>
-        <image name="BuyMagic" width="256" height="256"/>
         <image name="CoinIcon" width="256" height="256"/>
         <image name="Grass-4" width="256" height="460"/>
         <image name="Grass-BG" width="256" height="460"/>
@@ -637,8 +589,8 @@
         <image name="shadow" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eQd-Db-IgD"/>
+        <segue reference="MFL-Kg-3Yh"/>
         <segue reference="8bZ-kg-QOH"/>
-        <segue reference="IRX-Cc-gBJ"/>
+        <segue reference="WWl-aA-aaC"/>
     </inferredMetricsTieBreakers>
 </document>
