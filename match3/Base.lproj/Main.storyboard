@@ -75,15 +75,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-HY-Z4t">
-                                        <rect key="frame" x="41" y="146" width="240" height="250"/>
+                                        <rect key="frame" x="41" y="214" width="240" height="182"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="agS-Gj-EE5">
-                                                <rect key="frame" x="56" y="197" width="113" height="39"/>
+                                                <rect key="frame" x="56" y="132" width="113" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player" translatesAutoresizingMaskIntoConstraints="NO" id="3S7-dP-V0F">
-                                                <rect key="frame" x="24" y="46" width="192" height="174"/>
+                                                <rect key="frame" x="26" y="-23" width="190" height="177"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -590,7 +590,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MFL-Kg-3Yh"/>
-        <segue reference="8bZ-kg-QOH"/>
-        <segue reference="WWl-aA-aaC"/>
+        <segue reference="bZl-Zw-2KE"/>
+        <segue reference="eSD-xd-MWU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -42,11 +42,13 @@ class LooseAndWinViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        showAD()
+        if (levelStorage[1]["Access"] as! Bool) == true {
+            showAD()
+        }
+
     }
     
-
-
+    
     /*
     // MARK: - Navigation
 

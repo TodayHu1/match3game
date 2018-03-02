@@ -125,9 +125,9 @@ extension GameScene {
     func positiveWords(number: Int) {
         switch number {
         case 4:
-            self.gameViewController.presentText(text: "Good!", color: .white)
+            self.gameViewController.presentText(text: "Good", color: .white)
         case 5:
-            self.gameViewController.presentText(text: "Excellent", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
+            self.gameViewController.presentText(text: "Excellent!", color: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
         case 6:
             self.gameViewController.presentText(text: "Fantastic!", color: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1) )
         case 7..<15:

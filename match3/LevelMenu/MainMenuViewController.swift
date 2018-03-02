@@ -11,6 +11,8 @@ import UIKit
 var playerStat: PlayerStat!
 var gameViewController: GameViewController!
 
+var levelStorage = [[String: Any]]()
+
 class MainMenuViewController: UIViewController {
     
     
@@ -22,12 +24,35 @@ class MainMenuViewController: UIViewController {
             gameViewController = GameViewController()
         }
         
+
+        levelStorage = [
+            ["Name": "Tutorial",
+             "LvlNow": 1,
+             "LvlMax": 6,
+             "Access": true
+            ],
+            ["Name": "SteamPunk",
+             "LvlNow": 1,
+             "LvlMax": 15,
+             "Access": false
+            ],
+            ["Name": "RandomDungeon",
+             "LvlNow": 1,
+             "LvlMax": 0,
+             "Access": false
+            ]
+        ]
+
+        
         if playerStat == nil {
             gameViewController.loadGameProgress()
             if playerStat == nil {
                 playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
             }
         }
+        
+        print("\(levelStorage) --- LVL")
+ 
 
         UILabel.animate(withDuration: 1, animations: {
             self.labelForTable.frame.size.width += 10

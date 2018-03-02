@@ -30,25 +30,6 @@ var scaleMode = SKSceneScaleMode.resizeFill
 
 //ca-app-pub-2270286479492772/5263681969
 
-var levelStorage = [
-    ["Name": "Tutorial",
-     "LvlNow": 1,
-     "LvlMax": 6,
-     "Access": true
-    ],
-    ["Name": "SteamPunk",
-     "LvlNow": 10,
-     "LvlMax": 15,
-     "Access": false
-    ],
-    ["Name": "RandomDungeon",
-     "LvlNow": 1,
-     "LvlMax": 0,
-     "Access": false
-    ]
-]
-
-
 
 class GameViewController: UIViewController {
     
@@ -143,8 +124,8 @@ class GameViewController: UIViewController {
         label.text = text
         label.textColor = color
         label.textAlignment = .center
-        label.shadowColor = .white
-        label.shadowOffset.height = 1
+//        label.shadowColor = .white
+//        label.shadowOffset.height = 1
         label.font = UIFont(name: "Munro", size: 30)
         
         
