@@ -186,17 +186,23 @@ class Player: SKSpriteNode {
     
     func fullAttackStandAnimation(damage: Int, strongAttack: Bool) {
         self.removeAllActions()
+//        self.gameScene.enemyUnit.takeDamage(damage: damage)
+//        self.animationAttack(strongAttack: strongAttack)
+//
+
+        
+        print("fullAttackStandAnimation --- Player")
         
         let moveForward = SKAction.move(to: CGPoint(x: -50, y: positionAnchor.y), duration: 0.25)
         let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
-        
+
         moveForward.timingMode = .easeOut
         moveBack.timingMode = .easeOut
-        
+
         let attackMod = SKAction.run {
             self.gameScene.enemyUnit.takeDamage(damage: damage)
         }
-        
+
         let shakeScene = SKAction.run {
             self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
@@ -211,7 +217,7 @@ class Player: SKSpriteNode {
             moveBack,
             animationStand()
         ])
-        
+
         self.run(fullAttackAnimation)
     }
     
@@ -234,9 +240,9 @@ class Player: SKSpriteNode {
     
 
     func animationStand() -> SKAction{
-        
+
         self.removeAllActions()
-        
+
 //        let playerAnimStand = SKAction.repeatForever(
 //            SKAction.sequence(
 //                [SKAction.animate(with: playerArrStand, timePerFrame: 0.2),
@@ -248,11 +254,15 @@ class Player: SKSpriteNode {
                 SKAction.animate(with: playerArrStand, timePerFrame: 0.2)
             )
         //let playerAnimStand = SKAction.wait(forDuration: 1)
-        
+
         self.run(playerAnimStand)
         return playerAnimStand
-        
+
     }
+    
+//    func animationStand() {
+//        print("animationStand --- Player")
+//    }
     
     func animationWalking(){
         self.removeAllActions()

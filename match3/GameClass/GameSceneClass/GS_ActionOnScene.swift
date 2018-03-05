@@ -23,13 +23,13 @@ extension GameScene {
         if boardSizeUp {
             matchBoard = MatchParametrs(horizontalCount: matchBoard.horizontalCount + plusValue, verticalCount: matchBoard.verticalCount + plusValue, gameScene: self)
             var subArr = [[Match]]()
-            subArr = levelArr
-            levelArr = Array(repeating: Array(repeating: Match.null, count: matchBoard.horizontalCount),
+            subArr = matchTypeOnTable
+            matchTypeOnTable = Array(repeating: Array(repeating: Match.null, count: matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
             
             for i in 0...subArr.count-1 {
                 for j in 0...subArr[i].count-1 {
-                    levelArr[i][j] = subArr[i][j]
+                    matchTypeOnTable[i][j] = subArr[i][j]
                 }
             }
             
@@ -63,7 +63,7 @@ extension GameScene {
     }
     
     public func moveMatchTo(i:Int ,j:Int) {
-        let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
+        let matchNode = SKSpriteNode(texture: getTextureMatch(matchNumber: matchTypeOnTable[i][j]))
         matchNode.position = matchBoard.matchPosition(i: i, j: j)
         matchNode.size.width = CGFloat(matchBoard.matchSizeOnAction)
         matchNode.size.height = CGFloat(matchBoard.matchSizeOnAction)
@@ -115,7 +115,7 @@ extension GameScene {
     }
     
     func matchMoveToBoard(matchType: Match, nodePosition: SKSpriteNode, i: Int, j: Int, waitTimeToAnimation: TimeInterval, durationAnimation: TimeInterval){
-        let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: matchType))
+        let matchNode = SKSpriteNode(texture: getTextureMatch(matchNumber: matchType))
         
 //        print(nodePosition)
         
@@ -158,11 +158,11 @@ extension GameScene {
         }
         
         let matchEndAnimation = SKAction.run {
-            self.matchAnimationPulseRevers(indexIandJ: String(i) + String(j))
+            self.matchAnimationPulseRevers(i: i, j: j)
         }
         
         let setMatchWithIndex = SKAction.run {
-            self.levelArr[i][j] = matchType
+            self.matchTypeOnTable[i][j] = matchType
             self.buildLevel(hardBuild: false)
             self.checkArrOnAction(loop: loopOnSpawnMatch)
         }

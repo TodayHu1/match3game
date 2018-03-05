@@ -28,18 +28,18 @@ extension GameScene {
         return value
     }
     
-    public func searchByName(name: String) -> SKSpriteNode {
-        var searchNode: SKSpriteNode?
-        for someNode in self.children {
-            if someNode.name == name {
-                if let nodeNode = someNode as? SKSpriteNode {
-                    searchNode = nodeNode
-                }
-            }
-        }
-        
-        return searchNode!
-    }
+//    public func searchByName(name: String) -> SKSpriteNode {
+//        var searchNode: SKSpriteNode?
+//        for someNode in self.children {
+//            if someNode.name == name {
+//                if let nodeNode = someNode as? SKSpriteNode {
+//                    searchNode = nodeNode
+//                }
+//            }
+//        }
+//        
+//        return searchNode!
+//    }
     
 }
 

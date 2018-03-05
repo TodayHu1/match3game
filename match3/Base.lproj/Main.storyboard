@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2QV-px-ki3">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -39,23 +39,23 @@
             <objects>
                 <viewController storyboardIdentifier="MainMenuViewController" title="MainMenu" modalTransitionStyle="crossDissolve" id="m0h-0w-7RR" customClass="MainMenuViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="61i-LN-FfN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-BG" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-mE-BEj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
-                                <rect key="frame" x="0.0" y="40" width="320" height="494"/>
+                                <rect key="frame" x="0.0" y="47" width="375" height="586"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Grass-4" translatesAutoresizingMaskIntoConstraints="NO" id="7ge-xI-rp7">
-                                        <rect key="frame" x="-1" y="1" width="321" height="528"/>
+                                        <rect key="frame" x="-1" y="1" width="376" height="620"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-js-ui5" customClass="ButtonWithShadow" customModule="match3" customModuleProvider="target">
-                                        <rect key="frame" x="41" y="123" width="234" height="185"/>
+                                        <rect key="frame" x="67" y="159" width="234" height="185"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="25"/>
                                         <size key="titleShadowOffset" width="0.0" height="2"/>
@@ -67,15 +67,8 @@
                                             <segue destination="ZKV-Dx-BEr" kind="show" id="Im9-VZ-Z7o"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAt-nd-ium">
-                                        <rect key="frame" x="74" y="101" width="168" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="27"/>
-                                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-HY-Z4t">
-                                        <rect key="frame" x="41" y="214" width="240" height="182"/>
+                                        <rect key="frame" x="69" y="277" width="240" height="182"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="agS-Gj-EE5">
@@ -88,6 +81,13 @@
                                             </imageView>
                                         </subviews>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAt-nd-ium">
+                                        <rect key="frame" x="87" y="104" width="197" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="27"/>
+                                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </view>
                         </subviews>
@@ -108,11 +108,11 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="L8e-9N-R5V" customClass="TownHallViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="zVQ-nv-rer">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-Rj-4kc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" ambiguous="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
@@ -142,7 +142,7 @@
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
-                                <rect key="frame" x="14" y="465" width="83" height="83"/>
+                                <rect key="frame" x="14" y="564" width="83" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="23"/>
                                 <state key="normal" title="Back" backgroundImage="UI_StoneButton"/>
@@ -152,11 +152,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
-                                <rect key="frame" x="0.0" y="353" width="320" height="91"/>
+                                <rect key="frame" x="0.0" y="426" width="375" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
-                                <rect key="frame" x="0.0" y="267" width="319" height="104"/>
+                                <rect key="frame" x="0.0" y="314" width="374" height="122"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -191,7 +191,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="qrc-3t-sS0" customClass="GameViewController" customModule="match3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tx7-sS-ker">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-CR-M8P">
@@ -221,11 +221,11 @@
             <objects>
                 <viewController storyboardIdentifier="GameOverScreen" modalTransitionStyle="crossDissolve" id="zZe-1K-7zI" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qnx-v2-ber">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-c4-tCl">
-                                <rect key="frame" x="20" y="73" width="280" height="422"/>
+                                <rect key="frame" x="48" y="123" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-EC-JAK">
@@ -281,15 +281,15 @@
             <objects>
                 <viewController restorationIdentifier="0" storyboardIdentifier="LevelScreen1" modalTransitionStyle="crossDissolve" id="Gam-B8-e0m" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSG-4h-819">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="gac-Ji-FuN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vh-yz-QD2">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
+                                <rect key="frame" x="68" y="90" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="986-uE-gme">
@@ -358,15 +358,15 @@
             <objects>
                 <viewController restorationIdentifier="1" storyboardIdentifier="LevelScreen2" modalTransitionStyle="crossDissolve" id="bHn-F7-tDW" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AIu-Qv-41j">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-zx-8jA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-8j-rCN">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
+                                <rect key="frame" x="68" y="90" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="nd7-qy-ppZ">
@@ -434,15 +434,15 @@
             <objects>
                 <viewController restorationIdentifier="2" storyboardIdentifier="LevelScreen3" modalTransitionStyle="crossDissolve" id="VXV-Ao-3Ym" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pM7-8E-Oee">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="V4a-pS-Oa0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7SA-fS-hnY">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
+                                <rect key="frame" x="68" y="90" width="240" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-cb-3Us">
@@ -511,11 +511,11 @@
             <objects>
                 <viewController storyboardIdentifier="VictoryScreen" modalTransitionStyle="crossDissolve" id="Hny-AW-O6Z" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Siq-hF-cIE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjC-jO-D1o">
-                                <rect key="frame" x="20" y="73" width="280" height="422"/>
+                                <rect key="frame" x="48" y="123" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VictoryMainChar" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-Re-LQ8">
@@ -590,7 +590,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MFL-Kg-3Yh"/>
-        <segue reference="bZl-Zw-2KE"/>
+        <segue reference="Im9-VZ-Z7o"/>
         <segue reference="IRX-Cc-gBJ"/>
     </inferredMetricsTieBreakers>
 </document>

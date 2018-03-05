@@ -26,10 +26,10 @@ extension GameScene {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(statArr[i][j] == indexOfMatch) {
-                        matchAnimationPulse(indexIandJ: String(i) + String(j))
+                        matchAnimationPulse(i: i, j: j)
                         moveMatchTo(i: i, j: j)
                         actionOnTurn[indexOfMatch] += 1
-                        levelArr[i][j] = Match.null
+                        matchTypeOnTable[i][j] = Match.null
                     }
                 }
             }
@@ -48,9 +48,9 @@ extension GameScene {
         for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
-                    if( levelArr[i][j].rawValue == indexOfMatch &&
-                        levelArr[i][j+1].rawValue == indexOfMatch &&
-                        levelArr[i][j+2].rawValue == indexOfMatch ) {
+                    if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i][j+2].rawValue == indexOfMatch ) {
                         statArr[i][j] = indexOfMatch
                         statArr[i][j+1] = indexOfMatch
                         statArr[i][j+2] = indexOfMatch
@@ -64,9 +64,9 @@ extension GameScene {
         for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if( levelArr[i][j].rawValue == indexOfMatch &&
-                        levelArr[i+1][j].rawValue == indexOfMatch &&
-                        levelArr[i+2][j].rawValue == indexOfMatch ) {
+                    if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+2][j].rawValue == indexOfMatch ) {
                         statArr[i][j] = indexOfMatch
                         statArr[i+1][j] = indexOfMatch
                         statArr[i+2][j] = indexOfMatch
@@ -79,8 +79,8 @@ extension GameScene {
     public func fillArrOnVoidLoop() {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
-                if(levelArr[i][j] == Match.null) {
-                    levelArr[i][j] = self.customRandom(matchChance: loadMatchChance)
+                if(matchTypeOnTable[i][j] == Match.null) {
+                    matchTypeOnTable[i][j] = self.customRandom(matchChance: loadMatchChance)
                 }
             }
         }
@@ -91,13 +91,13 @@ extension GameScene {
     }
     
     public func fillArrOnVoidNoLoop() {
-        let subArr = levelArr
+        let subArr = matchTypeOnTable
         repeat {
-            levelArr = subArr
+            matchTypeOnTable = subArr
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if(levelArr[i][j] == Match.null) {
-                        levelArr[i][j] = self.customRandom(matchChance: loadMatchChance)
+                    if(matchTypeOnTable[i][j] == Match.null) {
+                        matchTypeOnTable[i][j] = self.customRandom(matchChance: loadMatchChance)
                     }
                 }
             }
@@ -134,9 +134,9 @@ extension GameScene {
         for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if( levelArr[i][j].rawValue == indexOfMatch &&
-                        levelArr[i+1][j].rawValue == indexOfMatch &&
-                        levelArr[i+2][j].rawValue == indexOfMatch ) {
+                    if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+2][j].rawValue == indexOfMatch ) {
                         check = true
                     }
                 }
@@ -150,9 +150,9 @@ extension GameScene {
         for indexOfMatch in 1...self.actionOnTurnCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
-                    if( levelArr[i][j].rawValue == indexOfMatch &&
-                        levelArr[i][j+1].rawValue == indexOfMatch &&
-                        levelArr[i][j+2].rawValue == indexOfMatch ) {
+                    if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i][j+2].rawValue == indexOfMatch ) {
                         check = true
                     }
                 }

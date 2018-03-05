@@ -21,14 +21,8 @@ var lvlNowName: String!
 var lvlOnReady = 0
 var movingScreenNow: MovingScreen!
 var ad: GADInterstitial!
-
 var scaleMode = SKSceneScaleMode.resizeFill
 
-//ca-app-pub-2270286479492772~6057888883
-
-//ca-app-pub-2270286479492772~6057888883
-
-//ca-app-pub-2270286479492772/5263681969
 
 
 class GameViewController: UIViewController {
@@ -41,7 +35,6 @@ class GameViewController: UIViewController {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             print("Its phone")
-
             switch UIScreen.main.nativeBounds.height {
             case 2436:
                 scaleMode = .resizeFill
@@ -61,7 +54,7 @@ class GameViewController: UIViewController {
             print("Its carPlay")
         }
         
-        print("\(navigationController?.viewControllers) --- View")
+
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
         let request = GADRequest()
         ad.load(request)
@@ -256,8 +249,8 @@ class GameViewController: UIViewController {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
         }
         
-//        UserDefaults.standard.removeObject(forKey: "levelStorage")
-//        UserDefaults.standard.removeObject(forKey: "playerStat")
+        UserDefaults.standard.removeObject(forKey: "levelStorage")
+        UserDefaults.standard.removeObject(forKey: "playerStat")
         
     }
     
@@ -284,6 +277,9 @@ class GameViewController: UIViewController {
     func presentScene(scene: SKScene) {
         let sceneView = SKView()
         self.view = sceneView
+//        sceneView.showsFPS = true
+//        sceneView.showsDrawCount = true
+//        sceneView.showsNodeCount = true
         scene.scaleMode = scaleMode
         sceneView.presentScene(scene)
     }

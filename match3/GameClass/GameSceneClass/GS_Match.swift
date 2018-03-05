@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 import GameplayKit
 
+///Тип матча
 public enum Match: Int {
     case null = -1
     case chain = 0
@@ -24,27 +25,26 @@ public enum Match: Int {
 
 extension GameScene {
     
+    ///Функция инициализирующая текстуры для матчей
+    func initMatchTexture() {
+        matchTexture[Match.chain] = SKTexture(imageNamed:"MatchChain.png")
+        matchTexture[Match.skull] = SKTexture(imageNamed:"MatchSkull.png")
+        matchTexture[Match.armor] = SKTexture(imageNamed:"MatchArmor.png")
+        matchTexture[Match.energy] = SKTexture(imageNamed:"MatchEnergy.png")
+        matchTexture[Match.attack] = SKTexture(imageNamed:"MatchAttack.png")
+        matchTexture[Match.coin] = SKTexture(imageNamed:"MatchCoin.png")
+        matchTexture[Match.poison] = SKTexture(imageNamed:"MatchPoison.png")
+        matchTexture[Match.cog] = SKTexture(imageNamed:"MatchCog.png")
+        matchTexture[Match.null] = SKTexture(imageNamed:"MatchNull.png")
+    }
     
-    func setTextureMatch(matchNumber: Match) -> SKTexture {
-        switch matchNumber {
-        case Match.chain:
-            return SKTexture(imageNamed:"MatchChain.png")
-        case Match.skull:
-            return SKTexture(imageNamed:"MatchSkull.png")
-        case Match.armor:
-            return SKTexture(imageNamed:"MatchArmor.png")
-        case Match.energy:
-            return SKTexture(imageNamed:"MatchEnergy.png")
-        case Match.attack:
-            return SKTexture(imageNamed:"MatchAttack.png")
-        case Match.coin:
-            return SKTexture(imageNamed:"MatchCoin.png")
-        case Match.poison:
-            return SKTexture(imageNamed:"MatchPoison.png")
-        case Match.cog:
-            return SKTexture(imageNamed:"MatchCog.png")
-        default:
-            return SKTexture(imageNamed:"MatchNull.png")
+    ///Функция для получения текстуры матча по типо матча
+    func getTextureMatch(matchNumber: Match) -> SKTexture {
+        if matchNumber != Match.null {
+            return matchTexture[matchNumber]!
+        }
+        else {
+            return matchTexture[Match.null]!
         }
     }
     
@@ -85,18 +85,18 @@ extension GameScene {
     public func moveArrLeft(index: Int) {
         swipeAnimationLeft(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            self.levelArr[index].remove(at: 0)
-            self.levelArr[index].append(self.customRandom(matchChance: loadMatchChance))
-            self.matchAnimationPulseRevers(indexIandJ: String(index) + String(self.matchBoard.horizontalCount-1))
+            self.matchTypeOnTable[index].remove(at: 0)
+            self.matchTypeOnTable[index].append(self.customRandom(matchChance: loadMatchChance))
+            self.matchAnimationPulseRevers(i: index, j: self.matchBoard.horizontalCount-1)
         }
     }
     
     public func moveArrRight(index: Int) {
         swipeAnimationRight(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
-            self.levelArr[index].remove(at: self.matchBoard.horizontalCount-1)
-            self.levelArr[index].insert(self.customRandom(matchChance: loadMatchChance), at: 0)
-            self.matchAnimationPulseRevers(indexIandJ: String(index) + "0")
+            self.matchTypeOnTable[index].remove(at: self.matchBoard.horizontalCount-1)
+            self.matchTypeOnTable[index].insert(self.customRandom(matchChance: loadMatchChance), at: 0)
+            self.matchAnimationPulseRevers(i: index, j: 0)
         }
     }
     
@@ -104,10 +104,10 @@ extension GameScene {
         swipeAnimationDown(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             for i in (1...self.matchBoard.verticalCount-1).reversed() {
-                self.levelArr[i][index] = self.levelArr[i-1][index]
+                self.matchTypeOnTable[i][index] = self.matchTypeOnTable[i-1][index]
             }
-            self.levelArr[0][index] = self.customRandom(matchChance: loadMatchChance)
-            self.matchAnimationPulseRevers(indexIandJ: "0" + String(index))
+            self.matchTypeOnTable[0][index] = self.customRandom(matchChance: loadMatchChance)
+            self.matchAnimationPulseRevers(i: 0, j: index)
         }
     }
     
@@ -115,10 +115,10 @@ extension GameScene {
         swipeAnimationUp(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             for i in 0...self.matchBoard.verticalCount-2 {
-                self.levelArr[i][index] = self.levelArr[i+1][index]
+                self.matchTypeOnTable[i][index] = self.matchTypeOnTable[i+1][index]
             }
-            self.levelArr[self.matchBoard.verticalCount-1][index] = self.customRandom(matchChance: loadMatchChance)
-            self.matchAnimationPulseRevers(indexIandJ: String(self.matchBoard.verticalCount-1) + String(index))
+            self.matchTypeOnTable[self.matchBoard.verticalCount-1][index] = self.customRandom(matchChance: loadMatchChance)
+            self.matchAnimationPulseRevers(i: self.matchBoard.verticalCount-1, j: index)
         }
     }
     

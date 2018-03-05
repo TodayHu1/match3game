@@ -146,8 +146,14 @@ class EnemyUnit: SKSpriteNode {
         super.init(coder: aDecoder)
     }
     
+//    func animationStand() {
+//        print("animationStand --- Enemy")
+//    }
+    
     func animationStand() -> SKAction{
         self.removeAllActions()
+
+        print("animationStand --- Enemy")
         let enemyAnimStand = SKAction.repeatForever(
             SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
         )
@@ -165,6 +171,9 @@ class EnemyUnit: SKSpriteNode {
     }
     
     func fullAttackStandAnimation(damage: Int) {
+        print("fullAttackStandAnimation --- Enemy")
+//        self.gameScene.player.takeDamage(damage: damage)
+//        self.animationAttack()
         self.removeAllActions()
         let moveForward = SKAction.move(to: CGPoint(x: 50, y: positionAnchor.y), duration: 0.25)
         let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
@@ -179,7 +188,7 @@ class EnemyUnit: SKSpriteNode {
         let shakeScene = SKAction.run {
             self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
         }
-        
+
         let attackMod = SKAction.run {
             //On Attack
             self.attackMod()
@@ -245,15 +254,6 @@ class EnemyUnit: SKSpriteNode {
         setLabelOverHead(shield: self.shield, health: self.health, initLabel: false)
         
         defenseMod()
-        
-//        print("––––––––––––––––––––––––––––––––––––")
-//        print("\(self.color) ––– \(self.normalColor)")
-//        let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
-//        let toNormalColor = SKAction.colorize(with: self.color, colorBlendFactor: 1, duration: 0.05)
-//        self.run(SKAction.sequence([getDamage,toNormalColor]))
-//
-//        print("\(self.color) ––– \(self.normalColor)")
-//        print("––––––––––––––––––––––––––––––––––––")
         
     }
 

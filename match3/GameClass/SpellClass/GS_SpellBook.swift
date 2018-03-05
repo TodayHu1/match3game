@@ -61,7 +61,7 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == Match.skull {
+                    if matchTypeOnTable[i][j] == Match.skull {
                         duration += interval
                         matchMoveToBoard(matchType: Match.chain,
                                          nodePosition: player,
@@ -105,7 +105,7 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if levelArr[i][j] == Match.armor  {
+                    if matchTypeOnTable[i][j] == Match.armor  {
                         duration += interval
                         matchMoveToBoard(matchType: Match.attack,
                                          nodePosition: player,

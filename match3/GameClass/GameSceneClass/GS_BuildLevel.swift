@@ -12,41 +12,67 @@ import GameplayKit
 
 extension GameScene {
 
-    public func buildLevel(hardBuild: Bool) {
+    ///Функция инициализирующая доску матчами
+    func buildLevel(hardBuild: Bool) {
         if hardBuild {
-            for i in 0...matchBoard.verticalCount-1 {
-                for j in 0...matchBoard.horizontalCount-1 {
-                    for nextButton in self.children {
-                        if nextButton.name == "Match" + String(i) + String(j) {
-                            if let nextButton = nextButton as? SKSpriteNode {
-                                nextButton.removeAllChildren()
-                                nextButton.removeFromParent()
-                            }
-                        }
-                    }
-                }
-            }
-            for i in 0...matchBoard.verticalCount-1 {
-                for j in 0...matchBoard.horizontalCount-1 {
-                    let matchNode = SKSpriteNode(texture: setTextureMatch(matchNumber: levelArr[i][j]))
-                    matchNode.position = matchBoard.matchPosition(i: i, j: j)
-                    matchNode.size.width = CGFloat(matchBoard.matchSize)
-                    matchNode.size.height = CGFloat(matchBoard.matchSize)
-                    matchNode.name = "Match" + String(i) + String(j)
-                    matchNode.zPosition = CGFloat(matchBoard.matchZIndex)
-                    self.addChild(matchNode)
-                }
-            }
+            print("HARD BUILD")
+            clearMatchTable()
+            creatMatchTable()
         }
         else {
-            for i in 0...matchBoard.verticalCount-1 {
-                for j in 0...matchBoard.horizontalCount-1 {
-                    let matchNode: SKSpriteNode = self.searchByName(name: "Match" + String(i) + String(j))
-                    matchNode.zPosition = CGFloat(matchBoard.matchZIndex)
-                    matchNode.position = matchBoard.matchPosition(i: i, j: j)
-                    matchNode.texture = setTextureMatch(matchNumber: levelArr[i][j])
-                }
+            print("SOFT BUILD")
+            changeTextureMatchTable()
+        }
+    }
+    
+    
+    ///Функция очищающая матчи на доске
+    func clearMatchTable() {
+//        for i in 0...matchBoard.verticalCount-1 {
+//            for j in 0...matchBoard.horizontalCount-1 {
+//                for matchNode in self.children {
+//                    if matchNode.name == "Match" + String(i) + String(j) {
+//                        if let matchNode = matchNode as? SKSpriteNode {
+//                            matchNode.removeAllActions()
+//                            matchNode.removeAllChildren()
+//                            matchNode.removeFromParent()
+//                        }
+//                    }
+//                }
+//            }
+//        }
+    }
+    
+    ///Функция создающая матчи на доске
+    func creatMatchTable() {
+        for i in 0...matchBoard.verticalCount-1 {
+            for j in 0...matchBoard.horizontalCount-1 {
+                let matchNode = SKSpriteNode(texture: getTextureMatch(matchNumber: matchTypeOnTable[i][j]))
+                matchNode.position = matchBoard.matchPosition(i: i, j: j)
+                matchNode.size.width = CGFloat(matchBoard.matchSize)
+                matchNode.size.height = CGFloat(matchBoard.matchSize)
+                matchNode.zPosition = CGFloat(matchBoard.matchZIndex)
+                matchNodeOnTable[i][j] = matchNode
+                self.addChild(matchNode)
             }
         }
     }
+    
+    ///Функция меняющая текстуры матчей на доске
+    func changeTextureMatchTable() {
+        for i in 0...matchBoard.verticalCount-1 {
+            for j in 0...matchBoard.horizontalCount-1 {
+                if matchNodeOnTable[i][j].texture!.description != getTextureMatch(matchNumber: matchTypeOnTable[i][j]).description {
+                    print("\(matchNodeOnTable[i][j].texture!) != \(getTextureMatch(matchNumber: matchTypeOnTable[i][j]))")
+                    matchNodeOnTable[i][j].texture = getTextureMatch(matchNumber: matchTypeOnTable[i][j])
+                }
+                else {
+                    print("\(matchNodeOnTable[i][j].texture!) ===== \(getTextureMatch(matchNumber: matchTypeOnTable[i][j]))")
+                }
+                matchNodeOnTable[i][j].position = matchBoard.matchPosition(i: i, j: j)
+                matchNodeOnTable[i][j].zPosition = CGFloat(matchBoard.matchZIndex)
+            }
+        }
+    }
+    
 }

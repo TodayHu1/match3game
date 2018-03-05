@@ -25,13 +25,17 @@ class MovingScreen: SKScene {
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        self.removeAllActions()
-        self.removeFromParent()
-        self.removeAllChildren()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    ///Функция удаляющая со сцены Node, Action и Scene
+    func removeAll() {
+        self.removeAllActions()
+        self.removeFromParent()
+        self.removeAllChildren()
     }
     
     func skillLevelRule() {
@@ -57,7 +61,7 @@ class MovingScreen: SKScene {
     
     func arrLevelRule() {
         if lvlName == "0-1" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
                 [Match.attack, Match.chain, Match.attack ,Match.chain, Match.attack],
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
@@ -67,7 +71,7 @@ class MovingScreen: SKScene {
         }
         
         if lvlName == "0-2" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
                 [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
                 [Match.skull, Match.attack, Match.chain ,Match.attack, Match.skull],
@@ -77,7 +81,7 @@ class MovingScreen: SKScene {
         }
         
         if lvlName == "0-3" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.skull, Match.chain, Match.skull ,Match.chain, Match.skull],
                 [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
                 [Match.skull, Match.attack, Match.skull ,Match.attack, Match.skull],
@@ -87,7 +91,7 @@ class MovingScreen: SKScene {
         }
         
         if lvlName == "0-4" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.skull, Match.energy, Match.skull ,Match.chain, Match.skull],
                 [Match.energy, Match.chain, Match.energy ,Match.skull, Match.chain],
                 [Match.skull, Match.chain, Match.skull ,Match.attack, Match.skull],
@@ -97,7 +101,7 @@ class MovingScreen: SKScene {
         }
         
         if lvlName == "0-5" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.chain, Match.energy, Match.chain ,Match.energy, Match.chain],
                 [Match.chain, Match.coin, Match.energy ,Match.coin, Match.chain],
                 [Match.chain, Match.armor, Match.coin ,Match.armor, Match.chain],
@@ -107,7 +111,7 @@ class MovingScreen: SKScene {
         }
         
         if lvlName == "0-6" {
-            gameScene.levelArr = [
+            gameScene.matchTypeOnTable = [
                 [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
                 [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
                 [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
@@ -172,9 +176,7 @@ class MovingScreen: SKScene {
 
     override func didMove(to view: SKView) {
         
-        self.removeAllActions()
-        self.removeFromParent()
-        self.removeAllChildren()
+        removeAll()
         
         self.name = String(RAND_MAX)
         print("\(self) --- MovingScreen")
@@ -189,9 +191,8 @@ class MovingScreen: SKScene {
             else {
                 levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
             }
-            self.removeAllActions()
-            self.removeFromParent()
-            self.removeAllChildren()
+
+            removeAll()
             
             Flurry.logEvent("Victory", withParameters: ["VictoryLvl": lvlNowName])
             
@@ -200,9 +201,7 @@ class MovingScreen: SKScene {
         else {
             print("\(indexLevel)----------------LOAD LVL---------------- < \(loadEnemy.count)")
             
-            self.removeAllActions()
-            self.removeFromParent()
-            self.removeAllChildren()
+            removeAll()
             
             let player = Player()
             self.addChild(player)
@@ -223,7 +222,7 @@ class MovingScreen: SKScene {
             
             let fadeOut = SKAction.fadeOut(withDuration: 1)
             let fadeIn = SKAction.fadeIn(withDuration: 1)
-            let wait = SKAction.wait(forDuration: 1)
+//            let wait = SKAction.wait(forDuration: 1)
             
             let startLevel = SKAction.run {
                 if indexLevel < loadEnemy.count {
@@ -231,9 +230,9 @@ class MovingScreen: SKScene {
                 }
             }
             
-            let chageLabel = SKAction.run {
-                movingLabel.text = "ENEMY AHEAD!"
-            }
+//            let chageLabel = SKAction.run {
+//                movingLabel.text = "ENEMY AHEAD!"
+//            }
             
             movingLabel.run(SKAction.sequence([fadeOut,
                                                fadeIn,

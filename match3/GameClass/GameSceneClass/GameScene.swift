@@ -19,10 +19,18 @@ class GameScene: SKScene {
     var randomUnit: GeneratRandomUnit!
     var gestureLabel = SKLabelNode(text: "")
     var enemyIndexNow = 0
-//    var testGameLabel = SKLabelNode(fontNamed: "Arial")
     var manaLabel: SKCountingLabel = SKCountingLabel(fontNamed: "Arial")
     var manaPoolNode = SKSpriteNode(imageNamed: "")
-    var levelArr = [[Match]]()
+    
+    ///Хранит тип матчей на столе
+    var matchTypeOnTable = [[Match]]()
+    
+    ///Хранит node матчей на столе
+    var matchNodeOnTable = [[SKSpriteNode()]]
+    
+    ///Хранит текстуры матчей
+    var matchTexture = [Match: SKTexture]()
+    
     var statArr = [[Int]]()
     private var lastTouch = CGPoint(x:1,y:1)
     var player: Player!
@@ -43,21 +51,25 @@ class GameScene: SKScene {
     init(enemyArr: [String], playerSpell: [String], bg: String, size: CGSize) {
         super.init(size: CGSize(width: 375, height: 665))
         
-        self.removeAllActions()
-        self.removeFromParent()
-        self.removeAllChildren()
+        removeAll()
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-//        self.backgroundColor = UIColor(displayP3Red: 255, green: 0, blue: 255, alpha: 1)
+
         self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
+        
         self.player = Player(gameScene: self)
+        
         self.enemyOnLevelArr = enemyArr
+        
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
+        
+        self.initMatchTexture()
         
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
         
-        self.levelArr = Array(repeating: Array(repeating: Match.null, count: self.matchBoard.horizontalCount),
-                              count: matchBoard.verticalCount)
+        self.matchTypeOnTable = Array(repeating: Array(repeating: Match.null, count: self.matchBoard.horizontalCount), count: matchBoard.verticalCount)
+
+        self.matchNodeOnTable = Array(repeating: Array(repeating: SKSpriteNode(), count: self.matchBoard.horizontalCount), count: matchBoard.verticalCount)
         
         self.statArr = Array(repeating: Array(repeating: 0, count: self.matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
@@ -73,6 +85,13 @@ class GameScene: SKScene {
         self.addChild(spell4)
         
         buildScene(bgName: bg)
+    }
+    
+    ///Функция удаляющая со сцены Node, Action и Scene
+    func removeAll() {
+        self.removeAllActions()
+        self.removeFromParent()
+        self.removeAllChildren()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -113,24 +132,24 @@ class GameScene: SKScene {
     }
     
     func buildScene(bgName: String) {
-        //Spell Board
+        ///Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
         spellBoardA.position = CGPoint(x: 0, y: 80)
         spellBoardA.zPosition = 99
         self.addChild(spellBoardA)
         
-        //Mana Orb
+        ///Mana Orb
         self.manaPoolNode = SKSpriteNode(texture: SKTexture(imageNamed: "manaBar-1.png"), size: CGSize(width: 64, height: 64))
         spellBoardA.addChild(self.manaPoolNode)
         self.manaPoolNode.zPosition += 1
         
-        //Mana Holder
+        ///Mana Holder
         let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))
         manaHolder.zPosition = 101
         manaHolder.zRotation = CGFloat(Int(45)) * .pi / 180
         self.manaPoolNode.addChild(manaHolder)
         
-        //Label for Mana Orb
+        ///Label for Mana Orb
         manaLabel.zPosition = 10
         manaLabel.position = CGPoint(x: 0, y: 80)
         manaLabel.fontName = "Munro"
@@ -141,7 +160,7 @@ class GameScene: SKScene {
         manaLabel.zPosition = 102
         self.addChild(manaLabel)
         
-        //BG
+        ///BG
         let bg = SKSpriteNode(texture: SKTexture(imageNamed: bgName+"-0.png"), size: CGSize(width: 375, height: 215))
         bg.position = CGPoint(x: 0, y: 227)
         self.addChild(bg)
@@ -158,9 +177,7 @@ class GameScene: SKScene {
         )
         bg.run(bgAction)
         
-        self.backgroundColor = UIColor.red
-        
-        
+        self.backgroundColor = UIColor.darkGray
         
         //MatchBoard
         let matchBoardz = SKSpriteNode(texture: SKTexture(imageNamed: "MatchBoard.png"), size: CGSize(width: 875, height: 875))
@@ -217,23 +234,12 @@ class GameScene: SKScene {
     }
 
     override func didMove(to view: SKView) {
-        self.name = String(RAND_MAX)
-        print("\(self) --- GameScene")
         
         self.enemyUnit = self.initNewClassForEnemy(enemyName: self.enemyOnLevelArr[self.enemyIndexNow])
 
         buildLevel(hardBuild: true)
         checkArrOnAction(loop: loopOnSpawnMatch)
 
-//        testGameLabel.zPosition = 1000
-//        testGameLabel.horizontalAlignmentMode = .left
-//        testGameLabel.position = CGPoint(x: -self.size.width/2 + 5 , y: -self.size.height/2 + 5)
-//        testGameLabel.fontName = "MunroSmall"
-//        testGameLabel.fontSize = 20
-//        testGameLabel.text = "SOME LOG HERE..."
-//        self.addChild(testGameLabel)
-    
-        
         let swipeRight = UISwipeGestureRecognizer()
         let swipeLeft = UISwipeGestureRecognizer()
         let swipeUp = UISwipeGestureRecognizer()
@@ -243,16 +249,13 @@ class GameScene: SKScene {
         swipeRight.direction = .right
         self.view!.addGestureRecognizer(swipeRight)
         
-        
         swipeLeft.addTarget(self, action: #selector(self.swipedLeft) )
         swipeLeft.direction = .left
         self.view!.addGestureRecognizer(swipeLeft)
         
-        
         swipeUp.addTarget(self, action: #selector(self.swipedUp) )
         swipeUp.direction = .up
         self.view!.addGestureRecognizer(swipeUp)
-        
         
         swipeDown.addTarget(self, action: #selector(self.swipedDown))
         swipeDown.direction = .down
@@ -279,7 +282,7 @@ class GameScene: SKScene {
         case "0-4":
             self.gameViewController.presentImageTip(imgName: "EnergyToolTip", title: "Energy")
         case "0-5":
-            self.gameViewController.presentImageTip(imgName: "CoinAndArmorToolTip", title: "Coin and Armor")
+            self.gameViewController.presentImageTip(imgName: "CoinAndArmorToolTip", title: "Coins and Armor")
         case "0-6":
             self.gameViewController.presentImageTip(imgName: "SecondSkillToolTip", title: "New skill")
         default:
@@ -301,13 +304,8 @@ class GameScene: SKScene {
         let fadeSeq = SKAction.sequence([SKAction.wait(forDuration: 1.4), fade, deletScreen])
         blackSreen.run(fadeSeq)
     }
-
-    override func didFinishUpdate() {
-
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for touch: AnyObject in touches {
         for touch in (touches) {
             lastTouch = touch.location(in: self)
             let positionInScene = touch.location(in: self)
@@ -330,6 +328,7 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
+        removeAll()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }
     

@@ -30,7 +30,7 @@ extension EnemyUnit {
             let interval: Double = gameScene.durationSpawnMatchAnimation()
             for i in 0...self.gameScene.matchBoard.verticalCount-1 {
                 for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
-                    if self.gameScene.levelArr[i][j] == Match.armor  {
+                    if self.gameScene.matchTypeOnTable[i][j] == Match.armor  {
                         duration += interval
                         gameScene.matchMoveToBoard(matchType: Match.chain,
                                                    nodePosition: self,
