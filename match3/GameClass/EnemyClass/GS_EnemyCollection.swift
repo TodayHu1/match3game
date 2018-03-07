@@ -17,145 +17,92 @@ extension GameScene {
 //SteamPunkBackground
     func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
         
-        var size = CGSize(width: 150, height: 150)
-        
-        var attack = 5
-        var health = 10
-        var armor = 30
-        
-        //Attack
-        var vampireOnAttack = 0
-        let reactiveArmorOnAttack = 0
-        let poisonOnAttack = 0
-        var skullOnAttack = 0
-        
-        //Attack on move
-        var attackOnMove = 0
-        
-        //BreakArmor
-        var chainInstedArmorOnBreakArmor = false
-        
-        //Defense
-        var cogOnDefense = 0
-        
-        switch enemyName {
-        case "Dummy":
-            //Size
-            size = CGSize(width: 100, height: 100)
-            
-            //Stat
-            attack = 999
-            health = 1
-            armor = 0
-            
-        case "CultistsProphet":
-            size = CGSize(width: 170, height: 220)
-            
-            //Stat
-            attack = 3
-            health = 10
-            armor = 1
-            
-            //Special
-            vampireOnAttack = 1
-        case "SteamPunkGuard":
-            size = CGSize(width: 180, height: 150)
-    
-            //Stat
-            attack = 2
-            health = 1
-            armor = 20
-            
-            //Special
-            cogOnDefense = 2
-        case "NeutralTurtle":
-            size = CGSize(width: 125, height: 115)
-            
-            //Stat
-            attack = 2
-            health = 15
-            armor = 25
-            
-            //Special
-            chainInstedArmorOnBreakArmor = true
-        case "StoneScale":
-            //Size
-            size = CGSize(width: 130, height: 130)
-            
-            //Stat
-            attack = 1
-            health = 5
-            armor = 10
-            
-            //Special
-            skullOnAttack = 1
-        case "Stony":
-            //Size
-            size = CGSize(width: 130, height: 130)
-            
-            //Stat
-            attack = 1
-            health = 5
-            armor = 5
-        case "RoyalMage":
-            //Size
-            size = CGSize(width: 140, height: 140)
-            
-            //Stat
-            attack = 2
-            health = 10
-            armor = 0
-            
-        case "SteamPunkPunch":
-            //Size
-            size = CGSize(width: 120, height: 120)
-            
-            //Stat
-            attack = 1
-            health = 5
-            armor = 5
-            
-        case "SteamPunkFlameThrower":
-            //Size
-            size = CGSize(width: 270, height: 120)
-            
-            //Stat
-            attack = 2
-            health = 5
-            armor = 10
-            
-        case "SteamPunkWalker":
-            //Size
-            size = CGSize(width: 260, height: 160)
-            
-            //Stat
-            attack = 2
-            health = 15
-            armor = 30
-            
-            //Special
-            chainInstedArmorOnBreakArmor = true
-            cogOnDefense = 2
-            attackOnMove = 6
-        case "Random":
-            //Генерация юнита
+        if enemyName == "Random" {
+            //Генерация случайного юнита
             return randomUnit.generate()
-            
-        default:
-            break
         }
+        else {
+            let createEnemyUnit = EnemyUnit(enemyName: enemyName,
+                                      attack: 0, health: 0, shield: 0,
+                                      size: CGSize(width: 150, height: 150),
+                                      gameScene: self)
         
-        return EnemyUnit(enemyName: enemyName,
-                         attack: attack, health: health, shield: armor,
-                         size: size,
-                         vampireOnAttack: Float(vampireOnAttack),
-                         armorOnAttack: reactiveArmorOnAttack,
-                         poisonOnAttack: poisonOnAttack,
-                         skullOnAttack: skullOnAttack,
-                         chainInstedArmorOnBreakArmor: chainInstedArmorOnBreakArmor,
-                         cogOnDefense: cogOnDefense,
-                         attackOnMove: attackOnMove,
-                         gameScene: self)
+            print("\(enemyName) --- ENEMY NAME")
+            
+            switch enemyName {
+            case "Dummy":
+                createEnemyUnit.attack = 999
+                createEnemyUnit.health = 1
+                createEnemyUnit.armor = 0
+                createEnemyUnit.size = CGSize(width: 100, height: 100)
+                
+            case "CultistsProphet":
+                createEnemyUnit.attack = 3
+                createEnemyUnit.health = 10
+                createEnemyUnit.armor = 1
+                createEnemyUnit.size = CGSize(width: 170, height: 220)
+                createEnemyUnit.specialAbilities["VampireAttack"] = 1
+                
+            case "SteamPunkGuard":
+                createEnemyUnit.attack = 2
+                createEnemyUnit.health = 1
+                createEnemyUnit.armor = 20
+                createEnemyUnit.size = CGSize(width: 180, height: 150)
+                createEnemyUnit.specialAbilities["CogOnDefense"] = 2
+                
+            case "NeutralTurtle":
+                createEnemyUnit.attack = 2
+                createEnemyUnit.health = 15
+                createEnemyUnit.armor = 25
+                createEnemyUnit.size = CGSize(width: 125, height: 115)
+                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
+                
+            case "StoneScale":
+                createEnemyUnit.attack = 1
+                createEnemyUnit.health = 5
+                createEnemyUnit.armor = 10
+                createEnemyUnit.size = CGSize(width: 130, height: 130)
+                createEnemyUnit.specialAbilities["SkullOnBoard"] = 1
+                
+            case "Stony":
+                createEnemyUnit.attack = 1
+                createEnemyUnit.health = 5
+                createEnemyUnit.armor = 5
+                createEnemyUnit.size = CGSize(width: 130, height: 130)
+
+            case "RoyalMage":
+                createEnemyUnit.attack = 2
+                createEnemyUnit.health = 10
+                createEnemyUnit.armor = 0
+                createEnemyUnit.size = CGSize(width: 140, height: 140)
+                
+            case "SteamPunkPunch":
+                createEnemyUnit.attack = 1
+                createEnemyUnit.health = 5
+                createEnemyUnit.armor = 5
+                createEnemyUnit.size = CGSize(width: 120, height: 120)
+                
+            case "SteamPunkFlameThrower":
+                createEnemyUnit.attack = 2
+                createEnemyUnit.health = 5
+                createEnemyUnit.armor = 10
+                createEnemyUnit.size = CGSize(width: 270, height: 120)
+                
+            case "SteamPunkWalker":
+                createEnemyUnit.attack = 2
+                createEnemyUnit.health = 15
+                createEnemyUnit.armor = 30
+                createEnemyUnit.size = CGSize(width: 260, height: 160)
+                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
+                createEnemyUnit.specialAbilities["CogOnDefense"] = 2
+                createEnemyUnit.specialAbilities["MatchMoveOnAttack"] = 6
+                
+            default:
+                break
+            }
+            
+            return createEnemyUnit
+        }
         
     }
 }

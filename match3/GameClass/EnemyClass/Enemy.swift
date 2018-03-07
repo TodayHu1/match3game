@@ -22,29 +22,33 @@ class EnemyUnit: SKSpriteNode {
     //Main Stat
     var attack: Int = 0
     var health: Int = 0
-    var shield: Int = 0
+    var armor: Int = 0
     
-    //Modificator
+    ///Специальные способности
+    var specialAbilities = [
         //Attack modificator
-        var vampireAttack: Float = 0
-        var reactiveArmor: Int = 0
-        var spawnPoisonOnBoard: Int = 0
-        var spawnSkullOnBoard: Int = 0
-    
+        "VampireAttack": 0,
+        "ReactiveArmor": 0,
+        "PoisonOnBoard": 0,
+        "SkullOnBoard": 0,
+        
         //Defense modificator
-        var spawnCogOnDefense = 0
-    
+        "CogOnDefense": 0,
+        
         //BreakArmor modificator
-        var spawnChainInstedArmor = false
-    
+        "ChainInstedArmor": false,
+        
         //Death modificator
-        var spawnSkullOnDie = 0
+        "SkullOnDie": 0,
+        
+        //Move modificator
+        "MatchMoveOnAttack": 0,
+        
+        //Bool for special spell
+        "SpecialSpell": false
+        
+    ] as [String : Any]
     
-        //Player Move
-        var playerMove = 0
-    
-    //Bool for special spell
-    var specialSpell = true
     
     //Label
     var labelBoard = SKSpriteNode()
@@ -69,20 +73,11 @@ class EnemyUnit: SKSpriteNode {
     
     var gameScene: GameScene!
     
-    init(enemyName: String, attack: Int, health: Int, shield: Int,
+    init(enemyName: String,
+         attack: Int, health: Int, shield: Int,
          size: CGSize,
-         //Attack
-         vampireOnAttack: Float,
-         armorOnAttack: Int,
-         poisonOnAttack: Int,
-         skullOnAttack: Int,
-         //Break Armor
-         chainInstedArmorOnBreakArmor: Bool,
-         //Defense
-         cogOnDefense: Int,
-         //AttackWhenMatchMove
-         attackOnMove: Int,
-         gameScene: GameScene) {
+         gameScene: GameScene
+        ) {
         
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
@@ -107,23 +102,10 @@ class EnemyUnit: SKSpriteNode {
         self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         self.attack = attack
         self.health = health
-        self.shield = shield
-        
-        
-        self.vampireAttack = vampireOnAttack
-        self.reactiveArmor = armorOnAttack
-        self.spawnPoisonOnBoard = poisonOnAttack
-        self.spawnSkullOnBoard = skullOnAttack
-        
-        self.spawnChainInstedArmor = chainInstedArmorOnBreakArmor
-
-        self.spawnCogOnDefense = cogOnDefense
-        
-        self.playerMove = attackOnMove
+        self.armor = shield
         
         self.colorBlendFactor = CGFloat(0)
 
- 
         initShadow()
 
         setLabelOverHead(shield: self.attack, health: self.health, initLabel: true)
@@ -226,11 +208,11 @@ class EnemyUnit: SKSpriteNode {
     
     func takeDamage(damage: Int) {
         
-        if self.shield > 0 {
-            self.shield -= damage
-            if self.shield < 0 {
-                self.health += self.shield
-                self.shield = 0
+        if self.armor > 0 {
+            self.armor -= damage
+            if self.armor < 0 {
+                self.health += self.armor
+                self.armor = 0
                 //On Break Armor
                 breakArmorMod()
             }
@@ -251,7 +233,7 @@ class EnemyUnit: SKSpriteNode {
             ]))
         }
 
-        setLabelOverHead(shield: self.shield, health: self.health, initLabel: false)
+        setLabelOverHead(shield: self.armor, health: self.health, initLabel: false)
         
         defenseMod()
         

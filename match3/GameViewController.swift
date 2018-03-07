@@ -58,8 +58,7 @@ class GameViewController: UIViewController {
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
         let request = GADRequest()
         ad.load(request)
-//
-        //lvlName = "1-15"
+
         indexLevel = 0
         
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
@@ -224,6 +223,7 @@ class GameViewController: UIViewController {
         self.removeSubViewByTag(tag: 252)
     }
     
+    ///Функция удаляющая subView по тэгу
     func removeSubViewByTag(tag: Int) {
         let subViews = self.view.subviews
         for subview in subViews{
@@ -249,8 +249,8 @@ class GameViewController: UIViewController {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
         }
         
-        UserDefaults.standard.removeObject(forKey: "levelStorage")
-        UserDefaults.standard.removeObject(forKey: "playerStat")
+//        UserDefaults.standard.removeObject(forKey: "levelStorage")
+//        UserDefaults.standard.removeObject(forKey: "playerStat")
         
     }
     

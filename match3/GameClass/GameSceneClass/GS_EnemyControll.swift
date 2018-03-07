@@ -97,7 +97,7 @@ extension GameScene {
                     case Match.poison.rawValue:
                         player.health -= actionOnTurn[Match.poison.rawValue]
                     case Match.cog.rawValue:
-                        enemyUnit.shield += 6
+                        enemyUnit.armor += 6
                     default: break
                 }
             }

@@ -12,7 +12,7 @@ import SpriteKit
 extension EnemyUnit {
     
     func defenseMod() {
-        spawnCogOnDefense(number: spawnCogOnDefense)
+        spawnCogOnDefense(number: specialAbilities["CogOnDefense"] as! Int)
     }
     
     func spawnCogOnDefense(number: Int) {

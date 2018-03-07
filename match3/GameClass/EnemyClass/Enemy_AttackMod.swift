@@ -12,9 +12,9 @@ import SpriteKit
 extension EnemyUnit {
     
     func attackOnMove() {
-        if self.playerMove != 0 {
-            print("\(self.playerMove) %%% \(self.gameScene.player.move) --- \(self.gameScene.player.move % self.playerMove) == 1")
-            if self.gameScene.player.move % self.playerMove == 1 {
+        if specialAbilities["MatchMoveOnAttack"] as! Int != 0 {
+//            print("\(self.playerMove) %%% \(self.gameScene.player.move) --- \(self.gameScene.player.move % self.playerMove) == 1")
+            if self.gameScene.player.move % (specialAbilities["MatchMoveOnAttack"] as! Int) == 1 {
                 self.fullAttackStandAnimation(damage: self.attack)
             }
         }
@@ -29,9 +29,9 @@ extension EnemyUnit {
     
     //Health = (Attack * 3) * %Vamp
     func vampireOnAttackMod() {
-        if self.vampireAttack > 0 {            
+        if specialAbilities["VampireAttack"] as! Int > 0 {
             self.health += Int(
-                Float(self.attack * 3) * Float(self.vampireAttack)
+                Float(self.attack * 3) * Float(specialAbilities["VampireAttack"] as! Int)
             )
             buffParticle(name: "Heart")
             setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
@@ -40,8 +40,8 @@ extension EnemyUnit {
     
     //Shield = Shield + Attack
     func reactiveArmorOnAttackMod() {
-        if reactiveArmor > 0 {
-            self.shield += self.attack * self.reactiveArmor
+        if specialAbilities["ReactiveArmor"] as! Int > 0 {
+            self.armor += self.attack * (specialAbilities["ReactiveArmor"] as! Int)
             buffParticle(name: "Armor")
             setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
         }
@@ -51,10 +51,10 @@ extension EnemyUnit {
     //TODO Poison DMG = ATTACK * 6
     //Кол-во выпускаемых матчей
     func spawnPoisonOnAttackMod() {
-        if self.spawnPoisonOnBoard > 0 {
+        if specialAbilities["PoisonOnBoard"] as! Int > 0 {
             var duration: Double = 0
             let interval: Double = self.gameScene.durationSpawnMatchAnimation()
-            for _ in 1...self.spawnPoisonOnBoard {
+            for _ in 1...(specialAbilities["PoisonOnBoard"] as! Int) {
                 duration += interval
                 self.gameScene.matchMoveToBoard(
                     matchType: Match.poison,
@@ -64,12 +64,11 @@ extension EnemyUnit {
                     waitTimeToAnimation: duration,
                     durationAnimation: interval)
             }
-            self.spawnPoisonOnBoard += 1
         }
     }
     
     func spawnSkullOnAttackMod() {
-        if self.spawnSkullOnBoard > 0 {
+        if specialAbilities["SkullOnBoard"] as! Int > 0 {
             var duration: Double = 0
             let interval: Double = self.gameScene.durationSpawnMatchAnimation()
             duration += interval

@@ -93,7 +93,7 @@ extension GameScene {
             objectForAnimation = enemyUnit
             positionToMove = enemyUnit.position
             specialActionOnEnd = SKAction.run {
-                self.enemyUnit.setLabelOverHead(shield: self.enemyUnit.shield, health: self.enemyUnit.health, initLabel: false)
+                self.enemyUnit.setLabelOverHead(shield: self.enemyUnit.armor, health: self.enemyUnit.health, initLabel: false)
             }
         default:
             objectForAnimation = player

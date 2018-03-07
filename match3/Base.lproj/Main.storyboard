@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,6 +87,14 @@
                                         <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om6-RK-E6P">
+                                        <rect key="frame" x="123" y="523" width="63" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button" backgroundImage="MatchPoison"/>
+                                        <connections>
+                                            <segue destination="ryi-GW-uMh" kind="show" id="4gc-3T-J7F"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </subviews>
@@ -101,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF7-ML-msY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765" y="137.32394366197184"/>
+            <point key="canvasLocation" x="-765.60000000000002" y="137.18140929535232"/>
         </scene>
         <!--Town Hall View Controller-->
         <scene sceneID="Pnf-Hy-zdn">
@@ -115,8 +122,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" ambiguous="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
+                                <rect key="frame" x="28" y="50" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TownHall" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-9B-mUp">
                                         <rect key="frame" x="-1" y="-1" width="321" height="570"/>
@@ -139,6 +147,14 @@
                                         <rect key="frame" x="93" y="217" width="139" height="39"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
+                                        <rect key="frame" x="-1" y="341" width="320" height="91"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
+                                        <rect key="frame" x="0.0" y="264" width="320" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
@@ -151,19 +167,8 @@
                                     <segue destination="m0h-0w-7RR" kind="show" id="aX9-kC-apc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YQR-iK-cD0">
-                                <rect key="frame" x="0.0" y="426" width="375" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SkillTableForTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-c2-3mI">
-                                <rect key="frame" x="0.0" y="314" width="374" height="122"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16326683759689331" green="0.20754721760749817" blue="0.23265007138252258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="oHB-VT-hQH" firstAttribute="width" secondItem="zVQ-nv-rer" secondAttribute="height" multiplier="40:71" id="JQ9-qh-Fxl"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eXx-cr-71q"/>
                     </view>
                     <connections>
@@ -172,7 +177,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TaM-In-cF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466.875" y="107.74647887323944"/>
+            <point key="canvasLocation" x="465" y="106.69014084507042"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="WYV-Hd-Ckp">
+            <objects>
+                <viewController id="ryi-GW-uMh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zMc-1I-q3V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="08B-9S-PnQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZST-db-3eu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQh-21-UaP">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1198"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCZ-sf-CbR">
+                                <rect key="frame" x="164" y="1000" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Ltk-OS-Ws3"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="1200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bcw-aY-DO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="990.40479760119945"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="nc4-hT-Ixe">
@@ -574,6 +617,7 @@
         <image name="LvlIcon_RandomDungeon" width="256" height="128"/>
         <image name="LvlIcon_SteamPunk" width="256" height="256"/>
         <image name="LvlIcon_Tutorial" width="256" height="317"/>
+        <image name="MatchPoison" width="256" height="256"/>
         <image name="Player" width="304" height="272"/>
         <image name="SkillTableForTownHall" width="256" height="108"/>
         <image name="Table" width="332" height="230"/>
