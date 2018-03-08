@@ -327,12 +327,12 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-//        playerStat.armorNow = player.armor
-//        playerStat.healthNow = player.health
-//        playerStat.manaNow = player.mana
-        playerStat.armorNow = playerStat.armorMax
-        playerStat.healthNow = playerStat.healthMax
-        playerStat.manaNow = playerStat.manaMax
+        playerStat.armorNow = player.armor
+        playerStat.healthNow = player.health
+        playerStat.manaNow = player.mana
+//        playerStat.armorNow = playerStat.armorMax
+//        playerStat.healthNow = playerStat.healthMax
+//        playerStat.manaNow = playerStat.manaMax
         removeAll()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }
