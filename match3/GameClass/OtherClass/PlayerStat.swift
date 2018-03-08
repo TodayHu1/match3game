@@ -11,10 +11,16 @@ import Foundation
 class PlayerStat: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(mana, forKey: "mana")
-        aCoder.encode(health, forKey: "health")
-        aCoder.encode(armor, forKey: "armor")
-        aCoder.encode(attack, forKey: "attack")
+        aCoder.encode(manaNow, forKey: "manaNow")
+        aCoder.encode(manaMax, forKey: "manaMax")
+        
+        aCoder.encode(healthNow, forKey: "healthNow")
+        aCoder.encode(healthMax, forKey: "healthMax")
+        
+        aCoder.encode(armorNow, forKey: "armorNow")
+        aCoder.encode(armorMax, forKey: "armorMax")
+        
+        aCoder.encode(attack, forKey: "attackNow")
         
         aCoder.encode(gold, forKey: "gold")
         
@@ -22,37 +28,74 @@ class PlayerStat: NSObject, NSCoding {
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let mana = aDecoder.decodeInteger(forKey: "mana")
-        let health = aDecoder.decodeInteger(forKey: "health")
-        let armor = aDecoder.decodeInteger(forKey: "armor")
-        let attack = aDecoder.decodeInteger(forKey: "attack")
+        let manaNow = aDecoder.decodeInteger(forKey: "manaNow")
+        let manaMax = aDecoder.decodeInteger(forKey: "manaMax")
+        
+        let healthNow = aDecoder.decodeInteger(forKey: "healthNow")
+        let healthMax = aDecoder.decodeInteger(forKey: "healthMax")
+        
+        let armorNow = aDecoder.decodeInteger(forKey: "armorNow")
+        let armorMax = aDecoder.decodeInteger(forKey: "armorMax")
         
         let gold = aDecoder.decodeInteger(forKey: "gold")
         
+        let attack = aDecoder.decodeInteger(forKey: "attack")
+        
         let spellArr = aDecoder.decodeObject(forKey: "spellArr") as! [String]
         
-        self.init(mana: mana, health: health, armor: armor, gold: gold, attack: attack, spellArr: spellArr)
+        self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr)
     }
     
     
-    var mana = 0
-    var health = 0
-    var armor = 0
+    var manaNow = 0
+    var manaMax = 0
+    
+    var healthNow = 0
+    var healthMax = 0
+    
+    var armorNow = 0
+    var armorMax = 0
+    
     var attack = 0
     
     var gold = 0
     
     var spellArr = ["Null","Null","Null","Null"]
     
-    init(mana: Int, health: Int, armor: Int, gold: Int, attack: Int, spellArr: [String]) {
-        self.mana = mana
-        self.health = health
-        self.armor = armor
+    ///Полная инициализация класса
+    init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String]) {
+        
+        print("ПОЛНАЯ ИНИЦ \(armorMax)")
+        
+        self.manaMax = manaMax
+        self.healthMax = healthMax
+        self.armorMax = armorMax
+        
         self.attack = attack
+        
+        self.manaNow = manaNow
+        self.healthNow = healthNow
+        self.armorNow = armorNow
         
         self.gold = gold
         
         self.spellArr = spellArr
+    }
+    
+    init(manaMax: Int, healthMax: Int, armorMax: Int, attack: Int, spellArr: [String]) {
         
+        print("МАХ ИНИЦ \(armorMax)")
+        
+        self.manaMax = manaMax
+        self.healthMax = healthMax
+        self.armorMax = armorMax
+        self.attack = attack
+        self.spellArr = spellArr
+        
+        self.manaNow = manaMax
+        self.healthNow = healthMax
+        self.armorNow = armorMax
+        
+        self.gold = 0
     }
 }

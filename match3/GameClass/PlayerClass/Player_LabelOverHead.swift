@@ -55,7 +55,7 @@ extension Player {
                                    andAnimationType: .EaseOut,
                                    andCountingType: .Int)
         self.labelShield.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelShield.text!),
-                                   to: Float(self.shield),
+                                   to: Float(self.armor),
                                    withDuration: 1,
                                    andAnimationType: .EaseOut,
                                    andCountingType: .Int)

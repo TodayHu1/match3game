@@ -45,8 +45,6 @@ class Spell: SKSpriteNode {
         self.armorToUse = armor
         self.coinToUse = coin
         
-        //print(self)
-        
         self.initStatSpell()
         
     }
@@ -55,6 +53,7 @@ class Spell: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    ///Вызывает использование способности
     func useSpell() {
         if self.conditionToUse() {
             self.changePlayerStat()
@@ -64,6 +63,7 @@ class Spell: SKSpriteNode {
         }
     }
     
+    ///Инициализация графики для ресурсов способности
     private func initStatSpell() {
         let radius: CGFloat = 1.8
         let fontSize = 25
@@ -135,10 +135,11 @@ class Spell: SKSpriteNode {
         }
     }
     
+    ///Условие для использование способности
     private func conditionToUse() -> Bool {
         if self.gameScene.player.mana >= manaToUse &&
             self.gameScene.player.health >= healthToUse &&
-            self.gameScene.player.shield >= armorToUse &&
+            self.gameScene.player.armor >= armorToUse &&
             self.gameScene.player.coin >= coinToUse  {
             return true
         }
@@ -147,22 +148,23 @@ class Spell: SKSpriteNode {
         }
     }
     
+    ///Изменение ресурсов игрока после использования способности
     private func changePlayerStat() {
-        self.gameScene.player.shield -= armorToUse
+        self.gameScene.player.armor -= armorToUse
         self.gameScene.player.health -= healthToUse
         self.gameScene.player.coin -= coinToUse
         self.gameScene.player.mana -= manaToUse
 
         self.gameScene.changeManaLabel()
-        self.gameScene.player.labelOverHead(shield: self.gameScene.player.shield, health: self.gameScene.player.health, initLabel: false)
+        self.gameScene.player.labelOverHead(shield: self.gameScene.player.armor, health: self.gameScene.player.health, initLabel: false)
         
-        let wait = SKAction.wait(forDuration: 1)
-        let code = SKAction.run {
-            self.gameScene.player.takeDamage(damage: 0)
-        }
-        
-        let run = SKAction.sequence([wait,code])
-        self.gameScene.player.run(run)
+//        let wait = SKAction.wait(forDuration: 1)
+//        let code = SKAction.run {
+//            self.gameScene.player.takeDamage(damage: 0)
+//        }
+//
+//        let run = SKAction.sequence([wait,code])
+//        self.gameScene.player.run(run)
     }
     
     

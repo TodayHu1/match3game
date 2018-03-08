@@ -26,7 +26,7 @@ class GameScene: SKScene {
     var matchTypeOnTable = [[Match]]()
     
     ///Хранит node матчей на столе
-    var matchNodeOnTable = [[SKSpriteNode()]]
+    var matchNodeOnTable = [[SKSpriteNode]]()
     
     ///Хранит текстуры матчей
     var matchTexture = [Match: SKTexture]()
@@ -35,10 +35,7 @@ class GameScene: SKScene {
     private var lastTouch = CGPoint(x:1,y:1)
     var player: Player!
     var enemyUnit: EnemyUnit!
-    var spell1: Spell!
-    var spell2: Spell!
-    var spell3: Spell!
-    var spell4: Spell!
+    var spellBoard = [Spell]()
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var enemyOnLevelArr = [String]()
     var matchChance: [Int]!
@@ -51,39 +48,46 @@ class GameScene: SKScene {
     init(enemyArr: [String], playerSpell: [String], bg: String, size: CGSize) {
         super.init(size: CGSize(width: 375, height: 665))
         
+        //Удаляем все ненужное со сцены
         removeAll()
         
+        //Задаем сцене якорь
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
+        //Инициализируем размерность доски с матчами
         self.matchBoard = MatchParametrs(horizontalCount: Int(size.width), verticalCount: Int(size.height), gameScene: self)
         
+        //Инициализируем главного героя
         self.player = Player(gameScene: self)
         
+        //Инициализируем массив с врагами
         self.enemyOnLevelArr = enemyArr
         
+        //Инициализируем класс рандомного юнита
         self.randomUnit = GeneratRandomUnit(playerLvl: 1, gameScene: self)
         
+        //Инициализируем текстуры для матчей
         self.initMatchTexture()
         
+        //Инициализируем массив для хранения собранных матчей
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
         
+        //Инициализируем массив с типами матчей
         self.matchTypeOnTable = Array(repeating: Array(repeating: Match.null, count: self.matchBoard.horizontalCount), count: matchBoard.verticalCount)
 
+        //Инициализируем массив с нодами матчей
         self.matchNodeOnTable = Array(repeating: Array(repeating: SKSpriteNode(), count: self.matchBoard.horizontalCount), count: matchBoard.verticalCount)
         
         self.statArr = Array(repeating: Array(repeating: 0, count: self.matchBoard.horizontalCount),
                              count: matchBoard.verticalCount)
         
-        self.spell1 = spellBook(skillName: playerSpell[0], spellIndex: 1)
-        self.spell2 = spellBook(skillName: playerSpell[1], spellIndex: 2)
-        self.spell3 = spellBook(skillName: playerSpell[2], spellIndex: 3)
-        self.spell4 = spellBook(skillName: playerSpell[3], spellIndex: 4)
-        
-        self.addChild(spell1)
-        self.addChild(spell2)
-        self.addChild(spell3)
-        self.addChild(spell4)
-        
+        //Инициализация способностей на игровой сцене
+        for i in 0...3 {
+            spellBoard.append(spellBook(skillName: playerSpell[i], spellIndex: (i+1)))
+            self.addChild(spellBoard[i])
+        }
+    
+        //Построение декораций
         buildScene(bgName: bg)
     }
     
@@ -131,6 +135,7 @@ class GameScene: SKScene {
         startCheckLoop()
     }
     
+    ///Построение декораций на сцене
     func buildScene(bgName: String) {
         ///Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
@@ -288,6 +293,7 @@ class GameScene: SKScene {
         default:
             break
         }
+        
     }
     
     func fadeInStart() {
@@ -311,23 +317,22 @@ class GameScene: SKScene {
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
             if touchedNode.name != nil {
-                if touchedNode.name == "Spell1" {
-                    spell1.useSpell()
-                }
-                if touchedNode.name == "Spell2" {
-                    spell2.useSpell()
-                }
-                if touchedNode.name == "Spell3" {
-                    spell3.useSpell()
-                }
-                if touchedNode.name == "Spell4" {
-                    spell4.useSpell()
+                for i in 0...3 {
+                    if touchedNode.name == "Spell\(i+1)" {
+                        spellBoard[i].useSpell()
+                    }
                 }
             }
         }
     }
 
     func presentScene() {
+//        playerStat.armorNow = player.armor
+//        playerStat.healthNow = player.health
+//        playerStat.manaNow = player.mana
+        playerStat.armorNow = playerStat.armorMax
+        playerStat.healthNow = playerStat.healthMax
+        playerStat.manaNow = playerStat.manaMax
         removeAll()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }

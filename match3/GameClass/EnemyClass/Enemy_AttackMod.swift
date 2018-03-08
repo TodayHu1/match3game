@@ -34,7 +34,7 @@ extension EnemyUnit {
                 Float(self.attack * 3) * Float(specialAbilities["VampireAttack"] as! Int)
             )
             buffParticle(name: "Heart")
-            setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
+            updateLabelOverHead()
         }
     }
     
@@ -43,7 +43,7 @@ extension EnemyUnit {
         if specialAbilities["ReactiveArmor"] as! Int > 0 {
             self.armor += self.attack * (specialAbilities["ReactiveArmor"] as! Int)
             buffParticle(name: "Armor")
-            setLabelOverHead(shield: self.attack, health: self.health, initLabel: false)
+            updateLabelOverHead()
         }
     }
     

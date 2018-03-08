@@ -24,7 +24,6 @@ var ad: GADInterstitial!
 var scaleMode = SKSceneScaleMode.resizeFill
 
 
-
 class GameViewController: UIViewController {
     
     var lvlName: String!
@@ -235,7 +234,7 @@ class GameViewController: UIViewController {
     
     func saveGameProgress() {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStat")
+        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
         UserDefaults.standard.synchronize()
     }
     
@@ -245,12 +244,12 @@ class GameViewController: UIViewController {
             levelStorage = UserDefaults.standard.object(forKey: "levelStorage") as! [[String : Any]]
         }
         
-        if let heroObject = UserDefaults.standard.value(forKey: "playerStat") as? NSData {
+        if let heroObject = UserDefaults.standard.value(forKey: "playerStatic") as? NSData {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
         }
         
-//        UserDefaults.standard.removeObject(forKey: "levelStorage")
-//        UserDefaults.standard.removeObject(forKey: "playerStat")
+        UserDefaults.standard.removeObject(forKey: "levelStorage")
+        UserDefaults.standard.removeObject(forKey: "playerStatic")
         
     }
     

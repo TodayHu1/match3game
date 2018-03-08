@@ -53,6 +53,7 @@ class EnemyUnit: SKSpriteNode {
     //Label
     var labelBoard = SKSpriteNode()
     var labelUnitName = SKLabelNode(fontNamed: "Arial")
+    var labelRandomUnit = SKLabelNode(fontNamed: "Arial")
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
     var labelShield = SKCountingLabel(fontNamed: "Arial")
         //Icon for label
@@ -64,9 +65,9 @@ class EnemyUnit: SKSpriteNode {
     var positionAnchor: CGPoint =  CGPoint(x: 100, y: 140)
     var positionCenter: CGPoint = CGPoint(x: 0, y: 0)
     
-    
     //Enemy name
     var enemyName = ""
+    var randomUnit = false
     
     //Color
     var normalColor: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
@@ -81,8 +82,7 @@ class EnemyUnit: SKSpriteNode {
         
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
-        self.name = String(RAND_MAX)
-        print("\(self) --- Enemy")
+        print("\(self.randomUnit) --- Enemy Name")
         
         self.gameScene = gameScene
         self.anchorPoint.x = 0.5
@@ -108,7 +108,7 @@ class EnemyUnit: SKSpriteNode {
 
         initShadow()
 
-        setLabelOverHead(shield: self.attack, health: self.health, initLabel: true)
+        setLabelOverHead(armor: self.attack, health: self.health, initLabel: true)
         
         enemyAtlasAttack = SKTextureAtlas(named: enemyName + "-Attack")
         enemyAtlasStand = SKTextureAtlas(named: enemyName + "-Stand")
@@ -122,6 +122,8 @@ class EnemyUnit: SKSpriteNode {
             let name = enemyName + "-" + "Stand" + "-\(i).png"
             enemyArrStand.append(SKTexture(imageNamed: name))
         }
+        
+        print("\(enemyName) --- Enemy Name")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -233,7 +235,7 @@ class EnemyUnit: SKSpriteNode {
             ]))
         }
 
-        setLabelOverHead(shield: self.armor, health: self.health, initLabel: false)
+        updateLabelOverHead()
         
         defenseMod()
         

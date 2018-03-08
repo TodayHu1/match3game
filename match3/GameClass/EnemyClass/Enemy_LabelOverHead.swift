@@ -11,7 +11,18 @@ import SpriteKit
 
 extension EnemyUnit {
     
-    func setLabelOverHead(shield: Int, health: Int, initLabel: Bool) {
+//    func setLabelForRandomUnit() {
+//        self.labelRandomUnit.fontName = "MunroSmall"
+//        self.labelRandomUnit.position.x = self.zPosition + 1
+//        self.labelRandomUnit.fontSize = 70
+//
+//    }
+    
+    func updateLabelOverHead() {
+        setLabelOverHead(armor: self.armor, health: self.health, initLabel: false)
+    }
+    
+    func setLabelOverHead(armor: Int, health: Int, initLabel: Bool) {
         
         if initLabel {
             self.labelBoard.removeFromParent()
@@ -37,7 +48,7 @@ extension EnemyUnit {
             //Shield
             self.labelShield.fontName = "MunroSmall"
             self.labelShield.color = UIColor.green
-            self.labelShield.text = String(shield)
+            self.labelShield.text = String(armor)
             self.labelShield.position.x = self.labelBoard.position.x - 90
             self.labelShield.fontSize = 70
             self.labelBoard.addChild(self.labelShield)
@@ -45,6 +56,17 @@ extension EnemyUnit {
             self.iconShield.zPosition = self.iconShield.zPosition - 1
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
+            
+            
+            if self.enemyName == "Random" {
+                self.labelRandomUnit.fontName = "MunroSmall"
+                self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
+                self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
+                self.labelRandomUnit.fontSize = 60
+                self.labelRandomUnit.text = "modify"
+                self.labelRandomUnit.fontColor = #colorLiteral(red: 0.3927484786, green: 0.7920169734, blue: 0.7022099548, alpha: 1)
+                self.labelBoard.addChild(self.labelRandomUnit)
+            }
         }
         
         self.labelHealth.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelHealth.text!),

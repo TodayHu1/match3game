@@ -63,11 +63,7 @@ extension GameScene {
         for i in 0...matchBoard.verticalCount-1 {
             for j in 0...matchBoard.horizontalCount-1 {
                 if matchNodeOnTable[i][j].texture!.description != getTextureMatch(matchNumber: matchTypeOnTable[i][j]).description {
-                    print("\(matchNodeOnTable[i][j].texture!) != \(getTextureMatch(matchNumber: matchTypeOnTable[i][j]))")
                     matchNodeOnTable[i][j].texture = getTextureMatch(matchNumber: matchTypeOnTable[i][j])
-                }
-                else {
-                    print("\(matchNodeOnTable[i][j].texture!) ===== \(getTextureMatch(matchNumber: matchTypeOnTable[i][j]))")
                 }
                 matchNodeOnTable[i][j].position = matchBoard.matchPosition(i: i, j: j)
                 matchNodeOnTable[i][j].zPosition = CGFloat(matchBoard.matchZIndex)

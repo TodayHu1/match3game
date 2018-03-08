@@ -35,7 +35,7 @@ class Player: SKSpriteNode {
     //Stats
     var attack: Int = 10
     var health: Int = 50
-    var shield: Int = 50
+    var armor: Int = 50
     var move: Int = 0
     var mana: Int = 999
     var coin: Int = 0
@@ -102,14 +102,14 @@ class Player: SKSpriteNode {
         self.positionCenter = CGPoint(x: positionAnchor.x, y: positionAnchor.y + (self.size.height/2))
         
         self.attack = playerStat.attack
-        self.shield = playerStat.armor
-        self.health = playerStat.health
-        self.mana = playerStat.mana
+        self.armor = playerStat.armorNow
+        self.health = playerStat.healthNow
+        self.mana = playerStat.manaNow
         self.coin = playerStat.gold
         
         
         initShadow()
-        labelOverHead(shield: self.shield, health: self.health, initLabel: true)
+        labelOverHead(shield: self.armor, health: self.health, initLabel: true)
         
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
@@ -157,11 +157,11 @@ class Player: SKSpriteNode {
     
     func takeDamage(damage: Int) {
 
-        if self.shield > 0 {
-            self.shield -= damage
-            if self.shield < 0 {
-                self.health += self.shield
-                self.shield = 0
+        if self.armor > 0 {
+            self.armor -= damage
+            if self.armor < 0 {
+                self.health += self.armor
+                self.armor = 0
             }
         }
         else {
@@ -176,7 +176,7 @@ class Player: SKSpriteNode {
             gameScene.gameOverScreen()
         }
         
-        labelOverHead(shield: self.shield, health: self.health, initLabel: false)
+        labelOverHead(shield: self.armor, health: self.health, initLabel: false)
     
         let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
         let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)

@@ -66,7 +66,7 @@ extension GameScene {
     }
     
     public func matchAnimationPulse(i: Int, j: Int) {
-        var spriteNode = matchNodeOnTable[i][j]
+        let spriteNode = matchNodeOnTable[i][j]
         let duration: TimeInterval = 0.3
         spriteNode.zPosition = CGFloat(matchBoard.matchZIndex + 2)
         let moveB = SKAction.resize(byWidth: 10, height: 10, duration: duration/2)
@@ -91,7 +91,7 @@ extension GameScene {
     }
     
     public func matchAnimationPulseRevers(i: Int, j: Int) {
-        var spriteNode = matchNodeOnTable[i][j]
+        let spriteNode = matchNodeOnTable[i][j]
         let duration: TimeInterval = 0.3
         spriteNode.zPosition = CGFloat(matchBoard.matchZIndex + 2)
         let moveB = SKAction.resize(byWidth: 10, height: 10, duration: duration/2)
@@ -121,8 +121,5 @@ extension GameScene {
         let nodeAnimation = SKAction.sequence([moveC, moveB])
         node.run(nodeAnimation)
     }
-    
-    
-    
     
 }

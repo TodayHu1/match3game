@@ -35,8 +35,8 @@ class TownHallViewController: UIViewController {
         setGoldLabel(plusNumber: 0)
         
         UpgradeSwordButton.setTitle(String(Int(playerStat.attack / 4)), for: .normal)
-        UpgradeArmorButton.setTitle(String(Int(playerStat.armor / 8)), for: .normal)
-        UpgradeManaButton.setTitle(String(Int(playerStat.mana / 4)), for: .normal)
+        UpgradeArmorButton.setTitle(String(Int(playerStat.armorNow / 8)), for: .normal)
+        UpgradeManaButton.setTitle(String(Int(playerStat.manaNow / 4)), for: .normal)
     }
 
     
@@ -61,8 +61,8 @@ class TownHallViewController: UIViewController {
     
     
     @IBAction func ArmorUpgrade(_ sender: Any) {
-        playerStat.armor += 1
-        let labelText = Int(playerStat.armor / 8)
+        playerStat.armorNow += 1
+        let labelText = Int(playerStat.armorNow / 8)
         if setGoldLabel(plusNumber: -labelText) {
             UpgradeArmorButton.setTitle(String(labelText), for: .normal)
         }
@@ -71,8 +71,8 @@ class TownHallViewController: UIViewController {
     
     
     @IBAction func ManaUpgrade(_ sender: Any) {
-        playerStat.mana += 1
-        let labelText = Int(playerStat.mana / 4)
+        playerStat.manaNow += 1
+        let labelText = Int(playerStat.manaNow / 4)
         if setGoldLabel(plusNumber: -labelText) {
             UpgradeManaButton.setTitle(String(labelText), for: .normal)
         }

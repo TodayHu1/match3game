@@ -22,7 +22,7 @@ extension GameScene {
             return randomUnit.generate()
         }
         else {
-            let createEnemyUnit = EnemyUnit(enemyName: enemyName,
+            var createEnemyUnit = EnemyUnit(enemyName: enemyName,
                                       attack: 0, health: 0, shield: 0,
                                       size: CGSize(width: 150, height: 150),
                                       gameScene: self)
@@ -101,6 +101,7 @@ extension GameScene {
                 break
             }
             
+            createEnemyUnit.updateLabelOverHead()
             return createEnemyUnit
         }
         

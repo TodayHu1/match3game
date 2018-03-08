@@ -81,7 +81,7 @@ extension GameScene {
             objectForAnimation = player.iconShield
             positionToMove = player.position
             specialActionOnEnd = SKAction.run {
-                self.player.labelOverHead(shield: self.player.shield, health: self.player.health, initLabel: false)
+                self.player.labelOverHead(shield: self.player.armor, health: self.player.health, initLabel: false)
             }
         case 3:
             objectForAnimation = manaPoolNode
@@ -93,7 +93,7 @@ extension GameScene {
             objectForAnimation = enemyUnit
             positionToMove = enemyUnit.position
             specialActionOnEnd = SKAction.run {
-                self.enemyUnit.setLabelOverHead(shield: self.enemyUnit.armor, health: self.enemyUnit.health, initLabel: false)
+                self.enemyUnit.updateLabelOverHead()
             }
         default:
             objectForAnimation = player

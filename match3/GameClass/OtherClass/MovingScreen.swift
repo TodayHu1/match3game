@@ -41,22 +41,22 @@ class MovingScreen: SKScene {
     func skillLevelRule() {
         if lvlName == "0-3" {
             playerStat.spellArr[0] = "SkullJail"
-            playerStat.mana = 10
+            playerStat.manaMax = 10
         }
         
         if lvlName == "0-4" {
-            playerStat.mana = 3
+            playerStat.manaMax = 3
         }
         
         if lvlName == "0-6" {
             playerStat.spellArr[1] = "HeartAttack"
-            playerStat.mana = 6
+            playerStat.manaMax = 6
         }
         
-        if lvlName == "1-1" {
-            playerStat.spellArr[2] = "Nemesis"
-            playerStat.mana = 6
-        }
+//        if lvlName == "1-1" {
+//            playerStat.spellArr[2] = "Nemesis"
+//            playerStat.manaMax = 6
+//        }
     }
     
     func arrLevelRule() {

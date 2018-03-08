@@ -24,10 +24,11 @@ class MainMenuViewController: UIViewController {
             gameViewController = GameViewController()
         }
         
+
         if playerStat == nil {
             gameViewController.loadGameProgress()
             if playerStat == nil {
-                playerStat = PlayerStat(mana: 0, health: 10, armor: 5, gold: 0, attack: 1, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(manaMax: 0, healthMax: 10, armorMax: 5, attack: 1, spellArr: ["Null","Null","Null","Null"])
                 
                 levelStorage = [
                     ["Name": "Tutorial",
@@ -48,6 +49,8 @@ class MainMenuViewController: UIViewController {
                 ]
             }
         }
+        
+        print("\(playerStat.armorNow) --- PLAYER STAT")
         
         print("\(levelStorage) --- LVL")
  

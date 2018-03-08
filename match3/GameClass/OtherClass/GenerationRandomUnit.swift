@@ -100,10 +100,8 @@ class GeneratRandomUnit {
             unit.specialAbilities[name] = enemySkill[name]
             print("\(name) -+- \(value)")
         }
-        
-//        unit.specialAbilities["ReactiveArmor"] = enemySkill[0]
-//        unit.specialAbilities["PoisonOnBoard"] = enemySkill[1]
-//        unit.specialAbilities["SkullOnBoard"] = enemySkill[2]
+
+        unit.randomUnit = true
         return unit
     }
     
