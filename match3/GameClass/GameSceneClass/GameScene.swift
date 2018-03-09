@@ -143,10 +143,20 @@ class GameScene: SKScene {
         spellBoardA.zPosition = 99
         self.addChild(spellBoardA)
         
+        var manaPoolTextureArr = [SKTexture]()
+        let manaPoolTextureAtlas = SKTextureAtlas(named: "ManaPool")
+        
+        for i in 1...manaPoolTextureAtlas.textureNames.count {
+            let name = "manaBar-\(i).png"
+            manaPoolTextureArr.append(SKTexture(imageNamed: name))
+        }
+        
         ///Mana Orb
         self.manaPoolNode = SKSpriteNode(texture: SKTexture(imageNamed: "manaBar-1.png"), size: CGSize(width: 64, height: 64))
         spellBoardA.addChild(self.manaPoolNode)
         self.manaPoolNode.zPosition += 1
+        
+        self.manaPoolNode.run(SKAction.repeatForever(SKAction.animate(with: manaPoolTextureArr, timePerFrame: 0.3)))
         
         ///Mana Holder
         let manaHolder = SKSpriteNode(texture: SKTexture(imageNamed: "manaHolder.png"), size: CGSize(width: 65, height: 65))
@@ -327,12 +337,12 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-        playerStat.armorNow = player.armor
-        playerStat.healthNow = player.health
-        playerStat.manaNow = player.mana
-//        playerStat.armorNow = playerStat.armorMax
-//        playerStat.healthNow = playerStat.healthMax
-//        playerStat.manaNow = playerStat.manaMax
+//        playerStat.armorNow = player.armor
+//        playerStat.healthNow = player.health
+//        playerStat.manaNow = player.mana
+        playerStat.armorNow = playerStat.armorMax
+        playerStat.healthNow = playerStat.healthMax
+        playerStat.manaNow = playerStat.manaMax
         removeAll()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }

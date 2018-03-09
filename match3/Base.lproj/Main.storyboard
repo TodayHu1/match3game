@@ -87,14 +87,6 @@
                                         <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om6-RK-E6P">
-                                        <rect key="frame" x="123" y="523" width="63" height="63"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" backgroundImage="MatchPoison"/>
-                                        <connections>
-                                            <segue destination="ryi-GW-uMh" kind="show" id="4gc-3T-J7F"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </view>
                         </subviews>
@@ -617,7 +609,6 @@
         <image name="LvlIcon_RandomDungeon" width="256" height="128"/>
         <image name="LvlIcon_SteamPunk" width="256" height="256"/>
         <image name="LvlIcon_Tutorial" width="256" height="317"/>
-        <image name="MatchPoison" width="256" height="256"/>
         <image name="Player" width="304" height="272"/>
         <image name="SkillTableForTownHall" width="256" height="108"/>
         <image name="Table" width="332" height="230"/>
@@ -633,8 +624,8 @@
         <image name="shadow" width="600" height="600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MFL-Kg-3Yh"/>
-        <segue reference="Im9-VZ-Z7o"/>
-        <segue reference="IRX-Cc-gBJ"/>
+        <segue reference="syL-RH-VqN"/>
+        <segue reference="bZl-Zw-2KE"/>
+        <segue reference="eSD-xd-MWU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -63,6 +63,7 @@
 		1F88DE082030840B005257A5 /* Dummy-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE072030840B005257A5 /* Dummy-Stand.atlas */; };
 		1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F88DE0A20317B7E005257A5 /* 0-3.json */; };
 		1F88DE0D2031AFC4005257A5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F88DE0C2031AFC4005257A5 /* Extension.swift */; };
+		1F901CC62052C90000BDC566 /* ManaPool.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F901CC52052C90000BDC566 /* ManaPool.atlas */; };
 		1F937CD52032CB5E003F0C91 /* NeutralTurtle-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CD32032CB5D003F0C91 /* NeutralTurtle-Stand.atlas */; };
 		1F937CD62032CB5E003F0C91 /* NeutralTurtle-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CD42032CB5E003F0C91 /* NeutralTurtle-Attack.atlas */; };
 		1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F937CDC2032CF0F003F0C91 /* CultistsProphet-Attack.atlas */; };
@@ -204,6 +205,7 @@
 		1F88DE072030840B005257A5 /* Dummy-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Dummy-Stand.atlas"; sourceTree = "<group>"; };
 		1F88DE0A20317B7E005257A5 /* 0-3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "0-3.json"; sourceTree = "<group>"; };
 		1F88DE0C2031AFC4005257A5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		1F901CC52052C90000BDC566 /* ManaPool.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ManaPool.atlas; sourceTree = "<group>"; };
 		1F937CD32032CB5D003F0C91 /* NeutralTurtle-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "NeutralTurtle-Stand.atlas"; sourceTree = "<group>"; };
 		1F937CD42032CB5E003F0C91 /* NeutralTurtle-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "NeutralTurtle-Attack.atlas"; sourceTree = "<group>"; };
 		1F937CDC2032CF0F003F0C91 /* CultistsProphet-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "CultistsProphet-Attack.atlas"; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 		1FB431B41FB5B28D00039960 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1F901CC52052C90000BDC566 /* ManaPool.atlas */,
 				1F937CE7203730DA003F0C91 /* LevelIcon.xcassets */,
 				1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */,
 				1F38FFE8201F64370005FB35 /* Shit.xcassets */,
@@ -866,6 +869,7 @@
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
 				1F937D14203EA58C003F0C91 /* 1-10.json in Resources */,
+				1F901CC62052C90000BDC566 /* ManaPool.atlas in Resources */,
 				1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */,
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
