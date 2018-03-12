@@ -41,6 +41,7 @@
 		1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82221F83376700710D50 /* Stony-Stand.atlas */; };
 		1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82241F83376F00710D50 /* Stony-Attack.atlas */; };
 		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
+		1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */; };
 		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
@@ -184,6 +185,7 @@
 		1F2D82221F83376700710D50 /* Stony-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Stand.atlas"; sourceTree = "<group>"; };
 		1F2D82241F83376F00710D50 /* Stony-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
+		1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpellViewController.swift; sourceTree = "<group>"; };
 		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 				1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */,
 				1F455F2F202B204800B43E1C /* MainMenuViewController.swift */,
 				1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */,
+				1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
 				1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */,
+				1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */,
 				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,
 				1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */,
 				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,

@@ -137,6 +137,7 @@ class GameScene: SKScene {
     
     ///Построение декораций на сцене
     func buildScene(bgName: String) {
+        
         ///Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
         spellBoardA.position = CGPoint(x: 0, y: 80)

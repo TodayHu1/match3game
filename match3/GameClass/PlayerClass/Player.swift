@@ -240,29 +240,16 @@ class Player: SKSpriteNode {
     
 
     func animationStand() -> SKAction{
-
         self.removeAllActions()
 
-//        let playerAnimStand = SKAction.repeatForever(
-//            SKAction.sequence(
-//                [SKAction.animate(with: playerArrStand, timePerFrame: 0.2),
-//                 SKAction.wait(forDuration: 1.5)]
-//            )
-//        )
-//
         let playerAnimStand = SKAction.repeatForever(
                 SKAction.animate(with: playerArrStand, timePerFrame: 0.2)
             )
-        //let playerAnimStand = SKAction.wait(forDuration: 1)
-
+        
         self.run(playerAnimStand)
         return playerAnimStand
-
     }
     
-//    func animationStand() {
-//        print("animationStand --- Player")
-//    }
     
     func animationWalking(){
         self.removeAllActions()
@@ -280,6 +267,15 @@ class Player: SKSpriteNode {
 
     func wait() {
         self.run(SKAction.wait(forDuration: 0.5))
+    }
+    
+    func buffParticle(name: String) {
+        let loadBuff = Bundle.main.path(forResource: name, ofType: "sks")
+        let buffParticle = NSKeyedUnarchiver.unarchiveObject(withFile: loadBuff!) as! SKEmitterNode
+        self.addChild(buffParticle)
+        //        buffParticle.position = self.positionCenter
+        buffParticle.position.y = self.positionCenter.y
+        buffParticle.zPosition = self.zPosition + 1
     }
     
 }

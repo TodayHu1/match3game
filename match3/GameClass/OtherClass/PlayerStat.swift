@@ -20,12 +20,15 @@ class PlayerStat: NSObject, NSCoding {
         aCoder.encode(armorNow, forKey: "armorNow")
         aCoder.encode(armorMax, forKey: "armorMax")
         
-        aCoder.encode(attack, forKey: "attackNow")
+        aCoder.encode(attack, forKey: "attack")
         
         aCoder.encode(gold, forKey: "gold")
         
-        aCoder.encode(spellArr, forKey: "spellArr")
+        aCoder.encode(spellOnBoard, forKey: "spellArr")
+        
+        aCoder.encode(spellInBag, forKey: "spellInBag")
     }
+    
     
     required convenience init?(coder aDecoder: NSCoder) {
         let manaNow = aDecoder.decodeInteger(forKey: "manaNow")
@@ -43,9 +46,17 @@ class PlayerStat: NSObject, NSCoding {
         
         let spellArr = aDecoder.decodeObject(forKey: "spellArr") as! [String]
         
-        self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr)
+        var spellInBag = [String]()
+        
+        if nil != aDecoder.decodeObject(forKey: "spellInBag") as? [String] {
+            spellInBag = aDecoder.decodeObject(forKey: "spellInBag") as! [String]
+        }
+        else {
+            spellInBag = []
+        }
+        
+        self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr, spellInBag: spellInBag)
     }
-    
     
     var manaNow = 0
     var manaMax = 0
@@ -60,10 +71,12 @@ class PlayerStat: NSObject, NSCoding {
     
     var gold = 0
     
-    var spellArr = ["Null","Null","Null","Null"]
+    var spellOnBoard = ["Null","Null","Null","Null"]
+    
+    var spellInBag = [String]()
     
     ///Полная инициализация класса
-    init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String]) {
+    init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String], spellInBag: [String]) {
         
         print("ПОЛНАЯ ИНИЦ \(armorMax)")
         
@@ -79,7 +92,8 @@ class PlayerStat: NSObject, NSCoding {
         
         self.gold = gold
         
-        self.spellArr = spellArr
+        self.spellOnBoard = spellArr
+        self.spellInBag = spellInBag
     }
     
     init(manaMax: Int, healthMax: Int, armorMax: Int, attack: Int, spellArr: [String]) {
@@ -90,7 +104,8 @@ class PlayerStat: NSObject, NSCoding {
         self.healthMax = healthMax
         self.armorMax = armorMax
         self.attack = attack
-        self.spellArr = spellArr
+        
+        self.spellOnBoard = spellArr
         
         self.manaNow = manaMax
         self.healthNow = healthMax

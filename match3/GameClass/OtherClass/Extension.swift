@@ -7,6 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+extension NSMutableAttributedString{
+    func setColorForText(_ textToFind: String, with color: UIColor) {
+        let range = self.mutableString.range(of: textToFind, options: .caseInsensitive)
+        if range.location != NSNotFound {
+            addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+        }
+    }
+}
 
 extension Dictionary {
     static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
@@ -33,5 +43,7 @@ extension Dictionary {
         return dictionaryOK as? Dictionary<String, AnyObject>
     }
 }
+
+
 
 

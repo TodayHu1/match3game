@@ -12,12 +12,13 @@ import Flurry_iOS_SDK
 
 class Spell: SKSpriteNode {
     
-    private var manaToUse = 0
-    private var healthToUse = 0
-    private var armorToUse = 0
-    private var coinToUse = 0
+    var manaToUse = 0
+    var healthToUse = 0
+    var armorToUse = 0
+    var coinToUse = 0
     
-    public var skillName = ""
+    var skillName = ""
+    var skillDescription = ""
     
     var gameScene: GameScene!
     
@@ -27,18 +28,38 @@ class Spell: SKSpriteNode {
         self.position = position
     }
 
-    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint, gameScene: GameScene) {
+    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, position: CGPoint, description: String, gameScene: GameScene) {
         super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 41, height: 41))
         
         self.gameScene = gameScene
         self.zPosition = 550
     
         self.skillName = skillName
+        self.skillDescription = description
         
-        self.name = "Spell1"
         self.name = name
         
         self.position = position
+        
+        self.manaToUse = mana
+        self.healthToUse = health
+        self.armorToUse = armor
+        self.coinToUse = coin
+        
+        self.initStatSpell()
+        
+    }
+    
+    init(skillName: String, texture: SKTexture, mana: Int, health: Int, armor: Int, coin: Int, name: String, description: String, gameScene: GameScene) {
+        super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 41, height: 41))
+        
+        self.gameScene = gameScene
+        self.zPosition = 550
+        
+        self.skillName = skillName
+        self.skillDescription = description
+        
+        self.name = name
         
         self.manaToUse = mana
         self.healthToUse = health

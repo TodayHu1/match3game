@@ -53,7 +53,6 @@ class GameViewController: UIViewController {
             print("Its carPlay")
         }
         
-
         ad = GADInterstitial(adUnitID: "ca-app-pub-2270286479492772/5263681969")
         let request = GADRequest()
         ad.load(request)
@@ -248,8 +247,8 @@ class GameViewController: UIViewController {
             playerStat = NSKeyedUnarchiver.unarchiveObject(with: heroObject as Data) as! PlayerStat
         }
         
-        UserDefaults.standard.removeObject(forKey: "levelStorage")
-        UserDefaults.standard.removeObject(forKey: "playerStatic")
+//        UserDefaults.standard.removeObject(forKey: "levelStorage")
+//        UserDefaults.standard.removeObject(forKey: "playerStatic")
         
     }
     

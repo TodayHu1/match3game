@@ -209,7 +209,7 @@ class EnemyUnit: SKSpriteNode {
 
     
     func takeDamage(damage: Int) {
-        
+        print("\(damage) TAKE ENEMY DAMAGE \(playerStat.attack)")
         if self.armor > 0 {
             self.armor -= damage
             if self.armor < 0 {

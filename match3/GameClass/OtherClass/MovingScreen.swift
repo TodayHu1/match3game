@@ -39,18 +39,21 @@ class MovingScreen: SKScene {
     }
     
     func skillLevelRule() {
+//        playerStat.spellArr[3] = "FirstAid"
+        
         if lvlName == "0-3" {
-            playerStat.spellArr[0] = "SkullJail"
-            playerStat.manaMax = 10
+            playerStat.spellOnBoard[0] = "SkullJail"
+            playerStat.manaNow = 10
         }
         
         if lvlName == "0-4" {
-            playerStat.manaMax = 3
+            playerStat.manaNow = 3
         }
         
         if lvlName == "0-6" {
-            playerStat.spellArr[1] = "HeartAttack"
+            playerStat.spellOnBoard[1] = "HeartAttack"
             playerStat.manaMax = 6
+            playerStat.manaNow = 6
         }
         
 //        if lvlName == "1-1" {
@@ -126,7 +129,7 @@ class MovingScreen: SKScene {
         skillLevelRule()
         
         gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
-                              playerSpell: playerStat.spellArr,
+                              playerSpell: playerStat.spellOnBoard,
                               bg: checkBG(bgName: loadBg[indexLevel]),
                               size: checkBoardSize(size: loadBoardSize[indexLevel]))
         

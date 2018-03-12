@@ -10,6 +10,10 @@ import Foundation
 import SpriteKit
 
 extension Player {
+    
+    func updateLabelOverHead() {
+        labelOverHead(shield: self.armor , health: self.health, initLabel: false)
+    }
 
     func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
         

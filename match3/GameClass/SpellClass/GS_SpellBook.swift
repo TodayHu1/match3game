@@ -22,32 +22,67 @@ extension GameScene {
             skillPosition = CGPoint(x: 0+((spellIndex-2)*70), y: 80)
         }
 
+        
+        var mana = 0
+        var health = 0
+        var armor = 0
+        var coin = 0
+        var description = "Oops..."
+
+        
         switch skillName {
         case "Null":
-            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 0, health: 0, armor: 0, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 0
+            health = 0
+            armor = 0
+            coin = 0
+            description = "U dont see it <_<"
+            
         case "SkullJail":
-            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 6, health: 0, armor: 0, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 6
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Replaces skull matches for matches of chains"
+            
         case "HeartAttack":
-            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 0, health: 4, armor: 0, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 0
+            health = 4
+            armor = 0
+            coin = 0
+            description = "Takes away a part of lives in exchange for four match of attack"
+            
         case "Nemesis":
-            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 4, health: 1, armor: 2, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 4
+            health = 1
+            armor = 2
+            coin = 0
+            description = "Replaces match shields for attack matches"
+            
         case "NoOneStepBack":
-            return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
-                         mana: 2, health: 0, armor: 0, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 2
+            health = 1
+            armor = 2
+            coin = 0
+            description = ""
+            
+        case "FirstAid":
+            mana = 0
+            health = 0
+            armor = 1
+            coin = 0
+            description = "Heals you on the number of skulls on the table"
         default:
-            return Spell(skillName: "0", texture: SKTexture(imageNamed: ""),
-                         mana: 0, health: 0, armor: 0, coin: 0,
-                         name: "Spell"+String(spellIndex), position: skillPosition, gameScene: self)
+            mana = 0
+            health = 0
+            armor = 0
+            coin = 0
+            description = ""
         }
+        
+        return Spell(skillName: skillName, texture: SKTexture(imageNamed: "Spell"+skillName),
+                     mana: mana, health: health, armor: armor, coin: coin,
+                     name: "Spell"+String(spellIndex), position: skillPosition, description: description,gameScene: self)
     }
     
   
@@ -86,20 +121,18 @@ extension GameScene {
                                  durationAnimation: interval
                 )
             }
-        case "qwe":
-            var duration: Double = 0
-            let interval: Double = self.durationSpawnMatchAnimation()
-            for _ in 0...5 {
-                duration += interval
-                matchMoveToBoard(matchType: Match.coin,
-                                 nodePosition: player,
-                                 i: matchBoard.getRandomMatchVertical(),
-                                 j: matchBoard.getRandomMatchHorizontal(),
-                                 waitTimeToAnimation: TimeInterval(duration),
-                                 durationAnimation: interval
-                )
+        case "FirstAid":
+            var heal = 0
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if matchTypeOnTable[i][j] == Match.skull  {
+                        heal += 1
+                    }
+                }
             }
-
+            player.health += heal
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Heart")
         case "Nemesis":
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
