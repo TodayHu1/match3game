@@ -20,19 +20,16 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var tableSpell: UITableView!
     
-    var allSpell = [String]()
-
     var gameScene: GameScene!
     
-//    @IBAction func buttonBack(_ sender: Any) {
-//        
-//        UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
-//        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
-//        UserDefaults.standard.synchronize()
-//        
-//    }
+    ///Все способности игрока (на панели и в рюкзаке)
+    var allPlayerSpell = [String]()
     
-    @IBAction func lwqemk(_ sender: Any) {
+    ///Цвет активной ячейки
+    var activeCellColor = #colorLiteral(red: 0.2618263639, green: 0.455000658, blue: 0.5647406409, alpha: 1)
+    
+    
+    @IBAction func backButton(_ sender: Any) {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
         UserDefaults.standard.synchronize()
@@ -42,18 +39,18 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         
         gameScene = GameScene()
         
-        allSpell += playerStat.spellOnBoard
-        allSpell += playerStat.spellInBag
+        allPlayerSpell += playerStat.spellOnBoard
+        allPlayerSpell += playerStat.spellInBag
         
         var reworkArr = [String]()
-        for i in 0...allSpell.count-1 {
-            print("\(allSpell[i]) ---------")
-            if allSpell[i] != "Null" {
-                reworkArr.append(allSpell[i])
+        for i in 0...allPlayerSpell.count-1 {
+            print("\(allPlayerSpell[i]) ---------")
+            if allPlayerSpell[i] != "Null" {
+                reworkArr.append(allPlayerSpell[i])
             }
         }
         
-        allSpell = reworkArr
+        allPlayerSpell = reworkArr
         initBoard()
         
         super.viewDidLoad()
@@ -74,7 +71,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
             print("Spell\(skillName).png")
         }
         
-        print("\(allSpell) --- All")
+        print("\(allPlayerSpell) --- All")
         print("\(playerStat.spellInBag) --- Spell In Bag")
         print("\(playerStat.spellOnBoard) --- Spell On Board")
 
@@ -92,7 +89,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         
         let cellIdentifier = "cell"
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        let skillName = allSpell[indexPath.row]
+        let skillName = allPlayerSpell[indexPath.row]
         let skill = gameScene.spellBook(skillName: skillName, spellIndex: 0)
         
         print("\(indexPath.row) --- INDEX PATH ROW")
@@ -106,12 +103,13 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         
         cell.textLabel?.text = "\(skillName)"
+        //[ \(skill.healthToUse), \(skill.armorToUse), \(skill.manaToUse), \(skill.coinToUse) ]"
         cell.textLabel?.font = UIFont(name: "Munro", size: 20)
         cell.textLabel?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        
+
+        cell.imageView?.frame = CGRect(x: cell.imageView!.frame.origin.x, y: cell.imageView!.frame.origin.y, width: 40, height: 40)
         cell.imageView?.image = UIImage(named: "Spell\(skillName).png")
-        cell.imageView?.image?.imageRendererFormat.scale = 0.5
-         
+        
         cell.detailTextLabel!.numberOfLines = 0
         cell.detailTextLabel?.font = UIFont(name: "MunroSmall", size: 15)
         cell.detailTextLabel?.textColor = .white
@@ -126,7 +124,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         for j in 0...playerStat.spellOnBoard.count-1 {
             if playerStat.spellOnBoard[j] == skillName {
                 print("TRUE -- \(skillName) -- \(j)")
-                cell.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 0.4302226027)
+                cell.backgroundColor = activeCellColor
                 tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
             }
         }
@@ -182,12 +180,12 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
             playerStat.spellOnBoard[findFreePlaceInBag()] = String(describing: getRowTitle(cell: cell!))
             initBoard()
             
-            cell?.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 0.4302226027)
+            cell?.backgroundColor = activeCellColor
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allSpell.count
+        return allPlayerSpell.count
     }
     
     func getRowTitle(cell: UITableViewCell) -> String {

@@ -100,6 +100,7 @@ class GameViewController: UIViewController {
         case pad // iPad style UI
     }
     
+    ///Показать окно с лейблом
     func presentText(text: String, color: UIColor) {
         
         let frameWidth = 200
@@ -154,6 +155,23 @@ class GameViewController: UIViewController {
         print("presentText")
     }
     
+    ///Показать окно с выбором перка
+    func presentChooseWindow() {
+        let frameWidth = 320
+        let frameHeight = 475
+        
+        let viewx = UIView()
+        viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
+        viewx.tag = 252
+        
+        
+        let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        testView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
+        testView.layer.cornerRadius = 20
+        testView.clipsToBounds = true
+    }
+    
+    ///Показать окно подсказки с картинкой
     func presentImageTip(imgName: String, title: String) {
 
         let frameWidth = 320

@@ -15,15 +15,21 @@ var levelStorage = [[String: Any]]()
 
 class MainMenuViewController: UIViewController {
     
+    @IBOutlet weak var spellChanger: UIButton!
     
+    @IBOutlet weak var labelForSpellChanger: UILabel!
     @IBOutlet weak var labelForTable: UILabel!
+    
+
+    @IBOutlet weak var playerImage: UIImageView!
+    
     
     override func viewDidLoad() {
         
         if gameViewController == nil {
             gameViewController = GameViewController()
         }
-        
+
 
         if playerStat == nil {
             gameViewController.loadGameProgress()
@@ -58,11 +64,35 @@ class MainMenuViewController: UIViewController {
         UILabel.animate(withDuration: 1, animations: {
             self.labelForTable.frame.size.width += 10
             self.labelForTable.frame.size.height += 10
+            self.labelForSpellChanger.frame.size.width += 10
+            self.labelForSpellChanger.frame.size.height += 10
         }) { _ in
             UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
                 self.labelForTable.frame.origin.y -= 10
+                self.labelForSpellChanger.frame.origin.y -= 10
             })
         }
+        
+        var spellChangerImageArr = [UIImage]()
+        var playerImageArr = [UIImage]()
+        
+        for i in 0...3 {
+            playerImageArr.append(UIImage(named: "Player-Stand-\(i).png")!)
+            spellChangerImageArr.append(UIImage(named: "SpellChanger-\(i).png")!)
+        }
+        
+        playerImage.animationImages = playerImageArr
+        playerImage.animationDuration = 1
+        playerImage.startAnimating()
+        
+        
+        spellChanger.setImage(UIImage(named: "SpellChanger-0.png"), for: .normal)
+        spellChanger.imageView?.animationImages = spellChangerImageArr
+        spellChanger.imageView?.animationDuration = 1.5
+        spellChanger.imageView?.startAnimating()
+        
+        
+        print("START ANIMATION")
         
         super.viewDidLoad()
     }
@@ -72,14 +102,13 @@ class MainMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+
+        
+        
     }
-    */
+
 
 }

@@ -11,6 +11,8 @@ import SceneKit
 import SpriteKit
 import GameplayKit
 
+var actionArr = [[String: Any]]()
+
 var matchActionGesture = true
 var loopOnSpawnMatch = false //Появление собирающихся матчей после генерации
 var boardSizeUp = false //Увеличение доски после победы над врагом
@@ -80,6 +82,11 @@ extension GameScene {
                         player.mana += actionOnTurn[Match.energy.rawValue]
                         positiveWords(number: actionOnTurn[Match.energy.rawValue])
                     case Match.attack.rawValue:
+                        actionGesture(gesture: false)
+                        let wait = SKAction.sequence([SKAction.wait(forDuration: 2.0), SKAction.run {
+                            self.actionGesture(gesture: true)
+                            }])
+                        self.run(wait)
                         let damag = player.attack * actionOnTurn[Match.attack.rawValue]
                         var strongAttack = false
                         if actionOnTurn[Match.attack.rawValue] > 3 {
@@ -102,25 +109,50 @@ extension GameScene {
                 }
             }
         }
+        for i in 0...actionOnTurn.count-1 {
+            actionOnTurn[i] = 0
+        }
+
+
         
-        
-//        let statIn = SKAction.fadeIn(withDuration: 0.1)
-//        let statHide = SKAction.fadeOut(withDuration: 2)
-//        let statWait = SKAction.wait(forDuration: 2)
-//        let statText = SKAction.run({
-//        })
-//        let sdf = SKAction.removeFromParent()
-//        let statInitArr = SKAction.run {
-            for i in 0...actionOnTurn.count-1 {
-                actionOnTurn[i] = 0
-            }
-//        }
-//        statLabel.run(
-//            SKAction.sequence(
-//                [statIn,statText,statWait,statHide,statInitArr]
-//            )
-//        )
+
     }
+    
+//    public func checkArrForAction() {
+//        for i in 0...actionOnTurn.count-1 {
+//            if actionOnTurn[i] > 0 {
+//                switch i {
+//                case Match.skull.rawValue:
+//                    actionArr["Action": SKAction].ape = enemyUnit.animationAttack()
+//                    break
+//                case Match.armor.rawValue: break
+//                case Match.energy.rawValue: break
+//                case Match.attack.rawValue:
+//                    var strongAttack = false
+//                    if actionOnTurn[Match.attack.rawValue] > 3 {
+//                        strongAttack = true
+//                        player.mana += Int(actionOnTurn[Match.attack.rawValue]/2)
+//                        changeManaLabel()
+//                    }
+//                    else {
+//                        strongAttack = false
+//                    }
+//                    actionArr[i] = player.animationAttack(strongAttack: strongAttack)
+//                    break
+//                case Match.poison.rawValue: break
+//                case Match.cog.rawValue: break
+//                default: break
+//                }
+//            }
+//        }
+//
+//
+//        for i in 0...actionOnTurn.count-1 {
+//            actionOnTurn[i] = 0
+//        }
+//    }
+    
+
     
     func positiveWords(number: Int) {
         switch number {

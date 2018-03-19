@@ -48,6 +48,7 @@
 		1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F29202B014100B43E1C /* PlayerStat.swift */; };
 		1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */; };
 		1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2F202B204800B43E1C /* MainMenuViewController.swift */; };
+		1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
 		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
@@ -105,6 +106,7 @@
 		1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BB1FB753E000039960 /* ShadowRin-Attack.atlas */; };
 		1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */; };
 		1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BF1FB835F900039960 /* SpellTexture.xcassets */; };
+		1FC29DCE2057F97B00156B40 /* SpellChanger.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */; };
 		1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */; };
 		1FCECB2720418B5900ECCC57 /* LooseAndWinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */; };
 		1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */; };
@@ -192,6 +194,7 @@
 		1F455F29202B014100B43E1C /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownHallViewController.swift; sourceTree = "<group>"; };
 		1F455F2F202B204800B43E1C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Player-Stand.xcassets"; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
 		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 		1FB431BB1FB753E000039960 /* ShadowRin-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Attack.atlas"; sourceTree = "<group>"; };
 		1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Stand.atlas"; sourceTree = "<group>"; };
 		1FB431BF1FB835F900039960 /* SpellTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellTexture.xcassets; sourceTree = "<group>"; };
+		1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellChanger.xcassets; sourceTree = "<group>"; };
 		1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Walking.atlas"; sourceTree = "<group>"; };
 		1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooseAndWinViewController.swift; sourceTree = "<group>"; };
 		1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EnemyIcon.xcassets; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */,
 				1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */,
 				1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */,
+				1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */,
 				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
 				1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */,
+				1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -855,6 +861,7 @@
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
+				1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */,
 				1F937CF4203AB587003F0C91 /* 0-5.json in Resources */,
 				1F937D0F203EA58C003F0C91 /* 1-13.json in Resources */,
 				1F937D18203EA58C003F0C91 /* 1-4.json in Resources */,
@@ -864,6 +871,7 @@
 				1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */,
 				1F937D1A203EA58C003F0C91 /* 1-6.json in Resources */,
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
+				1FC29DCE2057F97B00156B40 /* SpellChanger.xcassets in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,
 				1F937CF7203C65D8003F0C91 /* 0-6.json in Resources */,
