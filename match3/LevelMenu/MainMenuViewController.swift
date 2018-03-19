@@ -8,13 +8,10 @@
 
 import UIKit
 
-var playerStat: PlayerStat!
-var gameViewController: GameViewController!
-
-var levelStorage = [[String: Any]]()
 
 class MainMenuViewController: UIViewController {
     
+    @IBOutlet weak var tableButton: UIButton!
     @IBOutlet weak var spellChanger: UIButton!
     
     @IBOutlet weak var labelForSpellChanger: UILabel!
@@ -23,6 +20,11 @@ class MainMenuViewController: UIViewController {
 
     @IBOutlet weak var playerImage: UIImageView!
     
+    @IBAction func startLevelButton(_ sender: Any) {
+        
+        
+        
+    }
     
     override func viewDidLoad() {
         
@@ -36,23 +38,23 @@ class MainMenuViewController: UIViewController {
             if playerStat == nil {
                 playerStat = PlayerStat(manaMax: 0, healthMax: 10, armorMax: 5, attack: 1, spellArr: ["Null","Null","Null","Null"])
                 
-                levelStorage = [
-                    ["Name": "Tutorial",
-                     "LvlNow": 1,
-                     "LvlMax": 6,
-                     "Access": true
-                    ],
-                    ["Name": "SteamPunk",
-                     "LvlNow": 1,
-                     "LvlMax": 15,
-                     "Access": false
-                    ],
-                    ["Name": "RandomDungeon",
-                     "LvlNow": 1,
-                     "LvlMax": 0,
-                     "Access": false
-                    ]
-                ]
+//                levelStorage = [
+//                    ["Name": "Tutorial",
+//                     "LvlNow": 1,
+//                     "LvlMax": 6,
+//                     "Access": true
+//                    ],
+//                    ["Name": "SteamPunk",
+//                     "LvlNow": 1,
+//                     "LvlMax": 15,
+//                     "Access": false
+//                    ],
+//                    ["Name": "RandomDungeon",
+//                     "LvlNow": 1,
+//                     "LvlMax": 0,
+//                     "Access": false
+//                    ]
+//                ]
             }
         }
         

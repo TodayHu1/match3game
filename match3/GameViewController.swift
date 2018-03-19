@@ -12,17 +12,53 @@ import SpriteKit
 import GameplayKit
 import GoogleMobileAds
 
+///Враги на уровне
 var loadEnemy: [[String]]!
+
+///Задний фон на уровне
 var loadBg: [String]!
+
+///Размер стола на уровне
 var loadBoardSize: [[Int]]!
+
+///Шанс выпадения матчей на уровне
 var loadMatchChance: [Int]!
+
+///
 var indexLevel = 0
-var lvlNowName: String!
+
+///Уровень сложности
+var lvlDifficulty = 0
+
+///
 var lvlOnReady = 0
+
+///
 var movingScreenNow: MovingScreen!
+
+///Переменная для рекламы
 var ad: GADInterstitial!
+
+///Переменная обозначающая как будет показан уровень
 var scaleMode = SKSceneScaleMode.resizeFill
 
+///Распознование свайпов игрока
+var matchActionGesture = true
+
+///Появление собирающихся матчей после генерации
+var loopOnSpawnMatch = false
+
+///Увеличение доски после победы над врагом
+var boardSizeUp = false
+
+///Параметры игрока (сохраняемый класс)
+var playerStat: PlayerStat!
+
+///Глобальный класс вью контроллер
+var gameViewController: GameViewController!
+
+///Пройденные уровни (сохраняемый класс)
+var levelStorage = [[String: Any]]()
 
 class GameViewController: UIViewController {
     
@@ -59,18 +95,20 @@ class GameViewController: UIViewController {
 
         indexLevel = 0
         
-        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
-
-        lvlNowName = lvlName
+//        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
+//
+//
+//        loadEnemy = dictionary["Enemy"] as! [[String]]
+//        loadBg = dictionary["Bg"] as! [String]
+//        loadMatchChance = dictionary["MatchChance"] as! [Int]
+//        loadBoardSize = dictionary["BoardSize"] as! [[Int]]
         
-        loadEnemy = dictionary["Enemy"] as! [[String]]
-        loadBg = dictionary["Bg"] as! [String]
-        loadMatchChance = dictionary["MatchChance"] as! [Int]
-        loadBoardSize = dictionary["BoardSize"] as! [[Int]]
+        playerStat.attack = 999
+
+        initLevel()
         
         movingScreenNow = MovingScreen()
         movingScreenNow.gameViewController = self
-        movingScreenNow.lvlName = lvlName
         presentScene(scene: movingScreenNow)
         
     }
@@ -270,7 +308,6 @@ class GameViewController: UIViewController {
         
     }
     
-        
     func gameOverScreen() {
         goToView(id: "GameOverScreen")
     }
@@ -293,9 +330,11 @@ class GameViewController: UIViewController {
     func presentScene(scene: SKScene) {
         let sceneView = SKView()
         self.view = sceneView
-//        sceneView.showsFPS = true
-//        sceneView.showsDrawCount = true
-//        sceneView.showsNodeCount = true
+        
+        sceneView.showsFPS = true
+        sceneView.showsDrawCount = true
+        sceneView.showsNodeCount = true
+        
         scene.scaleMode = scaleMode
         sceneView.presentScene(scene)
     }
@@ -311,6 +350,56 @@ class GameViewController: UIViewController {
         } else {
             return .all
         }
+    }
+    
+    ///Веса для врагов
+    let enemyDifficultyArr = [
+        [1, "Stony"],
+        [3, "StoneScale"],
+        [5, "SteamPunkPunch"],
+        [6, "RoyalMage"],
+        [8, "SteamPunkFlameThrower"],
+        [10, "NeutralTurtle"],
+        [13, "CultistsProphet"],
+        [15, "SteamPunkGuard"],
+        [30, "SteamPunkWalker"],
+    ]
+    
+    ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
+    func initLevel() {
+        lvlDifficulty += 1
+        
+        loadEnemy = [[]]
+        
+        var lvlForLoop = lvlDifficulty * 2
+
+        while lvlForLoop > 0  {
+            let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
+            let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
+            if lvlForLoop >= difficultyUnitNow {
+                loadEnemy[0].append(self.enemyDifficultyArr[difficultyIndex][1] as! String)
+                lvlForLoop -= difficultyUnitNow
+            }
+            if loadEnemy[0].count > 4 {
+                loadEnemy[0] = []
+                lvlForLoop = lvlDifficulty
+            }
+        }
+
+//        var lvlForLoop = lvlDifficulty
+//        for i in (0...(enemyDifficultyArr.count)-1).reversed() {
+//            var int: Int = enemyDifficultyArr[i][0] as! Int
+//            while int <= lvlForLoop {
+//                loadEnemy[0].append(self.enemyDifficultyArr[][1] as! String)
+//                lvlForLoop -= int
+//                print("LOOP")
+//            }
+//        }
+        
+        loadBg = [""]
+        print("\(loadEnemy) --- ENEMY ON LEVEL ---- \(lvlDifficulty) --- DIF")
+        loadMatchChance = [35,15,10,35,5]
+        loadBoardSize = [[0,0]]
     }
     
 }

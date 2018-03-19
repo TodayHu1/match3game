@@ -197,7 +197,7 @@ class MovingScreen: SKScene {
 
             removeAll()
             
-            Flurry.logEvent("Victory", withParameters: ["VictoryLvl": lvlNowName])
+            Flurry.logEvent("Victory", withParameters: ["VictoryLvl": lvlDifficulty])
             
             self.gameViewController.victoryScreen()
         }

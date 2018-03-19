@@ -15,6 +15,8 @@ extension GameScene {
 //Dungeon
 //GrassLand
 //SteamPunkBackground
+    
+    
     func initNewClassForEnemy(enemyName: String) -> EnemyUnit {
         
         if enemyName == "Random" {
@@ -53,7 +55,7 @@ extension GameScene {
             case "NeutralTurtle":
                 createEnemyUnit.attack = 2
                 createEnemyUnit.health = 15
-                createEnemyUnit.armor = 25
+                createEnemyUnit.armor = 5
                 createEnemyUnit.size = CGSize(width: 125, height: 115)
                 createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
                 

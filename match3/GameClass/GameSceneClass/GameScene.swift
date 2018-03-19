@@ -49,7 +49,7 @@ class GameScene: SKScene {
         super.init(size: CGSize(width: 375, height: 665))
         
         //Удаляем все ненужное со сцены
-        removeAll()
+        removeAllObject()
         
         //Задаем сцене якорь
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -92,7 +92,7 @@ class GameScene: SKScene {
     }
     
     ///Функция удаляющая со сцены Node, Action и Scene
-    func removeAll() {
+    func removeAllObject() {
         self.removeAllActions()
         self.removeFromParent()
         self.removeAllChildren()
@@ -247,6 +247,9 @@ class GameScene: SKScene {
             self.addChild(uiShadow)
 
         }
+        
+        
+        self.actionGesture(gesture: true)
     }
 
     override func didMove(to view: SKView) {
@@ -288,22 +291,23 @@ class GameScene: SKScene {
         
         fadeInStart()
         
-        switch lvlNowName {
-        case "0-1":
-            self.gameViewController.presentImageTip(imgName: "SwipeToolTip", title: "Swipe")
-        case "0-2":
-            self.gameViewController.presentImageTip(imgName: "SkullToolTip", title: "Attack")
-        case "0-3":
-            self.gameViewController.presentImageTip(imgName: "SkillToolTip", title: "New skill")
-        case "0-4":
-            self.gameViewController.presentImageTip(imgName: "EnergyToolTip", title: "Energy")
-        case "0-5":
-            self.gameViewController.presentImageTip(imgName: "CoinAndArmorToolTip", title: "Coins and Armor")
-        case "0-6":
-            self.gameViewController.presentImageTip(imgName: "SecondSkillToolTip", title: "New skill")
-        default:
-            break
-        }
+        ///Tips on tutorial
+//        switch lvlNowName {
+//        case "0-1":
+//            self.gameViewController.presentImageTip(imgName: "SwipeToolTip", title: "Swipe")
+//        case "0-2":
+//            self.gameViewController.presentImageTip(imgName: "SkullToolTip", title: "Attack")
+//        case "0-3":
+//            self.gameViewController.presentImageTip(imgName: "SkillToolTip", title: "New skill")
+//        case "0-4":
+//            self.gameViewController.presentImageTip(imgName: "EnergyToolTip", title: "Energy")
+//        case "0-5":
+//            self.gameViewController.presentImageTip(imgName: "CoinAndArmorToolTip", title: "Coins and Armor")
+//        case "0-6":
+//            self.gameViewController.presentImageTip(imgName: "SecondSkillToolTip", title: "New skill")
+//        default:
+//            break
+//        }
         
     }
     
@@ -338,18 +342,19 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-//        playerStat.armorNow = player.armor
-//        playerStat.healthNow = player.health
-//        playerStat.manaNow = player.mana
-        playerStat.armorNow = playerStat.armorMax
-        playerStat.healthNow = playerStat.healthMax
-        playerStat.manaNow = playerStat.manaMax
-        removeAll()
+        playerStat.armorNow = player.armor
+        playerStat.healthNow = player.health
+        playerStat.manaNow = player.mana
+//        playerStat.armorNow = playerStat.armorMax
+//        playerStat.healthNow = playerStat.healthMax
+//        playerStat.manaNow = playerStat.manaMax
+        removeAllObject()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }
     
     func gameOverScreen() {
-        Flurry.logEvent("DeathBy", withParameters: ["Lvl": lvlNowName, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]])
+        Flurry.logEvent("DeathBy", withParameters: ["Lvl": lvlDifficulty, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]])
+        removeAllObject()
         self.gameViewController.gameOverScreen()
     }
     

@@ -11,11 +11,8 @@ import SceneKit
 import SpriteKit
 import GameplayKit
 
-var actionArr = [[String: Any]]()
 
-var matchActionGesture = true
-var loopOnSpawnMatch = false //Появление собирающихся матчей после генерации
-var boardSizeUp = false //Увеличение доски после победы над врагом
+
 
 extension GameScene {
     
