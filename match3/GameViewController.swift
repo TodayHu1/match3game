@@ -107,6 +107,7 @@ class GameViewController: UIViewController {
 
         initLevel()
         
+        
         movingScreenNow = MovingScreen()
         movingScreenNow.gameViewController = self
         presentScene(scene: movingScreenNow)
@@ -195,18 +196,58 @@ class GameViewController: UIViewController {
     
     ///Показать окно с выбором перка
     func presentChooseWindow() {
-        let frameWidth = 320
-        let frameHeight = 475
+        
+        print("CHOOSE")
+        
+        let frameWidth = 200
+        let frameHeight = 60
         
         let viewx = UIView()
         viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
-        viewx.tag = 252
+//        viewx.tag = 341
         
         
         let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         testView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
-        testView.layer.cornerRadius = 20
+        testView.layer.cornerRadius = 10
         testView.clipsToBounds = true
+        
+        
+        let label = UILabel()
+        label.frame = CGRect(x: 25, y: 10, width: frameWidth - 50, height: 40)
+        label.text = "ДАРОВА"
+        label.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        label.textAlignment = .center
+        //        label.shadowColor = .white
+        //        label.shadowOffset.height = 1
+        label.font = UIFont(name: "Munro", size: 30)
+        
+        
+        viewx.addSubview(testView)
+        viewx.addSubview(label)
+        
+        self.view.addSubview(viewx)
+        
+        
+        UIView.animate(withDuration: 1, delay: 0.25, animations: {
+            viewx.center.x = self.view.center.x
+            viewx.center.y = self.view.center.y
+        }) { _ in
+            UIView.animate(withDuration: 1, animations: {
+                viewx.center.y += 20
+            }) { _ in
+                UIView.animate(withDuration: 1, animations: {
+                    viewx.alpha = 0
+                }) {_ in
+                    UIView.animate(withDuration: 0.1, animations: {
+//                        self.removeSubViewByTag(tag: 341)
+                    })
+                }
+            }
+        }
+        
+        
+        
     }
     
     ///Показать окно подсказки с картинкой

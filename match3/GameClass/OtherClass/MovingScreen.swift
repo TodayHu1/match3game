@@ -186,14 +186,14 @@ class MovingScreen: SKScene {
         
         if indexLevel >= loadEnemy.count {
             print("\(indexLevel)----------------WIN---------------- >= \(loadEnemy.count)")
-            var lvlNow = levelStorage[lvlOnReady]["LvlNow"] as! Int
-            let lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
-            if lvlNow > lvlMax {
-                lvlNow = lvlMax
-            }
-            else {
-                levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
-            }
+//            var lvlNow = levelStorage[lvlOnReady]["LvlNow"] as! Int
+//            let lvlMax = levelStorage[lvlOnReady]["LvlMax"] as! Int
+//            if lvlNow > lvlMax {
+//                lvlNow = lvlMax
+//            }
+//            else {
+//                levelStorage[lvlOnReady]["LvlNow"] = lvlNow + 1
+//            }
 
             removeAll()
             

@@ -10,6 +10,8 @@ import UIKit
 import GoogleMobileAds
 
 class LooseAndWinViewController: UIViewController {
+    
+    var gameVC: GameViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,10 +48,15 @@ class LooseAndWinViewController: UIViewController {
     
 
     override func viewWillAppear(_ animated: Bool) {
-        if (levelStorage[1]["Access"] as! Bool) == true {
-            showAD()
-        }
+//        if (levelStorage[1]["Access"] as! Bool) == true {
+//            showAD()
+//        }
+        print("CHOOSE -")
     }
     
-
+    @IBAction func refreshEnemyButton(_ sender: Any) {
+        playerStat = PlayerStat(manaMax: 0, healthMax: 10, armorMax: 5, attack: 1, spellArr: ["Null","Null","Null","Null"])
+        lvlDifficulty = 0
+    }
+    
 }

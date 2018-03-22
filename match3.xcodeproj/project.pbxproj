@@ -49,6 +49,9 @@
 		1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */; };
 		1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2F202B204800B43E1C /* MainMenuViewController.swift */; };
 		1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */; };
+		1F5B8FBA20623D460046480D /* SelectPerkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB920623D460046480D /* SelectPerkViewController.swift */; };
+		1F5B8FBC20628F710046480D /* ShieldPerk.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */; };
+		1F5B8FBE2062C0840046480D /* RingPerk.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBD2062C0840046480D /* RingPerk.xcassets */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
 		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
@@ -195,6 +198,9 @@
 		1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownHallViewController.swift; sourceTree = "<group>"; };
 		1F455F2F202B204800B43E1C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Player-Stand.xcassets"; sourceTree = "<group>"; };
+		1F5B8FB920623D460046480D /* SelectPerkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPerkViewController.swift; sourceTree = "<group>"; };
+		1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShieldPerk.xcassets; sourceTree = "<group>"; };
+		1F5B8FBD2062C0840046480D /* RingPerk.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RingPerk.xcassets; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
 		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
@@ -539,6 +545,8 @@
 				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
 				1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */,
 				1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */,
+				1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */,
+				1F5B8FBD2062C0840046480D /* RingPerk.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -675,6 +683,7 @@
 				1F455F2F202B204800B43E1C /* MainMenuViewController.swift */,
 				1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */,
 				1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */,
+				1F5B8FB920623D460046480D /* SelectPerkViewController.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -885,8 +894,10 @@
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
+				1F5B8FBE2062C0840046480D /* RingPerk.xcassets in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
 				1F1D5994203052A80024EB0A /* 1-1.json in Resources */,
+				1F5B8FBC20628F710046480D /* ShieldPerk.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
 				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
@@ -1108,6 +1119,7 @@
 				1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */,
 				1FB1A15A1F009BF0004EEA96 /* GS_Match.swift in Sources */,
 				1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */,
+				1F5B8FBA20623D460046480D /* SelectPerkViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

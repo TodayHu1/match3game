@@ -348,6 +348,7 @@ class GameScene: SKScene {
 //        playerStat.armorNow = playerStat.armorMax
 //        playerStat.healthNow = playerStat.healthMax
 //        playerStat.manaNow = playerStat.manaMax
+
         removeAllObject()
         self.gameViewController.presentScene(scene: movingScreenNow)
     }
