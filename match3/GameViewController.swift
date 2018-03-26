@@ -21,7 +21,14 @@ var loadBg: [String]!
 ///Размер стола на уровне
 var loadBoardSize: [[Int]]!
 
-///Шанс выпадения матчей на уровне
+/// Шанс выпадения матчей на уровне.
+///
+/// Значения индексов:
+/// - Череп
+/// - Броня
+/// - Мана
+/// - Атака
+/// - Голда
 var loadMatchChance: [Int]!
 
 ///
@@ -59,6 +66,9 @@ var gameViewController: GameViewController!
 
 ///Пройденные уровни (сохраняемый класс)
 var levelStorage = [[String: Any]]()
+
+///Статы героя при старте
+let playerStatOnInit = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 50, attack: 10, spellArr: ["Null","Null","Null","Null"])
 
 class GameViewController: UIViewController {
     
@@ -102,11 +112,8 @@ class GameViewController: UIViewController {
 //        loadBg = dictionary["Bg"] as! [String]
 //        loadMatchChance = dictionary["MatchChance"] as! [Int]
 //        loadBoardSize = dictionary["BoardSize"] as! [[Int]]
-        
-        playerStat.attack = 999
 
         initLevel()
-        
         
         movingScreenNow = MovingScreen()
         movingScreenNow.gameViewController = self
@@ -362,7 +369,7 @@ class GameViewController: UIViewController {
         if let storyboard = storyboard {
             print(storyboard)
             let toMainMenu = storyboard.instantiateViewController(withIdentifier: id) as! LooseAndWinViewController
-            navigationController?.pushViewController(toMainMenu, animated: true)
+            navigationController?.pushViewController(toMainMenu, animated: false)
 
         }
     }
@@ -427,15 +434,6 @@ class GameViewController: UIViewController {
             }
         }
 
-//        var lvlForLoop = lvlDifficulty
-//        for i in (0...(enemyDifficultyArr.count)-1).reversed() {
-//            var int: Int = enemyDifficultyArr[i][0] as! Int
-//            while int <= lvlForLoop {
-//                loadEnemy[0].append(self.enemyDifficultyArr[][1] as! String)
-//                lvlForLoop -= int
-//                print("LOOP")
-//            }
-//        }
         
         loadBg = [""]
         print("\(loadEnemy) --- ENEMY ON LEVEL ---- \(lvlDifficulty) --- DIF")

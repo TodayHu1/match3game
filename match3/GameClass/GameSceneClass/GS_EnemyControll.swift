@@ -73,7 +73,7 @@ extension GameScene {
                     case Match.skull.rawValue:
                         enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[Match.skull.rawValue])
                     case Match.armor.rawValue:
-                        player.armor += actionOnTurn[Match.armor.rawValue] * 2
+                        player.armor += actionOnTurn[Match.armor.rawValue] * 5
                         positiveWords(number: actionOnTurn[Match.armor.rawValue])
                     case Match.energy.rawValue:
                         player.mana += actionOnTurn[Match.energy.rawValue]
@@ -101,7 +101,7 @@ extension GameScene {
                     case Match.poison.rawValue:
                         player.health -= actionOnTurn[Match.poison.rawValue]
                     case Match.cog.rawValue:
-                        enemyUnit.armor += 6
+                        enemyUnit.armor += 25
                     default: break
                 }
             }

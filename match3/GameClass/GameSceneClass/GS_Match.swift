@@ -55,7 +55,9 @@ extension GameScene {
         let shield = matchChance[1]
         let lightning = matchChance[2]
         let sword = matchChance[3]
-        let coin = matchChance[4] 
+        let coin = matchChance[4]
+        
+        print("MATCH CHANSE ___ NOW \(matchChance)" )
 
         switch randomNumber {
         // Череп
@@ -76,6 +78,7 @@ extension GameScene {
         default:
             return Match.chain
         }
+        
     }
         
     public func durationTime() -> Double {
@@ -86,7 +89,7 @@ extension GameScene {
         swipeAnimationLeft(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             self.matchTypeOnTable[index].remove(at: 0)
-            self.matchTypeOnTable[index].append(self.customRandom(matchChance: loadMatchChance))
+            self.matchTypeOnTable[index].append(self.customRandom(matchChance: self.matchChance))
             self.matchAnimationPulseRevers(i: index, j: self.matchBoard.horizontalCount-1)
         }
     }
@@ -95,7 +98,7 @@ extension GameScene {
         swipeAnimationRight(index: index)
         DispatchQueue.main.asyncAfter(deadline: .now() + durationTime()) {
             self.matchTypeOnTable[index].remove(at: self.matchBoard.horizontalCount-1)
-            self.matchTypeOnTable[index].insert(self.customRandom(matchChance: loadMatchChance), at: 0)
+            self.matchTypeOnTable[index].insert(self.customRandom(matchChance: self.matchChance), at: 0)
             self.matchAnimationPulseRevers(i: index, j: 0)
         }
     }
@@ -106,7 +109,7 @@ extension GameScene {
             for i in (1...self.matchBoard.verticalCount-1).reversed() {
                 self.matchTypeOnTable[i][index] = self.matchTypeOnTable[i-1][index]
             }
-            self.matchTypeOnTable[0][index] = self.customRandom(matchChance: loadMatchChance)
+            self.matchTypeOnTable[0][index] = self.customRandom(matchChance: self.matchChance)
             self.matchAnimationPulseRevers(i: 0, j: index)
         }
     }
@@ -117,7 +120,7 @@ extension GameScene {
             for i in 0...self.matchBoard.verticalCount-2 {
                 self.matchTypeOnTable[i][index] = self.matchTypeOnTable[i+1][index]
             }
-            self.matchTypeOnTable[self.matchBoard.verticalCount-1][index] = self.customRandom(matchChance: loadMatchChance)
+            self.matchTypeOnTable[self.matchBoard.verticalCount-1][index] = self.customRandom(matchChance: self.matchChance)
             self.matchAnimationPulseRevers(i: self.matchBoard.verticalCount-1, j: index)
         }
     }

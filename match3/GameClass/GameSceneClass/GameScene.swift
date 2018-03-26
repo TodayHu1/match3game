@@ -35,9 +35,13 @@ class GameScene: SKScene {
     private var lastTouch = CGPoint(x:1,y:1)
     var player: Player!
     var enemyUnit: EnemyUnit!
+    
+    ///Спеллы персонажа
     var spellBoard = [Spell]()
     var actionOnTurn = [Int](repeating: 0, count: 0 + 1)
     var enemyOnLevelArr = [String]()
+    
+    ///Шанс выпадения матчей
     var matchChance: [Int]!
     
 
@@ -68,6 +72,9 @@ class GameScene: SKScene {
         
         //Инициализируем текстуры для матчей
         self.initMatchTexture()
+        
+        //Инициализирует шанс появления матчей
+        self.matchChance = loadMatchChance
         
         //Инициализируем массив для хранения собранных матчей
         self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)

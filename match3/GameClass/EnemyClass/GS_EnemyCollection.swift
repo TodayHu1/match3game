@@ -64,13 +64,14 @@ extension GameScene {
                 createEnemyUnit.health = 50
                 createEnemyUnit.armor = 100
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
-                createEnemyUnit.specialAbilities["SkullOnBoard"] = 1
+                createEnemyUnit.specialAbilities["SkullOnBoard"] = 2
                 
             case "Stony":
                 createEnemyUnit.attack = 10
                 createEnemyUnit.health = 50
                 createEnemyUnit.armor = 50
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
+                createEnemyUnit.specialAbilities["PoisonOnBoard"] = 1
 
             case "RoyalMage":
                 createEnemyUnit.attack = 20

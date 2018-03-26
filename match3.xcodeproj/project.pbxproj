@@ -48,6 +48,7 @@
 		1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F29202B014100B43E1C /* PlayerStat.swift */; };
 		1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */; };
 		1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2F202B204800B43E1C /* MainMenuViewController.swift */; };
+		1F4BC6172068D092006BA648 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BC6162068D092006BA648 /* Item.swift */; };
 		1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */; };
 		1F5B8FBA20623D460046480D /* SelectPerkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB920623D460046480D /* SelectPerkViewController.swift */; };
 		1F5B8FBC20628F710046480D /* ShieldPerk.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */; };
@@ -197,6 +198,7 @@
 		1F455F29202B014100B43E1C /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownHallViewController.swift; sourceTree = "<group>"; };
 		1F455F2F202B204800B43E1C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		1F4BC6162068D092006BA648 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Player-Stand.xcassets"; sourceTree = "<group>"; };
 		1F5B8FB920623D460046480D /* SelectPerkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPerkViewController.swift; sourceTree = "<group>"; };
 		1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShieldPerk.xcassets; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				1F9C4B971FCEB1EF0090714E /* MovingScreen.swift */,
 				1F455F29202B014100B43E1C /* PlayerStat.swift */,
 				1F88DE0C2031AFC4005257A5 /* Extension.swift */,
+				1F4BC6162068D092006BA648 /* Item.swift */,
 			);
 			path = OtherClass;
 			sourceTree = "<group>";
@@ -1113,6 +1116,7 @@
 				1FCECB2720418B5900ECCC57 /* LooseAndWinViewController.swift in Sources */,
 				1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */,
 				1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */,
+				1F4BC6172068D092006BA648 /* Item.swift in Sources */,
 				1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */,
 				1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */,
 				32280FAA1FB9570600F954B1 /* PageViewController.swift in Sources */,

@@ -10,6 +10,39 @@ import Foundation
 
 class PlayerStat: NSObject, NSCoding {
     
+    ///Текущий запас маны
+    var manaNow = 0
+    
+    ///Максимальный запас маны
+    var manaMax = 0
+    
+    ///Текущий запас хп
+    var healthNow = 0
+    
+    ///Максимальный запас хп
+    var healthMax = 0
+    
+    ///Текущий запас брони
+    var armorNow = 0
+    
+    ///Максимальный запас брони
+    var armorMax = 0
+    
+    ///Атака персонажа
+    var attack = 0
+    
+    ///Количество золота у персонажа
+    var gold = 0
+    
+    ///Активные способности
+    var spellOnBoard = ["Null","Null","Null","Null"]
+    
+    ///Нужно ли обнулить прогресс игрока?
+    var needRevive = false
+    
+    ///Способности в рюкзаке (можно сделать активными)
+    var spellInBag = [String]()
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(manaNow, forKey: "manaNow")
         aCoder.encode(manaMax, forKey: "manaMax")
@@ -58,24 +91,7 @@ class PlayerStat: NSObject, NSCoding {
         self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr, spellInBag: spellInBag)
     }
     
-    var manaNow = 0
-    var manaMax = 0
-    
-    var healthNow = 0
-    var healthMax = 0
-    
-    var armorNow = 0
-    var armorMax = 0
-    
-    var attack = 0
-    
-    var gold = 0
-    
-    var spellOnBoard = ["Null","Null","Null","Null"]
-    
-    var spellInBag = [String]()
-    
-    ///Полная инициализация класса
+    ///Полная инициализация персонажа
     init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String], spellInBag: [String]) {
         
         print("ПОЛНАЯ ИНИЦ \(armorMax)")
@@ -96,6 +112,7 @@ class PlayerStat: NSObject, NSCoding {
         self.spellInBag = spellInBag
     }
     
+    ///Краткая инициализация персонажа (для полного обнуления)
     init(manaMax: Int, healthMax: Int, armorMax: Int, attack: Int, spellArr: [String]) {
         
         print("МАХ ИНИЦ \(armorMax)")
@@ -107,10 +124,35 @@ class PlayerStat: NSObject, NSCoding {
         
         self.spellOnBoard = spellArr
         
+        self.spellInBag = []
+        
         self.manaNow = manaMax
         self.healthNow = healthMax
         self.armorNow = armorMax
         
         self.gold = 0
+    }
+    
+    ///Функция добавления новой способности к персонажу
+    func addSpell(newSpell: String) {
+        
+        var addSpell = false
+
+        for i in 0...3 {
+            print(spellOnBoard[i])
+            if (spellOnBoard[i] == "Null" && addSpell == false) {
+                spellOnBoard[i] = newSpell
+                addSpell = true
+                print("СПЕЛЛ ДОБАВЛЕН НА БОРД")
+            }
+        }
+        
+        if addSpell == false {
+            spellInBag.append(newSpell)
+            addSpell = true
+            print("СПЕЛЛ ДОБАВЛЕН В РЮКЗАК")
+        }
+        
+        
     }
 }

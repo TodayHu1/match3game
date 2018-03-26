@@ -8,58 +8,54 @@
 
 import UIKit
 
-class Item {
-    
-    var armor: Int = 0
-    var health: Int = 0
-    var attack: Int = 0
-    var mana: Int = 0
-    
-    var img: String = ""
-    var name: String = ""
-    var description: String = ""
-    
-    var vampirism: Int = 0
-    var evasion: Int = 0
-    var critacal: Int = 0
-    var blockDamage: Int = 0
-    
-    var spell: Spell!
-    
-    
-    ///Инициализация для предмета
-    init(armor: Int, health: Int, attack: Int, mana: Int, img: String, name: String, description: String) {
-        self.armor = armor
-        self.health = health
-        self.attack = attack
-        self.mana = mana
-
-        self.img = img
-        self.name = name
-        self.description = description
-    }
-
-//    ///Инициализация для пассивной способности
-//    init (vampirism: Int, evasion: Int, critacal: Int, blockDamage: Int, img: String, name: String, description: String) {
-//        self.img = img
-//        self.name = name
-//        self.description = description
-//    }
-//
-    ///Инициализация для активной способности
-    init (name: String) {
-        let gameScene = GameScene()
-        spell = gameScene.spellBook(skillName: name, spellIndex: 0)
-        
-        self.img = "Spell\(name)"
-        self.name = "[Spell] \(name)"
-        self.description = spell.skillDescription
-    }
-}
-
 class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    ///Количество предметов для выбора игроком
+    var countOfSelectedItem = 5
+    
+    ///Выбранный итем
+    var selectedItem = -1
+    
+    ///Массив для всех итемов
+    var allPerk = [Item]()
+    
+    ///Массив для выбора итемов игроком
+    var perkOnBoard = [Item]()
+    
+    ///Цвет активной ячейки
+    var activeCellColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+    
+    ///Таблица
     @IBOutlet weak var tableView: UITableView!
+    
+    ///Кнопка выбора предмета (объект)
+    @IBOutlet weak var getItemButtomObject: UIButton!
+    
+    ///Кнопка выбора предмета (действие)
+    @IBAction func getItemButton(_ sender: Any) {
+        
+        ///Выбранный предмет
+        let item = perkOnBoard[selectedItem]
+        
+        switch item.type {
+        case .item:
+            playerStat.attack += item.attack
+            
+            playerStat.healthMax += item.health
+            playerStat.healthNow += item.health
+            
+            playerStat.armorMax += item.armor
+            playerStat.armorNow += item.armor
+            
+            playerStat.manaMax += item.mana
+            playerStat.manaNow += item.mana
+        case .spell:
+            playerStat.addSpell(newSpell: item.spellName)
+        default:
+            break
+        }
+
+    }
     
     ///Перки с броней
     let armorArr = [
@@ -75,6 +71,7 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: 66, health: -15, attack: 0, mana: 0, img: "DarkRedShield", name: "Great blood Armor", description: "get 66 armor but minus 15 health"),
     ]
 
+    ///Перки с кольцами
     let ringArr = [
         Item.init(armor: 0, health: 0, attack: 5, mana: 0, img: "RedRing", name: "Ring of attack", description: "get 5 attack"),
         Item.init(armor: 0, health: 0, attack: 0, mana: 10, img: "PurpleRing", name: "Ring of energy", description: "get 10 mana"),
@@ -86,45 +83,53 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: 0, health: 0, attack: 10, mana: 0, img: "RedGreatRing", name: "Great ring of attack", description: "get 10 attack"),
     ]
 
+    ///Перки с способностями
     let spellArr = [
         Item.init(name: "SkullJail"),
         Item.init(name: "FirstAid"),
         Item.init(name: "HeartAttack"),
         Item.init(name: "Nemesis"),
     ]
+    
+//    let rareItemArr = [
+//        Item.init(vampirism: 0, evasion: 0, critacal: 0, blockDamage: 0, img: "DarkRedRing", name: "Test of fate", description: "get 10 health when you attack")
+//    ]
+//
+//    let legendaryItemArr = [
+//        Item.init(img: "DarkRedShield", name: "Blood to blood", description: "you have 10% to instantly kill enemy unit")
+//    ]
 
     
-    var allPerk = [Item]()
-    
-    ///Цвет активной ячейки
-    var activeCellColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
-
-    
+    ///Высота ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
     
+    ///Количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("\(allPerk.count) --- ALL ITEM")
-        return 3
+        return countOfSelectedItem
     }
     
+    ///Инициализация ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "cell"
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
 
-        
-        let item = allPerk[Int(arc4random_uniform(UInt32(allPerk.count)))]
-//        let item = allPerk[indexPath.row]
+        let item = perkOnBoard[indexPath.row]
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 0
+        
+        let name = item.name
+        let nameAttr = NSMutableAttributedString(string: name)
+        nameAttr.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, nameAttr.length))
         
         let desc = item.description
         let attrString = NSMutableAttributedString(string: desc)
         attrString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attrString.length))
         
-        cell.textLabel?.text = item.name
+        cell.textLabel?.attributedText = setColoredType(oldString: nameAttr)
         cell.textLabel?.font = UIFont(name: "Munro", size: 20)
         cell.textLabel?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
 
@@ -137,16 +142,37 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.detailTextLabel?.attributedText = setColoredLabel(oldString: attrString)
         
         
-        cell.backgroundColor = activeCellColor
+        cell.selectionStyle = .none
+        
+        cell.backgroundColor = .clear
         
 
         
         return cell
     }
     
+    ///Действие выделения ячейки
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.contentView.backgroundColor = #colorLiteral(red: 0.852553934, green: 0.7496075061, blue: 0.48592712, alpha: 0.3444456336)
+        selectedItem = indexPath.row
+        print("INDEX PATH ---\(selectedItem)")
+        
+        if selectedItem != -1 {
+            getItemButtomObject.isEnabled = true
+        }
+    }
+    
+    ///Действия снятие выделения ячейки
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.contentView.backgroundColor = .clear
+    }
+    
+    ///Раскраска слов для описания
     func setColoredLabel(oldString: NSMutableAttributedString) -> NSAttributedString {
-        oldString.setColorForText("skull", with: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
-        oldString.setColorForText("skulls", with: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
+        oldString.setColorForText("skull", with: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        oldString.setColorForText("skulls", with: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
         
         oldString.setColorForText("chain", with: #colorLiteral(red: 0.8039215803, green: 0.7653677631, blue: 0.6309106803, alpha: 1))
         oldString.setColorForText("chains", with: #colorLiteral(red: 0.8039215803, green: 0.7653677631, blue: 0.6309106803, alpha: 1))
@@ -173,28 +199,17 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         return oldString
     }
     
-    struct PerkStat {
-        var armor: Int
-        var health: Int
-        var attack: Int
-        var mana: Int
+    ///Раскраска слов для описания типов предметов
+    func setColoredType(oldString: NSMutableAttributedString) -> NSAttributedString {
+        oldString.setColorForText("[Item]", with: #colorLiteral(red: 0.3698635356, green: 0.6549809645, blue: 0.1954145382, alpha: 1))
         
-        var img: String
+        oldString.setColorForText("[Rare]", with: #colorLiteral(red: 0.4745061458, green: 0.6789573384, blue: 1, alpha: 1))
         
-        var name: String
-        var description: String
-    }
-    
-    struct PerkPassive {
-        var vampirism: Int
-        var evasion: Int
-        var critacal: Int
-        var blockDamage: Int
+        oldString.setColorForText("[Legendary]", with: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
         
-        var img: String
+        oldString.setColorForText("[Spell]", with: #colorLiteral(red: 0.670138375, green: 0.5150590541, blue: 0.9686274529, alpha: 1))
         
-        var name: String
-        var description: String
+        return oldString
     }
 
     
@@ -209,6 +224,14 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         allPerk += armorArr
         allPerk += ringArr
         allPerk += spellArr
+//        allPerk += rareItemArr
+//        allPerk += legendaryItemArr
+        
+        for _ in 0...countOfSelectedItem-1 {
+            perkOnBoard.append(allPerk[Int(arc4random_uniform(UInt32(allPerk.count)))])
+        }
+        
+        tableView.separatorStyle = .none
 
     }
 
@@ -216,16 +239,5 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

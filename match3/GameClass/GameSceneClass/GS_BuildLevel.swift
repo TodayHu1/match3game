@@ -16,31 +16,45 @@ extension GameScene {
     func buildLevel(hardBuild: Bool) {
         if hardBuild {
             print("HARD BUILD")
-            clearMatchTable()
             creatMatchTable()
         }
         else {
             print("SOFT BUILD")
             changeTextureMatchTable()
+            changeChanse()
         }
     }
     
-    
-    ///Функция очищающая матчи на доске
-    func clearMatchTable() {
-//        for i in 0...matchBoard.verticalCount-1 {
-//            for j in 0...matchBoard.horizontalCount-1 {
-//                for matchNode in self.children {
-//                    if matchNode.name == "Match" + String(i) + String(j) {
-//                        if let matchNode = matchNode as? SKSpriteNode {
-//                            matchNode.removeAllActions()
-//                            matchNode.removeAllChildren()
-//                            matchNode.removeFromParent()
-//                        }
-//                    }
-//                }
-//            }
-//        }
+    ///Регулирует шанс выпадения матчей в зависимости от количества черепов
+    func changeChanse() {
+        ///Количество матчей черепов на доске
+        var skullCount = 0
+        
+        ///Всего матчей на доске
+        let allCount = matchBoard.numberOfMatch
+        
+        ///Стандартный шанс выпадения матчей
+        let standartChance = loadMatchChance
+        
+        ///Уменьшенный шанс выпадения черепов
+        let skullLessChance = [15,20,15,45,5]
+        
+        for i in 0...matchBoard.verticalCount-1 {
+            for j in 0...matchBoard.horizontalCount-1 {
+                if matchTypeOnTable[i][j] == .skull {
+                    skullCount += 1
+                }
+            }
+        }
+        
+        if Int(allCount/4) < skullCount {
+            self.matchChance = skullLessChance
+            print("MATCH CHANSE \(Int(allCount/4))___\(skullCount) SKULL LESS")
+        }
+        else {
+            self.matchChance = standartChance
+            print("MATCH CHANSE \(Int(allCount/4))___\(skullCount) STANDART")
+        }
     }
     
     ///Функция создающая матчи на доске

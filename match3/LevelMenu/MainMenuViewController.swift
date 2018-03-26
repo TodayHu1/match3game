@@ -17,7 +17,8 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var labelForSpellChanger: UILabel!
     @IBOutlet weak var labelForTable: UILabel!
     
-
+    @IBOutlet weak var stageLabel: UILabel!
+    
     @IBOutlet weak var playerImage: UIImageView!
     
     @IBAction func startLevelButton(_ sender: Any) {
@@ -26,37 +27,60 @@ class MainMenuViewController: UIViewController {
         
     }
     
+    
+    
     override func viewDidLoad() {
+        
+        stageLabel.text = String(lvlDifficulty)
         
         if gameViewController == nil {
             gameViewController = GameViewController()
         }
 
-
         if playerStat == nil {
             gameViewController.loadGameProgress()
-            if playerStat == nil {
-                playerStat = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 50, attack: 10, spellArr: ["Null","Null","Null","Null"])
-                
-//                levelStorage = [
-//                    ["Name": "Tutorial",
-//                     "LvlNow": 1,
-//                     "LvlMax": 6,
-//                     "Access": true
-//                    ],
-//                    ["Name": "SteamPunk",
-//                     "LvlNow": 1,
-//                     "LvlMax": 15,
-//                     "Access": false
-//                    ],
-//                    ["Name": "RandomDungeon",
-//                     "LvlNow": 1,
-//                     "LvlMax": 0,
-//                     "Access": false
-//                    ]
-//                ]
+            print("MAIN __ LOAD")
+        }
+        else {
+            if playerStat.needRevive == true {
+                playerStat = nil
+                playerStat = playerStatOnInit
+                playerStat.needRevive = false
+                print("MAIN __ REVIVE")
+                gameViewController.saveGameProgress()
+            }
+            else {
+//                playerStat = playerStatOnInit
+                gameViewController.saveGameProgress()
+                print("MAIN __ ALREADY PLAY")
             }
         }
+        
+        
+//        if playerStat == nil {
+//
+//            if playerStat == nil {
+//                playerStat = playerStatOnInit
+//
+////                levelStorage = [
+////                    ["Name": "Tutorial",
+////                     "LvlNow": 1,
+////                     "LvlMax": 6,
+////                     "Access": true
+////                    ],
+////                    ["Name": "SteamPunk",
+////                     "LvlNow": 1,
+////                     "LvlMax": 15,
+////                     "Access": false
+////                    ],
+////                    ["Name": "RandomDungeon",
+////                     "LvlNow": 1,
+////                     "LvlMax": 0,
+////                     "Access": false
+////                    ]
+////                ]
+//            }
+//        }
         
         print("\(playerStat.armorNow) --- PLAYER STAT")
         
