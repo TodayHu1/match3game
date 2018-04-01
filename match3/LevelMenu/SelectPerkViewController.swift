@@ -91,6 +91,26 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "Nemesis"),
     ]
     
+    ///Мусорные предметы
+    let trashArr = [
+        Item.init(armor: 2, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken sheild", description: "get 2 armor"),
+        Item.init(armor: 1, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken ring", description: "get 1 armor"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 2, img: "Trash", name: "Energy shard", description: "get 2 mana"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 1, img: "Trash", name: "Empty mana potion", description: "get 1 mana"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Spike", description: "get 1 attack"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Pice of sword", description: "get 1 attack"),
+        Item.init(armor: 0, health: 1, attack: 0, mana: 0, img: "Trash", name: "Empty health potion", description: "get 1 health"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Empty poison potion", description: "get 1 attack"),
+    ]
+    
+    let beltArr = [
+        Item.init(armor: 0, health: 35, attack: 0, mana: 0, img: "BeltGold", name: "Strong belt", description: "gain 35 health"),
+        Item.init(armor: 10, health: 20, attack: 0, mana: 0, img: "BeltSilver", name: "Heavy belt", description: "gain 10 armor, 20 health"),
+        Item.init(armor: 15, health: 30, attack: 0, mana: -15, img: "BeltGreen", name: "Warchief belt", description: "gain 15 armor, 30 health, lose 15 mana"),
+        Item.init(armor: 5, health: 15, attack: 0, mana: 5, img: "BeltDark", name: "Enchanted belt", description: "gain 5 armor, 15 health, 5 mana"),
+        Item.init(armor: 0, health: 10, attack: 5, mana: -5, img: "BeltGray", name: "Snaky belt", description: "gain 10 health, 5 attack, lose 5 mana")
+    ]
+    
 //    let rareItemArr = [
 //        Item.init(vampirism: 0, evasion: 0, critacal: 0, blockDamage: 0, img: "DarkRedRing", name: "Test of fate", description: "get 10 health when you attack")
 //    ]
@@ -224,6 +244,8 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         allPerk += armorArr
         allPerk += ringArr
         allPerk += spellArr
+        allPerk += beltArr
+        allPerk += trashArr
 //        allPerk += rareItemArr
 //        allPerk += legendaryItemArr
         

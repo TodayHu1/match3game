@@ -19,6 +19,7 @@
 		1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */; };
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
+		1F0DD3762071248C005AE925 /* BeltItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0DD3752071248C005AE925 /* BeltItem.xcassets */; };
 		1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -162,6 +163,7 @@
 		1F00B7081FAF588300C002B3 /* SteamPunkWalker-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Attack.atlas"; sourceTree = "<group>"; };
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
+		1F0DD3752071248C005AE925 /* BeltItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BeltItem.xcassets; sourceTree = "<group>"; };
 		1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-StrongAttack.atlas"; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -346,6 +348,16 @@
 				1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */,
 			);
 			path = SteamPunkWalker;
+			sourceTree = "<group>";
+		};
+		1F0DD37420712470005AE925 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				1F5B8FBD2062C0840046480D /* RingPerk.xcassets */,
+				1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */,
+				1F0DD3752071248C005AE925 /* BeltItem.xcassets */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
@@ -535,6 +547,7 @@
 		1FB431B41FB5B28D00039960 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1F0DD37420712470005AE925 /* Item */,
 				1F901CC52052C90000BDC566 /* ManaPool.atlas */,
 				1F937CE7203730DA003F0C91 /* LevelIcon.xcassets */,
 				1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */,
@@ -547,8 +560,6 @@
 				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
 				1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */,
 				1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */,
-				1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */,
-				1F5B8FBD2062C0840046480D /* RingPerk.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -913,6 +924,7 @@
 				1F937CD52032CB5E003F0C91 /* NeutralTurtle-Stand.atlas in Resources */,
 				1F00B7061FADBC8900C002B3 /* Heart.sks in Resources */,
 				1F937D10203EA58C003F0C91 /* 1-14.json in Resources */,
+				1F0DD3762071248C005AE925 /* BeltItem.xcassets in Resources */,
 				1F937CEF2039EFCC003F0C91 /* ToolTip.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

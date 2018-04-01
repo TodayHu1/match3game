@@ -43,6 +43,27 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         allPlayerSpell += playerStat.spellInBag
         
         var reworkArr = [String]()
+        
+        for i in (0...playerStat.spellOnBoard.count-1).reversed() {
+            for j in (0...playerStat.spellOnBoard.count-1).reversed() {
+                if i != j {
+                    if playerStat.spellOnBoard[i] == playerStat.spellOnBoard[j] {
+                        playerStat.spellOnBoard[i] = "Null"
+                    }
+                }
+            }
+        }
+        
+        for i in 0...allPlayerSpell.count-1 {
+            for j in 0...allPlayerSpell.count-1 {
+                if i != j {
+                    if allPlayerSpell[i] == allPlayerSpell[j] {
+                        allPlayerSpell[i] = "Null"
+                    }
+                }
+            }
+        }
+        
         for i in 0...allPlayerSpell.count-1 {
             print("\(allPlayerSpell[i]) ---------")
             if allPlayerSpell[i] != "Null" {
@@ -52,7 +73,11 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableSpell.separatorStyle = .none
         
+
+        
         allPlayerSpell = reworkArr
+        
+        
         initBoard()
         
         super.viewDidLoad()

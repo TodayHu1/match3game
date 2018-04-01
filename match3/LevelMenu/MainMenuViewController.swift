@@ -21,10 +21,16 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var playerImage: UIImageView!
     
+    
+
+    @IBOutlet weak var healthNow: UIButton!
+    
+    @IBOutlet weak var armorNow: UIButton!
+    
+    @IBOutlet weak var attackNow: UIButton!
+    
+    
     @IBAction func startLevelButton(_ sender: Any) {
-        
-        
-        
     }
     
     
@@ -40,6 +46,12 @@ class MainMenuViewController: UIViewController {
         if playerStat == nil {
             gameViewController.loadGameProgress()
             print("MAIN __ LOAD")
+            if playerStat == nil {
+                playerStat = playerStatOnInit
+                playerStat.needRevive = false
+                gameViewController.saveGameProgress()
+                print("MAIN __ INIT ON START")
+            }
         }
         else {
             if playerStat.needRevive == true {
@@ -56,36 +68,11 @@ class MainMenuViewController: UIViewController {
             }
         }
         
+        healthNow.setTitle(String(playerStat.healthNow), for: .normal)
+        armorNow.setTitle(String(playerStat.armorNow), for: .normal)
+        attackNow.setTitle(String(playerStat.attack), for: .normal)
         
-//        if playerStat == nil {
-//
-//            if playerStat == nil {
-//                playerStat = playerStatOnInit
-//
-////                levelStorage = [
-////                    ["Name": "Tutorial",
-////                     "LvlNow": 1,
-////                     "LvlMax": 6,
-////                     "Access": true
-////                    ],
-////                    ["Name": "SteamPunk",
-////                     "LvlNow": 1,
-////                     "LvlMax": 15,
-////                     "Access": false
-////                    ],
-////                    ["Name": "RandomDungeon",
-////                     "LvlNow": 1,
-////                     "LvlMax": 0,
-////                     "Access": false
-////                    ]
-////                ]
-//            }
-//        }
         
-        print("\(playerStat.armorNow) --- PLAYER STAT")
-        
-        print("\(levelStorage) --- LVL")
- 
 
         UILabel.animate(withDuration: 1, animations: {
             self.labelForTable.frame.size.width += 10

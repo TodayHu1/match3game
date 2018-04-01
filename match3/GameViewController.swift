@@ -337,11 +337,16 @@ class GameViewController: UIViewController {
     
     func saveGameProgress() {
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
+        UserDefaults.standard.set(lvlDifficulty, forKey: "difficulty")
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
         UserDefaults.standard.synchronize()
     }
     
     func loadGameProgress() {
+        
+        if UserDefaults.standard.object(forKey: "difficulty") as? Int != nil {
+            lvlDifficulty = UserDefaults.standard.object(forKey: "difficulty") as! Int
+        }
         
         if UserDefaults.standard.object(forKey: "levelStorage") as? [[String : Any]] != nil {
             levelStorage = UserDefaults.standard.object(forKey: "levelStorage") as! [[String : Any]]
@@ -353,7 +358,7 @@ class GameViewController: UIViewController {
         
 //        UserDefaults.standard.removeObject(forKey: "levelStorage")
 //        UserDefaults.standard.removeObject(forKey: "playerStatic")
-        
+//        UserDefaults.standard.removeObject(forKey: "difficulty")
     }
     
     func gameOverScreen() {
