@@ -20,6 +20,7 @@
 		1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */; };
 		1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */; };
 		1F0DD3762071248C005AE925 /* BeltItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F0DD3752071248C005AE925 /* BeltItem.xcassets */; };
+		1F0DD37820712A2B005AE925 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0DD37720712A2B005AE925 /* CustomCellTableViewCell.swift */; };
 		1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
@@ -52,8 +53,8 @@
 		1F4BC6172068D092006BA648 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4BC6162068D092006BA648 /* Item.swift */; };
 		1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */; };
 		1F5B8FBA20623D460046480D /* SelectPerkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5B8FB920623D460046480D /* SelectPerkViewController.swift */; };
-		1F5B8FBC20628F710046480D /* ShieldPerk.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */; };
-		1F5B8FBE2062C0840046480D /* RingPerk.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBD2062C0840046480D /* RingPerk.xcassets */; };
+		1F5B8FBC20628F710046480D /* ShieldItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBB20628F710046480D /* ShieldItem.xcassets */; };
+		1F5B8FBE2062C0840046480D /* RingItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5B8FBD2062C0840046480D /* RingItem.xcassets */; };
 		1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */; };
 		1F6A49311FBB45DE0088AE44 /* GS_SpellBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */; };
 		1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */; };
@@ -164,6 +165,7 @@
 		1F00B7091FAF588300C002B3 /* SteamPunkWalker-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SteamPunkWalker-Stand.atlas"; sourceTree = "<group>"; };
 		1F00B70C1FB345E200C002B3 /* GS_BuildLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_BuildLevel.swift; sourceTree = "<group>"; };
 		1F0DD3752071248C005AE925 /* BeltItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BeltItem.xcassets; sourceTree = "<group>"; };
+		1F0DD37720712A2B005AE925 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-StrongAttack.atlas"; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
@@ -203,8 +205,8 @@
 		1F4BC6162068D092006BA648 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Player-Stand.xcassets"; sourceTree = "<group>"; };
 		1F5B8FB920623D460046480D /* SelectPerkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPerkViewController.swift; sourceTree = "<group>"; };
-		1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShieldPerk.xcassets; sourceTree = "<group>"; };
-		1F5B8FBD2062C0840046480D /* RingPerk.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RingPerk.xcassets; sourceTree = "<group>"; };
+		1F5B8FBB20628F710046480D /* ShieldItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShieldItem.xcassets; sourceTree = "<group>"; };
+		1F5B8FBD2062C0840046480D /* RingItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RingItem.xcassets; sourceTree = "<group>"; };
 		1F5EE8851F70ECDB0099F969 /* GS_EnemyControll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_EnemyControll.swift; sourceTree = "<group>"; };
 		1F6A49301FBB45DE0088AE44 /* GS_SpellBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_SpellBook.swift; sourceTree = "<group>"; };
 		1F6A49321FBC08F80088AE44 /* Enemy_DeathMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_DeathMod.swift; sourceTree = "<group>"; };
@@ -353,8 +355,8 @@
 		1F0DD37420712470005AE925 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				1F5B8FBD2062C0840046480D /* RingPerk.xcassets */,
-				1F5B8FBB20628F710046480D /* ShieldPerk.xcassets */,
+				1F5B8FBD2062C0840046480D /* RingItem.xcassets */,
+				1F5B8FBB20628F710046480D /* ShieldItem.xcassets */,
 				1F0DD3752071248C005AE925 /* BeltItem.xcassets */,
 			);
 			path = Item;
@@ -698,6 +700,7 @@
 				1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */,
 				1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */,
 				1F5B8FB920623D460046480D /* SelectPerkViewController.swift */,
+				1F0DD37720712A2B005AE925 /* CustomCellTableViewCell.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -908,10 +911,10 @@
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
-				1F5B8FBE2062C0840046480D /* RingPerk.xcassets in Resources */,
+				1F5B8FBE2062C0840046480D /* RingItem.xcassets in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
 				1F1D5994203052A80024EB0A /* 1-1.json in Resources */,
-				1F5B8FBC20628F710046480D /* ShieldPerk.xcassets in Resources */,
+				1F5B8FBC20628F710046480D /* ShieldItem.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
 				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
@@ -1104,6 +1107,7 @@
 				1F9C4B981FCEB1EF0090714E /* MovingScreen.swift in Sources */,
 				1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */,
 				1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */,
+				1F0DD37820712A2B005AE925 /* CustomCellTableViewCell.swift in Sources */,
 				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,
 				1F2D82131F80CB7D00710D50 /* Player_LabelOverHead.swift in Sources */,
 				1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */,

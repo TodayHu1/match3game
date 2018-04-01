@@ -32,10 +32,10 @@ extension GameScene {
         
         switch skillName {
         case "Null":
-            mana = 0
-            health = 0
-            armor = 0
-            coin = 0
+            mana = 1
+            health = 1
+            armor = 1
+            coin = 1
             description = "U dont see it <_<"
             
         case "SkullJail":
@@ -46,8 +46,8 @@ extension GameScene {
             description = "Replaces skull matches for matches of chains"
             
         case "HeartAttack":
-            mana = 0
-            health = 4
+            mana = 1
+            health = 6
             armor = 0
             coin = 0
             description = "Takes away a part of lives in exchange for four match of attack"
@@ -67,9 +67,9 @@ extension GameScene {
             description = ""
             
         case "FirstAid":
-            mana = 0
+            mana = 1
             health = 0
-            armor = 1
+            armor = 5
             coin = 0
             description = "Heals you on the number of skulls on the table"
         default:

@@ -17,10 +17,10 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     var selectedItem = -1
     
     ///Массив для всех итемов
-    var allPerk = [Item]()
+    var allItem = [Item]()
     
     ///Массив для выбора итемов игроком
-    var perkOnBoard = [Item]()
+    var itemOnBoard = [Item]()
     
     ///Цвет активной ячейки
     var activeCellColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
@@ -35,7 +35,7 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func getItemButton(_ sender: Any) {
         
         ///Выбранный предмет
-        let item = perkOnBoard[selectedItem]
+        let item = itemOnBoard[selectedItem]
         
         switch item.type {
         case .item:
@@ -122,21 +122,21 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     
     ///Высота ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 80
     }
     
     ///Количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("\(allPerk.count) --- ALL ITEM")
+        print("\(allItem.count) --- ALL ITEM")
         return countOfSelectedItem
     }
     
     ///Инициализация ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "cell"
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomCellTableViewCell
 
-        let item = perkOnBoard[indexPath.row]
+        let item = itemOnBoard[indexPath.row]
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 0
@@ -148,18 +148,18 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         let desc = item.description
         let attrString = NSMutableAttributedString(string: desc)
         attrString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attrString.length))
-        
-        cell.textLabel?.attributedText = setColoredType(oldString: nameAttr)
-        cell.textLabel?.font = UIFont(name: "Munro", size: 20)
-        cell.textLabel?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
 
         
-        cell.imageView?.image = UIImage(named: "\(item.img).png")
+        cell.cellTitle?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        cell.cellTitle?.attributedText = setColoredType(oldString: nameAttr)
+        cell.cellTitle?.font = UIFont(name: "Munro", size: 20)
         
-        cell.detailTextLabel!.numberOfLines = 0
-        cell.detailTextLabel?.font = UIFont(name: "MunroSmall", size: 15)
-        cell.detailTextLabel?.textColor = .white
-        cell.detailTextLabel?.attributedText = setColoredLabel(oldString: attrString)
+        cell.cellImage?.image = UIImage(named: "\(item.img).png")
+        
+        cell.cellDescription!.numberOfLines = 0
+        cell.cellDescription?.font = UIFont(name: "MunroSmall", size: 15)
+        cell.cellDescription?.textColor = .white
+        cell.cellDescription?.attributedText = setColoredLabel(oldString: attrString)
         
         
         cell.selectionStyle = .none
@@ -241,16 +241,16 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allPerk += armorArr
-        allPerk += ringArr
-        allPerk += spellArr
-        allPerk += beltArr
-        allPerk += trashArr
+        allItem += armorArr
+        allItem += ringArr
+        allItem += spellArr
+        allItem += beltArr
+        allItem += trashArr
 //        allPerk += rareItemArr
 //        allPerk += legendaryItemArr
         
         for _ in 0...countOfSelectedItem-1 {
-            perkOnBoard.append(allPerk[Int(arc4random_uniform(UInt32(allPerk.count)))])
+            itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])
         }
         
         tableView.separatorStyle = .none
