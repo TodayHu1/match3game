@@ -32,10 +32,10 @@ extension GameScene {
         
         switch skillName {
         case "Null":
-            mana = 1
-            health = 1
-            armor = 1
-            coin = 1
+            mana = 0
+            health = 0
+            armor = 0
+            coin = 0
             description = "U dont see it <_<"
             
         case "SkullJail":
