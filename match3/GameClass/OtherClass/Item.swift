@@ -34,7 +34,7 @@ class Item {
     }
     
     ///Инициализация для предмета
-    init(armor: Int, health: Int, attack: Int, mana: Int, img: String, name: String, description: String) {
+    init(armor: Int, health: Int, attack: Int, mana: Int, img: String, name: String) {
         self.armor = armor
         self.health = health
         self.attack = attack
@@ -42,9 +42,52 @@ class Item {
         
         self.img = img
         self.name = "[Item] \(name)"
-        self.description = description
+        
+        self.description = generateDescription(armor: armor, health: health, attack: attack, mana: mana)
         
         self.type = .item
+    }
+    
+    ///Generate description for item
+    func generateDescription(armor: Int, health: Int, attack: Int, mana: Int) -> String {
+        var desc = ""
+        
+        if armor > 0 || health > 0 || attack > 0 || mana > 0 {
+            desc.append("Gain ")
+        }
+        
+        if armor > 0 {
+            desc.append("\(armor) armor ")
+        }
+        if health > 0 {
+            desc.append("\(health) health ")
+        }
+        if attack > 0 {
+            desc.append("\(attack) attack ")
+        }
+        if mana > 0 {
+            desc.append("\(mana) mana ")
+        }
+        
+        if armor < 0 || health < 0 || attack < 0 || mana < 0 {
+            desc.append(", but lose ")
+        }
+        
+        if armor < 0 {
+            desc.append("\(abs(armor)) armor ")
+        }
+        if health < 0 {
+            desc.append("\(abs(health)) health ")
+        }
+        if attack < 0 {
+            desc.append("\(abs(attack)) attack ")
+        }
+        if mana < 0 {
+            desc.append("\(abs(mana)) mana ")
+        }
+        
+        return desc
+        //return "gain 66 armor, but lose 15 health"
     }
     
     ///Инициализация для редкого предмета

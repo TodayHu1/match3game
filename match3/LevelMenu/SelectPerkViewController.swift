@@ -59,28 +59,29 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     
     ///Перки с броней
     let armorArr = [
-        Item.init(armor: 50, health: -10, attack: 0, mana: 0, img: "RedShield", name: "Blood Armor", description: "get 50 armor but minus 10 health"),
-        Item.init(armor: 30, health: 0, attack: 0, mana: 0, img: "BlueShield", name: "Armor pack", description: "get 30 armor"),
-        Item.init(armor: 40, health: 0, attack: 0, mana: -10, img: "PurpleShield", name: "Mana shield", description: "get 40 armor but minus 10 mana"),
-        Item.init(armor: 10, health: 0, attack: 3, mana: 0, img: "BlackShield", name: "Spiky armor", description: "get 10 armor and 3 attack"),
-        Item.init(armor: 20, health: 10, attack: 0, mana: 0, img: "WhiteShield", name: "Diviny armor", description: "get 20 armor and 10 health"),
-        Item.init(armor: 20, health: 5, attack: 1, mana: 1, img: "OrangeShield", name: "Corrosive armor", description: "get 20 armor, 5 health, 1 attack, 1 mana"),
-        Item.init(armor: 100, health: 5, attack: -5, mana: 1, img: "TealShield", name: "Ice armor", description: "get 100 armor but minus 5 attack"),
-        Item.init(armor: 20, health: 5, attack: 1, mana: 1, img: "GreenShield", name: "Forest shield", description: "get 20 armor, 5 health, 1 attack and 1 mana"),
-        Item.init(armor: 25, health: 0, attack: 2, mana: 0, img: "DarkGreenShield", name: "Rune forest shield", description: "get 25 armor and 2 attack"),
-        Item.init(armor: 66, health: -15, attack: 0, mana: 0, img: "DarkRedShield", name: "Great blood Armor", description: "get 66 armor but minus 15 health"),
+        Item.init(armor: 25, health: -10, attack: 0, mana: 0, img: "RedShield", name: "Blood Armor"),
+        Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueShield", name: "Armor pack"),
+        Item.init(armor: 20, health: 0, attack: 0, mana: -3, img: "PurpleShield", name: "Mana shield"),
+        Item.init(armor: 10, health: 0, attack: 2, mana: 0, img: "BlackShield", name: "Barbarian armor armor"),
+        Item.init(armor: 10, health: 5, attack: 0, mana: 0, img: "WhiteShield", name: "Diviny armor"),
+        Item.init(armor: 10, health: 0, attack: 1, mana: 1, img: "OrangeShield", name: "Bronze armor"),
+        Item.init(armor: 50, health: 0, attack: -5, mana: 0, img: "TealShield", name: "Ice armor"),
+        Item.init(armor: 5, health: 5, attack: 1, mana: 1, img: "GreenShield", name: "Emerald shield"),
+        Item.init(armor: 12, health: 0, attack: 2, mana: 0, img: "DarkGreenShield", name: "Rune emerald shield"),
+        Item.init(armor: 33, health: -20, attack: 0, mana: 2, img: "DarkRedShield", name: "Great blood Armor")
     ]
+    
 
     ///Перки с кольцами
     let ringArr = [
-        Item.init(armor: 0, health: 0, attack: 5, mana: 0, img: "RedRing", name: "Ring of attack", description: "get 5 attack"),
-        Item.init(armor: 0, health: 0, attack: 0, mana: 10, img: "PurpleRing", name: "Ring of energy", description: "get 10 mana"),
-        Item.init(armor: 10, health: 5, attack: 1, mana: 2, img: "OrangeRing", name: "Handfull ring", description: "get 10 armor, 5 health, 1 attack, 2 mana"),
-        Item.init(armor: 15, health: 6, attack: 1, mana: 0, img: "OrangeGreatRing", name: "Great handfull ring", description: "get 15 armor, 6 health, 1 attack"),
-        Item.init(armor: 30, health: 0, attack: 0, mana: 0, img: "BlueRing", name: "Ring of protection", description: "get 30 armor"),
-        Item.init(armor: 0, health: 20, attack: 0, mana: 0, img: "GreenRing", name: "Ring of health", description: "get 20 health"),
-        Item.init(armor: 0, health: 20, attack: 2, mana: 3, img: "BlueGreatRing", name: "Ring of archimage", description: "get 2 attack and 3 mana"),
-        Item.init(armor: 0, health: 0, attack: 10, mana: 0, img: "RedGreatRing", name: "Great ring of attack", description: "get 10 attack"),
+        Item.init(armor: 0, health: 0, attack: 3, mana: 0, img: "RedRing", name: "Ring of attack"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 10, img: "PurpleRing", name: "Ring of energy"),
+        Item.init(armor: 5, health: 3, attack: 1, mana: 2, img: "OrangeRing", name: "Handfull ring"),
+        Item.init(armor: 7, health: 3, attack: 1, mana: 0, img: "OrangeGreatRing", name: "Great handfull ring"),
+        Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueRing", name: "Ring of protection"),
+        Item.init(armor: 0, health: 10, attack: 0, mana: 0, img: "GreenRing", name: "Ring of health"),
+        Item.init(armor: 0, health: 10, attack: 1, mana: 2, img: "BlueGreatRing", name: "Ring of archimage"),
+        Item.init(armor: 0, health: -10, attack: 6, mana: 0, img: "RedGreatRing", name: "Great ring of attack")
     ]
 
     ///Перки с способностями
@@ -89,26 +90,29 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "FirstAid"),
         Item.init(name: "HeartAttack"),
         Item.init(name: "Nemesis"),
+        Item.init(name: "EnergyAttack"),
+        Item.init(name: "SilverSword"),
+        Item.init(name: "ScullingTheSkulls"),
     ]
     
     ///Мусорные предметы
     let trashArr = [
-        Item.init(armor: 2, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken sheild", description: "get 2 armor"),
-        Item.init(armor: 1, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken ring", description: "get 1 armor"),
-        Item.init(armor: 0, health: 0, attack: 0, mana: 2, img: "Trash", name: "Energy shard", description: "get 2 mana"),
-        Item.init(armor: 0, health: 0, attack: 0, mana: 1, img: "Trash", name: "Empty mana potion", description: "get 1 mana"),
-        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Spike", description: "get 1 attack"),
-        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Pice of sword", description: "get 1 attack"),
-        Item.init(armor: 0, health: 1, attack: 0, mana: 0, img: "Trash", name: "Empty health potion", description: "get 1 health"),
-        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Empty poison potion", description: "get 1 attack"),
+        Item.init(armor: 2, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken sheild"),
+        Item.init(armor: 1, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken ring"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 2, img: "Trash", name: "Energy shard"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 1, img: "Trash", name: "Empty mana potion"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Spike"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Pice of sword"),
+        Item.init(armor: 0, health: 1, attack: 0, mana: 0, img: "Trash", name: "Empty health potion"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Empty poison potion")
     ]
     
     let beltArr = [
-        Item.init(armor: 0, health: 35, attack: 0, mana: 0, img: "BeltGold", name: "Strong belt", description: "gain 35 health"),
-        Item.init(armor: 10, health: 20, attack: 0, mana: 0, img: "BeltSilver", name: "Heavy belt", description: "gain 10 armor, 20 health"),
-        Item.init(armor: 15, health: 30, attack: 0, mana: -15, img: "BeltGreen", name: "Warchief belt", description: "gain 15 armor, 30 health, lose 15 mana"),
-        Item.init(armor: 5, health: 15, attack: 0, mana: 5, img: "BeltDark", name: "Enchanted belt", description: "gain 5 armor, 15 health, 5 mana"),
-        Item.init(armor: 0, health: 10, attack: 5, mana: -5, img: "BeltGray", name: "Snaky belt", description: "gain 10 health, 5 attack, lose 5 mana")
+        Item.init(armor: 0, health: 15, attack: 0, mana: 0, img: "BeltGold", name: "Strong belt"),
+        Item.init(armor: 5, health: 10, attack: 0, mana: 0, img: "BeltSilver", name: "Heavy belt"),
+        Item.init(armor: 7, health: 16, attack: 0, mana: -5, img: "BeltGreen", name: "Warchief belt"),
+        Item.init(armor: 5, health: 10, attack: 0, mana: 2, img: "BeltDark", name: "Enchanted belt"),
+        Item.init(armor: 0, health: 5, attack: 2, mana: -3, img: "BeltGray", name: "Snaky belt")
     ]
     
 //    let rareItemArr = [
@@ -202,6 +206,8 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         
         oldString.setColorForText("attack", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attacks", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        oldString.setColorForText("attacking", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        oldString.setColorForText("attack power", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         
         oldString.setColorForText("health", with: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1))
         
@@ -212,6 +218,8 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
         oldString.setColorForText("energy", with: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
         oldString.setColorForText("energies", with: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
         oldString.setColorForText("mana", with: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+        oldString.setColorForText("mana points", with: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+        oldString.setColorForText("mana point", with: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
         
         oldString.setColorForText("coin", with: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
         oldString.setColorForText("coins", with: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))

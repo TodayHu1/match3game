@@ -72,6 +72,24 @@ extension GameScene {
             armor = 5
             coin = 0
             description = "Heals you on the number of skulls on the table"
+        case "EnergyAttack":
+            mana = playerStat.manaNow
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Absorbs all mana, attacks on [ mana points * attack power / 3 ]"
+        case "SilverSword":
+            mana = 1
+            health = 0
+            armor = 10
+            coin = 0
+            description = "Attacking the enemy on [ skulls * attack / 5 ]"
+        case "ScullingTheSkulls":
+            mana = 2
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 3 ]"
         default:
             mana = 0
             health = 0
@@ -150,6 +168,64 @@ extension GameScene {
                     }
                 }
             }
+        case "EnergyAttack":
+            let power = (playerStat.manaNow * playerStat.attack)
+            let damage = Int(power / 3)
+            print("\(damage) --\(power)-- ENERGY DAMAGE")
+            player.fullAttackStandAnimation(damage: damage, strongAttack: true)
+        case "SilverSword":
+            var skullCount = 0
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if matchTypeOnTable[i][j] == .skull {
+                        skullCount += 1
+                    }
+                }
+            }
+            
+            let power = (playerStat.attack * skullCount)
+            let damage = Int(power / 5)
+            print("\(damage) --\(power)-- ENERGY DAMAGE")
+            player.fullAttackStandAnimation(damage: damage, strongAttack: true)
+        case "ScullingTheSkulls":
+            
+            let numberOfSpawnSkull = 3
+            
+            let spawnSkull = SKAction.run {
+                var duration: Double = 0
+                let interval: Double = self.durationSpawnMatchAnimation()
+                for _ in 0...numberOfSpawnSkull-1 {
+                    duration += interval
+                    self.matchMoveToBoard(matchType: Match.skull,
+                                     nodePosition: self.player,
+                                     i: self.matchBoard.getRandomMatchVertical(),
+                                     j: self.matchBoard.getRandomMatchHorizontal(),
+                                     waitTimeToAnimation: TimeInterval(duration),
+                                     durationAnimation: interval
+                    )
+                }
+            }
+            
+
+            let attackSpell = SKAction.run {
+                var skullCount = 0
+                for i in 0...self.matchBoard.verticalCount-1 {
+                    for j in 0...self.matchBoard.horizontalCount-1 {
+                        if self.matchTypeOnTable[i][j] == .skull {
+                            skullCount += 1
+                        }
+                    }
+                }
+                
+                let power = (playerStat.attack * skullCount)
+                let damage = Int(power / 3)
+                print("\(damage) --\(power)-- ENERGY DAMAGE")
+                self.player.fullAttackStandAnimation(damage: damage, strongAttack: true)
+            }
+            
+            let seq = SKAction.sequence([spawnSkull, attackSpell])
+            self.run(seq)
+
         default:
             break
         }
