@@ -115,7 +115,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         
         
         let cellIdentifier = "cell"
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SpellTableViewCell
         let skillName = allPlayerSpell[indexPath.row]
         let skill = gameScene.spellBook(skillName: skillName, spellIndex: 0)
         
@@ -129,18 +129,17 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         let attrString = NSMutableAttributedString(string: desc)
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
         
-        cell.textLabel?.text = "\(skillName)"
+        cell.cellTitle?.text = "\(skillName)"
         //[ \(skill.healthToUse), \(skill.armorToUse), \(skill.manaToUse), \(skill.coinToUse) ]"
-        cell.textLabel?.font = UIFont(name: "Munro", size: 20)
-        cell.textLabel?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        cell.cellTitle?.font = UIFont(name: "Munro", size: 20)
+        cell.cellTitle?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
 
-        cell.imageView?.frame = CGRect(x: cell.imageView!.frame.origin.x, y: cell.imageView!.frame.origin.y, width: 40, height: 40)
-        cell.imageView?.image = UIImage(named: "Spell\(skillName).png")
+        cell.cellImage?.image = UIImage(named: "Spell\(skillName).png")
         
-        cell.detailTextLabel!.numberOfLines = 0
-        cell.detailTextLabel?.font = UIFont(name: "MunroSmall", size: 15)
-        cell.detailTextLabel?.textColor = .white
-        cell.detailTextLabel?.attributedText = setColoredLabel(oldString: attrString)
+        cell.cellDescription!.numberOfLines = 0
+        cell.cellDescription?.font = UIFont(name: "MunroSmall", size: 15)
+        cell.cellDescription?.textColor = .white
+        cell.cellDescription?.attributedText = setColoredLabel(oldString: attrString)
         
         cell.selectionStyle = .none
         
@@ -196,24 +195,30 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        playerStat.spellInBag.append(playerStat.spellOnBoard[findIndexPlace(arr: playerStat.spellOnBoard, text: String(describing: getRowTitle(cell: cell!)))])
-        playerStat.spellOnBoard[findIndexPlace(arr: playerStat.spellOnBoard, text: String(describing: getRowTitle(cell: cell!)))] = "Null"
-        initBoard()
+        let title = getRowTitle(cell: cell! as! SpellTableViewCell)
+        let spellIndex = findIndexPlace(arr: playerStat.spellOnBoard, text: title)
         
-        cell?.backgroundColor = .clear
-
+        if spellIndex != nil {
+            playerStat.spellInBag.append(playerStat.spellOnBoard[spellIndex!])
+            playerStat.spellOnBoard[findIndexPlace(arr: playerStat.spellOnBoard, text: title)] = "Null"
+            initBoard()
+            
+            cell?.backgroundColor = .clear
+        }
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if findFreePlaceInBag() != nil {
             let cell = tableView.cellForRow(at: indexPath)
             
-            removeAllWord(text: String(describing: getRowTitle(cell: cell!)))
+            removeAllWord(text: String(describing: getRowTitle(cell: cell! as! SpellTableViewCell)))
             
-            let index = findIndexPlace(arr: playerStat.spellInBag, text: String(describing: getRowTitle(cell: cell!)))
+            let index = findIndexPlace(arr: playerStat.spellInBag, text: String(describing: getRowTitle(cell: cell! as! SpellTableViewCell)))
 
             playerStat.spellInBag.remove(at: index!)
 
-            playerStat.spellOnBoard[findFreePlaceInBag()] = String(describing: getRowTitle(cell: cell!))
+            playerStat.spellOnBoard[findFreePlaceInBag()] = String(describing: getRowTitle(cell: cell! as! SpellTableViewCell))
             initBoard()
             
             cell?.backgroundColor = activeCellColor
@@ -224,8 +229,8 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         return allPlayerSpell.count
     }
     
-    func getRowTitle(cell: UITableViewCell) -> String {
-        let text: String = (cell.textLabel?.text)!
+    func getRowTitle(cell: SpellTableViewCell) -> String {
+        let text: String = cell.cellTitle.text!
         return String(describing: text)
     }
     
@@ -236,7 +241,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
                 return i
             }
         }
-        print("nil --- FIND PLACE")
+        print("nil --- FIND FREE PLACE IN BAG")
         return nil
     }
     
@@ -247,7 +252,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
                 return i
             }
         }
-        print("nil --- FIND PLACE")
+        print("nil --- FIND INDEX PLACE")
         return nil
     }
     

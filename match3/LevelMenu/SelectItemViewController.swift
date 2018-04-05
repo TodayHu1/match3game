@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     ///Количество предметов для выбора игроком
     var countOfSelectedItem = 5
@@ -138,7 +138,7 @@ class SelectPerkViewController: UIViewController, UITableViewDelegate, UITableVi
     ///Инициализация ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ItemCellTableViewCell
 
         let item = itemOnBoard[indexPath.row]
         

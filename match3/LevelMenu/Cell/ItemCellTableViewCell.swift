@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCellTableViewCell: UITableViewCell {
+class ItemCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellImage: UIImageView!
     
