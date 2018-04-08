@@ -34,9 +34,11 @@ class EnemyUnit: SKSpriteNode {
         
         //Defense modificator
         "CogOnDefense": 0,
+        "AttackUpOnDefense": 0.0,
         
         //BreakArmor modificator
         "ChainInstedArmor": false,
+        "SteamPunkWalkerTrasform" : false,
         
         //Death modificator
         "SkullOnDie": 0,
@@ -67,7 +69,8 @@ class EnemyUnit: SKSpriteNode {
     
     //Enemy name
     var enemyName = ""
-    var randomUnit = false
+    var isRandomUnit = false
+    var isBoss = false
     
     //Color
     var normalColor: UIColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 1)
@@ -82,7 +85,7 @@ class EnemyUnit: SKSpriteNode {
         
         super.init(texture: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0"), color: UIColor.clear, size: SKTexture(imageNamed: enemyName + "-" + "Stand" + "-0").size())
 
-        print("\(self.randomUnit) --- Enemy Name")
+        print("\(self.isRandomUnit) --- Enemy Name")
         
         self.gameScene = gameScene
         self.anchorPoint.x = 0.5
@@ -110,8 +113,18 @@ class EnemyUnit: SKSpriteNode {
 
         setLabelOverHead(armor: self.attack, health: self.health, initLabel: true)
         
+        initEnemyAnimationTexture()
+        
+        print("\(enemyName) --- Enemy Name")
+    }
+    
+    func initEnemyAnimationTexture() {
+        print("INIT ENEMY - \(self.enemyName)")
         enemyAtlasAttack = SKTextureAtlas(named: enemyName + "-Attack")
         enemyAtlasStand = SKTextureAtlas(named: enemyName + "-Stand")
+        
+        enemyArrStand = []
+        enemyArrAttack = []
         
         for i in 0...enemyAtlasAttack.textureNames.count-1 {
             let name = enemyName + "-" + "Attack" + "-\(i).png"
@@ -122,8 +135,6 @@ class EnemyUnit: SKSpriteNode {
             let name = enemyName + "-" + "Stand" + "-\(i).png"
             enemyArrStand.append(SKTexture(imageNamed: name))
         }
-        
-        print("\(enemyName) --- Enemy Name")
     }
     
     required init?(coder aDecoder: NSCoder) {

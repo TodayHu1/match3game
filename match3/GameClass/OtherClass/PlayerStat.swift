@@ -115,7 +115,7 @@ class PlayerStat: NSObject, NSCoding {
     ///Краткая инициализация персонажа (для полного обнуления)
     init(manaMax: Int, healthMax: Int, armorMax: Int, attack: Int, spellArr: [String]) {
         
-        print("МАХ ИНИЦ \(armorMax)")
+        print("MAIN \(armorMax)")
         
         self.manaMax = manaMax
         self.healthMax = healthMax

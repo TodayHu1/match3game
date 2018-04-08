@@ -13,21 +13,34 @@ extension EnemyUnit {
     
     func defenseMod() {
         spawnCogOnDefense(number: specialAbilities["CogOnDefense"] as! Int)
+        attackUpOnDefense(attack: specialAbilities["AttackUpOnDefense"] as! Double)
+    }
+
+    func attackUpOnDefense(attack: Double) {
+        if attack != 0.0 {
+            gameViewController.presentText(text: "Power up", whoIs: .enemy)
+            self.gameScene.nodeAnimationPulseUp(node: self, duration: 2, percentValuePulsation: 0.2)
+            self.attack = Int(Double(self.attack) * attack)
+            print("\(self.attack) ---- ATTACK UP")
+        }
     }
     
     func spawnCogOnDefense(number: Int) {
-        if number != 0 {
-            var duration: Double = 0
-            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
-            for _ in 1...number {
-                self.gameScene.matchMoveToBoard(matchType: Match.cog,
-                                                nodePosition: self,
-                                                i: self.gameScene.matchBoard.getRandomMatchVertical(),
-                                                j: self.gameScene.matchBoard.getRandomMatchHorizontal(),
-                                                waitTimeToAnimation: TimeInterval(duration),
-                                                durationAnimation: interval
-                )
-                duration += interval
+        if number > 0 {
+            gameViewController.presentText(text: "Cog", color: #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), whoIs: .enemy)
+            if number != 0 {
+                var duration: Double = 0
+                let interval: Double = self.gameScene.durationSpawnMatchAnimation()
+                for _ in 1...number {
+                    self.gameScene.matchMoveToBoard(matchType: Match.cog,
+                                                    nodePosition: self,
+                                                    i: self.gameScene.matchBoard.getRandomMatchVertical(),
+                                                    j: self.gameScene.matchBoard.getRandomMatchHorizontal(),
+                                                    waitTimeToAnimation: TimeInterval(duration),
+                                                    durationAnimation: interval
+                    )
+                    duration += interval
+                }
             }
         }
     }

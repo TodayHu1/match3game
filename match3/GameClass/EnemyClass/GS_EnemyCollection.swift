@@ -86,20 +86,20 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 120, height: 120)
                 
             case "SteamPunkFlameThrower":
-                createEnemyUnit.attack = 20
+                createEnemyUnit.attack = 15
                 createEnemyUnit.health = 50
                 createEnemyUnit.armor = 100
                 createEnemyUnit.size = CGSize(width: 270, height: 120)
                 
             case "SteamPunkWalker":
-                createEnemyUnit.attack = 20
-                createEnemyUnit.health = 150
-                createEnemyUnit.armor = 300
+                createEnemyUnit.attack = 15
+                createEnemyUnit.health = 200
+                createEnemyUnit.armor = 200
                 createEnemyUnit.size = CGSize(width: 260, height: 160)
-                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
-                createEnemyUnit.specialAbilities["CogOnDefense"] = 2
-                createEnemyUnit.specialAbilities["MatchMoveOnAttack"] = 6
-                
+                createEnemyUnit.isBoss = true
+                createEnemyUnit.specialAbilities["SteamPunkWalkerTrasform"] = true
+                createEnemyUnit.specialAbilities["SpecialSpell"] = true
+                createEnemyUnit.specialAbilities["CogOnDefense"] = 1
             default:
                 break
             }

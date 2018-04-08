@@ -57,17 +57,27 @@ extension EnemyUnit {
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
             
-            
-            if self.enemyName == "Random" {
-                self.labelRandomUnit.fontName = "MunroSmall"
-                self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
-                self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
-                self.labelRandomUnit.fontSize = 60
-                self.labelRandomUnit.text = "modify"
-                self.labelRandomUnit.fontColor = #colorLiteral(red: 0.3927484786, green: 0.7920169734, blue: 0.7022099548, alpha: 1)
-                self.labelBoard.addChild(self.labelRandomUnit)
-            }
         }
+        
+//        if self.isRandomUnit == true {
+//            self.labelRandomUnit.fontName = "MunroSmall"
+//            self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
+//            self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
+//            self.labelRandomUnit.fontSize = 60
+//            self.labelRandomUnit.text = "modify"
+//            self.labelRandomUnit.fontColor = #colorLiteral(red: 0.3927484786, green: 0.7920169734, blue: 0.7022099548, alpha: 1)
+//            self.labelBoard.addChild(self.labelRandomUnit)
+//        }
+//        
+//        if self.isBoss == true {
+//            self.labelRandomUnit.fontName = "MunroSmall"
+//            self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
+//            self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
+//            self.labelRandomUnit.fontSize = 120
+//            self.labelRandomUnit.text = "BOSS"
+//            self.labelRandomUnit.fontColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+//            self.labelBoard.addChild(self.labelRandomUnit)
+//        }
         
         self.labelHealth.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelHealth.text!),
                                    to: Float(self.health),

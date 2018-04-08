@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2QV-px-ki3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2QV-px-ki3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,11 +116,11 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vv1-Ut-a6v">
-                                                        <rect key="frame" x="37" y="105" width="119" height="107"/>
+                                                        <rect key="frame" x="132" y="156" width="119" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsB-YT-9Lk" userLabel="Health Now">
-                                                                <rect key="frame" x="8" y="38" width="32" height="32"/>
+                                                                <rect key="frame" x="8" y="10" width="32" height="33"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
                                                                 <state key="normal" title="х" backgroundImage="Icon_Heart">
@@ -128,7 +128,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycF-jf-Ud4" userLabel="Attack Now">
-                                                                <rect key="frame" x="79" y="38" width="32" height="32"/>
+                                                                <rect key="frame" x="79" y="10" width="32" height="33"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
                                                                 <state key="normal" title="х" backgroundImage="skillCell">
@@ -136,7 +136,7 @@
                                                                 </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkZ-rI-9bh">
-                                                                <rect key="frame" x="43" y="38" width="32" height="32"/>
+                                                                <rect key="frame" x="43" y="10" width="32" height="33"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
                                                                 <state key="normal" title="х" backgroundImage="Icon_Shield">
@@ -148,7 +148,7 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VW5-oM-UWG">
-                                                <rect key="frame" x="116" y="385" width="240" height="128"/>
+                                                <rect key="frame" x="116" y="381" width="240" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiV-SQ-5nZ">
@@ -165,8 +165,8 @@
                                                         <color key="textColor" red="1" green="0.7922397255897522" blue="0.37835025787353516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkh-Bo-yoe">
-                                                        <rect key="frame" x="0.0" y="9" width="70" height="75"/>
+                                                    <button opaque="NO" alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkh-Bo-yoe">
+                                                        <rect key="frame" x="89" y="14" width="62" height="63"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Button" backgroundImage="skillCell"/>
                                                         <connections>
@@ -509,8 +509,8 @@
                                             <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <action selector="refreshEnemyButton:" destination="zZe-1K-7zI" eventType="touchUpInside" id="R2V-vJ-9It"/>
-                                            <segue destination="m0h-0w-7RR" kind="show" id="eSD-xd-MWU"/>
+                                            <action selector="refreshEnemyButton:" destination="zZe-1K-7zI" eventType="touchUpInside" id="N2S-rW-VZu"/>
+                                            <segue destination="m0h-0w-7RR" kind="show" id="AcW-1x-O2Y"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ZU-fF-SK7">
@@ -10552,6 +10552,6 @@ LXQABS13AAUtfAAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAAAAAABS1+A
     <inferredMetricsTieBreakers>
         <segue reference="j1L-av-3jk"/>
         <segue reference="2SI-vV-tJd"/>
-        <segue reference="HYk-Nt-ilv"/>
+        <segue reference="AcW-1x-O2Y"/>
     </inferredMetricsTieBreakers>
 </document>

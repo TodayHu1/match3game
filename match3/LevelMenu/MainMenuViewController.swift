@@ -45,26 +45,27 @@ class MainMenuViewController: UIViewController {
 
         if playerStat == nil {
             gameViewController.loadGameProgress()
-            print("MAIN __ LOAD")
+            print("MAIN __ LOAD --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             if playerStat == nil {
-                playerStat = playerStatOnInit
+                playerStat = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 100, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 playerStat.needRevive = false
                 gameViewController.saveGameProgress()
-                print("MAIN __ INIT ON START")
+                print("MAIN __ INIT ON START --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
         else {
             if playerStat.needRevive == true {
-                playerStat = nil
-                playerStat = playerStatOnInit
                 playerStat.needRevive = false
-                print("MAIN __ REVIVE")
+                playerStat = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 100, attack: 10, spellArr: ["Null","Null","Null","Null"])
+                lvlDifficulty = 0
+                print("MAIN __ REVIVE --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
+                lvlDifficulty = 0
+                self.stageLabel.text = String(lvlDifficulty)
                 gameViewController.saveGameProgress()
             }
             else {
-//                playerStat = playerStatOnInit
                 gameViewController.saveGameProgress()
-                print("MAIN __ ALREADY PLAY")
+                print("MAIN __ ALREADY PLAY --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
         

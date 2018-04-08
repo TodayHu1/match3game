@@ -101,7 +101,7 @@ class GeneratRandomUnit {
             print("\(name) -+- \(value)")
         }
 
-        unit.randomUnit = true
+        unit.isRandomUnit = true
         return unit
     }
     

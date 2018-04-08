@@ -67,15 +67,14 @@ var gameViewController: GameViewController!
 ///Пройденные уровни (сохраняемый класс)
 var levelStorage = [[String: Any]]()
 
-///Статы героя при старте
-let playerStatOnInit = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 50, attack: 10, spellArr: ["Null","Null","Null","Null"])
-
 class GameViewController: UIViewController {
     
     var lvlName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameViewController = self
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -146,18 +145,35 @@ class GameViewController: UIViewController {
         case pad // iPad style UI
     }
     
+    enum alertType {
+        case player
+        case enemy
+    }
     ///Показать окно с лейблом
-    func presentText(text: String, color: UIColor) {
+    func presentText(text: String, color: UIColor = UIColor.white, whoIs: alertType = .player) {
         
-        let frameWidth = 200
+        var currentText = text
+        var currentColor = color
+        
+        let frameWidth = 320
         let frameHeight = 60
         
         let viewx = UIView()
         viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
         viewx.tag = 341
         
+        var blurType: UIBlurEffectStyle = .dark
         
-        let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        switch whoIs {
+        case .player:
+            currentText = "[Player] " + text
+        case .enemy:
+            currentText = "[Enemy] " + text
+            currentColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        }
+        
+        
+        let testView = UIVisualEffectView(effect: UIBlurEffect(style: blurType))
         testView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
         testView.layer.cornerRadius = 10
         testView.clipsToBounds = true
@@ -165,12 +181,12 @@ class GameViewController: UIViewController {
         
         let label = UILabel()
         label.frame = CGRect(x: 25, y: 10, width: frameWidth - 50, height: 40)
-        label.text = text
-        label.textColor = color
+        label.text = currentText
+        label.textColor = currentColor
         label.textAlignment = .center
 //        label.shadowColor = .white
 //        label.shadowOffset.height = 1
-        label.font = UIFont(name: "Munro", size: 30)
+        label.font = UIFont(name: "Munro", size: 25)
         
         
         viewx.addSubview(testView)
@@ -190,7 +206,8 @@ class GameViewController: UIViewController {
                     viewx.alpha = 0
                 }) {_ in
                     UIView.animate(withDuration: 0.1, animations: {
-                        self.removeSubViewByTag(tag: 341)
+//                        self.removeSubViewByTag(tag: 341)
+                        viewx.removeFromSuperview()
                     })
                 }
             }
@@ -199,6 +216,7 @@ class GameViewController: UIViewController {
 
         
         print("presentText")
+        
     }
     
     ///Показать окно с выбором перка
@@ -340,6 +358,7 @@ class GameViewController: UIViewController {
         UserDefaults.standard.set(lvlDifficulty, forKey: "difficulty")
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
         UserDefaults.standard.synchronize()
+        print("SAVE DONE")
     }
     
     func loadGameProgress() {
@@ -359,6 +378,7 @@ class GameViewController: UIViewController {
 //        UserDefaults.standard.removeObject(forKey: "levelStorage")
 //        UserDefaults.standard.removeObject(forKey: "playerStatic")
 //        UserDefaults.standard.removeObject(forKey: "difficulty")
+        print("LOAD DONE")
     }
     
     func gameOverScreen() {
@@ -384,9 +404,9 @@ class GameViewController: UIViewController {
         let sceneView = SKView()
         self.view = sceneView
         
-        sceneView.showsFPS = true
-        sceneView.showsDrawCount = true
-        sceneView.showsNodeCount = true
+//        sceneView.showsFPS = true
+//        sceneView.showsDrawCount = true
+//        sceneView.showsNodeCount = true
         
         scene.scaleMode = scaleMode
         sceneView.presentScene(scene)
@@ -414,36 +434,57 @@ class GameViewController: UIViewController {
         [8, "SteamPunkFlameThrower"],
         [10, "NeutralTurtle"],
         [13, "CultistsProphet"],
-        [15, "SteamPunkGuard"],
-        [30, "SteamPunkWalker"],
+        [15, "SteamPunkGuard"]
     ]
     
     ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
     func initLevel() {
         lvlDifficulty += 1
-        
-        loadEnemy = [[]]
-        
-        var lvlForLoop = lvlDifficulty * 2
 
-        while lvlForLoop > 0  {
-            let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
-            let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
-            if lvlForLoop >= difficultyUnitNow {
-                loadEnemy[0].append(self.enemyDifficultyArr[difficultyIndex][1] as! String)
-                lvlForLoop -= difficultyUnitNow
-            }
-            if loadEnemy[0].count > 4 {
-                loadEnemy[0] = []
-                lvlForLoop = lvlDifficulty
-            }
-        }
-
-        
-        loadBg = [""]
-        print("\(loadEnemy) --- ENEMY ON LEVEL ---- \(lvlDifficulty) --- DIF")
         loadMatchChance = [35,15,10,35,5]
         loadBoardSize = [[0,0]]
+        loadBg = [""]
+        loadEnemy = getEnemy(difficulty: lvlDifficulty)
+
+        print("\(loadEnemy) --- ENEMY ON LEVEL ---- \(lvlDifficulty) --- DIF")
+
+
+    }
+    
+    func getEnemy(difficulty: Int) -> [[String]] {
+        var newLoadEnemy: [[String]] = [[]]
+        var lvlForLoop = difficulty * 2
+        let bossLoadEnemy = getBoss(difficulty: difficulty)
+        if bossLoadEnemy != nil {
+            return bossLoadEnemy!
+        }
+        else {
+            while lvlForLoop > 0  {
+                let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
+                let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
+                if lvlForLoop >= difficultyUnitNow {
+                    newLoadEnemy[0].append(self.enemyDifficultyArr[difficultyIndex][1] as! String)
+                    lvlForLoop -= difficultyUnitNow
+                }
+                if newLoadEnemy[0].count > 4 {
+                    newLoadEnemy[0] = []
+                    lvlForLoop = difficulty * 2
+                }
+            }
+            return newLoadEnemy
+        }
+    }
+    
+    func getBoss(difficulty: Int) -> [[String]]? {
+        switch difficulty {
+        case 10:
+            loadBg = ["SteamPunkBackground"]
+            loadBoardSize = [[4,7]]
+            return [["SteamPunkWalker"]]
+
+        default:
+            return nil
+        }
     }
     
 }

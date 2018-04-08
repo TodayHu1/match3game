@@ -26,7 +26,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
     var allPlayerSpell = [String]()
     
     ///Цвет активной ячейки
-    var activeCellColor = #colorLiteral(red: 0.2618263639, green: 0.455000658, blue: 0.5647406409, alpha: 1)
+    var activeCellColor = #colorLiteral(red: 1, green: 0.7922397256, blue: 0.3783502579, alpha: 0.25)
     
     
     @IBAction func backButton(_ sender: Any) {

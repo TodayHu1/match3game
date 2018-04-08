@@ -54,7 +54,6 @@ class LooseAndWinViewController: UIViewController {
     
     @IBAction func refreshEnemyButton(_ sender: Any) {
         playerStat.needRevive = true
-        lvlDifficulty = 0
     }
     
 }
