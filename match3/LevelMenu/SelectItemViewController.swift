@@ -25,6 +25,9 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
     ///Цвет активной ячейки
     var activeCellColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
     
+    ///Тип сундука
+    var chestType: ChestType!
+    
     ///Таблица
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,10 +37,10 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
     ///Кнопка выбора предмета (действие)
     @IBAction func getItemButton(_ sender: Any) {
         
-        ///Выбранный предмет
-        let item = itemOnBoard[selectedItem]
+    ///Выбранный предмет
+    let item = itemOnBoard[selectedItem]
         
-        switch item.type {
+    switch item.type {
         case .item:
             playerStat.attack += item.attack
             
@@ -54,7 +57,6 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             break
         }
-
     }
     
     ///Перки с броней
@@ -245,18 +247,38 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         return 10
     }
     
+    func buildChest(chestType: ChestType) {
+        switch chestType {
+            case .itemChest:
+                allItem += armorArr
+                allItem += ringArr
+                allItem += beltArr
+                allItem += trashArr
+                break
+            case .spellChest:
+                allItem += spellArr
+                break
+            case .spellAndItemсhest:
+                allItem += armorArr
+                allItem += ringArr
+                allItem += spellArr
+                allItem += beltArr
+                allItem += trashArr
+                break
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        allItem += armorArr
-        allItem += ringArr
-        allItem += spellArr
-        allItem += beltArr
-        allItem += trashArr
-//        allPerk += rareItemArr
-//        allPerk += legendaryItemArr
-        
+        switch lvlDifficulty {
+            case 1:
+                buildChest(chestType: .spellChest)
+            default:
+                buildChest(chestType: nextChestType)
+        }
+
         for _ in 0...countOfSelectedItem-1 {
             itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])
         }

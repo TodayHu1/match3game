@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2QV-px-ki3">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -41,15 +41,15 @@
             <objects>
                 <viewController storyboardIdentifier="MainMenuViewController" title="MainMenu" modalTransitionStyle="crossDissolve" id="m0h-0w-7RR" customClass="MainMenuViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="61i-LN-FfN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ls-SU-QjB">
-                                <rect key="frame" x="0.0" y="40" width="320" height="494"/>
+                                <rect key="frame" x="0.0" y="47" width="375" height="586"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="okW-Ni-nKM">
-                                        <rect key="frame" x="-73" y="2" width="472" height="490"/>
+                                        <rect key="frame" x="-47" y="48" width="472" height="490"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FloorTownHall-Black" translatesAutoresizingMaskIntoConstraints="NO" id="ICd-gz-rch">
@@ -90,7 +90,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-MX-Mx5">
-                                                        <rect key="frame" x="242" y="75" width="161" height="137"/>
+                                                        <rect key="frame" x="242" y="73" width="161" height="137"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SPELL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h46-PT-BQJ">
@@ -112,34 +112,37 @@
                                                                     <segue destination="92N-bX-CiE" kind="show" id="5wa-2h-EI1"/>
                                                                 </connections>
                                                             </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcY-5Q-lox" userLabel="Attack Now">
+                                                                <rect key="frame" x="60" y="103" width="31" height="31"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
+                                                                <state key="normal" title="х" backgroundImage="manaBar-1">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vv1-Ut-a6v">
-                                                        <rect key="frame" x="132" y="156" width="119" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xwd-a6-R8F">
+                                                        <rect key="frame" x="-24" y="73" width="164" height="137"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsB-YT-9Lk" userLabel="Health Now">
-                                                                <rect key="frame" x="8" y="10" width="32" height="33"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
-                                                                <state key="normal" title="х" backgroundImage="Icon_Heart">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
+                                                            <imageView userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-hf-aec">
+                                                                <rect key="frame" x="9" y="110" width="153" height="31"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="407-D4-EVu">
+                                                                <rect key="frame" x="28" y="-29" width="116" height="158"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <state key="normal" backgroundImage="SoulStone-0"/>
+                                                                <connections>
+                                                                    <segue destination="UgK-bi-e6R" kind="show" id="mD9-LM-Dye"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycF-jf-Ud4" userLabel="Attack Now">
-                                                                <rect key="frame" x="79" y="10" width="32" height="33"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36e-ti-Yl8" userLabel="Attack Now">
+                                                                <rect key="frame" x="69" y="101" width="31" height="31"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
-                                                                <state key="normal" title="х" backgroundImage="skillCell">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkZ-rI-9bh">
-                                                                <rect key="frame" x="43" y="10" width="32" height="33"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
-                                                                <state key="normal" title="х" backgroundImage="Icon_Shield">
+                                                                <state key="normal" title="х" backgroundImage="CoinIcon">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                             </button>
@@ -174,7 +177,36 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vv1-Ut-a6v">
+                                                <rect key="frame" x="172" y="320" width="122" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkZ-rI-9bh">
+                                                        <rect key="frame" x="85" y="4" width="31" height="31"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
+                                                        <state key="normal" title="х" backgroundImage="Icon_Shield">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycF-jf-Ud4" userLabel="Attack Now">
+                                                        <rect key="frame" x="8" y="4" width="31" height="31"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
+                                                        <state key="normal" title="х" backgroundImage="AttackIcon">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vsB-YT-9Lk" userLabel="Health Now">
+                                                        <rect key="frame" x="47" y="4" width="31" height="31"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
+                                                        <state key="normal" title="х" backgroundImage="Icon_Heart">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
                                             </view>
                                         </subviews>
                                     </view>
@@ -188,9 +220,11 @@
                     <connections>
                         <outlet property="armorNow" destination="FkZ-rI-9bh" id="TdJ-ek-TVr"/>
                         <outlet property="attackNow" destination="ycF-jf-Ud4" id="d00-Ti-KfZ"/>
+                        <outlet property="goldNow" destination="36e-ti-Yl8" id="ukK-MR-D6c"/>
                         <outlet property="healthNow" destination="vsB-YT-9Lk" id="hOQ-JJ-hq5"/>
                         <outlet property="labelForSpellChanger" destination="h46-PT-BQJ" id="9Pl-3L-7g7"/>
                         <outlet property="labelForTable" destination="uAt-nd-ium" id="F5E-vp-Pzd"/>
+                        <outlet property="manaNow" destination="bcY-5Q-lox" id="axf-i3-xCR"/>
                         <outlet property="playerImage" destination="3S7-dP-V0F" id="x2t-5K-577"/>
                         <outlet property="spellChanger" destination="hPx-hJ-dJj" id="Wai-qR-N9Z"/>
                         <outlet property="stageLabel" destination="NiV-SQ-5nZ" id="9jY-2B-xKF"/>
@@ -199,45 +233,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pF7-ML-msY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-776.25" y="130.98591549295776"/>
+            <point key="canvasLocation" x="-776.79999999999995" y="129.98500749625188"/>
         </scene>
         <!--Change Spell View Controller-->
         <scene sceneID="EL8-gB-rKl">
             <objects>
                 <viewController id="92N-bX-CiE" customClass="ChangeSpellViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BdZ-7b-BfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-cQ-44N">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="380" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMZ-cD-5ic">
-                                <rect key="frame" x="-5" y="31" width="323" height="513"/>
+                                <rect key="frame" x="-6" y="36" width="379" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelection="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1i-kh-iRO">
-                                        <rect key="frame" x="9" y="80" width="314" height="359"/>
+                                        <rect key="frame" x="11" y="94" width="368" height="422"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="6C9-F3-mdN" customClass="SpellTableViewCell" customModule="match3" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="314" height="100"/>
+                                                <rect key="frame" x="0.0" y="28" width="368" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6C9-F3-mdN" id="sgx-qk-1rP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="99.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="368" height="99.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJG-em-MLk">
-                                                            <rect key="frame" x="90" y="16" width="209" height="21"/>
+                                                            <rect key="frame" x="90" y="16" width="259" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WyE-UL-7Zf">
-                                                            <rect key="frame" x="90" y="35" width="209" height="48"/>
+                                                            <rect key="frame" x="90" y="35" width="259" height="48"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -264,7 +298,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKT-Eb-Oyn">
-                                        <rect key="frame" x="238" y="447" width="77" height="76"/>
+                                        <rect key="frame" x="294" y="537" width="77" height="76"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <state key="normal" title="Back" backgroundImage="UI_StoneButton">
                                             <color key="titleColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -375,15 +409,15 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="L8e-9N-R5V" customClass="TownHallViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFill" id="zVQ-nv-rer">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WallTownHall" translatesAutoresizingMaskIntoConstraints="NO" id="fZF-Rj-4kc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-VT-hQH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="28" y="50" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TownHall" translatesAutoresizingMaskIntoConstraints="NO" id="bkR-9B-mUp">
@@ -418,7 +452,7 @@
                                 </subviews>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8T-uL-Xp4">
-                                <rect key="frame" x="14" y="465" width="83" height="83"/>
+                                <rect key="frame" x="14" y="564" width="83" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="23"/>
                                 <state key="normal" title="Back" backgroundImage="UI_StoneButton"/>
@@ -456,7 +490,7 @@
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" id="qrc-3t-sS0" customClass="GameViewController" customModule="match3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tx7-sS-ker">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-CR-M8P">
@@ -479,18 +513,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVY-zw-s9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.125" y="-662.32394366197184"/>
+            <point key="canvasLocation" x="343" y="133"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QSt-kf-c2U">
+            <objects>
+                <viewController id="UgK-bi-e6R" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ge-YA-TO2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pv4-XE-Etr">
+                                <rect key="frame" x="304" y="593" width="55" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="17"/>
+                                <state key="normal" title="Back" backgroundImage="UI_StoneButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="m0h-0w-7RR" kind="show" id="wYV-Le-e4B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="u9f-ON-5H9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvx-ZU-YQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256.25" y="1060.5633802816901"/>
         </scene>
         <!--Loose And Win View Controller-->
         <scene sceneID="obA-oa-iyH">
             <objects>
                 <viewController storyboardIdentifier="GameOverScreen" modalTransitionStyle="crossDissolve" id="zZe-1K-7zI" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qnx-v2-ber">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDb-c4-tCl">
-                                <rect key="frame" x="20" y="73" width="280" height="422"/>
+                                <rect key="frame" x="48" y="123" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-EC-JAK">
@@ -517,7 +579,7 @@
                                         <rect key="frame" x="0.0" y="8" width="280" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" red="0.87965973984771573" green="0.62238768277085599" blue="0.5815207445215006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have lost all progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhR-jH-dOt">
@@ -543,19 +605,19 @@
             <objects>
                 <viewController storyboardIdentifier="ChooseScreen" id="Cat-Ko-5t7" customClass="SelectItemViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qXB-ms-3AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HLm-VU-bkO">
-                                <rect key="frame" x="8" y="95" width="304" height="379"/>
+                                <rect key="frame" x="9" y="112" width="357" height="445"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.58881193444217306" blue="0.89032406613864923" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="T4s-H7-29D" customClass="ItemCellTableViewCell" customModule="match3" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="304" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="357" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T4s-H7-29D" id="ilZ-7D-Skv">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="357" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5eN-xq-4Qk">
@@ -563,14 +625,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24c-Jv-j87">
-                                                    <rect key="frame" x="81" y="11" width="208" height="26"/>
+                                                    <rect key="frame" x="81" y="11" width="261" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLe-x5-1Gj">
-                                                    <rect key="frame" x="81" y="35" width="208" height="34"/>
+                                                    <rect key="frame" x="81" y="35" width="261" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -592,14 +654,14 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your reward" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-7G-Gtf">
-                                <rect key="frame" x="16" y="46" width="288" height="41"/>
+                                <rect key="frame" x="19" y="46" width="337" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.89140073950901655" blue="0.55081127283590026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-Cg-ZU4">
-                                <rect key="frame" x="72" y="482" width="177" height="49"/>
+                                <rect key="frame" x="100" y="581" width="177" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="20"/>
                                 <state key="normal" title="Get Item" backgroundImage="UI_WoodenButtonSuperLong">
@@ -623,255 +685,33 @@
             </objects>
             <point key="canvasLocation" x="-2550" y="133.09859154929578"/>
         </scene>
-        <!--Choice Level View Controller-->
-        <scene sceneID="RgV-xg-NTN">
-            <objects>
-                <viewController restorationIdentifier="0" storyboardIdentifier="LevelScreen1" modalTransitionStyle="crossDissolve" id="Gam-B8-e0m" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BSG-4h-819">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="gac-Ji-FuN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vh-yz-QD2">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="986-uE-gme">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3A-5Z-bi2">
-                                        <rect key="frame" x="16" y="307" width="110" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pho-FR-2hq">
-                                        <rect key="frame" x="176" y="258" width="45" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="a4k-yJ-wPx">
-                                        <rect key="frame" x="0.0" y="393" width="240" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attention" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfo-3j-aoN">
-                                        <rect key="frame" x="10" y="27" width="222" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-gG-tT5">
-                                        <rect key="frame" x="0.0" y="368" width="240" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="25"/>
-                                        <color key="tintColor" red="0.16168434749999999" green="0.24809788690000001" blue="0.34252062179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Tutorial" backgroundImage="UI_WoodenButtonSuperLong">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ToLvl_Tutorial:" destination="Gam-B8-e0m" eventType="touchUpInside" id="tmE-8f-nG6"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LvlIcon_Tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="Yx9-zM-GO5">
-                                        <rect key="frame" x="74" y="131" width="93" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="dxZ-Lw-LfJ"/>
-                    </view>
-                    <connections>
-                        <outletCollection property="buttonCollection" destination="sAB-gG-tT5" collectionClass="NSMutableArray" id="Vn4-u0-IcQ"/>
-                        <outletCollection property="labelCollection" destination="o3A-5Z-bi2" collectionClass="NSMutableArray" id="fPF-3a-D09"/>
-                        <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="MFL-Kg-3Yh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ij-7N-b0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-806.25" y="-1472.5352112676057"/>
-        </scene>
-        <!--Choice Level View Controller-->
-        <scene sceneID="dKy-VO-9d0">
-            <objects>
-                <viewController restorationIdentifier="1" storyboardIdentifier="LevelScreen2" modalTransitionStyle="crossDissolve" id="bHn-F7-tDW" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AIu-Qv-41j">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-zx-8jA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-8j-rCN">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="nd7-qy-ppZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYl-At-Qxc">
-                                        <rect key="frame" x="16" y="307" width="110" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhK-I1-eNO">
-                                        <rect key="frame" x="176" y="258" width="45" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="4El-M7-Eim">
-                                        <rect key="frame" x="0.0" y="393" width="240" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WANTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgK-Sx-Ein">
-                                        <rect key="frame" x="10" y="27" width="222" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDX-Kf-WKJ">
-                                        <rect key="frame" x="0.0" y="368" width="240" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="25"/>
-                                        <state key="normal" title="Start" backgroundImage="UI_WoodenButtonSuperLong">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ToLvl_SteamPunk:" destination="bHn-F7-tDW" eventType="touchUpInside" id="NPX-5z-sbR"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LvlIcon_SteamPunk" translatesAutoresizingMaskIntoConstraints="NO" id="a5a-TS-WsK">
-                                        <rect key="frame" x="60" y="132" width="122" height="112"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="sAD-Zi-AY3"/>
-                    </view>
-                    <connections>
-                        <outletCollection property="buttonCollection" destination="lDX-Kf-WKJ" collectionClass="NSMutableArray" id="oN5-ja-amX"/>
-                        <outletCollection property="labelCollection" destination="dYl-At-Qxc" collectionClass="NSMutableArray" id="tiy-0x-Gqy"/>
-                        <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="syL-RH-VqN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BXd-OU-zdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-109.59999999999999" y="-1471.2143928035982"/>
-        </scene>
-        <!--Choice Level View Controller-->
-        <scene sceneID="bkd-oG-Upm">
-            <objects>
-                <viewController restorationIdentifier="2" storyboardIdentifier="LevelScreen3" modalTransitionStyle="crossDissolve" id="VXV-Ao-3Ym" customClass="ChoiceLevelViewController" customModule="match3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pM7-8E-Oee">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TableInner" translatesAutoresizingMaskIntoConstraints="NO" id="V4a-pS-Oa0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7SA-fS-hnY">
-                                <rect key="frame" x="40" y="53" width="240" height="427"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WantedList" translatesAutoresizingMaskIntoConstraints="NO" id="jaD-cb-3Us">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9c-Zf-OEi">
-                                        <rect key="frame" x="16" y="307" width="110" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tp6-sR-UNg">
-                                        <rect key="frame" x="176" y="258" width="45" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="UI_shadow" translatesAutoresizingMaskIntoConstraints="NO" id="JHb-Dp-Nwh">
-                                        <rect key="frame" x="0.0" y="393" width="240" height="58"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DUNGEON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlO-mD-6eV">
-                                        <rect key="frame" x="10" y="27" width="222" height="53"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="40"/>
-                                        <color key="textColor" red="0.58085735100000002" green="0.3811223923" blue="0.084538122869999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMn-P4-GFb">
-                                        <rect key="frame" x="0.0" y="368" width="240" height="59"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="25"/>
-                                        <state key="normal" title="Start" backgroundImage="UI_WoodenButtonSuperLong">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ToLvl_Dungeon:" destination="VXV-Ao-3Ym" eventType="touchUpInside" id="g9x-nT-nMI"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LvlIcon_RandomDungeon" translatesAutoresizingMaskIntoConstraints="NO" id="ch6-Op-se1">
-                                        <rect key="frame" x="26" y="130" width="188" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.29169109669999999" green="0.58085735100000002" blue="0.51306315420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="4Ue-hJ-XK5"/>
-                    </view>
-                    <connections>
-                        <outletCollection property="labelCollection" destination="k9c-Zf-OEi" collectionClass="NSMutableArray" id="7O6-XX-9oK"/>
-                        <outletCollection property="buttonCollection" destination="UMn-P4-GFb" collectionClass="NSMutableArray" id="anK-Gs-BD8"/>
-                        <outletCollection property="labelCollection" destination="k9c-Zf-OEi" collectionClass="NSMutableArray" id="6Mt-Ua-fd2"/>
-                        <segue destination="qrc-3t-sS0" kind="show" identifier="ToLvl" id="eQd-Db-IgD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ni0-hs-WvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="584.79999999999995" y="-1471.2143928035982"/>
-        </scene>
         <!--Loose And Win View Controller-->
         <scene sceneID="G3T-kb-u4O">
             <objects>
                 <viewController storyboardIdentifier="VictoryScreen" modalTransitionStyle="crossDissolve" id="Hny-AW-O6Z" customClass="LooseAndWinViewController" customModule="match3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Siq-hF-cIE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjC-jO-D1o">
-                                <rect key="frame" x="20" y="73" width="280" height="422"/>
+                                <rect key="frame" x="48" y="123" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Mix-fq-Vf6">
                                         <rect key="frame" x="84" y="239" width="108" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="9c1-wn-8SH">
+                                        <rect key="frame" x="162" y="265" width="108" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VictoryMainChar" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-Re-LQ8">
-                                        <rect key="frame" x="27" y="49" width="232" height="202"/>
+                                        <rect key="frame" x="27" y="48" width="232" height="202"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chest" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-RK-zDi">
+                                        <rect key="frame" x="173" y="224" width="86" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYW-xs-ATA">
                                         <rect key="frame" x="58" y="362" width="164" height="45"/>
@@ -888,7 +728,7 @@
                                         <rect key="frame" x="0.0" y="8" width="280" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Munro" family="Munro" pointSize="37"/>
-                                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -904,18 +744,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AttackIcon" width="256" height="256"/>
         <image name="Board" width="1170" height="256"/>
         <image name="CoinIcon" width="256" height="256"/>
         <image name="FloorTownHall-Black" width="256" height="140"/>
         <image name="Icon_Heart" width="256" height="256"/>
         <image name="Icon_Shield" width="256" height="256"/>
-        <image name="LvlIcon_RandomDungeon" width="256" height="128"/>
-        <image name="LvlIcon_SteamPunk" width="256" height="256"/>
-        <image name="LvlIcon_Tutorial" width="256" height="317"/>
         <image name="SkillTableForTownHall" width="256" height="108"/>
+        <image name="SoulStone-0" width="205" height="256"/>
         <image name="SpellFirstAid" width="256" height="256"/>
         <image name="Table" width="332" height="230"/>
-        <image name="TableInner" width="398" height="702"/>
         <image name="Tombstone" width="256" height="256"/>
         <image name="TownHall" width="256" height="456"/>
         <image name="UI_StoneButton" width="256" height="256"/>
@@ -923,7 +761,6 @@
         <image name="UI_shadow" width="600" height="300"/>
         <image name="VictoryMainChar" width="228" height="216"/>
         <image name="WallTownHall" width="256" height="512"/>
-        <image name="WantedList" width="266" height="418"/>
         <image name="button:hPx-hJ-dJj:backgroundImage" width="256" height="224">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -4880,6 +4717,7 @@ TQADnFIAA5xaAAOcXQADnGIAA5xqAAOcbQADnH8AA5yCAAOchwAAAAAAAAQBAAAAAAAAAFkAAAAAAAAA
 AAAAAAAAA5yJA
 </mutableData>
         </image>
+        <image name="chest" width="389" height="256"/>
         <image name="imageView:3S7-dP-V0F:image" width="304" height="272">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGUlNYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEQcI
@@ -10546,12 +10384,13 @@ LQIABS0HAAUtFQAFLRkABS0gAAUtJQAFLTIABS01AAUtQgAFLUcABS1PAAUtUgAFLVcABS1fAAUtYgAF
 LXQABS13AAUtfAAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAAAAAABS1+A
 </mutableData>
         </image>
+        <image name="manaBar-1" width="256" height="256"/>
         <image name="shadow" width="600" height="600"/>
         <image name="skillCell" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="mD9-LM-Dye"/>
         <segue reference="j1L-av-3jk"/>
-        <segue reference="2SI-vV-tJd"/>
-        <segue reference="AcW-1x-O2Y"/>
+        <segue reference="wYV-Le-e4B"/>
     </inferredMetricsTieBreakers>
 </document>

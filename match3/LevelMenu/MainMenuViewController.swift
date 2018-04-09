@@ -29,6 +29,9 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var attackNow: UIButton!
     
+    @IBOutlet weak var manaNow: UIButton!
+    
+    @IBOutlet weak var goldNow: UIButton!
     
     @IBAction func startLevelButton(_ sender: Any) {
     }
@@ -45,11 +48,13 @@ class MainMenuViewController: UIViewController {
 
         if playerStat == nil {
             gameViewController.loadGameProgress()
-            print("MAIN __ LOAD --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
+            self.stageLabel.text = String(lvlDifficulty)
+            print("MAIN __ LOAD")
             if playerStat == nil {
                 playerStat = PlayerStat(manaMax: 0, healthMax: 100, armorMax: 100, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 playerStat.needRevive = false
                 gameViewController.saveGameProgress()
+                self.stageLabel.text = String(lvlDifficulty)
                 print("MAIN __ INIT ON START --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
@@ -65,15 +70,17 @@ class MainMenuViewController: UIViewController {
             }
             else {
                 gameViewController.saveGameProgress()
+                self.stageLabel.text = String(lvlDifficulty)
                 print("MAIN __ ALREADY PLAY --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
         
+        
         healthNow.setTitle(String(playerStat.healthNow), for: .normal)
         armorNow.setTitle(String(playerStat.armorNow), for: .normal)
         attackNow.setTitle(String(playerStat.attack), for: .normal)
-        
-        
+        manaNow.setTitle(String(playerStat.manaNow), for: .normal)
+        goldNow.setTitle(String(playerStat.gold), for: .normal)
 
         UILabel.animate(withDuration: 1, animations: {
             self.labelForTable.frame.size.width += 10
@@ -87,6 +94,7 @@ class MainMenuViewController: UIViewController {
             })
         }
         
+        var soulStoneImageArr = [UIImage]()
         var spellChangerImageArr = [UIImage]()
         var playerImageArr = [UIImage]()
         

@@ -44,6 +44,7 @@
 		1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82241F83376F00710D50 /* Stony-Attack.atlas */; };
 		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
 		1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */; };
+		1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F383A47207B6DD200816D3D /* SoulStone.xcassets */; };
 		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
 		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
@@ -197,6 +198,7 @@
 		1F2D82241F83376F00710D50 /* Stony-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
 		1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpellViewController.swift; sourceTree = "<group>"; };
+		1F383A47207B6DD200816D3D /* SoulStone.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoulStone.xcassets; sourceTree = "<group>"; };
 		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
 		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				1FB431BF1FB835F900039960 /* SpellTexture.xcassets */,
 				1F937CEE2039EFCC003F0C91 /* ToolTip.xcassets */,
 				1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */,
+				1F383A47207B6DD200816D3D /* SoulStone.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -897,6 +900,7 @@
 				1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */,
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
+				1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */,
 				1FB431B91FB7384C00039960 /* BuffArmor.atlas in Resources */,
 				1F5B8FB8205EC2510046480D /* Player-Stand.xcassets in Resources */,
 				1F937CF4203AB587003F0C91 /* 0-5.json in Resources */,

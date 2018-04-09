@@ -67,6 +67,19 @@ var gameViewController: GameViewController!
 ///Пройденные уровни (сохраняемый класс)
 var levelStorage = [[String: Any]]()
 
+enum ChestType {
+    ///Сундук со стандартными вещами и спелами
+    case spellAndItemсhest
+    
+    ///Сундук со стандартными вещами
+    case itemChest
+    
+    ///Сундук со способностями
+    case spellChest
+}
+
+var nextChestType: ChestType! = .itemChest
+
 class GameViewController: UIViewController {
     
     var lvlName: String!
@@ -354,10 +367,14 @@ class GameViewController: UIViewController {
     }
     
     func saveGameProgress() {
-        UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
         UserDefaults.standard.set(lvlDifficulty, forKey: "difficulty")
+        
+        UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
+
         UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: playerStat), forKey: "playerStatic")
+        
         UserDefaults.standard.synchronize()
+        
         print("SAVE DONE")
     }
     
