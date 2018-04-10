@@ -37,7 +37,7 @@ extension GameScene {
                 
                 self.enemyUnit.run(pulse)
                 self.enemyUnit.animationStand()
-                
+                self.updateEnemyCount()
                 self.boardSizeChange()
             }
             let gestureTrue = SKAction.run {
@@ -99,7 +99,9 @@ extension GameScene {
                     case Match.coin.rawValue:
                         playerStat.gold += actionOnTurn[Match.coin.rawValue]
                     case Match.poison.rawValue:
-                        player.health -= actionOnTurn[Match.poison.rawValue]
+                        player.health -= actionOnTurn[Match.poison.rawValue] * 6
+                        print("\(actionOnTurn[Match.poison.rawValue]) ----- Poison")
+                        player.updateLabelOverHead()
                     case Match.cog.rawValue:
                         enemyUnit.armor += 25
                     default: break
@@ -109,45 +111,7 @@ extension GameScene {
         for i in 0...actionOnTurn.count-1 {
             actionOnTurn[i] = 0
         }
-
-
-        
-
     }
-    
-//    public func checkArrForAction() {
-//        for i in 0...actionOnTurn.count-1 {
-//            if actionOnTurn[i] > 0 {
-//                switch i {
-//                case Match.skull.rawValue:
-//                    actionArr["Action": SKAction].ape = enemyUnit.animationAttack()
-//                    break
-//                case Match.armor.rawValue: break
-//                case Match.energy.rawValue: break
-//                case Match.attack.rawValue:
-//                    var strongAttack = false
-//                    if actionOnTurn[Match.attack.rawValue] > 3 {
-//                        strongAttack = true
-//                        player.mana += Int(actionOnTurn[Match.attack.rawValue]/2)
-//                        changeManaLabel()
-//                    }
-//                    else {
-//                        strongAttack = false
-//                    }
-//                    actionArr[i] = player.animationAttack(strongAttack: strongAttack)
-//                    break
-//                case Match.poison.rawValue: break
-//                case Match.cog.rawValue: break
-//                default: break
-//                }
-//            }
-//        }
-//
-//
-//        for i in 0...actionOnTurn.count-1 {
-//            actionOnTurn[i] = 0
-//        }
-//    }
     
 
     

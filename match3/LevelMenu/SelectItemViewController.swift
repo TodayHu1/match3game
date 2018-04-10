@@ -82,7 +82,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: 7, health: 3, attack: 1, mana: 0, img: "OrangeGreatRing", name: "Great handfull ring"),
         Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueRing", name: "Ring of protection"),
         Item.init(armor: 0, health: 10, attack: 0, mana: 0, img: "GreenRing", name: "Ring of health"),
-        Item.init(armor: 0, health: 10, attack: 1, mana: 2, img: "BlueGreatRing", name: "Ring of archimage"),
+        Item.init(armor: 0, health: 10, attack: 1, mana: 2, img: "BlueGreatRing", name: "Ring of archmage"),
         Item.init(armor: 0, health: -10, attack: 6, mana: 0, img: "RedGreatRing", name: "Great ring of attack")
     ]
 
@@ -276,7 +276,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
             case 1:
                 buildChest(chestType: .spellChest)
             default:
-                buildChest(chestType: nextChestType)
+                buildChest(chestType: .spellAndItemсhest)
         }
 
         for _ in 0...countOfSelectedItem-1 {

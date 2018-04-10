@@ -116,14 +116,6 @@ class GameViewController: UIViewController {
         ad.load(request)
 
         indexLevel = 0
-        
-//        guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: lvlName) else { return }
-//
-//
-//        loadEnemy = dictionary["Enemy"] as! [[String]]
-//        loadBg = dictionary["Bg"] as! [String]
-//        loadMatchChance = dictionary["MatchChance"] as! [Int]
-//        loadBoardSize = dictionary["BoardSize"] as! [[Int]]
 
         initLevel()
         

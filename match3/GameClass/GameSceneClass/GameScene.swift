@@ -44,6 +44,9 @@ class GameScene: SKScene {
     ///Шанс выпадения матчей
     var matchChance: [Int]!
     
+    ///Показывает кол-во юнитов на уровне
+    var enemyCountLabel: SKLabelNode!
+    
 
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
@@ -144,6 +147,13 @@ class GameScene: SKScene {
     
     ///Построение декораций на сцене
     func buildScene(bgName: String) {
+        
+        enemyCountLabel = SKLabelNode(fontNamed: "Munro")
+        enemyCountLabel.position.y = 310
+        enemyCountLabel.fontSize = 17
+        enemyCountLabel.zPosition = 1000
+        self.addChild(enemyCountLabel)
+        updateEnemyCount()
         
         ///Spell Board
         let spellBoardA = SKSpriteNode(texture: SKTexture(imageNamed: "Board.png"), size: CGSize(width: 375, height: 80))
@@ -349,12 +359,9 @@ class GameScene: SKScene {
     }
 
     func presentScene() {
-        playerStat.armorNow = player.armor
-        playerStat.healthNow = player.health
-        playerStat.manaNow = player.mana
-//        playerStat.armorNow = playerStat.armorMax
-//        playerStat.healthNow = playerStat.healthMax
-//        playerStat.manaNow = playerStat.manaMax
+        if player.armor < playerStat.armorMax {playerStat.armorNow = player.armor}else{playerStat.armorNow = playerStat.armorMax}
+        if player.health < playerStat.healthMax {playerStat.healthNow = player.health}else{playerStat.healthNow = playerStat.healthMax}
+        if player.mana < playerStat.manaMax {playerStat.manaNow = player.mana}else{playerStat.manaNow = playerStat.manaMax}
 
         removeAllObject()
         self.gameViewController.presentScene(scene: movingScreenNow)
@@ -364,6 +371,10 @@ class GameScene: SKScene {
         Flurry.logEvent("DeathBy", withParameters: ["Lvl": lvlDifficulty, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]])
         removeAllObject()
         self.gameViewController.gameOverScreen()
+    }
+    
+    func updateEnemyCount() {
+        self.enemyCountLabel.text = "\(self.enemyIndexNow+1)/\(self.enemyOnLevelArr.count)"
     }
     
     

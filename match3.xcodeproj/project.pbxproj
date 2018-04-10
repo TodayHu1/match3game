@@ -43,6 +43,7 @@
 		1F2D82231F83376700710D50 /* Stony-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82221F83376700710D50 /* Stony-Stand.atlas */; };
 		1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2D82241F83376F00710D50 /* Stony-Attack.atlas */; };
 		1F2D822E1F88EA6500710D50 /* Enemy_AttackMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */; };
+		1F2E84D9207C51A800FE32F0 /* SoulStoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */; };
 		1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */; };
 		1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F383A47207B6DD200816D3D /* SoulStone.xcassets */; };
 		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
@@ -197,6 +198,7 @@
 		1F2D82221F83376700710D50 /* Stony-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Stand.atlas"; sourceTree = "<group>"; };
 		1F2D82241F83376F00710D50 /* Stony-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Stony-Attack.atlas"; sourceTree = "<group>"; };
 		1F2D822D1F88EA6500710D50 /* Enemy_AttackMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_AttackMod.swift; sourceTree = "<group>"; };
+		1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulStoneViewController.swift; sourceTree = "<group>"; };
 		1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpellViewController.swift; sourceTree = "<group>"; };
 		1F383A47207B6DD200816D3D /* SoulStone.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoulStone.xcassets; sourceTree = "<group>"; };
 		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 				1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */,
 				1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */,
 				1F5B8FB920623D460046480D /* SelectItemViewController.swift */,
+				1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -1137,6 +1140,7 @@
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
 				1F00B6EE1FAD9E2000C002B3 /* GS_EnemyCollection.swift in Sources */,
 				1F2AEDBE1EFD5863001AEBB7 /* GameViewController.swift in Sources */,
+				1F2E84D9207C51A800FE32F0 /* SoulStoneViewController.swift in Sources */,
 				1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */,
 				1F2AEDB61EFD5862001AEBB7 /* AppDelegate.swift in Sources */,
 				1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */,
