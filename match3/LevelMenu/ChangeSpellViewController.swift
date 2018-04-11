@@ -73,10 +73,7 @@ class ChangeSpellViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableSpell.separatorStyle = .none
         
-
-        
         allPlayerSpell = reworkArr
-        
         
         initBoard()
         

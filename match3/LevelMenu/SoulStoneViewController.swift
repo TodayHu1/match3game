@@ -41,10 +41,19 @@ class SoulStoneViewController: UIViewController {
     @IBOutlet weak var addToArmor: UIButton!
     @IBOutlet weak var addToMana: UIButton!
     
+    @IBOutlet weak var stoneImage: UIImageView!
+    @IBOutlet weak var soulStoneShadow: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initStatBoard()
+        
+        UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
+            self.stoneImage.frame.origin.y -= 10
+            self.soulStoneShadow.frame.size.width -= 12
+            self.soulStoneShadow.frame.size.height -= 4
+        })
     }
     
     func initStatBoard() {
