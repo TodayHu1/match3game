@@ -437,6 +437,7 @@ class GameViewController: UIViewController {
     ///Веса для врагов
     let enemyDifficultyArr = [
         [1, "Stony"],
+        [2, "PoisonScale"],
         [3, "StoneScale"],
         [5, "SteamPunkPunch"],
         [6, "RoyalMage"],
@@ -486,7 +487,7 @@ class GameViewController: UIViewController {
     
     func getBoss(difficulty: Int) -> [[String]]? {
         switch difficulty {
-        case 10:
+        case 20:
             loadBg = ["SteamPunkBackground"]
             loadBoardSize = [[4,7]]
             return [["SteamPunkWalker"]]

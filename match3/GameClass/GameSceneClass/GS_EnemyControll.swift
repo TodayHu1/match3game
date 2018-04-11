@@ -71,9 +71,10 @@ extension GameScene {
             if actionOnTurn[i] > 0 {
                 switch i {
                     case Match.skull.rawValue:
-                        enemyUnit.fullAttackStandAnimation(damage: enemyUnit.attack * actionOnTurn[Match.skull.rawValue])
+                        let damage = Int((enemyUnit.attack * actionOnTurn[Match.skull.rawValue]) / 3)
+                        enemyUnit.fullAttackStandAnimation(damage: damage)
                     case Match.armor.rawValue:
-                        player.armor += actionOnTurn[Match.armor.rawValue] * 5
+                        player.armor += actionOnTurn[Match.armor.rawValue] * 2
                         positiveWords(number: actionOnTurn[Match.armor.rawValue])
                     case Match.energy.rawValue:
                         player.mana += actionOnTurn[Match.energy.rawValue]
@@ -84,7 +85,7 @@ extension GameScene {
                             self.actionGesture(gesture: true)
                             }])
                         self.run(wait)
-                        let damag = player.attack * actionOnTurn[Match.attack.rawValue]
+                        let damag = Int((player.attack * actionOnTurn[Match.attack.rawValue]) / 3)
                         var strongAttack = false
                         if actionOnTurn[Match.attack.rawValue] > 3 {
                             strongAttack = true

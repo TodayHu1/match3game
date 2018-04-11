@@ -27,7 +27,7 @@ extension EnemyUnit {
     
     func spawnCogOnDefense(number: Int) {
         if number > 0 {
-            gameViewController.presentText(text: "Cog", color: #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), whoIs: .enemy)
+//            gameViewController.presentText(text: "Cog", color: #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), whoIs: .enemy)
             if number != 0 {
                 var duration: Double = 0
                 let interval: Double = self.gameScene.durationSpawnMatchAnimation()

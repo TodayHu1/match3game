@@ -47,15 +47,15 @@ extension GameScene {
             
         case "HeartAttack":
             mana = 1
-            health = 6
+            health = 5
             armor = 0
             coin = 0
             description = "Takes away a part of lives in exchange for four match of attack"
             
         case "Nemesis":
-            mana = 4
+            mana = 3
             health = 1
-            armor = 2
+            armor = 1
             coin = 0
             description = "Replaces match shields for attack matches"
             
@@ -81,7 +81,7 @@ extension GameScene {
         case "SilverSword":
             mana = 1
             health = 0
-            armor = 10
+            armor = 5
             coin = 0
             description = "Attacking the enemy on [ skulls * attack / 5 ]"
         case "ScullingTheSkulls":

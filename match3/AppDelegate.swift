@@ -21,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GADMobileAds.configure(withApplicationID: "ca-app-pub-2270286479492772~6057888883")
         
-        Flurry.startSession("BMPW8J3XDNMCK3F6GJG2", with: FlurrySessionBuilder
-            .init()
-            .withCrashReporting(true)
-            .withLogLevel(FlurryLogLevelAll))
+//        Flurry.startSession("FB2NN49RK5JW466X278W", with: FlurrySessionBuilder
+//            .init()
+//            .withCrashReporting(true)
+//            .withLogLevel(FlurryLogLevelAll))
         
         return true
     }

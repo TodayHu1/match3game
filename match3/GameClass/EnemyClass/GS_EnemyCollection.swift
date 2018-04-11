@@ -37,62 +37,69 @@ extension GameScene {
                 createEnemyUnit.health = 1
                 createEnemyUnit.armor = 0
                 createEnemyUnit.size = CGSize(width: 100, height: 100)
-                
-            case "CultistsProphet":
-                createEnemyUnit.attack = 30
-                createEnemyUnit.health = 100
-                createEnemyUnit.armor = 10
-                createEnemyUnit.size = CGSize(width: 170, height: 220)
-                createEnemyUnit.specialAbilities["VampireAttack"] = 1
-                
-            case "SteamPunkGuard":
-                createEnemyUnit.attack = 20
-                createEnemyUnit.health = 10
-                createEnemyUnit.armor = 200
-                createEnemyUnit.size = CGSize(width: 180, height: 150)
-                createEnemyUnit.specialAbilities["CogOnDefense"] = 2
-                
-            case "NeutralTurtle":
-                createEnemyUnit.attack = 20
-                createEnemyUnit.health = 150
-                createEnemyUnit.armor = 50
-                createEnemyUnit.size = CGSize(width: 125, height: 115)
-                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
-                
-            case "StoneScale":
-                createEnemyUnit.attack = 10
-                createEnemyUnit.health = 50
-                createEnemyUnit.armor = 100
-                createEnemyUnit.size = CGSize(width: 130, height: 130)
-                createEnemyUnit.specialAbilities["SkullOnBoard"] = 2
-                
+            //1
             case "Stony":
-                createEnemyUnit.attack = 10
-                createEnemyUnit.health = 50
-                createEnemyUnit.armor = 50
+                createEnemyUnit.attack = 8
+                createEnemyUnit.health = 15
+                createEnemyUnit.armor = 25
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
                 createEnemyUnit.specialAbilities["PoisonOnBoard"] = 1
-
-            case "RoyalMage":
-                createEnemyUnit.attack = 20
-                createEnemyUnit.health = 100
-                createEnemyUnit.armor = 0
-                createEnemyUnit.size = CGSize(width: 140, height: 140)
-                
+            //2
+            case "PoisonScale":
+                createEnemyUnit.attack = 11
+                createEnemyUnit.health = 20
+                createEnemyUnit.armor = 35
+                createEnemyUnit.size = CGSize(width: 125, height: 125)
+                createEnemyUnit.specialAbilities["PoisonOnBoard"] = 2
+            //3
+            case "StoneScale":
+                createEnemyUnit.attack = 9
+                createEnemyUnit.health = 35
+                createEnemyUnit.armor = 40
+                createEnemyUnit.size = CGSize(width: 130, height: 130)
+                createEnemyUnit.specialAbilities["SkullOnBoard"] = 1
+            //5
             case "SteamPunkPunch":
-                createEnemyUnit.attack = 10
+                createEnemyUnit.attack = 12
                 createEnemyUnit.health = 50
                 createEnemyUnit.armor = 50
                 createEnemyUnit.size = CGSize(width: 120, height: 120)
-                
+            //6
+            case "RoyalMage":
+                createEnemyUnit.attack = 22
+                createEnemyUnit.health = 65
+                createEnemyUnit.armor = 5
+                createEnemyUnit.size = CGSize(width: 140, height: 140)
+            //8
             case "SteamPunkFlameThrower":
                 createEnemyUnit.attack = 15
-                createEnemyUnit.health = 50
-                createEnemyUnit.armor = 100
+                createEnemyUnit.health = 55
+                createEnemyUnit.armor = 55
                 createEnemyUnit.size = CGSize(width: 270, height: 120)
-                
+            //10
+            case "NeutralTurtle":
+                createEnemyUnit.attack = 18
+                createEnemyUnit.health = 20
+                createEnemyUnit.armor = 80
+                createEnemyUnit.size = CGSize(width: 125, height: 115)
+                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
+            //13
+            case "CultistsProphet":
+                createEnemyUnit.attack = 33
+                createEnemyUnit.health = 1
+                createEnemyUnit.armor = 100
+                createEnemyUnit.size = CGSize(width: 170, height: 220)
+                createEnemyUnit.specialAbilities["VampireAttack"] = 1
+            //15
+            case "SteamPunkGuard":
+                createEnemyUnit.attack = 25
+                createEnemyUnit.health = 141
+                createEnemyUnit.armor = 0
+                createEnemyUnit.size = CGSize(width: 180, height: 150)
+                createEnemyUnit.specialAbilities["CogOnDefense"] = 2
+            //Boss 1
             case "SteamPunkWalker":
-                createEnemyUnit.attack = 15
+                createEnemyUnit.attack = 16
                 createEnemyUnit.health = 200
                 createEnemyUnit.armor = 200
                 createEnemyUnit.size = CGSize(width: 260, height: 160)
