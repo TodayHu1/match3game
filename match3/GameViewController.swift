@@ -167,8 +167,6 @@ class GameViewController: UIViewController {
         viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
         viewx.tag = 341
         
-        var blurType: UIBlurEffectStyle = .dark
-        
         switch whoIs {
         case .player:
             currentText = "[Player] " + text
@@ -178,7 +176,7 @@ class GameViewController: UIViewController {
         }
         
         
-        let testView = UIVisualEffectView(effect: UIBlurEffect(style: blurType))
+        let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         testView.frame = CGRect(x: 0, y: 0, width: frameWidth, height: frameHeight)
         testView.layer.cornerRadius = 10
         testView.clipsToBounds = true
@@ -191,7 +189,14 @@ class GameViewController: UIViewController {
         label.textAlignment = .center
 //        label.shadowColor = .white
 //        label.shadowOffset.height = 1
-        label.font = UIFont(name: "Munro", size: 25)
+        
+        if currentText.count > 25 {
+            label.font = UIFont(name: "Munro", size: 22)
+        }
+        else {
+            label.font = UIFont(name: "Munro", size: 25)
+        }
+
         
         
         viewx.addSubview(testView)
@@ -211,7 +216,6 @@ class GameViewController: UIViewController {
                     viewx.alpha = 0
                 }) {_ in
                     UIView.animate(withDuration: 0.1, animations: {
-//                        self.removeSubViewByTag(tag: 341)
                         viewx.removeFromSuperview()
                     })
                 }
@@ -234,7 +238,6 @@ class GameViewController: UIViewController {
         
         let viewx = UIView()
         viewx.frame = CGRect(x: Int(self.view.center.x) - (frameWidth/2), y: Int(self.view.frame.height), width: frameWidth, height: frameHeight)
-//        viewx.tag = 341
         
         
         let testView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))

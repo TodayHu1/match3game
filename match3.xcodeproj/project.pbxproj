@@ -46,6 +46,7 @@
 		1F2E84D9207C51A800FE32F0 /* SoulStoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */; };
 		1F2E84DD207DF0D000FE32F0 /* PoisonScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DB207DF0CE00FE32F0 /* PoisonScale-Attack.atlas */; };
 		1F2E84DE207DF0D000FE32F0 /* PoisonScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DC207DF0CF00FE32F0 /* PoisonScale-Stand.atlas */; };
+		1F2E84E0207E517B00FE32F0 /* Player-SpellBuff.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */; };
 		1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */; };
 		1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F383A47207B6DD200816D3D /* SoulStone.xcassets */; };
 		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
@@ -203,6 +204,7 @@
 		1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoulStoneViewController.swift; sourceTree = "<group>"; };
 		1F2E84DB207DF0CE00FE32F0 /* PoisonScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "PoisonScale-Attack.atlas"; sourceTree = "<group>"; };
 		1F2E84DC207DF0CF00FE32F0 /* PoisonScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "PoisonScale-Stand.atlas"; sourceTree = "<group>"; };
+		1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-SpellBuff.atlas"; sourceTree = "<group>"; };
 		1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpellViewController.swift; sourceTree = "<group>"; };
 		1F383A47207B6DD200816D3D /* SoulStone.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoulStone.xcassets; sourceTree = "<group>"; };
 		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */,
 				1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */,
 				1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */,
 				1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */,
@@ -894,6 +897,7 @@
 				1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
 				1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */,
+				1F2E84E0207E517B00FE32F0 /* Player-SpellBuff.atlas in Resources */,
 				1FD69C161FAA0A760003CA7E /* Player-Stand.atlas in Resources */,
 				1F937D13203EA58C003F0C91 /* 1-8.json in Resources */,
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
@@ -1344,7 +1348,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.klaster.runesword;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klaster.runeswordreborntf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1360,7 +1364,7 @@
 				INFOPLIST_FILE = match3/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.klaster.runesword;
+				PRODUCT_BUNDLE_IDENTIFIER = com.klaster.runeswordreborntf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

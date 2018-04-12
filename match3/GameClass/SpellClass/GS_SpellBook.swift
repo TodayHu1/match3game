@@ -41,7 +41,7 @@ extension GameScene {
         case "SkullJail":
             mana = 6
             health = 0
-            armor = 0
+            armor = 2
             coin = 0
             description = "Replaces skull matches for matches of chains"
             
@@ -72,24 +72,49 @@ extension GameScene {
             armor = 5
             coin = 0
             description = "Heals you on the number of skulls on the table"
+            
         case "EnergyAttack":
             mana = playerStat.manaNow
             health = 0
             armor = 0
             coin = 0
             description = "Absorbs all mana, attacks on [ mana points * attack power / 3 ]"
+            
         case "SilverSword":
             mana = 1
             health = 0
             armor = 5
             coin = 0
             description = "Attacking the enemy on [ skulls * attack / 5 ]"
+            
         case "ScullingTheSkulls":
             mana = 2
             health = 0
             armor = 0
             coin = 0
             description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 3 ]"
+            
+        case "GoldenHeart":
+            mana = 1
+            health = 1
+            armor = 1
+            coin = 1
+            description = "Heals for 7 health"
+            
+        case "ManaHealth":
+            mana = 8
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Heals for 8 health"
+            
+        case "UnstableTreatment":
+            mana = 2
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Spawns 3 poison matches and heals for 10 health"
+            
         default:
             mana = 0
             health = 0
@@ -110,6 +135,7 @@ extension GameScene {
             let test = GeneratRandomUnit(playerLvl: 1, gameScene: self)
             test.echo()
         case "SkullJail":
+            player.animationSpellBuffAndStand()
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
@@ -127,6 +153,7 @@ extension GameScene {
                 }
             }
         case "HeartAttack":
+            player.animationSpellBuffAndStand()
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
             for _ in 0...5 {
@@ -140,6 +167,7 @@ extension GameScene {
                 )
             }
         case "FirstAid":
+            player.animationSpellBuffAndStand()
             var heal = 0
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
@@ -152,6 +180,7 @@ extension GameScene {
             player.updateLabelOverHead()
             player.buffParticle(name: "Heart")
         case "Nemesis":
+            player.animationSpellBuffAndStand()
             var duration: Double = 0
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
@@ -225,11 +254,46 @@ extension GameScene {
             
             let seq = SKAction.sequence([spawnSkull, attackSpell])
             self.run(seq)
-
+            
+        case "GoldenHeart":
+            player.animationSpellBuffAndStand()
+            player.health += 7
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Heart")
+            
+        case "ManaHealth":
+            player.animationSpellBuffAndStand()
+            player.health += 8
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Heart")
+            
+        case "UnstableTreatment":
+            player.animationSpellBuffAndStand()
+            player.health += 10
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Heart")
+            
+            var duration: Double = 0
+            let interval: Double = self.durationSpawnMatchAnimation()
+            for _ in 0...2 {
+                duration += interval
+                matchMoveToBoard(matchType: Match.poison,
+                                 nodePosition: player,
+                                 i: matchBoard.getRandomMatchVertical(),
+                                 j: matchBoard.getRandomMatchHorizontal(),
+                                 waitTimeToAnimation: TimeInterval(duration),
+                                 durationAnimation: interval
+                )
+            }
+            
         default:
             break
         }
         
+        if skillName != "Null" {
+            self.gameViewController.presentText(text: skillName, color: #colorLiteral(red: 0.6977043144, green: 0.5854419424, blue: 0.9686274529, alpha: 1))
+        }
+
        
         
         

@@ -24,6 +24,9 @@ class Player: SKSpriteNode {
     var playerArrStrongAttack = [SKTexture]()
     var playerAtlasStrongAttack = SKTextureAtlas()
     
+    var playerArrSpellBuff = [SKTexture]()
+    var playerAtlasSpellBuff = SKTextureAtlas()
+    
     //Label
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
@@ -64,6 +67,7 @@ class Player: SKSpriteNode {
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
+        playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -83,6 +87,11 @@ class Player: SKSpriteNode {
         for i in 0...playerAtlasStrongAttack.textureNames.count-1 {
             let name = self.name! + "-" + "StrongAttack" + "-\(i).png"
             playerArrStrongAttack.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasSpellBuff.textureNames.count-1 {
+            let name = self.name! + "-" + "SpellBuff" + "-\(i).png"
+            playerArrSpellBuff.append(SKTexture(imageNamed: name))
         }
         
     }
@@ -115,6 +124,7 @@ class Player: SKSpriteNode {
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
+        playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -134,6 +144,11 @@ class Player: SKSpriteNode {
         for i in 0...playerAtlasStrongAttack.textureNames.count-1 {
             let name = self.name! + "-" + "StrongAttack" + "-\(i).png"
             playerArrStrongAttack.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasSpellBuff.textureNames.count-1 {
+            let name = self.name! + "-" + "SpellBuff" + "-\(i).png"
+            playerArrSpellBuff.append(SKTexture(imageNamed: name))
         }
         
         self.zPosition = 3000
@@ -248,6 +263,17 @@ class Player: SKSpriteNode {
         
         self.run(playerAnimStand)
         return playerAnimStand
+    }
+    
+    func animationSpellBuffAndStand() {
+        self.removeAllActions()
+        
+        let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.08)
+        
+        let seq = SKAction.sequence([playerAnimStand, animationStand()])
+        
+        self.run(seq)
+
     }
     
     

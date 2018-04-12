@@ -95,6 +95,10 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "EnergyAttack"),
         Item.init(name: "SilverSword"),
         Item.init(name: "ScullingTheSkulls"),
+        
+        Item.init(name: "GoldenHeart"),
+        Item.init(name: "ManaHealth"),
+        Item.init(name: "UnstableTreatment"),
     ]
     
     ///Мусорные предметы
