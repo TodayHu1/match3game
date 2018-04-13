@@ -40,8 +40,8 @@ class Player: SKSpriteNode {
     var health: Int = 50
     var armor: Int = 50
     var move: Int = 0
-    var mana: Int = 999
-    var coin: Int = 0
+    var mana: Int = 0
+    var gold: Int = 0
     
     //Position
     var positionAnchor: CGPoint =  CGPoint(x: -100, y: 140)
@@ -114,7 +114,7 @@ class Player: SKSpriteNode {
         self.armor = playerStat.armorNow
         self.health = playerStat.healthNow
         self.mana = playerStat.manaNow
-        self.coin = playerStat.gold
+        self.gold = playerStat.gold
         
         
         initShadow()
@@ -183,20 +183,38 @@ class Player: SKSpriteNode {
             self.health -= damage
         }
         
-        if self.health < 1 {
-            print("GameOver")
-            self.removeFromParent()
-            self.removeAllActions()
-            self.removeAllChildren()
-            gameScene.gameOverScreen()
-        }
+        playerStat.healthNow = self.health
+        playerStat.armorNow = self.armor
+        playerStat.attack = self.attack
+        playerStat.manaNow = self.mana
+        playerStat.gold = self.gold
+        gameViewController.saveGameProgress()
         
-        labelOverHead(shield: self.armor, health: self.health, initLabel: false)
+        self.updateLabelOverHead()
     
         let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
         let toNormalColor = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 0, duration: 0.2)
         
         self.run(SKAction.sequence([getDamage,toNormalColor]))
+    }
+    
+    func playerDie() {
+        if self.health < 1 {
+            self.gameScene.actionGesture(gesture: false)
+            let color = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
+            let wait = SKAction.wait(forDuration: 1.5)
+            let die = SKAction.run {
+                print("GameOver")
+                gameViewController.saveGameProgress()
+                self.removeFromParent()
+                self.removeAllActions()
+                self.removeAllChildren()
+                self.gameScene.gameOverScreen()
+            }
+            
+            let seq = SKAction.sequence([color,wait,die])
+            self.run(seq)
+        }
     }
     
     func fullAttackStandAnimation(damage: Int, strongAttack: Bool) {
@@ -268,7 +286,7 @@ class Player: SKSpriteNode {
     func animationSpellBuffAndStand() {
         self.removeAllActions()
         
-        let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.08)
+        let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.1)
         
         let seq = SKAction.sequence([playerAnimStand, animationStand()])
         

@@ -73,12 +73,18 @@ extension GameScene {
                     case Match.skull.rawValue:
                         let damage = Int((enemyUnit.attack * actionOnTurn[Match.skull.rawValue]) / 3)
                         enemyUnit.fullAttackStandAnimation(damage: damage)
+                    
+                    
                     case Match.armor.rawValue:
                         player.armor += actionOnTurn[Match.armor.rawValue] * 2
                         positiveWords(number: actionOnTurn[Match.armor.rawValue])
+                    
+                    
                     case Match.energy.rawValue:
                         player.mana += actionOnTurn[Match.energy.rawValue]
                         positiveWords(number: actionOnTurn[Match.energy.rawValue])
+                    
+                    
                     case Match.attack.rawValue:
                         actionGesture(gesture: false)
                         let wait = SKAction.sequence([SKAction.wait(forDuration: 2.0), SKAction.run {
@@ -97,17 +103,24 @@ extension GameScene {
                         }
                         positiveWords(number: actionOnTurn[Match.attack.rawValue])
                         player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)
+                    
+                    
                     case Match.coin.rawValue:
                         playerStat.gold += actionOnTurn[Match.coin.rawValue]
+                        self.updatePlayerGold()
+            
+                    
                     case Match.poison.rawValue:
-//                        player.health -=
                         let damage = actionOnTurn[Match.poison.rawValue] * 6
-                        player.takeDamage(damage: damage)
-                        print("\(damage) ----- Poison")
+                        player.health -= damage
                         self.sceneShake(shakeCount: 5, intensity: CGVector(dx: 5, dy: 5), shakeDuration: 0.1)
                         player.updateLabelOverHead()
+                    
+                    
                     case Match.cog.rawValue:
                         enemyUnit.armor += 25
+                    
+                    
                     default: break
                 }
             }

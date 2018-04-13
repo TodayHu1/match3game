@@ -19,7 +19,7 @@ extension GameScene {
         actionGesture(gesture: false)
         self.player.move += 1
         self.enemyUnit.attackOnMove()
-        if point.y < 0 {
+        if point.y < 0 && point.y > -290 {
             if dir > 0 {
                 rowEvent(touchY: Int(point.y), dir: dir)
             }

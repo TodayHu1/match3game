@@ -14,6 +14,8 @@ extension EnemyUnit {
     func defenseMod() {
         spawnCogOnDefense(number: specialAbilities["CogOnDefense"] as! Int)
         attackUpOnDefense(attack: specialAbilities["AttackUpOnDefense"] as! Double)
+        spawnPoisonOnDefense()
+        spawnSkullOnDefense()
     }
 
     func attackUpOnDefense(attack: Double) {
@@ -44,5 +46,48 @@ extension EnemyUnit {
             }
         }
     }
+    
+    
+    
+    //Кол-во выпускаемых матчей
+    func spawnPoisonOnDefense() {
+        if specialAbilities["PoisonOnDefense"] as! Int > 0 {
+            var duration: Double = 0
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
+            for _ in 1...(specialAbilities["PoisonOnDefense"] as! Int) {
+                duration += interval
+                self.gameScene.matchMoveToBoard(
+                    matchType: Match.poison,
+                    nodePosition: self,
+                    i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                    j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
+                    waitTimeToAnimation: duration,
+                    durationAnimation: interval
+                )
+            }
+        }
+    }
+    
+    //Кол-во выпускаемых матчей
+    func spawnSkullOnDefense() {
+        if specialAbilities["SkullOnDefense"] as! Int > 0 {
+            var duration: Double = 0
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
+            for _ in 1...(specialAbilities["SkullOnDefense"] as! Int) {
+                duration += interval
+                self.gameScene.matchMoveToBoard(
+                    matchType: Match.skull,
+                    nodePosition: self,
+                    i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                    j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
+                    waitTimeToAnimation: duration,
+                    durationAnimation: interval
+                )
+            }
+        }
+    }
+    
+    
+    
     
 }

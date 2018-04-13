@@ -161,7 +161,8 @@ class Spell: SKSpriteNode {
         if self.gameScene.player.mana >= manaToUse &&
             self.gameScene.player.health >= healthToUse &&
             self.gameScene.player.armor >= armorToUse &&
-            self.gameScene.player.coin >= coinToUse  {
+            self.gameScene.player.gold >= coinToUse  {
+            self.gameScene.updatePlayerGold()
             return true
         }
         else {
@@ -174,7 +175,7 @@ class Spell: SKSpriteNode {
             if self.gameScene.player.armor < armorToUse {
                 gameViewController.presentText(text: "Not enough armor", color: #colorLiteral(red: 0.5140172169, green: 0.6116851714, blue: 0.9994240403, alpha: 1))
             }
-            if self.gameScene.player.coin < coinToUse {
+            if self.gameScene.player.gold < coinToUse {
                 gameViewController.presentText(text: "Not enough gold", color: #colorLiteral(red: 0.9994240403, green: 0.9099636973, blue: 0.08210700654, alpha: 1))
             }
             return false
@@ -185,7 +186,7 @@ class Spell: SKSpriteNode {
     private func changePlayerStat() {
         self.gameScene.player.armor -= armorToUse
         self.gameScene.player.health -= healthToUse
-        self.gameScene.player.coin -= coinToUse
+        self.gameScene.player.gold -= coinToUse
         self.gameScene.player.mana -= manaToUse
 
         self.gameScene.changeManaLabel()

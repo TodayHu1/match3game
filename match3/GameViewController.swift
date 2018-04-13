@@ -189,13 +189,16 @@ class GameViewController: UIViewController {
         label.textAlignment = .center
 //        label.shadowColor = .white
 //        label.shadowOffset.height = 1
+        label.font = UIFont(name: "Munro", size: 25)
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
         
-        if currentText.count > 25 {
-            label.font = UIFont(name: "Munro", size: 22)
-        }
-        else {
-            label.font = UIFont(name: "Munro", size: 25)
-        }
+//        if currentText.count > 25 {
+//            label.font = UIFont(name: "Munro", size: 19)
+//        }
+//        else {
+//            label.font = UIFont(name: "Munro", size: 25)
+//        }
 
         
         
@@ -399,6 +402,7 @@ class GameViewController: UIViewController {
     
     func victoryScreen() {
         saveGameProgress()
+        lvlDifficulty += 1
         goToView(id: "VictoryScreen")
     }
     
@@ -452,15 +456,15 @@ class GameViewController: UIViewController {
     
     ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
     func initLevel() {
-        lvlDifficulty += 1
+        if lvlDifficulty == 0 {
+            lvlDifficulty += 1
+        }
 
+        
         loadMatchChance = [35,15,10,35,5]
         loadBoardSize = [[0,0]]
         loadBg = [""]
         loadEnemy = getEnemy(difficulty: lvlDifficulty)
-
-        print("\(loadEnemy) --- ENEMY ON LEVEL ---- \(lvlDifficulty) --- DIF")
-
 
     }
     
@@ -472,14 +476,25 @@ class GameViewController: UIViewController {
             return bossLoadEnemy!
         }
         else {
-            while lvlForLoop > 0  {
+            var testArr = [Int]()
+            var loopCount = 0
+            while lvlForLoop > 0 {
+                loopCount += 1
                 let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
                 let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
+                
+                if loopCount > 15000 {
+                    return [["Doppelganger"]]
+                }
+                
                 if lvlForLoop >= difficultyUnitNow {
                     newLoadEnemy[0].append(self.enemyDifficultyArr[difficultyIndex][1] as! String)
                     lvlForLoop -= difficultyUnitNow
+                    testArr.append(difficultyIndex)
                 }
+                
                 if newLoadEnemy[0].count > 4 {
+                    testArr = []
                     newLoadEnemy[0] = []
                     lvlForLoop = difficulty * 2
                 }

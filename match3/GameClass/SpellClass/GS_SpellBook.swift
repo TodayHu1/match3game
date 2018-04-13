@@ -74,25 +74,30 @@ extension GameScene {
             description = "Heals you on the number of skulls on the table"
             
         case "EnergyAttack":
-            mana = playerStat.manaNow
+            if playerStat.manaNow > 0 {
+                mana = playerStat.manaNow
+            }
+            else {
+                mana = 1
+            }
             health = 0
             armor = 0
             coin = 0
             description = "Absorbs all mana, attacks on [ mana points * attack power / 3 ]"
             
         case "SilverSword":
-            mana = 1
+            mana = 2
             health = 0
             armor = 5
             coin = 0
-            description = "Attacking the enemy on [ skulls * attack / 5 ]"
+            description = "Attacking the enemy on [ skulls * attack / 6 ]"
             
         case "ScullingTheSkulls":
-            mana = 2
+            mana = 3
             health = 0
             armor = 0
             coin = 0
-            description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 3 ]"
+            description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 7 ]"
             
         case "GoldenHeart":
             mana = 1
@@ -213,7 +218,7 @@ extension GameScene {
             }
             
             let power = (playerStat.attack * skullCount)
-            let damage = Int(power / 5)
+            let damage = Int(power / 6)
             print("\(damage) --\(power)-- ENERGY DAMAGE")
             player.fullAttackStandAnimation(damage: damage, strongAttack: true)
         case "ScullingTheSkulls":
@@ -247,7 +252,7 @@ extension GameScene {
                 }
                 
                 let power = (playerStat.attack * skullCount)
-                let damage = Int(power / 3)
+                let damage = Int(power / 7)
                 print("\(damage) --\(power)-- ENERGY DAMAGE")
                 self.player.fullAttackStandAnimation(damage: damage, strongAttack: true)
             }

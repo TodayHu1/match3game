@@ -27,7 +27,7 @@ class EnemyUnit: SKSpriteNode {
     ///Специальные способности
     var specialAbilities = [
         //Attack modificator
-        "VampireAttack": 0,
+        "VampireAttack": 0.0,
         "ReactiveArmor": 0,
         "PoisonOnBoard": 0,
         "SkullOnBoard": 0,
@@ -35,6 +35,8 @@ class EnemyUnit: SKSpriteNode {
         //Defense modificator
         "CogOnDefense": 0,
         "AttackUpOnDefense": 0.0,
+        "PoisonOnDefense": 0,
+        "SkullOnDefense": 0,
         
         //BreakArmor modificator
         "ChainInstedArmor": false,

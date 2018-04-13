@@ -47,6 +47,9 @@ class GameScene: SKScene {
     ///Показывает кол-во юнитов на уровне
     var enemyCountLabel: SKLabelNode!
     
+    ///Показывает кол-во золота у игрока
+    var goldLabel : SKLabelNode!
+    
 
     override init() {
         super.init(size: CGSize(width: 375, height: 665))
@@ -147,6 +150,19 @@ class GameScene: SKScene {
     
     ///Построение декораций на сцене
     func buildScene(bgName: String) {
+        
+        goldLabel = SKLabelNode(fontNamed: "Munro")
+        goldLabel.fontSize = 20
+        goldLabel.fontColor = #colorLiteral(red: 0.9686274529, green: 0.8872959706, blue: 0.3723448625, alpha: 1)
+        goldLabel.position.y = -325
+        goldLabel.zPosition = 1000
+        self.addChild(goldLabel)
+        updatePlayerGold()
+        
+        let goldIcon = SKSpriteNode(texture: SKTexture(imageNamed: "CoinIcon"), size: CGSize(width: 20, height: 20))
+        goldIcon.position.x -= 17
+        goldIcon.position.y += 7
+        goldLabel.addChild(goldIcon)
         
         enemyCountLabel = SKLabelNode(fontNamed: "Munro")
         enemyCountLabel.position.y = 310
@@ -265,7 +281,6 @@ class GameScene: SKScene {
 
         }
         
-        
         self.actionGesture(gesture: true)
     }
 
@@ -375,6 +390,10 @@ class GameScene: SKScene {
     
     func updateEnemyCount() {
         self.enemyCountLabel.text = "\(self.enemyIndexNow+1)/\(self.enemyOnLevelArr.count)"
+    }
+    
+    func updatePlayerGold() {
+        self.goldLabel.text = "\(playerStat.gold)"
     }
     
     

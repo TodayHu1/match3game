@@ -237,13 +237,12 @@ class MovingScreen: SKScene {
 //                movingLabel.text = "ENEMY AHEAD!"
 //            }
             
-            movingLabel.run(SKAction.sequence([fadeOut,
-                                               fadeIn,
+            movingLabel.run(SKAction.sequence([
 //                                               fadeOut,
 //                                               fadeIn,
 //                                               chageLabel,
 //                                               wait,
-                                               fadeOut,
+//                                               fadeOut,
                                                startLevel]))
             
         }

@@ -47,10 +47,14 @@
 		1F2E84DD207DF0D000FE32F0 /* PoisonScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DB207DF0CE00FE32F0 /* PoisonScale-Attack.atlas */; };
 		1F2E84DE207DF0D000FE32F0 /* PoisonScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DC207DF0CF00FE32F0 /* PoisonScale-Stand.atlas */; };
 		1F2E84E0207E517B00FE32F0 /* Player-SpellBuff.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */; };
+		1F2E84E2207F374D00FE32F0 /* StartQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E84E1207F374D00FE32F0 /* StartQuestViewController.swift */; };
+		1F2E84E420803F0900FE32F0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E84E320803F0900FE32F0 /* Utils.swift */; };
+		1F2E84E6208043D200FE32F0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E84E5208043D200FE32F0 /* Player.swift */; };
+		1F2E84EA208076AB00FE32F0 /* Doppelganger-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84E8208076AB00FE32F0 /* Doppelganger-Attack.atlas */; };
+		1F2E84EB208076AB00FE32F0 /* Doppelganger-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F2E84E9208076AB00FE32F0 /* Doppelganger-Stand.atlas */; };
 		1F32C51E2053DAF4005B40D3 /* ChangeSpellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */; };
 		1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F383A47207B6DD200816D3D /* SoulStone.xcassets */; };
 		1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F38FFE8201F64370005FB35 /* Shit.xcassets */; };
-		1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3E25EE1F582C3E004C48D7 /* Player.swift */; };
 		1F443DB61F55998200D5CBD5 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F443DB51F55998200D5CBD5 /* Enemy.swift */; };
 		1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F29202B014100B43E1C /* PlayerStat.swift */; };
 		1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */; };
@@ -205,10 +209,14 @@
 		1F2E84DB207DF0CE00FE32F0 /* PoisonScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "PoisonScale-Attack.atlas"; sourceTree = "<group>"; };
 		1F2E84DC207DF0CF00FE32F0 /* PoisonScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "PoisonScale-Stand.atlas"; sourceTree = "<group>"; };
 		1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-SpellBuff.atlas"; sourceTree = "<group>"; };
+		1F2E84E1207F374D00FE32F0 /* StartQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuestViewController.swift; sourceTree = "<group>"; };
+		1F2E84E320803F0900FE32F0 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1F2E84E5208043D200FE32F0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1F2E84E8208076AB00FE32F0 /* Doppelganger-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Doppelganger-Attack.atlas"; sourceTree = "<group>"; };
+		1F2E84E9208076AB00FE32F0 /* Doppelganger-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Doppelganger-Stand.atlas"; sourceTree = "<group>"; };
 		1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeSpellViewController.swift; sourceTree = "<group>"; };
 		1F383A47207B6DD200816D3D /* SoulStone.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SoulStone.xcassets; sourceTree = "<group>"; };
 		1F38FFE8201F64370005FB35 /* Shit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shit.xcassets; sourceTree = "<group>"; };
-		1F3E25EE1F582C3E004C48D7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1F443DB51F55998200D5CBD5 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		1F455F29202B014100B43E1C /* PlayerStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStat.swift; sourceTree = "<group>"; };
 		1F455F2D202B1ED200B43E1C /* TownHallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TownHallViewController.swift; sourceTree = "<group>"; };
@@ -475,6 +483,15 @@
 			path = PoisonScale;
 			sourceTree = "<group>";
 		};
+		1F2E84E72080769500FE32F0 /* Doppelganger */ = {
+			isa = PBXGroup;
+			children = (
+				1F2E84E8208076AB00FE32F0 /* Doppelganger-Attack.atlas */,
+				1F2E84E9208076AB00FE32F0 /* Doppelganger-Stand.atlas */,
+			);
+			path = Doppelganger;
+			sourceTree = "<group>";
+		};
 		1F70F9E81FC6AB1100A0BAFD /* RandomTestUnit */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +626,7 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F2E84E72080769500FE32F0 /* Doppelganger */,
 				1F2E84DA207DF08000FE32F0 /* PoisonScale */,
 				1F937CE920384BA9003F0C91 /* SteamPunkGuard */,
 				1F983A661FED462100CE4FBC /* Bee */,
@@ -676,7 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				1F11EF741FA9A4C900FD51B7 /* Player */,
-				1F3E25EE1F582C3E004C48D7 /* Player.swift */,
+				1F2E84E5208043D200FE32F0 /* Player.swift */,
 				1F2D82121F80CB7D00710D50 /* Player_LabelOverHead.swift */,
 			);
 			path = PlayerClass;
@@ -735,6 +753,8 @@
 				1F32C51D2053DAF4005B40D3 /* ChangeSpellViewController.swift */,
 				1F5B8FB920623D460046480D /* SelectItemViewController.swift */,
 				1F2E84D8207C51A800FE32F0 /* SoulStoneViewController.swift */,
+				1F2E84E1207F374D00FE32F0 /* StartQuestViewController.swift */,
+				1F2E84E320803F0900FE32F0 /* Utils.swift */,
 			);
 			path = LevelMenu;
 			sourceTree = "<group>";
@@ -885,6 +905,7 @@
 				1F937CE4203438DE003F0C91 /* StoneScale-Attack.atlas in Resources */,
 				1F2E84DD207DF0D000FE32F0 /* PoisonScale-Attack.atlas in Resources */,
 				1F88DE0320307E8C005257A5 /* 0-2.json in Resources */,
+				1F2E84EA208076AB00FE32F0 /* Doppelganger-Attack.atlas in Resources */,
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
@@ -903,6 +924,7 @@
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
 				1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */,
 				1F937CD62032CB5E003F0C91 /* NeutralTurtle-Attack.atlas in Resources */,
+				1F2E84EB208076AB00FE32F0 /* Doppelganger-Stand.atlas in Resources */,
 				1F815F0B1FD3059C00133AC1 /* SteamPunkBackground.atlas in Resources */,
 				1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */,
 				1F937CE8203730DA003F0C91 /* LevelIcon.xcassets in Resources */,
@@ -1141,9 +1163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2E84E2207F374D00FE32F0 /* StartQuestViewController.swift in Sources */,
 				1FF817A21FC2A1B900F07292 /* GenerationRandomUnit.swift in Sources */,
 				1F9C4B981FCEB1EF0090714E /* MovingScreen.swift in Sources */,
-				1F3E25EF1F582C3E004C48D7 /* Player.swift in Sources */,
 				1F6A49331FBC08F80088AE44 /* Enemy_DeathMod.swift in Sources */,
 				1F0DD37820712A2B005AE925 /* ItemCellTableViewCell.swift in Sources */,
 				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,
@@ -1155,6 +1177,7 @@
 				1F00B70D1FB345E200C002B3 /* GS_BuildLevel.swift in Sources */,
 				1FB431451FB4908B00039960 /* MatchParamerts.swift in Sources */,
 				1FF8179E1FC1755600F07292 /* SpellClass.swift in Sources */,
+				1F2E84E420803F0900FE32F0 /* Utils.swift in Sources */,
 				32280FAC1FB9577900F954B1 /* ChoiceLevelViewController.swift in Sources */,
 				1F86A34D1FC7026F00DBDBB5 /* Enemy_Defense.swift in Sources */,
 				1F2D82151F80D09300710D50 /* Enemy_LabelOverHead.swift in Sources */,
@@ -1167,6 +1190,7 @@
 				1F26CA271F41B93500691519 /* GS_ActionOnScene.swift in Sources */,
 				1F70F9EE1FC6D1BB00A0BAFD /* Enemy_BreakArmorMod.swift in Sources */,
 				1F455F30202B204800B43E1C /* MainMenuViewController.swift in Sources */,
+				1F2E84E6208043D200FE32F0 /* Player.swift in Sources */,
 				1F455F2A202B014100B43E1C /* PlayerStat.swift in Sources */,
 				1FCECB2720418B5900ECCC57 /* LooseAndWinViewController.swift in Sources */,
 				1F455F2E202B1ED200B43E1C /* TownHallViewController.swift in Sources */,

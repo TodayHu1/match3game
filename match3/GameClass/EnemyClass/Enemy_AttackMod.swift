@@ -29,9 +29,9 @@ extension EnemyUnit {
     
     //Health = (Attack * 3) * %Vamp
     func vampireOnAttackMod() {
-        if specialAbilities["VampireAttack"] as! Int > 0 {
+        if specialAbilities["VampireAttack"] as! Double > 0 {
             self.health += Int(
-                Float(self.attack * 3) * Float(specialAbilities["VampireAttack"] as! Int)
+                Float(self.attack * 3) * Float(specialAbilities["VampireAttack"] as! Double)
             )
             buffParticle(name: "Heart")
             updateLabelOverHead()
@@ -48,7 +48,7 @@ extension EnemyUnit {
     }
     
     
-    //TODO Poison DMG = ATTACK * 6
+
     //Кол-во выпускаемых матчей
     func spawnPoisonOnAttackMod() {
         if specialAbilities["PoisonOnBoard"] as! Int > 0 {
@@ -71,16 +71,21 @@ extension EnemyUnit {
         if specialAbilities["SkullOnBoard"] as! Int > 0 {
             var duration: Double = 0
             let interval: Double = self.gameScene.durationSpawnMatchAnimation()
-            duration += interval
-            self.gameScene.matchMoveToBoard(
-                matchType: Match.skull,
-                nodePosition: self,
-                i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
-                j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
-                waitTimeToAnimation: duration,
-                durationAnimation: interval)
+            for _ in 1...(specialAbilities["SkullOnBoard"] as! Int) {
+                duration += interval
+                self.gameScene.matchMoveToBoard(
+                    matchType: Match.skull,
+                    nodePosition: self,
+                    i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                    j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
+                    waitTimeToAnimation: duration,
+                    durationAnimation: interval
+                )
+            }
         }
     }
+    
+
     
     
 }

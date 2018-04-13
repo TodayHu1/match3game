@@ -14,8 +14,21 @@ class LooseAndWinViewController: UIViewController {
     
     var gameVC: GameViewController!
 
+    var playerStatOnDie: PlayerStat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print("\(lvlDifficulty) --- \(playerStat.healthNow) -- DIF")
+        
+        if playerStat.healthNow < 0 {
+            playerStatOnDie = playerStat
+            playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
+            print("\(playerStat.gold) --- \(lvlDifficulty) --- LOOSE AND WIN")
+            lvlDifficulty = 0
+            gameViewController.saveGameProgress()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +66,7 @@ class LooseAndWinViewController: UIViewController {
     }
     
     @IBAction func refreshEnemyButton(_ sender: Any) {
-        playerStat.needRevive = true
+
     }
     
 }

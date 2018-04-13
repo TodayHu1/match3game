@@ -13,6 +13,7 @@ extension Player {
     
     func updateLabelOverHead() {
         labelOverHead(shield: self.armor , health: self.health, initLabel: false)
+        playerDie()
     }
 
     func labelOverHead(shield: Int, health: Int, initLabel: Bool) {

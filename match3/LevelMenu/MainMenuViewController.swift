@@ -53,7 +53,7 @@ class MainMenuViewController: UIViewController {
             self.stageLabel.text = String(lvlDifficulty)
             print("MAIN __ LOAD")
             if playerStat == nil {
-                playerStat = PlayerStat(manaMax: 10, healthMax: 30, armorMax: 50, attack: 10, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 playerStat.needRevive = false
                 gameViewController.saveGameProgress()
                 self.stageLabel.text = String(lvlDifficulty)
@@ -63,7 +63,7 @@ class MainMenuViewController: UIViewController {
         else {
             if playerStat.needRevive == true {
                 playerStat.needRevive = false
-                playerStat = PlayerStat(manaMax: 10, healthMax: 30, armorMax: 50, attack: 10, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 lvlDifficulty = 0
                 print("MAIN __ REVIVE --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
                 lvlDifficulty = 0

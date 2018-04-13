@@ -89,7 +89,7 @@ extension GameScene {
                 createEnemyUnit.health = 1
                 createEnemyUnit.armor = 100
                 createEnemyUnit.size = CGSize(width: 170, height: 220)
-                createEnemyUnit.specialAbilities["VampireAttack"] = 1
+                createEnemyUnit.specialAbilities["VampireAttack"] = 0.33
             //15
             case "SteamPunkGuard":
                 createEnemyUnit.attack = 25
@@ -98,8 +98,18 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 180, height: 150)
                 createEnemyUnit.specialAbilities["CogOnDefense"] = 2
             //Boss 1
+            case "Doppelganger":
+                createEnemyUnit.attack = playerStat.attack
+                createEnemyUnit.health = playerStat.healthNow
+                createEnemyUnit.armor = playerStat.armorNow
+                createEnemyUnit.size = CGSize(width: 155, height: 130)
+                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
+                createEnemyUnit.specialAbilities["SkullOnBoard"] = 3
+                createEnemyUnit.specialAbilities["SkullOnDefense"] = 1
+                
+            //Boss 2
             case "SteamPunkWalker":
-                createEnemyUnit.attack = 16
+                createEnemyUnit.attack = 19
                 createEnemyUnit.health = 200
                 createEnemyUnit.armor = 200
                 createEnemyUnit.size = CGSize(width: 260, height: 160)
@@ -107,6 +117,7 @@ extension GameScene {
                 createEnemyUnit.specialAbilities["SteamPunkWalkerTrasform"] = true
                 createEnemyUnit.specialAbilities["SpecialSpell"] = true
                 createEnemyUnit.specialAbilities["CogOnDefense"] = 1
+                
             default:
                 break
             }
