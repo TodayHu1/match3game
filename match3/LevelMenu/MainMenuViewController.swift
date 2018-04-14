@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import GameKit
 
+/* Variables */
+var gcEnabled = Bool() // Check if the user has Game Center enabled
+var gcDefaultLeaderBoard = String() // Check the default leaderboardID
 
-class MainMenuViewController: UIViewController {
+// IMPORTANT: replace the red string below with your own Leaderboard ID (the one you've set in iTunes Connect)
+let LEADERBOARD_ID = "com.bestStage.RuneSwordReborn"
+
+class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBOutlet weak var tableButton: UIButton!
     @IBOutlet weak var spellChanger: UIButton!
@@ -19,7 +26,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var labelForTable: UILabel!
     @IBOutlet weak var labelForSoulStone: UILabel!
     
-    @IBOutlet weak var stageLabel: UILabel!
+    @IBOutlet weak var stageButton: UIButton!
     
     @IBOutlet weak var playerImage: UIImageView!
     
@@ -42,10 +49,15 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        // Call the GC authentication controller
+        authenticateLocalPlayer()
+        
+        submitScore()
+        
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.isStatusBarHidden = false
         
-        stageLabel.text = String(lvlDifficulty)
+        stageButton.layer.cornerRadius = 5
         
         if gameViewController == nil {
             gameViewController = GameViewController()
@@ -53,13 +65,13 @@ class MainMenuViewController: UIViewController {
 
         if playerStat == nil {
             gameViewController.loadGameProgress()
-            self.stageLabel.text = String(lvlDifficulty)
+            updateStageText()
             print("MAIN __ LOAD")
             if playerStat == nil {
                 playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 playerStat.needRevive = false
                 gameViewController.saveGameProgress()
-                self.stageLabel.text = String(lvlDifficulty)
+                updateStageText()
                 print("MAIN __ INIT ON START --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
@@ -69,12 +81,12 @@ class MainMenuViewController: UIViewController {
                 playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 lvlDifficulty = 1
                 print("MAIN __ REVIVE --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
-                self.stageLabel.text = String(lvlDifficulty)
+                updateStageText()
                 gameViewController.saveGameProgress()
             }
             else {
                 gameViewController.saveGameProgress()
-                self.stageLabel.text = String(lvlDifficulty)
+                updateStageText()
                 print("MAIN __ ALREADY PLAY --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
             }
         }
@@ -95,6 +107,7 @@ class MainMenuViewController: UIViewController {
             
             self.labelForSpellChanger.frame.size.width += 10
             self.labelForSpellChanger.frame.size.height += 10
+
         }) { _ in
             UIView.animate(withDuration: 1, delay: 0.25, options: [.autoreverse, .repeat], animations: {
                 self.labelForTable.frame.origin.y -= 10
@@ -136,8 +149,67 @@ class MainMenuViewController: UIViewController {
         
         super.viewDidLoad()
     }
+    
+    func updateStageText() {
+        stageButton.setTitle(String(lvlDifficulty), for: .normal)
+    }
 
 
+    @IBAction func GameCenter(_ sender: Any) {
+        let gcVC = GKGameCenterViewController()
+        gcVC.gameCenterDelegate = self
+        gcVC.viewState = .leaderboards
+        gcVC.leaderboardIdentifier = LEADERBOARD_ID
+        present(gcVC, animated: true, completion: nil)
+    }
+    
+
+}
 
 
+extension MainMenuViewController {
+    
+    // MARK: - AUTHENTICATE LOCAL PLAYER
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                // 1. Show login if player is not logged in
+                self.present(ViewController!, animated: true, completion: nil)
+            } else if (localPlayer.isAuthenticated) {
+                // 2. Player is already authenticated & logged in, load game center
+                gcEnabled = true
+                
+                // Get the default leaderboard ID
+                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
+                    if error != nil { print(error!)
+                    } else { gcDefaultLeaderBoard = leaderboardIdentifer! }
+                })
+                
+            } else {
+                // 3. Game center is not enabled on the users device
+                gcEnabled = false
+                print("GC Local player could not be authenticated!")
+                print("GC" + "\(String(describing: error))")
+            }
+        }
+    }
+    
+    func submitScore() {
+        // Submit score to GC leaderboard
+        let bestScoreInt = GKScore(leaderboardIdentifier: LEADERBOARD_ID)
+        bestScoreInt.value = Int64(lvlDifficulty)
+        GKScore.report([bestScoreInt]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("GC Best Score submitted to your Leaderboard!")
+            }
+        }
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
 }
