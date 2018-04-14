@@ -21,11 +21,11 @@ class LooseAndWinViewController: UIViewController {
 
         print("\(lvlDifficulty) --- \(playerStat.healthNow) -- DIF")
         
-        if playerStat.healthNow < 0 {
+        if playerStat.healthNow < 1 {
             playerStatOnDie = playerStat
             playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
             print("\(playerStat.gold) --- \(lvlDifficulty) --- LOOSE AND WIN")
-            lvlDifficulty = 0
+            lvlDifficulty = 1
             gameViewController.saveGameProgress()
         }
 

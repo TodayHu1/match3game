@@ -42,6 +42,9 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.isStatusBarHidden = false
+        
         stageLabel.text = String(lvlDifficulty)
         
         if gameViewController == nil {
@@ -64,9 +67,8 @@ class MainMenuViewController: UIViewController {
             if playerStat.needRevive == true {
                 playerStat.needRevive = false
                 playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
-                lvlDifficulty = 0
+                lvlDifficulty = 1
                 print("MAIN __ REVIVE --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
-                lvlDifficulty = 0
                 self.stageLabel.text = String(lvlDifficulty)
                 gameViewController.saveGameProgress()
             }

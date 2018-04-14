@@ -113,12 +113,21 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Empty poison potion")
     ]
     
+    ///Перки с поясами
     let beltArr = [
         Item.init(armor: 0, health: 15, attack: 0, mana: 0, img: "BeltGold", name: "Strong belt"),
         Item.init(armor: 5, health: 10, attack: 0, mana: 0, img: "BeltSilver", name: "Heavy belt"),
         Item.init(armor: 7, health: 16, attack: 0, mana: -5, img: "BeltGreen", name: "Warchief belt"),
         Item.init(armor: 5, health: 10, attack: 0, mana: 2, img: "BeltDark", name: "Enchanted belt"),
         Item.init(armor: 0, health: 5, attack: 2, mana: -3, img: "BeltGray", name: "Snaky belt")
+    ]
+    
+    let amuletArr = [
+        Item.init(armor: 0, health: 0, attack: 4, mana: -2, img: "AmuletGold", name: "Golden amulet"),
+        Item.init(armor: 2, health: 0, attack: 0, mana: 5, img: "AmuletPurple", name: "Amethyst amulet"),
+        Item.init(armor: 10, health: 0, attack: 0, mana: 3, img: "AmuletBlue", name: "Sapphire amulet"),
+        Item.init(armor: 2, health: 2, attack: 2, mana: 2, img: "AmuletGreen", name: "Emerald amulet"),
+        Item.init(armor: 2, health: 20, attack: -2, mana: 0, img: "AmuletOrange", name: "Amber amulet"),
     ]
     
 //    let rareItemArr = [
@@ -221,16 +230,19 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += ringArr
                 allItem += beltArr
                 allItem += trashArr
+                allItem += amuletArr
                 break
             case .spellChest:
                 allItem += spellArr
                 break
             case .spellAndItemсhest:
+                allItem += spellArr
+                
                 allItem += armorArr
                 allItem += ringArr
-                allItem += spellArr
                 allItem += beltArr
                 allItem += trashArr
+                allItem += amuletArr
                 break
         }
     }

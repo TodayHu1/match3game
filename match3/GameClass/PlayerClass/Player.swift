@@ -187,7 +187,7 @@ class Player: SKSpriteNode {
         playerStat.armorNow = self.armor
         playerStat.attack = self.attack
         playerStat.manaNow = self.mana
-        playerStat.gold = self.gold
+//        playerStat.gold = self.gold
         gameViewController.saveGameProgress()
         
         self.updateLabelOverHead()
@@ -218,80 +218,95 @@ class Player: SKSpriteNode {
     }
     
     func fullAttackStandAnimation(damage: Int, strongAttack: Bool) {
-        self.removeAllActions()
-//        self.gameScene.enemyUnit.takeDamage(damage: damage)
-//        self.animationAttack(strongAttack: strongAttack)
-//
-
-        
-        print("fullAttackStandAnimation --- Player")
-        
-        let moveForward = SKAction.move(to: CGPoint(x: -50, y: positionAnchor.y), duration: 0.25)
-        let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
-
-        moveForward.timingMode = .easeOut
-        moveBack.timingMode = .easeOut
-
-        let attackMod = SKAction.run {
-            self.gameScene.enemyUnit.takeDamage(damage: damage)
+        if self.health > 0 {
+            self.removeAllActions()
+            
+            print("fullAttackStandAnimation --- Player")
+            
+            let moveForward = SKAction.move(to: CGPoint(x: -50, y: positionAnchor.y), duration: 0.25)
+            let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
+            
+            moveForward.timingMode = .easeOut
+            moveBack.timingMode = .easeOut
+            
+            let attackMod = SKAction.run {
+                self.gameScene.enemyUnit.takeDamage(damage: damage)
+            }
+            
+            let shakeScene = SKAction.run {
+                self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
+            }
+            
+            let fullAttackAnimation = SKAction.sequence([
+                SKAction.wait(forDuration: 0.6),
+                moveForward,
+                animationAttack(strongAttack: strongAttack)!,
+                shakeScene,
+                attackMod,
+                SKAction.wait(forDuration: 0.6),
+                moveBack,
+                animationStand()!
+                ])
+            
+            self.run(fullAttackAnimation)
         }
-
-        let shakeScene = SKAction.run {
-            self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
-        }
-
-        let fullAttackAnimation = SKAction.sequence([
-            SKAction.wait(forDuration: 0.6),
-            moveForward,
-            animationAttack(strongAttack: strongAttack),
-            shakeScene,
-            attackMod,
-            SKAction.wait(forDuration: 0.6),
-            moveBack,
-            animationStand()
-        ])
-
-        self.run(fullAttackAnimation)
     }
     
-    func animationAttack(strongAttack: Bool) -> SKAction {
-        self.removeAllActions()
-        
-        var playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
-        
-        if strongAttack {
-            playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
+    func animationAttack(strongAttack: Bool) -> SKAction? {
+        if self.health > 0 {
+            self.removeAllActions()
+            
+            var playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+            
+            if strongAttack {
+                playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
+            }
+            else {
+                playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+            }
+            
+            
+            self.run(playerAnimAttack)
+            return playerAnimAttack
         }
         else {
-            playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+            return animationNil()
         }
 
-
-        self.run(playerAnimAttack)
-        return playerAnimAttack
     }
     
+    func animationNil() -> SKAction {
+        updateLabelOverHead()
+        self.buffParticle(name: "Nil")
+        return SKAction.wait(forDuration: 1)
+    }
 
-    func animationStand() -> SKAction{
-        self.removeAllActions()
-
-        let playerAnimStand = SKAction.repeatForever(
+    func animationStand() -> SKAction? {
+        if self.health > 0 {
+            self.removeAllActions()
+            
+            let playerAnimStand = SKAction.repeatForever(
                 SKAction.animate(with: playerArrStand, timePerFrame: 0.2)
             )
-        
-        self.run(playerAnimStand)
-        return playerAnimStand
+            
+            self.run(playerAnimStand)
+            return playerAnimStand
+        }
+        else {
+            return animationNil()
+        }
     }
     
     func animationSpellBuffAndStand() {
-        self.removeAllActions()
-        
-        let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.1)
-        
-        let seq = SKAction.sequence([playerAnimStand, animationStand()])
-        
-        self.run(seq)
-
+        if self.health > 0 {
+            self.removeAllActions()
+            
+            let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.1)
+            
+            let seq = SKAction.sequence([playerAnimStand, animationStand()!])
+            
+            self.run(seq)
+        }
     }
     
     

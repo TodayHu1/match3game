@@ -172,7 +172,7 @@ class MovingScreen: SKScene {
     
     
     func getRandomBG() -> String {
-        let bg = ["GrassLand", "Dungeon"]
+        let bg = ["GrassLand", "Dungeon","SandStorm"]
         let x = bg[Int(arc4random_uniform(UInt32(bg.count)))]
         return x
     }

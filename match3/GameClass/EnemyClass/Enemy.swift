@@ -147,64 +147,76 @@ class EnemyUnit: SKSpriteNode {
 //        print("animationStand --- Enemy")
 //    }
     
-    func animationStand() -> SKAction{
-        self.removeAllActions()
-
-        print("animationStand --- Enemy")
-        let enemyAnimStand = SKAction.repeatForever(
-            SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
-        )
-        self.run(enemyAnimStand)
-        //let enemyAnimStand = SKAction.wait(forDuration: 1)
-        return enemyAnimStand
+    func animationStand() -> SKAction? {
+        if self.health > 0 {
+            self.removeAllActions()
+            
+            print("animationStand --- Enemy")
+            let enemyAnimStand = SKAction.repeatForever(
+                SKAction.animate(with: enemyArrStand, timePerFrame: 0.2)
+            )
+            self.run(enemyAnimStand)
+            //let enemyAnimStand = SKAction.wait(forDuration: 1)
+            return enemyAnimStand
+        }
+        else {
+            return animationNil()
+        }
+        
 
     }
 
-    func animationAttack() -> SKAction {
-        self.removeAllActions()
-        let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.1)
-        self.run(enemyAnimAttack)
-        return enemyAnimAttack
+    func animationAttack() -> SKAction? {
+        if self.health > 0 {
+            self.removeAllActions()
+            let enemyAnimAttack = SKAction.animate(with: enemyArrAttack, timePerFrame: 0.1)
+            self.run(enemyAnimAttack)
+            return enemyAnimAttack
+        }
+        else {
+            return animationNil()
+        }
     }
     
     func fullAttackStandAnimation(damage: Int) {
-        print("fullAttackStandAnimation --- Enemy")
-//        self.gameScene.player.takeDamage(damage: damage)
-//        self.animationAttack()
-        self.removeAllActions()
-        let moveForward = SKAction.move(to: CGPoint(x: 50, y: positionAnchor.y), duration: 0.25)
-        let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
-
-        moveForward.timingMode = .easeOut
-        moveBack.timingMode = .easeOut
-
-        let matchGestureTrue = SKAction.run {
-//            gameScene.actionGesture(gesture: true)
+        if self.health > 0 {
+            print("fullAttackStandAnimation --- Enemy")
+            //        self.gameScene.player.takeDamage(damage: damage)
+            //        self.animationAttack()
+            self.removeAllActions()
+            let moveForward = SKAction.move(to: CGPoint(x: 50, y: positionAnchor.y), duration: 0.25)
+            let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
+            
+            moveForward.timingMode = .easeOut
+            moveBack.timingMode = .easeOut
+            
+            let matchGestureTrue = SKAction.run {
+                //            gameScene.actionGesture(gesture: true)
+            }
+            
+            let shakeScene = SKAction.run {
+                self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
+            }
+            
+            let attackMod = SKAction.run {
+                //On Attack
+                self.attackMod()
+                self.gameScene.player.takeDamage(damage: damage)
+            }
+            
+            let fullAttackAnimation = SKAction.sequence([
+                SKAction.wait(forDuration: 0.6),
+                moveForward,
+                animationAttack()!,
+                shakeScene,
+                attackMod,
+                moveBack,
+                matchGestureTrue,
+                animationStand()!
+                ])
+            
+            self.run(fullAttackAnimation)
         }
-
-        let shakeScene = SKAction.run {
-            self.gameScene.sceneShake(shakeCount: 10, intensity: CGVector(dx: 10, dy: 10), shakeDuration: 0.1)
-        }
-
-        let attackMod = SKAction.run {
-            //On Attack
-            self.attackMod()
-            self.gameScene.player.takeDamage(damage: damage)
-        }
-
-        let fullAttackAnimation = SKAction.sequence([
-            SKAction.wait(forDuration: 0.6),
-            moveForward,
-            animationAttack(),
-            shakeScene,
-            attackMod,
-            moveBack,
-            matchGestureTrue,
-            animationStand()
-        ])
-
-        self.run(fullAttackAnimation)
-//        self.run(z1)
     }
     
     private func initShadow() {
@@ -252,6 +264,11 @@ class EnemyUnit: SKSpriteNode {
         
         defenseMod()
         
+    }
+    
+    func animationNil() -> SKAction {
+        self.buffParticle(name: "Death")
+        return SKAction.wait(forDuration: 1)
     }
 
     func buffParticle(name: String) {

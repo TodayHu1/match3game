@@ -35,7 +35,7 @@ var loadMatchChance: [Int]!
 var indexLevel = 0
 
 ///Уровень сложности
-var lvlDifficulty = 0
+var lvlDifficulty = 1
 
 ///
 var lvlOnReady = 0
@@ -86,6 +86,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.shared.isStatusBarHidden = true
         
         gameViewController = self
         

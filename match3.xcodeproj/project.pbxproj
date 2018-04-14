@@ -122,6 +122,11 @@
 		1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */; };
 		1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB431BF1FB835F900039960 /* SpellTexture.xcassets */; };
 		1FC29DCE2057F97B00156B40 /* SpellChanger.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */; };
+		1FC959672081E4D10072161A /* AmuletItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC959662081E4D10072161A /* AmuletItem.xcassets */; };
+		1FC959692081E6700072161A /* LegendItem.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC959682081E6700072161A /* LegendItem.xcassets */; };
+		1FC9596C2081F5430072161A /* SandStorm.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FC9596B2081F5430072161A /* SandStorm.atlas */; };
+		1FC95978208227DE0072161A /* Nil.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FC95976208227DE0072161A /* Nil.sks */; };
+		1FC95979208227DE0072161A /* Death.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FC95977208227DE0072161A /* Death.sks */; };
 		1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */; };
 		1FCECB2720418B5900ECCC57 /* LooseAndWinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */; };
 		1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */; };
@@ -283,6 +288,11 @@
 		1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ShadowRin-Stand.atlas"; sourceTree = "<group>"; };
 		1FB431BF1FB835F900039960 /* SpellTexture.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellTexture.xcassets; sourceTree = "<group>"; };
 		1FC29DCD2057F97B00156B40 /* SpellChanger.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpellChanger.xcassets; sourceTree = "<group>"; };
+		1FC959662081E4D10072161A /* AmuletItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AmuletItem.xcassets; sourceTree = "<group>"; };
+		1FC959682081E6700072161A /* LegendItem.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LegendItem.xcassets; sourceTree = "<group>"; };
+		1FC9596B2081F5430072161A /* SandStorm.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SandStorm.atlas; sourceTree = "<group>"; };
+		1FC95976208227DE0072161A /* Nil.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Nil.sks; sourceTree = "<group>"; };
+		1FC95977208227DE0072161A /* Death.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Death.sks; sourceTree = "<group>"; };
 		1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Walking.atlas"; sourceTree = "<group>"; };
 		1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooseAndWinViewController.swift; sourceTree = "<group>"; };
 		1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EnemyIcon.xcassets; sourceTree = "<group>"; };
@@ -378,6 +388,8 @@
 				1F5B8FBD2062C0840046480D /* RingItem.xcassets */,
 				1F5B8FBB20628F710046480D /* ShieldItem.xcassets */,
 				1F0DD3752071248C005AE925 /* BeltItem.xcassets */,
+				1FC959662081E4D10072161A /* AmuletItem.xcassets */,
+				1FC959682081E6700072161A /* LegendItem.xcassets */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -420,6 +432,7 @@
 		1F2AEDB41EFD5862001AEBB7 /* match3 */ = {
 			isa = PBXGroup;
 			children = (
+				1FC9596D208219240072161A /* Particle */,
 				1F88DE0920317B05005257A5 /* Levels */,
 				1FB431B41FB5B28D00039960 /* Assets */,
 				1F00B6F91FADB4AE00C002B3 /* munro */,
@@ -432,8 +445,6 @@
 				32280FA81FB956E600F954B1 /* LevelMenu */,
 				1FD658F21F7E24BC00F808F4 /* EnemyAtlas */,
 				1FD658F41F7E250300F808F4 /* GameClass */,
-				1F00B7051FADBC8900C002B3 /* Heart.sks */,
-				1F70F9E41FC6951800A0BAFD /* Armor.sks */,
 			);
 			path = match3;
 			sourceTree = "<group>";
@@ -504,6 +515,7 @@
 		1F815F091FD3058500133AC1 /* BG */ = {
 			isa = PBXGroup;
 			children = (
+				1FC9596B2081F5430072161A /* SandStorm.atlas */,
 				1F983A601FED403100CE4FBC /* Dungeon.atlas */,
 				1FED406D1FD5AB95008CD005 /* GrassLand.atlas */,
 				1F815F0A1FD3059C00133AC1 /* SteamPunkBackground.atlas */,
@@ -621,6 +633,17 @@
 				1FB431BC1FB753E000039960 /* ShadowRin-Stand.atlas */,
 			);
 			path = ShadowRin;
+			sourceTree = "<group>";
+		};
+		1FC9596D208219240072161A /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				1FC95976208227DE0072161A /* Nil.sks */,
+				1FC95977208227DE0072161A /* Death.sks */,
+				1F00B7051FADBC8900C002B3 /* Heart.sks */,
+				1F70F9E41FC6951800A0BAFD /* Armor.sks */,
+			);
+			path = Particle;
 			sourceTree = "<group>";
 		};
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
@@ -909,6 +932,7 @@
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
+				1FC959692081E6700072161A /* LegendItem.xcassets in Resources */,
 				1F937D17203EA58C003F0C91 /* 1-2.json in Resources */,
 				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
 				1F937CF3203AB587003F0C91 /* 0-4.json in Resources */,
@@ -916,6 +940,7 @@
 				1F00B6F31FAD9EF400C002B3 /* SteamPunkFlameThrower-Stand.atlas in Resources */,
 				1F937D1D203EA58C003F0C91 /* 1-9.json in Resources */,
 				1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */,
+				1FC9596C2081F5430072161A /* SandStorm.atlas in Resources */,
 				1F00B6F81FAD9F0F00C002B3 /* SteamPunkPunch-Stand.atlas in Resources */,
 				1F88DE0B20317B7E005257A5 /* 0-3.json in Resources */,
 				1F2E84E0207E517B00FE32F0 /* Player-SpellBuff.atlas in Resources */,
@@ -942,6 +967,7 @@
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
 				1F6AA25B1F361642002586DD /* GameScene.sks in Resources */,
 				1F983A641FED460E00CE4FBC /* Bee-Attack.atlas in Resources */,
+				1FC95978208227DE0072161A /* Nil.sks in Resources */,
 				1F70F9E51FC6951800A0BAFD /* Armor.sks in Resources */,
 				1F70F9EA1FC6AB2000A0BAFD /* RandomTestUnit-Attack.atlas in Resources */,
 				1F383A48207B6DD200816D3D /* SoulStone.xcassets in Resources */,
@@ -964,12 +990,14 @@
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
+				1FC959672081E4D10072161A /* AmuletItem.xcassets in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
 				1F937D14203EA58C003F0C91 /* 1-10.json in Resources */,
 				1F901CC62052C90000BDC566 /* ManaPool.atlas in Resources */,
 				1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */,
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
+				1FC95979208227DE0072161A /* Death.sks in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
 				1F5B8FBE2062C0840046480D /* RingItem.xcassets in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
