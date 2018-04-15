@@ -49,6 +49,7 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         
+        
         // Call the GC authentication controller
         authenticateLocalPlayer()
         
@@ -91,6 +92,7 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
             }
         }
         
+        print("SA \(playerStat.legendArr)")
         
         healthNow.setTitle(String(playerStat.healthNow), for: .normal)
         armorNow.setTitle(String(playerStat.armorNow), for: .normal)

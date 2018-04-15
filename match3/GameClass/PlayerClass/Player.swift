@@ -27,6 +27,9 @@ class Player: SKSpriteNode {
     var playerArrSpellBuff = [SKTexture]()
     var playerAtlasSpellBuff = SKTextureAtlas()
     
+    var playerArrSpellAttack = [SKTexture]()
+    var playerAtlasSpellAttack = SKTextureAtlas()
+    
     //Label
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
@@ -52,6 +55,14 @@ class Player: SKSpriteNode {
     
     var gameScene: GameScene!
     
+    ///Специальные способности
+    var specialAbilities = [
+        "SpawnAttackOnDefense": 0,
+        "SpawnArmorOnDefense": 0,
+        "SpawnManaOnDefense": 0,
+        "SpawnChainInstedSkullOnDefense": 0,
+    ] as [String : Int]
+    
     init() {
         super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: playerSize)
         
@@ -68,6 +79,7 @@ class Player: SKSpriteNode {
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
+        playerAtlasSpellAttack = SKTextureAtlas(named: self.name! + "-SpellAttack")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -92,6 +104,11 @@ class Player: SKSpriteNode {
         for i in 0...playerAtlasSpellBuff.textureNames.count-1 {
             let name = self.name! + "-" + "SpellBuff" + "-\(i).png"
             playerArrSpellBuff.append(SKTexture(imageNamed: name))
+        }
+        
+        for i in 0...playerAtlasSpellAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "SpellAttack" + "-\(i).png"
+            playerArrSpellAttack.append(SKTexture(imageNamed: name))
         }
         
     }
@@ -119,12 +136,14 @@ class Player: SKSpriteNode {
         
         initShadow()
         labelOverHead(shield: self.armor, health: self.health, initLabel: true)
+        initLegendItem()
         
         playerAtlasAttack = SKTextureAtlas(named: self.name! + "-Attack")
         playerAtlasStand = SKTextureAtlas(named: self.name! + "-Stand")
         playerAtlasWalking = SKTextureAtlas(named: self.name! + "-Walking")
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
+        playerAtlasSpellAttack = SKTextureAtlas(named: self.name! + "-SpellAttack")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -151,6 +170,11 @@ class Player: SKSpriteNode {
             playerArrSpellBuff.append(SKTexture(imageNamed: name))
         }
         
+        for i in 0...playerAtlasSpellAttack.textureNames.count-1 {
+            let name = self.name! + "-" + "SpellAttack" + "-\(i).png"
+            playerArrSpellAttack.append(SKTexture(imageNamed: name))
+        }
+        
         self.zPosition = 3000
     }
     
@@ -171,6 +195,8 @@ class Player: SKSpriteNode {
     }
     
     func takeDamage(damage: Int) {
+        
+        onDefense()
 
         if self.armor > 0 {
             self.armor -= damage
@@ -182,13 +208,6 @@ class Player: SKSpriteNode {
         else {
             self.health -= damage
         }
-        
-        playerStat.healthNow = self.health
-        playerStat.armorNow = self.armor
-        playerStat.attack = self.attack
-        playerStat.manaNow = self.mana
-//        playerStat.gold = self.gold
-        gameViewController.saveGameProgress()
         
         self.updateLabelOverHead()
     
@@ -217,7 +236,7 @@ class Player: SKSpriteNode {
         }
     }
     
-    func fullAttackStandAnimation(damage: Int, strongAttack: Bool) {
+    func fullAttackStandAnimation(damage: Int, attackType: attackType) {
         if self.health > 0 {
             self.removeAllActions()
             
@@ -240,7 +259,7 @@ class Player: SKSpriteNode {
             let fullAttackAnimation = SKAction.sequence([
                 SKAction.wait(forDuration: 0.6),
                 moveForward,
-                animationAttack(strongAttack: strongAttack)!,
+                animationAttack(attackType: attackType)!,
                 shakeScene,
                 attackMod,
                 SKAction.wait(forDuration: 0.6),
@@ -252,17 +271,25 @@ class Player: SKSpriteNode {
         }
     }
     
-    func animationAttack(strongAttack: Bool) -> SKAction? {
+    enum attackType {
+        case basic
+        case spell
+        case strong
+    }
+    
+    func animationAttack(attackType: attackType) -> SKAction? {
         if self.health > 0 {
             self.removeAllActions()
             
             var playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
             
-            if strongAttack {
-                playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
-            }
-            else {
+            switch attackType {
+            case .basic:
                 playerAnimAttack = SKAction.animate(with: playerArrAttack, timePerFrame: 0.07)
+            case .strong:
+                playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
+            case .spell:
+                playerAnimAttack = SKAction.animate(with: playerArrSpellAttack, timePerFrame: 0.09)
             }
             
             
@@ -277,7 +304,7 @@ class Player: SKSpriteNode {
     
     func animationNil() -> SKAction {
         updateLabelOverHead()
-        self.buffParticle(name: "Nil")
+        self.buffParticle(name: "Death")
         return SKAction.wait(forDuration: 1)
     }
 
@@ -303,11 +330,14 @@ class Player: SKSpriteNode {
             
             let playerAnimStand = SKAction.animate(with: playerArrSpellBuff, timePerFrame: 0.1)
             
-            let seq = SKAction.sequence([playerAnimStand, animationStand()!])
+            let moveBack = SKAction.move(to: positionAnchor, duration: 0.1)
+            
+            let seq = SKAction.sequence([playerAnimStand, moveBack, animationStand()!])
             
             self.run(seq)
         }
     }
+    
     
     
     func animationWalking(){
@@ -335,6 +365,23 @@ class Player: SKSpriteNode {
         //        buffParticle.position = self.positionCenter
         buffParticle.position.y = self.positionCenter.y
         buffParticle.zPosition = self.zPosition + 1
+    }
+
+    func initLegendItem() {
+        let legend = playerStat.legendArr
+        
+        if !legend.isEmpty {
+            for i in 0...legend.count-1 {
+                switch legend[i] {
+                case "Fire feather":
+                    self.specialAbilities["SpawnAttackOnDefense"] = 2
+                case "Belt of truth":
+                    self.specialAbilities["SpawnChainInstedSkullOnDefense"] = 1
+                default:
+                    break
+                }
+            }
+        }
     }
     
 }

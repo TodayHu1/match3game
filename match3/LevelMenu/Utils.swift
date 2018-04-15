@@ -25,6 +25,7 @@ class Utils {
         
         oldString.setColorForText("attack", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attacks", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        oldString.setColorForText("attacked", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attacking", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attack power", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         
@@ -44,10 +45,18 @@ class Utils {
         oldString.setColorForText("coins", with: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
         oldString.setColorForText("gold", with: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
         
-        oldString.setColorForText("item", with: #colorLiteral(red: 0.6788518684, green: 0.8138483503, blue: 0.3980326439, alpha: 1))
+        return oldString
+    }
+    
+    ///Раскраска слов для описания типов предметов
+    func setBackgroundColorLabel(oldString: NSMutableAttributedString) -> NSAttributedString {
+        oldString.setColorForText("[Item]", with: #colorLiteral(red: 0.3698635356, green: 0.6549809645, blue: 0.1954145382, alpha: 1))
         
-        oldString.setColorForText("Dangerous place", with: #colorLiteral(red: 0.9254902005, green: 0.5584264602, blue: 0.4500414842, alpha: 1))
-        oldString.setColorForText("Additional enemy", with: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1))
+        oldString.setColorForText("[Rare]", with: #colorLiteral(red: 0.4745061458, green: 0.6789573384, blue: 1, alpha: 1))
+        
+        oldString.setColorForText("[Legendary]", with: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
+        
+        oldString.setColorForText("[Spell]", with: #colorLiteral(red: 0.670138375, green: 0.5150590541, blue: 0.9686274529, alpha: 1))
         
         return oldString
     }

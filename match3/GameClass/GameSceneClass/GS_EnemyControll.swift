@@ -36,9 +36,10 @@ extension GameScene {
                 self.addChild(self.enemyUnit)
                 
                 self.enemyUnit.run(pulse)
-                self.enemyUnit.animationStand()
+                _ = self.enemyUnit.animationStand()
                 self.updateEnemyCount()
                 self.boardSizeChange()
+                soulGem += 1
             }
             let gestureTrue = SKAction.run {
                 self.actionGesture(gesture: true)
@@ -92,21 +93,19 @@ extension GameScene {
                             }])
                         self.run(wait)
                         let damag = Int((player.attack * actionOnTurn[Match.attack.rawValue]) / 3)
-                        var strongAttack = false
                         if actionOnTurn[Match.attack.rawValue] > 3 {
-                            strongAttack = true
+                            player.fullAttackStandAnimation(damage: damag, attackType: .strong)
                             player.mana += Int(actionOnTurn[Match.attack.rawValue]/2)
                             changeManaLabel()
                         }
                         else {
-                            strongAttack = false
+                            player.fullAttackStandAnimation(damage: damag, attackType: .basic)
                         }
                         positiveWords(number: actionOnTurn[Match.attack.rawValue])
-                        player.fullAttackStandAnimation(damage: damag, strongAttack: strongAttack)
-                    
+
                     
                     case Match.coin.rawValue:
-                        playerStat.gold += actionOnTurn[Match.coin.rawValue]
+                        player.gold += actionOnTurn[Match.coin.rawValue]
                         self.updatePlayerGold()
             
                     

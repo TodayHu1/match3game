@@ -6,6 +6,10 @@
 //  Copyright © 2017 Женя. All rights reserved.
 //
 
+//Спелл - За 20 маны дает 1 золото (ManaGold)
+
+//Легендарка - Добавляет атаку равную вашему золоту (Sword of midas)
+
 import Foundation
 import SpriteKit
 import GameplayKit
@@ -206,7 +210,7 @@ extension GameScene {
             let power = (playerStat.manaNow * playerStat.attack)
             let damage = Int(power / 3)
             print("\(damage) --\(power)-- ENERGY DAMAGE")
-            player.fullAttackStandAnimation(damage: damage, strongAttack: true)
+            player.fullAttackStandAnimation(damage: damage, attackType: .spell)
         case "SilverSword":
             var skullCount = 0
             for i in 0...matchBoard.verticalCount-1 {
@@ -220,46 +224,18 @@ extension GameScene {
             let power = (playerStat.attack * skullCount)
             let damage = Int(power / 6)
             print("\(damage) --\(power)-- ENERGY DAMAGE")
-            player.fullAttackStandAnimation(damage: damage, strongAttack: true)
+            player.fullAttackStandAnimation(damage: damage, attackType: .spell)
         case "ScullingTheSkulls":
-            
-            let numberOfSpawnSkull = 3
-            
-            let spawnSkull = SKAction.run {
-                var duration: Double = 0
-                let interval: Double = self.durationSpawnMatchAnimation()
-                for _ in 0...numberOfSpawnSkull-1 {
-                    duration += interval
-                    self.matchMoveToBoard(matchType: Match.skull,
-                                     nodePosition: self.player,
-                                     i: self.matchBoard.getRandomMatchVertical(),
-                                     j: self.matchBoard.getRandomMatchHorizontal(),
-                                     waitTimeToAnimation: TimeInterval(duration),
-                                     durationAnimation: interval
-                    )
-                }
-            }
-            
 
-            let attackSpell = SKAction.run {
-                var skullCount = 0
-                for i in 0...self.matchBoard.verticalCount-1 {
-                    for j in 0...self.matchBoard.horizontalCount-1 {
-                        if self.matchTypeOnTable[i][j] == .skull {
-                            skullCount += 1
-                        }
-                    }
-                }
-                
-                let power = (playerStat.attack * skullCount)
-                let damage = Int(power / 7)
-                print("\(damage) --\(power)-- ENERGY DAMAGE")
-                self.player.fullAttackStandAnimation(damage: damage, strongAttack: true)
-            }
-            
-            let seq = SKAction.sequence([spawnSkull, attackSpell])
-            self.run(seq)
-            
+            self.spawnMatchOnRandomPosition(matchType: .skull, nodePosition: player, numberOfMatch: 3)
+
+            let skullCount = self.numberOfMatch(matchType: .skull)
+
+            let power = (playerStat.attack * skullCount)
+            let damage = Int(power / 7)
+            print("\(damage) --\(power)-- ENERGY DAMAGE")
+            self.player.fullAttackStandAnimation(damage: damage, attackType: .spell)
+
         case "GoldenHeart":
             player.animationSpellBuffAndStand()
             player.health += 7
@@ -278,18 +254,7 @@ extension GameScene {
             player.updateLabelOverHead()
             player.buffParticle(name: "Heart")
             
-            var duration: Double = 0
-            let interval: Double = self.durationSpawnMatchAnimation()
-            for _ in 0...2 {
-                duration += interval
-                matchMoveToBoard(matchType: Match.poison,
-                                 nodePosition: player,
-                                 i: matchBoard.getRandomMatchVertical(),
-                                 j: matchBoard.getRandomMatchHorizontal(),
-                                 waitTimeToAnimation: TimeInterval(duration),
-                                 durationAnimation: interval
-                )
-            }
+            spawnMatchOnRandomPosition(matchType: .poison, nodePosition: player, numberOfMatch: 3)
             
         default:
             break
@@ -302,6 +267,34 @@ extension GameScene {
        
         
         
+    }
+    
+    func spawnMatchOnRandomPosition(matchType: Match, nodePosition: SKSpriteNode, numberOfMatch: Int) {
+        var duration: Double = 0
+        let interval: Double = self.durationSpawnMatchAnimation()
+        for _ in 0...numberOfMatch-1 {
+            duration += interval
+            matchMoveToBoard(matchType: matchType,
+                             nodePosition: nodePosition,
+                             i: matchBoard.getRandomMatchVertical(),
+                             j: matchBoard.getRandomMatchHorizontal(),
+                             waitTimeToAnimation: TimeInterval(duration),
+                             durationAnimation: interval
+            )
+        }
+    }
+    
+    func numberOfMatch(matchType: Match) -> Int {
+        var count = 0
+        for i in 0...self.matchBoard.verticalCount-1 {
+            for j in 0...self.matchBoard.horizontalCount-1 {
+                if self.matchTypeOnTable[i][j] == matchType {
+                    count += 1
+                }
+            }
+        }
+        
+        return count
     }
     
 }

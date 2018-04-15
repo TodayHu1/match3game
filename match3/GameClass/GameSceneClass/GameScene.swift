@@ -318,8 +318,8 @@ class GameScene: SKScene {
         
         self.addChild(player)
         self.addChild(enemyUnit)
-        player.animationStand()
-        enemyUnit.animationStand()
+        _ = player.animationStand()
+        _ = enemyUnit.animationStand()
         
         fadeInStart()
         
@@ -393,7 +393,7 @@ class GameScene: SKScene {
     }
     
     func updatePlayerGold() {
-        self.goldLabel.text = "\(playerStat.gold)"
+        self.goldLabel.text = "\(player.gold)"
     }
     
     

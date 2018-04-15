@@ -222,10 +222,7 @@ class MovingScreen: SKScene {
             self.addChild(movingLabel)
             
             print("DONE INIT SPRITE")
-            
-            let fadeOut = SKAction.fadeOut(withDuration: 1)
-            let fadeIn = SKAction.fadeIn(withDuration: 1)
-//            let wait = SKAction.wait(forDuration: 1)
+
             
             let startLevel = SKAction.run {
                 if indexLevel < loadEnemy.count {

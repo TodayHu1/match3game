@@ -128,6 +128,8 @@
 		1FC95978208227DE0072161A /* Nil.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FC95976208227DE0072161A /* Nil.sks */; };
 		1FC95979208227DE0072161A /* Death.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1FC95977208227DE0072161A /* Death.sks */; };
 		1FC9597B208237860072161A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC9597A208237860072161A /* GameKit.framework */; };
+		1FC9597D208338390072161A /* Player_Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC9597C208338390072161A /* Player_Defense.swift */; };
+		1FC9597F208361860072161A /* Player-SpellAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FC9597E208361860072161A /* Player-SpellAttack.atlas */; };
 		1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */; };
 		1FCECB2720418B5900ECCC57 /* LooseAndWinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */; };
 		1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */; };
@@ -295,6 +297,8 @@
 		1FC95976208227DE0072161A /* Nil.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Nil.sks; sourceTree = "<group>"; };
 		1FC95977208227DE0072161A /* Death.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Death.sks; sourceTree = "<group>"; };
 		1FC9597A208237860072161A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		1FC9597C208338390072161A /* Player_Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player_Defense.swift; sourceTree = "<group>"; };
+		1FC9597E208361860072161A /* Player-SpellAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-SpellAttack.atlas"; sourceTree = "<group>"; };
 		1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Walking.atlas"; sourceTree = "<group>"; };
 		1FCECB2620418B5900ECCC57 /* LooseAndWinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooseAndWinViewController.swift; sourceTree = "<group>"; };
 		1FD49873201F6A5E0057ED2A /* EnemyIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = EnemyIcon.xcassets; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1FC9597E208361860072161A /* Player-SpellAttack.atlas */,
 				1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */,
 				1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */,
 				1FCCDFB41FD182E100952DEA /* Player-Walking.atlas */,
@@ -721,6 +726,7 @@
 			children = (
 				1F11EF741FA9A4C900FD51B7 /* Player */,
 				1F2E84E5208043D200FE32F0 /* Player.swift */,
+				1FC9597C208338390072161A /* Player_Defense.swift */,
 				1F2D82121F80CB7D00710D50 /* Player_LabelOverHead.swift */,
 			);
 			path = PlayerClass;
@@ -1007,6 +1013,7 @@
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
 				1FC95979208227DE0072161A /* Death.sks in Resources */,
+				1FC9597F208361860072161A /* Player-SpellAttack.atlas in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
 				1F5B8FBE2062C0840046480D /* RingItem.xcassets in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
@@ -1207,6 +1214,7 @@
 				1F0DD37820712A2B005AE925 /* ItemCellTableViewCell.swift in Sources */,
 				1F6AA25A1F35944B002586DD /* GS_CheckArr.swift in Sources */,
 				1F2D82131F80CB7D00710D50 /* Player_LabelOverHead.swift in Sources */,
+				1FC9597D208338390072161A /* Player_Defense.swift in Sources */,
 				1F5EE8861F70ECDB0099F969 /* GS_EnemyControll.swift in Sources */,
 				1F88DE0D2031AFC4005257A5 /* Extension.swift in Sources */,
 				1F13F9521FBDCA49008DA2C9 /* GS_HelpFunction.swift in Sources */,

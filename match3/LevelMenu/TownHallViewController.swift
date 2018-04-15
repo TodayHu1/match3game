@@ -32,7 +32,7 @@ class TownHallViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGoldLabel(plusNumber: 0)
+        _ = setGoldLabel(plusNumber: 0)
         
         UpgradeSwordButton.setTitle(String(Int(playerStat.attack / 4)), for: .normal)
         UpgradeArmorButton.setTitle(String(Int(playerStat.armorNow / 8)), for: .normal)

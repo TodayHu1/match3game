@@ -36,6 +36,8 @@ class SoulStoneViewController: UIViewController {
     @IBOutlet weak var ArmorLabel: UILabel!
     @IBOutlet weak var ManaLabel: UILabel!
     @IBOutlet weak var CoinLabel: UILabel!
+    @IBOutlet weak var SoulGemLabel: UILabel!
+    
     
     @IBOutlet weak var addToHealth: UIButton!
     @IBOutlet weak var addToArmor: UIButton!
@@ -62,6 +64,7 @@ class SoulStoneViewController: UIViewController {
         ArmorLabel.text = "\(playerStat.armorNow)/\(playerStat.armorMax)"
         ManaLabel.text = "\(playerStat.manaNow)/\(playerStat.manaMax)"
         CoinLabel.text = "\(playerStat.gold)"
+        SoulGemLabel.text = "\(soulGem)"
     }
     
     @IBAction func buyHealth(_ sender: Any) {

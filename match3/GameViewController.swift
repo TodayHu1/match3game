@@ -43,6 +43,9 @@ var lvlOnReady = 0
 ///
 var movingScreenNow: MovingScreen!
 
+///Камни души
+var soulGem = 0
+
 ///Переменная для рекламы
 var ad: GADInterstitial!
 
@@ -67,7 +70,7 @@ var gameViewController: GameViewController!
 ///Пройденные уровни (сохраняемый класс)
 var levelStorage = [[String: Any]]()
 
-enum ChestType {
+enum ChestType {    
     ///Сундук со стандартными вещами и спелами
     case spellAndItemсhest
     
@@ -76,6 +79,12 @@ enum ChestType {
     
     ///Сундук со способностями
     case spellChest
+    
+    ///Сундук с ленегдарками
+    case legendaryChest
+    
+    ///Сундук с одной легендаркой
+    case oneLegendChest
 }
 
 var nextChestType: ChestType! = .itemChest
@@ -367,6 +376,8 @@ class GameViewController: UIViewController {
     }
     
     func saveGameProgress() {
+        UserDefaults.standard.set(soulGem, forKey: "soulGem")
+        
         UserDefaults.standard.set(lvlDifficulty, forKey: "difficulty")
         
         UserDefaults.standard.set(levelStorage, forKey: "levelStorage")
@@ -379,6 +390,9 @@ class GameViewController: UIViewController {
     }
     
     func loadGameProgress() {
+        if UserDefaults.standard.object(forKey: "soulGem") as? Int != nil {
+            soulGem = UserDefaults.standard.object(forKey: "soulGem") as! Int
+        }
         
         if UserDefaults.standard.object(forKey: "difficulty") as? Int != nil {
             lvlDifficulty = UserDefaults.standard.object(forKey: "difficulty") as! Int

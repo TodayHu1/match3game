@@ -158,26 +158,31 @@ class Spell: SKSpriteNode {
     
     ///Условие для использование способности
     private func conditionToUse() -> Bool {
-        if self.gameScene.player.mana >= manaToUse &&
-            self.gameScene.player.health >= healthToUse &&
-            self.gameScene.player.armor >= armorToUse &&
-            self.gameScene.player.gold >= coinToUse  {
-            self.gameScene.updatePlayerGold()
-            return true
+        if matchActionGesture == true {
+            if self.gameScene.player.mana >= manaToUse &&
+                self.gameScene.player.health >= healthToUse &&
+                self.gameScene.player.armor >= armorToUse &&
+                self.gameScene.player.gold >= coinToUse  {
+                self.gameScene.updatePlayerGold()
+                return true
+            }
+            else {
+                if self.gameScene.player.mana < manaToUse {
+                    gameViewController.presentText(text: "Not enough mana", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+                }
+                if self.gameScene.player.health < healthToUse {
+                    gameViewController.presentText(text: "Not enough health", color: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
+                }
+                if self.gameScene.player.armor < armorToUse {
+                    gameViewController.presentText(text: "Not enough armor", color: #colorLiteral(red: 0.5140172169, green: 0.6116851714, blue: 0.9994240403, alpha: 1))
+                }
+                if self.gameScene.player.gold < coinToUse {
+                    gameViewController.presentText(text: "Not enough gold", color: #colorLiteral(red: 0.9994240403, green: 0.9099636973, blue: 0.08210700654, alpha: 1))
+                }
+                return false
+            }
         }
         else {
-            if self.gameScene.player.mana < manaToUse {
-                gameViewController.presentText(text: "Not enough mana", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
-            }
-            if self.gameScene.player.health < healthToUse {
-                gameViewController.presentText(text: "Not enough health", color: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))
-            }
-            if self.gameScene.player.armor < armorToUse {
-                gameViewController.presentText(text: "Not enough armor", color: #colorLiteral(red: 0.5140172169, green: 0.6116851714, blue: 0.9994240403, alpha: 1))
-            }
-            if self.gameScene.player.gold < coinToUse {
-                gameViewController.presentText(text: "Not enough gold", color: #colorLiteral(red: 0.9994240403, green: 0.9099636973, blue: 0.08210700654, alpha: 1))
-            }
             return false
         }
     }
@@ -189,8 +194,9 @@ class Spell: SKSpriteNode {
         self.gameScene.player.gold -= coinToUse
         self.gameScene.player.mana -= manaToUse
 
+        self.gameScene.updatePlayerGold()
         self.gameScene.changeManaLabel()
-        self.gameScene.player.labelOverHead(shield: self.gameScene.player.armor, health: self.gameScene.player.health, initLabel: false)
+        self.gameScene.player.updateLabelOverHead()
         
 //        let wait = SKAction.wait(forDuration: 1)
 //        let code = SKAction.run {

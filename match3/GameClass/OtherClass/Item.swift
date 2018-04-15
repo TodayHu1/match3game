@@ -31,6 +31,17 @@ class Item {
     enum itemType {
         case item
         case spell
+        case legendary
+        case potion
+    }
+    
+    var percentOfheal: Int = 0
+    var potion: potionType!
+    
+    enum potionType {
+        case heal
+        case mana
+        case armor
     }
     
     ///Инициализация для предмета
@@ -43,13 +54,54 @@ class Item {
         self.img = img
         self.name = "[Item] \(name)"
         
-        self.description = generateDescription(armor: armor, health: health, attack: attack, mana: mana)
+        self.description = generateItemDescription(armor: armor, health: health, attack: attack, mana: mana)
         
         self.type = .item
     }
     
+    ///Инициализация для редкого предмета
+    init (vampirism: Int, evasion: Int, critacal: Int, blockDamage: Int, img: String, name: String, description: String) {
+        self.img = img
+        self.name = "[Rare] \(name)"
+        self.description = description
+        
+        self.type = .item
+    }
+    
+    ///Инициализация для легендарного предмета
+    init (img: String, name: String, description: String) {
+        self.img = img
+        self.name = "[Legendary] \(name)"
+        self.description = description
+        
+        self.type = .legendary
+    }
+    
+    ///Инициализация для активной способности
+    init (name: String) {
+        let gameScene = GameScene()
+        let spell = gameScene.spellBook(skillName: name, spellIndex: 0)
+        
+        self.img = "Spell\(name)"
+        self.name = "[Spell] \(name)"
+        self.spellName = name
+        self.description = spell.skillDescription
+        
+        self.type = .spell
+    }
+    
+    ///Инициализация для зелья
+    init (percentOfHeal: Int,potionType: potionType,img: String, name: String) {
+
+        self.img = "Spell\(name)"
+        self.name = "[Spell] \(name)"
+        self.potion = potionType
+        self.description = generatePotionDescription(potion: potionType, percent: percentOfHeal)
+        self.type = .potion
+    }
+    
     ///Generate description for item
-    func generateDescription(armor: Int, health: Int, attack: Int, mana: Int) -> String {
+    func generateItemDescription(armor: Int, health: Int, attack: Int, mana: Int) -> String {
         var desc = ""
         
         if armor > 0 || health > 0 || attack > 0 || mana > 0 {
@@ -90,34 +142,21 @@ class Item {
         //return "gain 66 armor, but lose 15 health"
     }
     
-    ///Инициализация для редкого предмета
-    init (vampirism: Int, evasion: Int, critacal: Int, blockDamage: Int, img: String, name: String, description: String) {
-        self.img = img
-        self.name = "[Rare] \(name)"
-        self.description = description
+    func generatePotionDescription(potion: potionType, percent: Int) -> String {
+        var desc = "Restores your "
         
-        self.type = .item
-    }
-    
-    ///Инициализация для легендарного предмета
-    init (img: String, name: String, description: String) {
-        self.img = img
-        self.name = "[Legendary] \(name)"
-        self.description = description
+        switch potion {
+        case .armor:
+            desc.append("armor ")
+        case .heal:
+            desc.append("health ")
+        case .mana:
+            desc.append("mana ")
+        }
         
-        self.type = .item
-    }
-    
-    ///Инициализация для активной способности
-    init (name: String) {
-        let gameScene = GameScene()
-        let spell = gameScene.spellBook(skillName: name, spellIndex: 0)
+        desc.append("by ")
+        desc.append("\(percent)% ")
         
-        self.img = "Spell\(name)"
-        self.name = "[Spell] \(name)"
-        self.spellName = name
-        self.description = spell.skillDescription
-        
-        self.type = .spell
+        return desc
     }
 }

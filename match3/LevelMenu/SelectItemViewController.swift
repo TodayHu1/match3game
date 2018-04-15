@@ -54,6 +54,12 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
             playerStat.manaNow += item.mana
         case .spell:
             playerStat.addSpell(newSpell: item.spellName)
+        case .legendary:
+            var newName = item.name
+            newName = newName.replacingOccurrences(of: "[Legendary] ", with: "")
+            playerStat.legendArr.append(newName)
+            playerStat.legendArr = playerStat.legendArr.removeDuplicates()
+            print("SA \(playerStat.legendArr)")
         default:
             break
         }
@@ -92,7 +98,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "FirstAid"),
         Item.init(name: "HeartAttack"),
         Item.init(name: "Nemesis"),
-        Item.init(name: "EnergyAttack"),
+//        Item.init(name: "EnergyAttack"),
         Item.init(name: "SilverSword"),
         Item.init(name: "ScullingTheSkulls"),
         
@@ -134,9 +140,10 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
 //        Item.init(vampirism: 0, evasion: 0, critacal: 0, blockDamage: 0, img: "DarkRedRing", name: "Test of fate", description: "get 10 health when you attack")
 //    ]
 //
-//    let legendaryItemArr = [
-//        Item.init(img: "DarkRedShield", name: "Blood to blood", description: "you have 10% to instantly kill enemy unit")
-//    ]
+    let legendaryItemArr = [
+        Item.init(img: "FeatherLegend", name: "Fire feather", description: "Spawn 2 match attacks when you are attacked"),
+        Item.init(img: "BeltLegend", name: "Belt of truth", description: "When you are attacked, will replace one match skulls to match chains")
+    ]
 
     
     ///Высота ячейки
@@ -170,7 +177,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
 
         
         cell.cellTitle?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        cell.cellTitle?.attributedText = setColoredType(oldString: nameAttr)
+        cell.cellTitle?.attributedText = Utils.shared.setBackgroundColorLabel(oldString: nameAttr)
         cell.cellTitle?.font = UIFont(name: "Munro", size: 20)
         
         cell.cellImage?.image = UIImage(named: "\(item.img).png")
@@ -204,19 +211,6 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.cellForRow(at: indexPath)
         cell?.contentView.backgroundColor = .clear
     }
-    
-    ///Раскраска слов для описания типов предметов
-    func setColoredType(oldString: NSMutableAttributedString) -> NSAttributedString {
-        oldString.setColorForText("[Item]", with: #colorLiteral(red: 0.3698635356, green: 0.6549809645, blue: 0.1954145382, alpha: 1))
-        
-        oldString.setColorForText("[Rare]", with: #colorLiteral(red: 0.4745061458, green: 0.6789573384, blue: 1, alpha: 1))
-        
-        oldString.setColorForText("[Legendary]", with: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
-        
-        oldString.setColorForText("[Spell]", with: #colorLiteral(red: 0.670138375, green: 0.5150590541, blue: 0.9686274529, alpha: 1))
-        
-        return oldString
-    }
 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -231,6 +225,10 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += beltArr
                 allItem += trashArr
                 allItem += amuletArr
+                
+                if Int(arc4random_uniform(1)) == 0 {
+                    allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
+                }
                 break
             case .spellChest:
                 allItem += spellArr
@@ -243,20 +241,40 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += beltArr
                 allItem += trashArr
                 allItem += amuletArr
+                
+                if Int(arc4random_uniform(1)) == 0 {
+                    allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
+                }
+
+                break
+            case .legendaryChest:
+                allItem += legendaryItemArr
+                break
+            case .oneLegendChest:
+                allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
                 break
         }
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch lvlDifficulty {
+//        potionArr.append()
+        
+        if chestType == nil {
+            switch lvlDifficulty {
             case 1:
                 buildChest(chestType: .spellChest)
             default:
                 buildChest(chestType: .spellAndItemсhest)
+            }
         }
+        else {
+            buildChest(chestType: chestType)
+            chestType = nil
+        }
+        
+
 
         for _ in 0...countOfSelectedItem-1 {
             itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])

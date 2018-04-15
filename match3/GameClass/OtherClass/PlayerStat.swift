@@ -43,6 +43,14 @@ class PlayerStat: NSObject, NSCoding {
     ///Способности в рюкзаке (можно сделать активными)
     var spellInBag = [String]()
     
+    ///Массив с легендарными предметами
+    var legendArr = [String]()
+    
+    enum SpecialKey: String {
+        case SpawnAttack_OnAttack = "SpawnAttack_OnAttack"
+    }
+    
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(manaNow, forKey: "manaNow")
         aCoder.encode(manaMax, forKey: "manaMax")
@@ -60,6 +68,9 @@ class PlayerStat: NSObject, NSCoding {
         aCoder.encode(spellOnBoard, forKey: "spellArr")
         
         aCoder.encode(spellInBag, forKey: "spellInBag")
+        
+        aCoder.encode(legendArr, forKey: "legendArr")
+        
     }
     
     
@@ -85,14 +96,24 @@ class PlayerStat: NSObject, NSCoding {
             spellInBag = aDecoder.decodeObject(forKey: "spellInBag") as! [String]
         }
         else {
-            spellInBag = []
+            spellInBag.removeAll()
         }
         
-        self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr, spellInBag: spellInBag)
+        var legendArr = [String]()
+        
+        if nil != aDecoder.decodeObject(forKey: "legendArr") as? [String] {
+            legendArr = aDecoder.decodeObject(forKey: "legendArr") as! [String]
+        }
+        else {
+            legendArr.removeAll()
+        }
+        
+        
+        self.init(manaNow: manaNow, manaMax: manaMax, healthNow: healthNow, healthMax: healthMax, armorNow: armorNow, armorMax: armorMax, gold: gold, attack: attack, spellArr: spellArr, spellInBag: spellInBag, legendArr: legendArr)
     }
     
     ///Полная инициализация персонажа
-    init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String], spellInBag: [String]) {
+    init(manaNow: Int, manaMax: Int, healthNow: Int, healthMax: Int, armorNow: Int, armorMax: Int, gold: Int, attack: Int, spellArr: [String], spellInBag: [String], legendArr: [String]) {
         
         print("ПОЛНАЯ ИНИЦ \(armorMax)")
         
@@ -110,6 +131,9 @@ class PlayerStat: NSObject, NSCoding {
         
         self.spellOnBoard = spellArr
         self.spellInBag = spellInBag
+        
+        self.legendArr = legendArr
+
     }
     
     ///Краткая инициализация персонажа (для полного обнуления)
@@ -124,13 +148,15 @@ class PlayerStat: NSObject, NSCoding {
         
         self.spellOnBoard = spellArr
         
-        self.spellInBag = []
+        self.spellInBag.removeAll()
         
         self.manaNow = manaMax
         self.healthNow = healthMax
         self.armorNow = armorMax
         
         self.gold = 0
+        
+        self.legendArr.removeAll()
     }
     
     ///Функция добавления новой способности к персонажу
