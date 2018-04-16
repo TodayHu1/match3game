@@ -49,7 +49,6 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         
-        
         // Call the GC authentication controller
         authenticateLocalPlayer()
         
@@ -157,6 +156,14 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     }
 
 
+    @IBAction func leaderBoard(_ sender: Any) {
+        let gcVC = GKGameCenterViewController()
+        gcVC.gameCenterDelegate = self
+        gcVC.viewState = .leaderboards
+        gcVC.leaderboardIdentifier = LEADERBOARD_ID
+        present(gcVC, animated: true, completion: nil)
+    }
+    
     @IBAction func GameCenter(_ sender: Any) {
         let gcVC = GKGameCenterViewController()
         gcVC.gameCenterDelegate = self

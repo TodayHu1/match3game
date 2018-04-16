@@ -186,6 +186,8 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.cellDescription?.font = UIFont(name: "MunroSmall", size: 15)
         cell.cellDescription?.textColor = .white
         cell.cellDescription?.attributedText = Utils.shared.setColoredLabel(oldString: attrString)
+        cell.cellDescription?.adjustsFontSizeToFitWidth = true
+        cell.cellDescription?.lineBreakMode = .byTruncatingTail
         
         cell.selectionStyle = .none
         
@@ -259,12 +261,16 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        potionArr.append()
+        let startLvl = 1
         
         if chestType == nil {
             switch lvlDifficulty {
-            case 1:
+            case startLvl+1:
                 buildChest(chestType: .spellChest)
+            case startLvl+20:
+                buildChest(chestType: .oneLegendChest)
+            case startLvl+40:
+                buildChest(chestType: .oneLegendChest)
             default:
                 buildChest(chestType: .spellAndItemсhest)
             }

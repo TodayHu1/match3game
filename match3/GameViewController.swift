@@ -462,12 +462,18 @@ class GameViewController: UIViewController {
         [1, "Stony"],
         [2, "PoisonScale"],
         [3, "StoneScale"],
+        [4, "ChainScale"],
         [5, "SteamPunkPunch"],
         [6, "RoyalMage"],
+        [7, "Geoe"],
         [8, "SteamPunkFlameThrower"],
+        [9, "Ram"],
         [10, "NeutralTurtle"],
         [13, "CultistsProphet"],
-        [15, "SteamPunkGuard"]
+        [15, "SteamPunkGuard"],
+        [20, "SilverKnightsSpear"],
+        [22, "SilverKnightsPriest"],
+        [25, "SilverKnightsStandardBearer"]
     ]
     
     ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
@@ -525,7 +531,10 @@ class GameViewController: UIViewController {
             loadBg = ["SteamPunkBackground"]
             loadBoardSize = [[4,7]]
             return [["SteamPunkWalker"]]
-
+        case 40:
+            loadBg = ["Dungeon"]
+            loadBoardSize = [[6,6]]
+            return [["SilverKnightsPaladin"]]
         default:
             return nil
         }

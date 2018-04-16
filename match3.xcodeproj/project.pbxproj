@@ -24,6 +24,20 @@
 		1F0E08DE2040498F00C8F348 /* Player-StrongAttack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */; };
 		1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */; };
 		1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */; };
+		1F13595D20847ED9006194F7 /* ChainScale-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13595B20847ED9006194F7 /* ChainScale-Attack.atlas */; };
+		1F13595E20847ED9006194F7 /* ChainScale-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13595C20847ED9006194F7 /* ChainScale-Stand.atlas */; };
+		1F13596220848088006194F7 /* Geoe-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13596020848088006194F7 /* Geoe-Attack.atlas */; };
+		1F13596320848088006194F7 /* Geoe-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13596120848088006194F7 /* Geoe-Stand.atlas */; };
+		1F135967208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F135965208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas */; };
+		1F135968208481BD006194F7 /* SilverKnightsPaladin-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F135966208481BD006194F7 /* SilverKnightsPaladin-Stand.atlas */; };
+		1F13596C208482CC006194F7 /* Ram-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13596A208482CB006194F7 /* Ram-Attack.atlas */; };
+		1F13596D208482CC006194F7 /* Ram-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13596B208482CC006194F7 /* Ram-Stand.atlas */; };
+		1F13597120848315006194F7 /* SilverKnightsPriest-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13596F20848315006194F7 /* SilverKnightsPriest-Stand.atlas */; };
+		1F13597220848315006194F7 /* SilverKnightsPriest-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13597020848315006194F7 /* SilverKnightsPriest-Attack.atlas */; };
+		1F135976208483A5006194F7 /* SilverKnightsSpear-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F135974208483A5006194F7 /* SilverKnightsSpear-Attack.atlas */; };
+		1F135977208483A5006194F7 /* SilverKnightsSpear-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F135975208483A5006194F7 /* SilverKnightsSpear-Stand.atlas */; };
+		1F13597B20848475006194F7 /* SilverKnightsStandardBearer-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13597920848474006194F7 /* SilverKnightsStandardBearer-Attack.atlas */; };
+		1F13597C20848475006194F7 /* SilverKnightsStandardBearer-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1F13597A20848474006194F7 /* SilverKnightsStandardBearer-Stand.atlas */; };
 		1F13F9501FBD7104008DA2C9 /* CountClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F94F1FBD7104008DA2C9 /* CountClass.swift */; };
 		1F13F9521FBDCA49008DA2C9 /* GS_HelpFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */; };
 		1F16AD6C1F3F45E100AAEA51 /* GS_Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */; };
@@ -187,6 +201,20 @@
 		1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-StrongAttack.atlas"; sourceTree = "<group>"; };
 		1F11EF701FA5F20D00FD51B7 /* GameUI.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameUI.xcassets; sourceTree = "<group>"; };
 		1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Attack.atlas"; sourceTree = "<group>"; };
+		1F13595B20847ED9006194F7 /* ChainScale-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ChainScale-Attack.atlas"; sourceTree = "<group>"; };
+		1F13595C20847ED9006194F7 /* ChainScale-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "ChainScale-Stand.atlas"; sourceTree = "<group>"; };
+		1F13596020848088006194F7 /* Geoe-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Geoe-Attack.atlas"; sourceTree = "<group>"; };
+		1F13596120848088006194F7 /* Geoe-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Geoe-Stand.atlas"; sourceTree = "<group>"; };
+		1F135965208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsPaladin-Attack.atlas"; sourceTree = "<group>"; };
+		1F135966208481BD006194F7 /* SilverKnightsPaladin-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsPaladin-Stand.atlas"; sourceTree = "<group>"; };
+		1F13596A208482CB006194F7 /* Ram-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Ram-Attack.atlas"; sourceTree = "<group>"; };
+		1F13596B208482CC006194F7 /* Ram-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Ram-Stand.atlas"; sourceTree = "<group>"; };
+		1F13596F20848315006194F7 /* SilverKnightsPriest-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsPriest-Stand.atlas"; sourceTree = "<group>"; };
+		1F13597020848315006194F7 /* SilverKnightsPriest-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsPriest-Attack.atlas"; sourceTree = "<group>"; };
+		1F135974208483A5006194F7 /* SilverKnightsSpear-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsSpear-Attack.atlas"; sourceTree = "<group>"; };
+		1F135975208483A5006194F7 /* SilverKnightsSpear-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsSpear-Stand.atlas"; sourceTree = "<group>"; };
+		1F13597920848474006194F7 /* SilverKnightsStandardBearer-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsStandardBearer-Attack.atlas"; sourceTree = "<group>"; };
+		1F13597A20848474006194F7 /* SilverKnightsStandardBearer-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "SilverKnightsStandardBearer-Stand.atlas"; sourceTree = "<group>"; };
 		1F13F94F1FBD7104008DA2C9 /* CountClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountClass.swift; sourceTree = "<group>"; };
 		1F13F9511FBDCA49008DA2C9 /* GS_HelpFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GS_HelpFunction.swift; sourceTree = "<group>"; };
 		1F16AD6B1F3F45E100AAEA51 /* GS_Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_Animation.swift; sourceTree = "<group>"; };
@@ -413,6 +441,69 @@
 				1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		1F13595A20847EA7006194F7 /* ChainScale */ = {
+			isa = PBXGroup;
+			children = (
+				1F13595B20847ED9006194F7 /* ChainScale-Attack.atlas */,
+				1F13595C20847ED9006194F7 /* ChainScale-Stand.atlas */,
+			);
+			path = ChainScale;
+			sourceTree = "<group>";
+		};
+		1F13595F20848024006194F7 /* Geoe */ = {
+			isa = PBXGroup;
+			children = (
+				1F13596020848088006194F7 /* Geoe-Attack.atlas */,
+				1F13596120848088006194F7 /* Geoe-Stand.atlas */,
+			);
+			path = Geoe;
+			sourceTree = "<group>";
+		};
+		1F1359642084816C006194F7 /* SilverKnightsPaladin */ = {
+			isa = PBXGroup;
+			children = (
+				1F135965208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas */,
+				1F135966208481BD006194F7 /* SilverKnightsPaladin-Stand.atlas */,
+			);
+			path = SilverKnightsPaladin;
+			sourceTree = "<group>";
+		};
+		1F135969208482B5006194F7 /* Ram */ = {
+			isa = PBXGroup;
+			children = (
+				1F13596A208482CB006194F7 /* Ram-Attack.atlas */,
+				1F13596B208482CC006194F7 /* Ram-Stand.atlas */,
+			);
+			path = Ram;
+			sourceTree = "<group>";
+		};
+		1F13596E208482F5006194F7 /* SilverKnightsPriest */ = {
+			isa = PBXGroup;
+			children = (
+				1F13597020848315006194F7 /* SilverKnightsPriest-Attack.atlas */,
+				1F13596F20848315006194F7 /* SilverKnightsPriest-Stand.atlas */,
+			);
+			path = SilverKnightsPriest;
+			sourceTree = "<group>";
+		};
+		1F13597320848353006194F7 /* SilverKnightsSpear */ = {
+			isa = PBXGroup;
+			children = (
+				1F135974208483A5006194F7 /* SilverKnightsSpear-Attack.atlas */,
+				1F135975208483A5006194F7 /* SilverKnightsSpear-Stand.atlas */,
+			);
+			path = SilverKnightsSpear;
+			sourceTree = "<group>";
+		};
+		1F13597820848450006194F7 /* SilverKnightsStandardBearer */ = {
+			isa = PBXGroup;
+			children = (
+				1F13597920848474006194F7 /* SilverKnightsStandardBearer-Attack.atlas */,
+				1F13597A20848474006194F7 /* SilverKnightsStandardBearer-Stand.atlas */,
+			);
+			path = SilverKnightsStandardBearer;
 			sourceTree = "<group>";
 		};
 		1F2AEDA91EFD5862001AEBB7 = {
@@ -657,6 +748,13 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				1F13597820848450006194F7 /* SilverKnightsStandardBearer */,
+				1F13597320848353006194F7 /* SilverKnightsSpear */,
+				1F13596E208482F5006194F7 /* SilverKnightsPriest */,
+				1F135969208482B5006194F7 /* Ram */,
+				1F1359642084816C006194F7 /* SilverKnightsPaladin */,
+				1F13595F20848024006194F7 /* Geoe */,
+				1F13595A20847EA7006194F7 /* ChainScale */,
 				1F2E84E72080769500FE32F0 /* Doppelganger */,
 				1F2E84DA207DF08000FE32F0 /* PoisonScale */,
 				1F937CE920384BA9003F0C91 /* SteamPunkGuard */,
@@ -943,6 +1041,7 @@
 				1F937CE4203438DE003F0C91 /* StoneScale-Attack.atlas in Resources */,
 				1F2E84DD207DF0D000FE32F0 /* PoisonScale-Attack.atlas in Resources */,
 				1F88DE0320307E8C005257A5 /* 0-2.json in Resources */,
+				1F13595E20847ED9006194F7 /* ChainScale-Stand.atlas in Resources */,
 				1F2E84EA208076AB00FE32F0 /* Doppelganger-Attack.atlas in Resources */,
 				1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */,
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
@@ -964,9 +1063,13 @@
 				1F00B70B1FAF588300C002B3 /* SteamPunkWalker-Stand.atlas in Resources */,
 				1FD49874201F6A5E0057ED2A /* EnemyIcon.xcassets in Resources */,
 				1F937CD62032CB5E003F0C91 /* NeutralTurtle-Attack.atlas in Resources */,
+				1F13596220848088006194F7 /* Geoe-Attack.atlas in Resources */,
+				1F13595D20847ED9006194F7 /* ChainScale-Attack.atlas in Resources */,
 				1F2E84EB208076AB00FE32F0 /* Doppelganger-Stand.atlas in Resources */,
 				1F815F0B1FD3059C00133AC1 /* SteamPunkBackground.atlas in Resources */,
+				1F13596320848088006194F7 /* Geoe-Stand.atlas in Resources */,
 				1FB431BD1FB753E000039960 /* ShadowRin-Attack.atlas in Resources */,
+				1F135968208481BD006194F7 /* SilverKnightsPaladin-Stand.atlas in Resources */,
 				1F937CE8203730DA003F0C91 /* LevelIcon.xcassets in Resources */,
 				1F2AEDC11EFD5863001AEBB7 /* Main.storyboard in Resources */,
 				1F937D0C203EA58C003F0C91 /* 1-5.json in Resources */,
@@ -1003,28 +1106,37 @@
 				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,
 				1F937CF7203C65D8003F0C91 /* 0-6.json in Resources */,
 				1F2D82111F7E385D00710D50 /* Assets.xcassets in Resources */,
+				1F13596D208482CC006194F7 /* Ram-Stand.atlas in Resources */,
 				1F00B70A1FAF588300C002B3 /* SteamPunkWalker-Attack.atlas in Resources */,
 				1F00B6F21FAD9EF400C002B3 /* SteamPunkFlameThrower-Attack.atlas in Resources */,
 				1FC959672081E4D10072161A /* AmuletItem.xcassets in Resources */,
 				1FB431BE1FB753E000039960 /* ShadowRin-Stand.atlas in Resources */,
 				1F937D14203EA58C003F0C91 /* 1-10.json in Resources */,
 				1F901CC62052C90000BDC566 /* ManaPool.atlas in Resources */,
+				1F13597B20848475006194F7 /* SilverKnightsStandardBearer-Attack.atlas in Resources */,
 				1F38FFE9201F64370005FB35 /* Shit.xcassets in Resources */,
 				1F937CDE2032CF10003F0C91 /* CultistsProphet-Attack.atlas in Resources */,
 				1F70F9EC1FC6AB2500A0BAFD /* RandomTestUnit-Stand.atlas in Resources */,
 				1FC95979208227DE0072161A /* Death.sks in Resources */,
+				1F135976208483A5006194F7 /* SilverKnightsSpear-Attack.atlas in Resources */,
 				1FC9597F208361860072161A /* Player-SpellAttack.atlas in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
+				1F13596C208482CC006194F7 /* Ram-Attack.atlas in Resources */,
 				1F5B8FBE2062C0840046480D /* RingItem.xcassets in Resources */,
 				1F937CE620359A67003F0C91 /* 2-1.json in Resources */,
 				1F1D5994203052A80024EB0A /* 1-1.json in Resources */,
 				1F5B8FBC20628F710046480D /* ShieldItem.xcassets in Resources */,
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
+				1F13597C20848475006194F7 /* SilverKnightsStandardBearer-Stand.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
 				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
 				1F937CE3203438DE003F0C91 /* StoneScale-Stand.atlas in Resources */,
+				1F135967208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas in Resources */,
 				1FB431B31FB5B28000039960 /* MatchTexture.xcassets in Resources */,
 				1F2AEDBA1EFD5863001AEBB7 /* Actions.sks in Resources */,
+				1F13597220848315006194F7 /* SilverKnightsPriest-Attack.atlas in Resources */,
+				1F135977208483A5006194F7 /* SilverKnightsSpear-Stand.atlas in Resources */,
+				1F13597120848315006194F7 /* SilverKnightsPriest-Stand.atlas in Resources */,
 				1FFD4F6E1F76403600952F94 /* testAttack.atlas in Resources */,
 				1FCCDFB51FD182E100952DEA /* Player-Walking.atlas in Resources */,
 				1F937D15203EA58C003F0C91 /* 1-3.json in Resources */,

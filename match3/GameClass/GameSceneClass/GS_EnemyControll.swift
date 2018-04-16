@@ -92,11 +92,10 @@ extension GameScene {
                             self.actionGesture(gesture: true)
                             }])
                         self.run(wait)
-                        let damag = Int((player.attack * actionOnTurn[Match.attack.rawValue]) / 3)
+                        var damag = Int((player.attack * actionOnTurn[Match.attack.rawValue]) / 3)
                         if actionOnTurn[Match.attack.rawValue] > 3 {
+                            damag += Int((actionOnTurn[Match.attack.rawValue] - 3) * (player.attack/4))
                             player.fullAttackStandAnimation(damage: damag, attackType: .strong)
-                            player.mana += Int(actionOnTurn[Match.attack.rawValue]/2)
-                            changeManaLabel()
                         }
                         else {
                             player.fullAttackStandAnimation(damage: damag, attackType: .basic)

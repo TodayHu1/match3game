@@ -58,11 +58,19 @@ extension GameScene {
                 createEnemyUnit.armor = 40
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
                 createEnemyUnit.specialAbilities["SkullOnBoard"] = 1
+            //4
+            case "ChainScale":
+                createEnemyUnit.attack = 8
+                createEnemyUnit.health = 30
+                createEnemyUnit.armor = 45
+                createEnemyUnit.size = CGSize(width: 130, height: 130)
+                createEnemyUnit.specialAbilities["SkullOnDefense"] = 1
+                createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
             //5
             case "SteamPunkPunch":
                 createEnemyUnit.attack = 12
-                createEnemyUnit.health = 50
-                createEnemyUnit.armor = 50
+                createEnemyUnit.health = 51
+                createEnemyUnit.armor = 51
                 createEnemyUnit.size = CGSize(width: 120, height: 120)
             //6
             case "RoyalMage":
@@ -70,12 +78,25 @@ extension GameScene {
                 createEnemyUnit.health = 65
                 createEnemyUnit.armor = 5
                 createEnemyUnit.size = CGSize(width: 140, height: 140)
+            //7
+            case "Geoe":
+                createEnemyUnit.attack = 16
+                createEnemyUnit.health = 20
+                createEnemyUnit.armor = 81
+                createEnemyUnit.size = CGSize(width: 120, height: 120)
+                createEnemyUnit.specialAbilities["AttackUpOnDefense"] = 1.1
             //8
             case "SteamPunkFlameThrower":
                 createEnemyUnit.attack = 15
                 createEnemyUnit.health = 55
                 createEnemyUnit.armor = 55
                 createEnemyUnit.size = CGSize(width: 270, height: 120)
+            //9
+            case "Ram":
+                createEnemyUnit.attack = 33
+                createEnemyUnit.health = 65
+                createEnemyUnit.armor = 22
+                createEnemyUnit.size = CGSize(width: 140, height: 140)
             //10
             case "NeutralTurtle":
                 createEnemyUnit.attack = 18
@@ -97,6 +118,28 @@ extension GameScene {
                 createEnemyUnit.armor = 0
                 createEnemyUnit.size = CGSize(width: 180, height: 150)
                 createEnemyUnit.specialAbilities["CogOnDefense"] = 2
+            //20
+            case "SilverKnightsSpear":
+                createEnemyUnit.attack = 41
+                createEnemyUnit.health = 20
+                createEnemyUnit.armor = 111
+                createEnemyUnit.size = CGSize(width: 240, height: 165)
+                createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
+            //22
+            case "SilverKnightsPriest":
+                createEnemyUnit.attack = 44
+                createEnemyUnit.health = 30
+                createEnemyUnit.armor = 151
+                createEnemyUnit.size = CGSize(width: 130, height: 150)
+                createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
+            //25
+            case "SilverKnightsStandardBearer":
+                createEnemyUnit.attack = 42
+                createEnemyUnit.health = 40
+                createEnemyUnit.armor = 191
+                createEnemyUnit.size = CGSize(width: 180, height: 190)
+                createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
+                
             //Boss 1
             case "Doppelganger":
                 createEnemyUnit.attack = playerStat.attack
@@ -110,14 +153,23 @@ extension GameScene {
             //Boss 2
             case "SteamPunkWalker":
                 createEnemyUnit.attack = 19
-                createEnemyUnit.health = 200
-                createEnemyUnit.armor = 200
+                createEnemyUnit.health = 210
+                createEnemyUnit.armor = 210
                 createEnemyUnit.size = CGSize(width: 260, height: 160)
                 createEnemyUnit.isBoss = true
                 createEnemyUnit.specialAbilities["SteamPunkWalkerTrasform"] = true
                 createEnemyUnit.specialAbilities["SpecialSpell"] = true
                 createEnemyUnit.specialAbilities["CogOnDefense"] = 1
                 
+            //Boss 3
+            case "SilverKnightsPaladin":
+                createEnemyUnit.attack = 3
+                createEnemyUnit.health = 22
+                createEnemyUnit.armor = 444
+                createEnemyUnit.size = CGSize(width: 505, height: 259)
+                createEnemyUnit.isBoss = true
+                createEnemyUnit.specialAbilities["VampireAttack"] = 0.1
+                createEnemyUnit.specialAbilities["AttackUpOnDefense"] = 1.5
             default:
                 break
             }
@@ -128,3 +180,5 @@ extension GameScene {
         
     }
 }
+
+///["SilverKnightsPaladin","ChainScale","Ram","SilverKnightsStandardBearer","SilverKnightsSpear","SilverKnightsPriest","Geoe"]

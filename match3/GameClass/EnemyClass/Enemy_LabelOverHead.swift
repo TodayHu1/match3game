@@ -57,6 +57,32 @@ extension EnemyUnit {
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
             
+            
+            switch self.enemyName {
+            case "SteamPunkWalker":
+                self.labelRandomUnit.fontSize = 60
+                self.labelRandomUnit.text = "Walker"
+                self.labelRandomUnit.fontColor = #colorLiteral(red: 0.9753871606, green: 0.9700832951, blue: 1, alpha: 1)
+            case "Doppelganger":
+                self.labelRandomUnit.fontSize = 60
+                self.labelRandomUnit.text = "Doppelganger"
+                self.labelRandomUnit.fontColor = #colorLiteral(red: 0.9753871606, green: 0.9700832951, blue: 1, alpha: 1)
+            case "SilverKnightsPaladin":
+                self.labelRandomUnit.fontSize = 60
+                self.labelRandomUnit.text = "Paladin"
+                self.labelRandomUnit.fontColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+            default:
+                self.labelRandomUnit.fontSize = 1
+                self.labelRandomUnit.text = ""
+                self.labelRandomUnit.fontColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            }
+            self.labelRandomUnit.fontName = "MunroSmall"
+            self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
+            self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
+            self.labelBoard.addChild(self.labelRandomUnit)
+
+            
+            
         }
         
 //        if self.isRandomUnit == true {
@@ -69,16 +95,7 @@ extension EnemyUnit {
 //            self.labelBoard.addChild(self.labelRandomUnit)
 //        }
 //        
-//        if self.isBoss == true {
-//            self.labelRandomUnit.fontName = "MunroSmall"
-//            self.labelRandomUnit.position.x = self.labelBoard.position.x - 10
-//            self.labelRandomUnit.position.y = self.labelBoard.position.y - 50
-//            self.labelRandomUnit.fontSize = 120
-//            self.labelRandomUnit.text = "BOSS"
-//            self.labelRandomUnit.fontColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-//            self.labelBoard.addChild(self.labelRandomUnit)
-//        }
-        
+
         self.labelHealth.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelHealth.text!),
                                    to: Float(self.health),
                                    withDuration: 1,

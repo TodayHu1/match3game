@@ -38,32 +38,9 @@ class MovingScreen: SKScene {
         self.removeAllChildren()
     }
     
-    func skillLevelRule() {
-//        playerStat.spellArr[3] = "FirstAid"
-        
-        if lvlName == "0-3" {
-            playerStat.spellOnBoard[0] = "SkullJail"
-            playerStat.manaNow = 10
-        }
-        
-        if lvlName == "0-4" {
-            playerStat.manaNow = 3
-        }
-        
-        if lvlName == "0-6" {
-            playerStat.spellOnBoard[1] = "HeartAttack"
-            playerStat.manaMax = 6
-            playerStat.manaNow = 6
-        }
-        
-//        if lvlName == "1-1" {
-//            playerStat.spellArr[2] = "Nemesis"
-//            playerStat.manaMax = 6
-//        }
-    }
-    
     func arrLevelRule() {
-        if lvlName == "0-1" {
+        
+        if lvlDifficulty == 1 {
             gameScene.matchTypeOnTable = [
                 [Match.chain, Match.attack, Match.chain ,Match.attack, Match.chain],
                 [Match.attack, Match.chain, Match.attack ,Match.chain, Match.attack],
@@ -73,60 +50,9 @@ class MovingScreen: SKScene {
             ]
         }
         
-        if lvlName == "0-2" {
-            gameScene.matchTypeOnTable = [
-                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull],
-                [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
-                [Match.skull, Match.attack, Match.chain ,Match.attack, Match.skull],
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
-                [Match.skull, Match.skull, Match.chain ,Match.skull, Match.skull]
-            ]
-        }
-        
-        if lvlName == "0-3" {
-            gameScene.matchTypeOnTable = [
-                [Match.skull, Match.chain, Match.skull ,Match.chain, Match.skull],
-                [Match.chain, Match.skull, Match.attack ,Match.skull, Match.chain],
-                [Match.skull, Match.attack, Match.skull ,Match.attack, Match.skull],
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain],
-                [Match.skull, Match.chain, Match.skull ,Match.chain, Match.skull]
-            ]
-        }
-        
-        if lvlName == "0-4" {
-            gameScene.matchTypeOnTable = [
-                [Match.skull, Match.energy, Match.skull ,Match.chain, Match.skull],
-                [Match.energy, Match.chain, Match.energy ,Match.skull, Match.chain],
-                [Match.skull, Match.chain, Match.skull ,Match.attack, Match.skull],
-                [Match.skull, Match.skull, Match.attack ,Match.skull, Match.attack],
-                [Match.chain, Match.skull, Match.chain ,Match.skull, Match.chain]
-            ]
-        }
-        
-        if lvlName == "0-5" {
-            gameScene.matchTypeOnTable = [
-                [Match.chain, Match.energy, Match.chain ,Match.energy, Match.chain],
-                [Match.chain, Match.coin, Match.energy ,Match.coin, Match.chain],
-                [Match.chain, Match.armor, Match.coin ,Match.armor, Match.chain],
-                [Match.chain, Match.attack, Match.armor ,Match.attack, Match.chain],
-                [Match.chain, Match.chain, Match.attack ,Match.chain, Match.chain]
-            ]
-        }
-        
-        if lvlName == "0-6" {
-            gameScene.matchTypeOnTable = [
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain],
-                [Match.chain, Match.chain, Match.chain ,Match.chain, Match.chain]
-            ]
-        }
     }
     
     func presentScene() {
-
-        skillLevelRule()
         
         gameScene = GameScene(enemyArr: checkEnemy(enemy: loadEnemy[indexLevel]),
                               playerSpell: playerStat.spellOnBoard,
@@ -152,21 +78,34 @@ class MovingScreen: SKScene {
     }
     
     func checkEnemy(enemy: [String]) -> [String] {
-        var newArrEnemy = enemy
-        for i in 0...newArrEnemy.count-1 {
-            if newArrEnemy[i] == "" {
-                newArrEnemy[i] = "Random"
-            }
+        if lvlDifficulty == 1 {
+            return ["Dummy"]
         }
-        return newArrEnemy
+        else {
+            var newArrEnemy = enemy
+            for i in 0...newArrEnemy.count-1 {
+                if newArrEnemy[i] == "" {
+                    newArrEnemy[i] = "Random"
+                }
+            }
+            return newArrEnemy
+        }
+        
+
+
     }
     
     func checkBoardSize(size: [Int]) -> CGSize {
-        if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
-            return CGSize(width: (Int(arc4random_uniform(UInt32(4)))+4), height: (Int(arc4random_uniform(UInt32(4)))+4))
+        if lvlDifficulty == 1 {
+            return CGSize(width: 5, height: 5)
         }
         else {
-            return CGSize(width: loadBoardSize[indexLevel][0], height: loadBoardSize[indexLevel][1])
+            if loadBoardSize[indexLevel][0] == 0 || loadBoardSize[indexLevel][1] == 0 {
+                return CGSize(width: (Int(arc4random_uniform(UInt32(4)))+4), height: (Int(arc4random_uniform(UInt32(4)))+4))
+            }
+            else {
+                return CGSize(width: loadBoardSize[indexLevel][0], height: loadBoardSize[indexLevel][1])
+            }
         }
     }
     
@@ -181,7 +120,6 @@ class MovingScreen: SKScene {
         
         removeAll()
         
-        self.name = String(RAND_MAX)
         print("\(self) --- MovingScreen")
         
         if indexLevel >= loadEnemy.count {
@@ -205,6 +143,7 @@ class MovingScreen: SKScene {
             print("\(indexLevel)----------------LOAD LVL---------------- < \(loadEnemy.count)")
             
             removeAll()
+
             
             let player = Player()
             self.addChild(player)
