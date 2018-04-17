@@ -180,7 +180,9 @@ class EnemyUnit: SKSpriteNode {
     
     func fullAttackStandAnimation(damage: Int) {
         if self.health > 0 {
-            print("fullAttackStandAnimation --- Enemy")
+            
+            print("LOH anim \(self.gameScene.player.health)")
+            
             //        self.gameScene.player.takeDamage(damage: damage)
             //        self.animationAttack()
             self.removeAllActions()

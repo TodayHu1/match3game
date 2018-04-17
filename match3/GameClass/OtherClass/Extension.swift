@@ -72,5 +72,17 @@ extension Array where Element:Equatable {
     }
 }
 
+extension Array where Element: Equatable {
+    mutating func removeDuplicates2() {
+        var result = [Element]()
+        for value in self {
+            if !result.contains(value) {
+                result.append(value)
+            }
+        }
+        self = result
+    }
+}
+
 
 

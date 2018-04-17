@@ -43,23 +43,23 @@ extension GameScene {
             description = "U dont see it <_<"
             
         case "SkullJail":
-            mana = 6
-            health = 0
+            mana = 8
+            health = 2
             armor = 2
             coin = 0
             description = "Replaces skull matches for matches of chains"
             
         case "HeartAttack":
-            mana = 1
+            mana = 0
             health = 5
             armor = 0
             coin = 0
             description = "Takes away a part of lives in exchange for four match of attack"
             
         case "Nemesis":
-            mana = 3
-            health = 1
-            armor = 1
+            mana = 5
+            health = 0
+            armor = 0
             coin = 0
             description = "Replaces match shields for attack matches"
             
@@ -71,9 +71,9 @@ extension GameScene {
             description = ""
             
         case "FirstAid":
-            mana = 1
+            mana = 8
             health = 0
-            armor = 5
+            armor = 0
             coin = 0
             description = "Heals you on the number of skulls on the table"
             
@@ -90,9 +90,9 @@ extension GameScene {
             description = "Absorbs all mana, attacks on [ mana points * attack power / 3 ]"
             
         case "SilverSword":
-            mana = 2
+            mana = 7
             health = 0
-            armor = 5
+            armor = 0
             coin = 0
             description = "Attacking the enemy on [ skulls * attack / 6 ]"
             
@@ -104,9 +104,9 @@ extension GameScene {
             description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 7 ]"
             
         case "GoldenHeart":
-            mana = 1
-            health = 1
-            armor = 1
+            mana = 2
+            health = 0
+            armor = 0
             coin = 1
             description = "Heals for 7 health"
             
@@ -122,7 +122,7 @@ extension GameScene {
             health = 0
             armor = 0
             coin = 0
-            description = "Spawns 3 poison matches and heals for 10 health"
+            description = "Spawns 3 poison matches and heals for 15 health"
             
         default:
             mana = 0
@@ -250,7 +250,7 @@ extension GameScene {
             
         case "UnstableTreatment":
             player.animationSpellBuffAndStand()
-            player.health += 10
+            player.health += 15
             player.updateLabelOverHead()
             player.buffParticle(name: "Heart")
             

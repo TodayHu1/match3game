@@ -30,6 +30,9 @@ class Player: SKSpriteNode {
     var playerArrSpellAttack = [SKTexture]()
     var playerAtlasSpellAttack = SKTextureAtlas()
     
+    var playerArrDeath = [SKTexture]()
+    var playerAtlasDeath = SKTextureAtlas()
+    
     //Label
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
@@ -80,6 +83,7 @@ class Player: SKSpriteNode {
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
         playerAtlasSpellAttack = SKTextureAtlas(named: self.name! + "-SpellAttack")
+        playerAtlasDeath = SKTextureAtlas(named: self.name! + "-Death")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -111,13 +115,18 @@ class Player: SKSpriteNode {
             playerArrSpellAttack.append(SKTexture(imageNamed: name))
         }
         
+        for i in 0...playerAtlasDeath.textureNames.count-1 {
+            let name = self.name! + "-" + "Death" + "-\(i).png"
+            playerArrDeath.append(SKTexture(imageNamed: name))
+        }
+        
     }
     
     init(gameScene: GameScene) {
         super.init(texture: SKTexture(imageNamed: "Player-Stand-0"), color: UIColor.clear, size: playerSize)
         
         self.name = String(RAND_MAX)
-        print("\(self) --- Player")
+        print("\(self) --- Player INIT")
         
         self.gameScene = gameScene
         self.setScale(0.3)
@@ -144,6 +153,7 @@ class Player: SKSpriteNode {
         playerAtlasStrongAttack = SKTextureAtlas(named: self.name! + "-StrongAttack")
         playerAtlasSpellBuff = SKTextureAtlas(named: self.name! + "-SpellBuff")
         playerAtlasSpellAttack = SKTextureAtlas(named: self.name! + "-SpellAttack")
+        playerAtlasDeath = SKTextureAtlas(named: self.name! + "-Death")
         
         for i in 0...playerAtlasAttack.textureNames.count-1 {
             let name = self.name! + "-" + "Attack" + "-\(i).png"
@@ -175,6 +185,11 @@ class Player: SKSpriteNode {
             playerArrSpellAttack.append(SKTexture(imageNamed: name))
         }
         
+        for i in 0...playerAtlasDeath.textureNames.count-1 {
+            let name = self.name! + "-" + "Death" + "-\(i).png"
+            playerArrDeath.append(SKTexture(imageNamed: name))
+        }
+        
         self.zPosition = 3000
     }
     
@@ -195,9 +210,14 @@ class Player: SKSpriteNode {
     }
     
     func takeDamage(damage: Int) {
+        print("LOH TD \(self.health)")
         
         onDefense()
+        
+        print("Enemy get damage \(damage)")
+        
 
+        
         if self.armor > 0 {
             self.armor -= damage
             if self.armor < 0 {
@@ -209,6 +229,8 @@ class Player: SKSpriteNode {
             self.health -= damage
         }
         
+        print("LOH ATD \(self.health)")
+        
         self.updateLabelOverHead()
     
         let getDamage = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
@@ -219,6 +241,7 @@ class Player: SKSpriteNode {
     
     func playerDie() {
         if self.health < 1 {
+            self.animationDeath()
             self.gameScene.actionGesture(gesture: false)
             let color = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)
             let wait = SKAction.wait(forDuration: 1.5)
@@ -347,6 +370,16 @@ class Player: SKSpriteNode {
             SKAction.animate(with: playerArrWalking, timePerFrame: 0.15)
         )
 
+        self.run(playerAnimWalking)
+    }
+    
+    func animationDeath(){
+        self.removeAllActions()
+        
+        let playerAnimWalking = SKAction.repeatForever(
+            SKAction.animate(with: playerArrDeath, timePerFrame: 0.15)
+        )
+        
         self.run(playerAnimWalking)
     }
     

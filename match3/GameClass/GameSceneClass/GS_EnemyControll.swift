@@ -73,6 +73,7 @@ extension GameScene {
                 switch i {
                     case Match.skull.rawValue:
                         let damage = Int((enemyUnit.attack * actionOnTurn[Match.skull.rawValue]) / 3)
+
                         enemyUnit.fullAttackStandAnimation(damage: damage)
                     
                     
@@ -123,6 +124,7 @@ extension GameScene {
                 }
             }
         }
+        print("actionOnTurn \(actionOnTurn)")
         for i in 0...actionOnTurn.count-1 {
             actionOnTurn[i] = 0
         }

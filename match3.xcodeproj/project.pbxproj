@@ -151,6 +151,7 @@
 		1FD69C1A1FAAE1440003CA7E /* RoyalMage-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */; };
 		1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */; };
 		1FE14C1D1F00D30500B7138A /* GS_ActionGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */; };
+		1FE4CDF020860FFB003D8769 /* Player-Death.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FE4CDEF20860FFB003D8769 /* Player-Death.atlas */; };
 		1FED406E1FD5AB96008CD005 /* GrassLand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1FED406D1FD5AB95008CD005 /* GrassLand.atlas */; };
 		1FF8179E1FC1755600F07292 /* SpellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8179D1FC1755600F07292 /* SpellClass.swift */; };
 		1FF817A21FC2A1B900F07292 /* GenerationRandomUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF817A11FC2A1B900F07292 /* GenerationRandomUnit.swift */; };
@@ -334,6 +335,7 @@
 		1FD69C181FAAE1440003CA7E /* RoyalMage-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Attack.atlas"; sourceTree = "<group>"; };
 		1FD69C191FAAE1440003CA7E /* RoyalMage-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "RoyalMage-Stand.atlas"; sourceTree = "<group>"; };
 		1FE14C1C1F00D30500B7138A /* GS_ActionGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GS_ActionGesture.swift; sourceTree = "<group>"; };
+		1FE4CDEF20860FFB003D8769 /* Player-Death.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "Player-Death.atlas"; sourceTree = "<group>"; };
 		1FED406D1FD5AB95008CD005 /* GrassLand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GrassLand.atlas; sourceTree = "<group>"; };
 		1FF8179D1FC1755600F07292 /* SpellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellClass.swift; sourceTree = "<group>"; };
 		1FF817A11FC2A1B900F07292 /* GenerationRandomUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationRandomUnit.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		1F11EF741FA9A4C900FD51B7 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				1FE4CDEF20860FFB003D8769 /* Player-Death.atlas */,
 				1FC9597E208361860072161A /* Player-SpellAttack.atlas */,
 				1F2E84DF207E517B00FE32F0 /* Player-SpellBuff.atlas */,
 				1F0E08DD2040498F00C8F348 /* Player-StrongAttack.atlas */,
@@ -1047,6 +1050,7 @@
 				1F88DE06203083FF005257A5 /* Dummy-Attack.atlas in Resources */,
 				1FD69C1B1FAAE1440003CA7E /* RoyalMage-Stand.atlas in Resources */,
 				1FC959692081E6700072161A /* LegendItem.xcassets in Resources */,
+				1FE4CDF020860FFB003D8769 /* Player-Death.atlas in Resources */,
 				1F937D17203EA58C003F0C91 /* 1-2.json in Resources */,
 				1FB431C01FB835F900039960 /* SpellTexture.xcassets in Resources */,
 				1F937CF3203AB587003F0C91 /* 0-4.json in Resources */,

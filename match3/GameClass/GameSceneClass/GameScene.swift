@@ -102,6 +102,7 @@ class GameScene: SKScene {
     
         //Построение декораций
         buildScene(bgName: bg)
+
     }
     
     ///Функция удаляющая со сцены Node, Action и Scene
@@ -399,5 +400,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
 //        gestureLabel.text = "Gesture: " + String(matchActionGesture)
+//        self.player.updateLabelOverHead()
     }
 }

@@ -15,6 +15,11 @@ class Item {
     var attack: Int = 0
     var mana: Int = 0
     
+    var spellArmor = 0
+    var spellHealth = 0
+    var spellMana = 0
+    var spellGold = 0
+    
     var img: String = ""
     var name: String = ""
     var description: String = ""
@@ -82,6 +87,11 @@ class Item {
         let gameScene = GameScene()
         let spell = gameScene.spellBook(skillName: name, spellIndex: 0)
         
+        self.spellGold = spell.coinToUse
+        self.spellMana = spell.manaToUse
+        self.spellArmor = spell.armorToUse
+        self.spellHealth = spell.healthToUse
+        
         self.img = "Spell\(name)"
         self.name = "[Spell] \(name)"
         self.spellName = name
@@ -90,15 +100,6 @@ class Item {
         self.type = .spell
     }
     
-    ///Инициализация для зелья
-    init (percentOfHeal: Int,potionType: potionType,img: String, name: String) {
-
-        self.img = "Spell\(name)"
-        self.name = "[Spell] \(name)"
-        self.potion = potionType
-        self.description = generatePotionDescription(potion: potionType, percent: percentOfHeal)
-        self.type = .potion
-    }
     
     ///Generate description for item
     func generateItemDescription(armor: Int, health: Int, attack: Int, mana: Int) -> String {
@@ -142,21 +143,4 @@ class Item {
         //return "gain 66 armor, but lose 15 health"
     }
     
-    func generatePotionDescription(potion: potionType, percent: Int) -> String {
-        var desc = "Restores your "
-        
-        switch potion {
-        case .armor:
-            desc.append("armor ")
-        case .heal:
-            desc.append("health ")
-        case .mana:
-            desc.append("mana ")
-        }
-        
-        desc.append("by ")
-        desc.append("\(percent)% ")
-        
-        return desc
-    }
 }

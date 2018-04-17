@@ -174,7 +174,10 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         let desc = item.description
         let attrString = NSMutableAttributedString(string: desc)
         attrString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attrString.length))
-
+        
+        let price = "\(item.spellHealth)-\(item.spellArmor)-\(item.spellMana)-\(item.spellGold)"
+        let attrPrice = NSAttributedString(string: price)
+        
         
         cell.cellTitle?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         cell.cellTitle?.attributedText = Utils.shared.setBackgroundColorLabel(oldString: nameAttr)
@@ -228,7 +231,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += trashArr
                 allItem += amuletArr
                 
-                if Int(arc4random_uniform(1)) == 0 {
+                if Int(arc4random_uniform(2)) == 0 {
                     allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
                 }
                 break
@@ -244,7 +247,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += trashArr
                 allItem += amuletArr
                 
-                if Int(arc4random_uniform(1)) == 0 {
+                if Int(arc4random_uniform(2)) == 0 {
                     allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
                 }
 
@@ -285,6 +288,34 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         for _ in 0...countOfSelectedItem-1 {
             itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])
         }
+        
+        var reworkItemBoard = [Item]()
+
+        print("Item on start \(itemOnBoard)")
+        
+        for i in 0...itemOnBoard.count-1 {
+            for j in 0...itemOnBoard.count-1 {
+                if itemOnBoard[i].name == itemOnBoard[j].name && i < j {
+                    itemOnBoard[i].name = "DeletThis"
+                }
+            }
+        }
+        
+        for i in 0...itemOnBoard.count-1 {
+//            for j in 0...itemOnBoard.count-1 {
+                if itemOnBoard[i].name != "DeletThis" {
+                    reworkItemBoard.append(itemOnBoard[i])
+                }
+//            }
+        }
+        
+        
+        print("Item on finish \(reworkItemBoard)")
+        
+        itemOnBoard = reworkItemBoard
+        
+        print("\(itemOnBoard) --- NEW ITEM BOARD")
+        countOfSelectedItem = itemOnBoard.count
         
         tableView.separatorStyle = .none
 

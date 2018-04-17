@@ -12,6 +12,7 @@ import SpriteKit
 extension Player {
     
     func updateLabelOverHead() {
+        print("LOH \(self.health)")
         gameViewController.saveGameProgress()
         playerStat.healthNow = self.health
         playerStat.armorNow = self.armor
@@ -20,6 +21,7 @@ extension Player {
         playerStat.gold = self.gold
         playerDie()
         labelOverHead(shield: self.armor , health: self.health, initLabel: false)
+        print("ULOH \(self.health)")
     }
 
     func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
