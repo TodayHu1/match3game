@@ -16,6 +16,7 @@ extension EnemyUnit {
         print("Break Armor Mod")
         spawnChainInstedArmorMod()
         steamPunkWalkerTrasform()
+        spawnPoisonOnBreakMod()
     }
     
     func steamPunkWalkerTrasform() {
@@ -82,6 +83,37 @@ extension EnemyUnit {
                     }
                 }
             }
+        }
+    }
+    
+    
+    func spawnPoisonOnBreakMod() {
+        if (specialAbilities["PoisonOnBreakMod"] as! Bool) {
+            self.run(SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.run(
+                {
+                    gameViewController.presentText(text: "Poison nova", color: .cyan, whoIs: .enemy)
+                    
+                }
+                )]))
+            var duration: Double = 0
+            let interval: Double = gameScene.durationSpawnMatchAnimation()
+            for i in 0...self.gameScene.matchBoard.verticalCount-1 {
+                for j in 0...self.gameScene.matchBoard.horizontalCount-1 {
+                    if self.gameScene.matchTypeOnTable[i][j] == Match.armor || self.gameScene.matchTypeOnTable[i][j] == Match.coin  {
+                        duration += interval
+                        gameScene.matchMoveToBoard(matchType: Match.poison,
+                                                   nodePosition: self,
+                                                   i: i,
+                                                   j: j,
+                                                   waitTimeToAnimation: TimeInterval(duration),
+                                                   durationAnimation: interval
+                        )
+                    }
+                }
+            }
+            
+            
+            
         }
     }
     

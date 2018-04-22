@@ -6,6 +6,7 @@
 //  Copyright © 2018 Женя. All rights reserved.
 //
 
+
 import UIKit
 import GameKit
 
@@ -14,7 +15,7 @@ var gcEnabled = Bool() // Check if the user has Game Center enabled
 var gcDefaultLeaderBoard = String() // Check the default leaderboardID
 
 // IMPORTANT: replace the red string below with your own Leaderboard ID (the one you've set in iTunes Connect)
-let LEADERBOARD_ID = "com.bestStage.RuneSwordReborn"
+let LEADERBOARD_ID = "com.bestStage.RuneSwordReborn1.1"
 
 class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     
@@ -29,7 +30,6 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var stageButton: UIButton!
     
     @IBOutlet weak var playerImage: UIImageView!
-    
     
 
     @IBOutlet weak var healthNow: UIButton!
@@ -52,13 +52,14 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
         // Call the GC authentication controller
         authenticateLocalPlayer()
         
-        submitScore()
+//        submitScore()
+        getTopOnePlayer()
         
         UIApplication.shared.statusBarStyle = .lightContent
         UIApplication.shared.isStatusBarHidden = false
         
         stageButton.layer.cornerRadius = 5
-        
+
         if gameViewController == nil {
             gameViewController = GameViewController()
         }
@@ -68,7 +69,7 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
             updateStageText()
             print("MAIN __ LOAD")
             if playerStat == nil {
-                playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(manaMax: 4, healthMax: 38, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 playerStat.needRevive = false
                 gameViewController.saveGameProgress()
                 updateStageText()
@@ -78,7 +79,7 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
         else {
             if playerStat.needRevive == true {
                 playerStat.needRevive = false
-                playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
+                playerStat = PlayerStat(manaMax: 4, healthMax: 38, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
                 lvlDifficulty = 1
                 print("MAIN __ REVIVE --\(playerStat.attack) <-> \(playerStat.healthMax)-\(playerStat.healthNow) <-> \(playerStat.armorMax)-\(playerStat.armorNow)")
                 updateStageText()
@@ -91,7 +92,22 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
             }
         }
         
-        print("SA \(playerStat.legendArr)")
+        
+        if lvlDifficulty == 1 || lvlDifficulty == 2 {
+            if playerStat.attack == 1 &&  playerStat.attack == 2 {
+                playerStat.attack = 10
+            }
+        }
+        
+        if playerStat.attack < 1 {
+            playerStat.attack = 1
+        }
+        
+//        playerStat.attack = 30
+//        playerStat.armorMax = 400
+//        playerStat.healthMax = 400
+//        playerStat.manaMax = 40
+//        lvlDifficulty = 10
         
         healthNow.setTitle(String(playerStat.healthNow), for: .normal)
         armorNow.setTitle(String(playerStat.armorNow), for: .normal)
@@ -193,7 +209,10 @@ extension MainMenuViewController {
                 // Get the default leaderboard ID
                 localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
                     if error != nil { print(error!)
-                    } else { gcDefaultLeaderBoard = leaderboardIdentifer! }
+                    } else {
+                        gcDefaultLeaderBoard = leaderboardIdentifer!
+                        self.getTopOnePlayer()
+                    }
                 })
                 
             } else {
@@ -201,6 +220,27 @@ extension MainMenuViewController {
                 gcEnabled = false
                 print("GC Local player could not be authenticated!")
                 print("GC" + "\(String(describing: error))")
+            }
+        }
+    }
+    
+    func getTopOnePlayer() {
+        let leaderBoardRequest = GKLeaderboard()
+        leaderBoardRequest.identifier = LEADERBOARD_ID
+        leaderBoardRequest.playerScope = GKLeaderboardPlayerScope.global
+        leaderBoardRequest.timeScope = GKLeaderboardTimeScope.allTime
+        leaderBoardRequest.range = NSMakeRange(1,1)
+        
+        leaderBoardRequest.loadScores { (scores, error) -> Void in
+            if (error != nil) {
+                print("Error: \(error!.localizedDescription)")
+            }
+            else {
+                if (scores != nil) {
+                    guard let name = scores![0].player?.alias else { return }
+                    print("TOP \(name)")
+                    self.tableButton.setTitle("Top Player - \(name)", for: .normal)
+                }
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Flurry_iOS_SDK
 
 class SelectItemViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -63,33 +64,37 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         default:
             break
         }
+        
+        
+        let newNameForFlurry = item.name.replacingOccurrences(of: "[Legendary] ", with: "").replacingOccurrences(of: "[Spell] ", with: "").replacingOccurrences(of: "[Item] ", with: "")
+        Flurry.logEvent("GetItem", withParameters: ["Item": newNameForFlurry, "Full": item.name])
     }
     
     ///Перки с броней
     let armorArr = [
-        Item.init(armor: 25, health: -10, attack: 0, mana: 0, img: "RedShield", name: "Blood Armor"),
-        Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueShield", name: "Armor pack"),
-        Item.init(armor: 20, health: 0, attack: 0, mana: -3, img: "PurpleShield", name: "Mana shield"),
-        Item.init(armor: 10, health: 0, attack: 2, mana: 0, img: "BlackShield", name: "Barbarian armor armor"),
+        Item.init(armor: -13, health: 28, attack: 0, mana: 0, img: "RedShield", name: "Blood Armor"),
+        Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueShield", name: "Basic armor"),
+        Item.init(armor: 20, health: 0, attack: 0, mana: -2, img: "PurpleShield", name: "Mana shield"),
+        Item.init(armor: 10, health: 0, attack: 2, mana: 0, img: "BlackShield", name: "Barbarian armor"),
         Item.init(armor: 10, health: 5, attack: 0, mana: 0, img: "WhiteShield", name: "Diviny armor"),
         Item.init(armor: 10, health: 0, attack: 1, mana: 1, img: "OrangeShield", name: "Bronze armor"),
-        Item.init(armor: 50, health: 0, attack: -5, mana: 0, img: "TealShield", name: "Ice armor"),
+        Item.init(armor: 60, health: 0, attack: -5, mana: -1, img: "TealShield", name: "Ice armor"),
         Item.init(armor: 5, health: 5, attack: 1, mana: 1, img: "GreenShield", name: "Emerald shield"),
-        Item.init(armor: 12, health: 0, attack: 2, mana: 0, img: "DarkGreenShield", name: "Rune emerald shield"),
-        Item.init(armor: 33, health: -20, attack: 0, mana: 2, img: "DarkRedShield", name: "Great blood Armor")
+        Item.init(armor: 5, health: 0, attack: 2, mana: 0, img: "DarkGreenShield", name: "Rune emerald shield"),
+        Item.init(armor: 33, health: -20, attack: 0, mana: 2, img: "DarkRedShield", name: "Great blood armor")
     ]
     
 
     ///Перки с кольцами
     let ringArr = [
-        Item.init(armor: 0, health: 0, attack: 3, mana: 0, img: "RedRing", name: "Ring of attack"),
-        Item.init(armor: 0, health: 0, attack: 0, mana: 10, img: "PurpleRing", name: "Ring of energy"),
+        Item.init(armor: 0, health: 0, attack: 2, mana: 0, img: "RedRing", name: "Ring of attack"),
+        Item.init(armor: 0, health: 0, attack: 0, mana: 8, img: "PurpleRing", name: "Ring of energy"),
         Item.init(armor: 5, health: 3, attack: 1, mana: 2, img: "OrangeRing", name: "Handfull ring"),
         Item.init(armor: 7, health: 3, attack: 1, mana: 0, img: "OrangeGreatRing", name: "Great handfull ring"),
         Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueRing", name: "Ring of protection"),
-        Item.init(armor: 0, health: 10, attack: 0, mana: 0, img: "GreenRing", name: "Ring of health"),
-        Item.init(armor: 0, health: 10, attack: 1, mana: 2, img: "BlueGreatRing", name: "Ring of archmage"),
-        Item.init(armor: 0, health: -10, attack: 6, mana: 0, img: "RedGreatRing", name: "Great ring of attack")
+        Item.init(armor: 3, health: 0, attack: 1, mana: 1, img: "GreenRing", name: "Ring of health"),
+        Item.init(armor: 0, health: 5, attack: 0, mana: 4, img: "BlueGreatRing", name: "Ring of archmage"),
+        Item.init(armor: 0, health: -10, attack: 4, mana: 0, img: "RedGreatRing", name: "Great ring of attack")
     ]
 
     ///Перки с способностями
@@ -98,23 +103,27 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "FirstAid"),
         Item.init(name: "HeartAttack"),
         Item.init(name: "Nemesis"),
-//        Item.init(name: "EnergyAttack"),
+        Item.init(name: "EnergyAttack"),
         Item.init(name: "SilverSword"),
         Item.init(name: "ScullingTheSkulls"),
-        
+        Item.init(name: "NoOneStepBack"),
         Item.init(name: "GoldenHeart"),
         Item.init(name: "ManaHealth"),
         Item.init(name: "UnstableTreatment"),
+        Item.init(name: "DiseasProtection"),
+        Item.init(name: "LightningShield"),
+        Item.init(name: "ShieldStrike"),
+        
     ]
     
     ///Мусорные предметы
     let trashArr = [
         Item.init(armor: 2, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken sheild"),
-        Item.init(armor: 1, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken ring"),
+//        Item.init(armor: 1, health: 0, attack: 0, mana: 0, img: "Trash", name: "Broken ring"),
         Item.init(armor: 0, health: 0, attack: 0, mana: 2, img: "Trash", name: "Energy shard"),
-        Item.init(armor: 0, health: 0, attack: 0, mana: 1, img: "Trash", name: "Empty mana potion"),
-        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Spike"),
-        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Pice of sword"),
+//        Item.init(armor: 0, health: 0, attack: 0, mana: 1, img: "Trash", name: "Empty mana potion"),
+//        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Spike"),
+        Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Piece of sword"),
         Item.init(armor: 0, health: 1, attack: 0, mana: 0, img: "Trash", name: "Empty health potion"),
         Item.init(armor: 0, health: 0, attack: 1, mana: 0, img: "Trash", name: "Empty poison potion")
     ]
@@ -123,17 +132,17 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
     let beltArr = [
         Item.init(armor: 0, health: 15, attack: 0, mana: 0, img: "BeltGold", name: "Strong belt"),
         Item.init(armor: 5, health: 10, attack: 0, mana: 0, img: "BeltSilver", name: "Heavy belt"),
-        Item.init(armor: 7, health: 16, attack: 0, mana: -5, img: "BeltGreen", name: "Warchief belt"),
-        Item.init(armor: 5, health: 10, attack: 0, mana: 2, img: "BeltDark", name: "Enchanted belt"),
+        Item.init(armor: 15, health: 15, attack: 0, mana: -5, img: "BeltGreen", name: "Warchief belt"),
+        Item.init(armor: 5, health: 5, attack: 0, mana: 4, img: "BeltDark", name: "Enchanted belt"),
         Item.init(armor: 0, health: 5, attack: 2, mana: -3, img: "BeltGray", name: "Snaky belt")
     ]
     
     let amuletArr = [
-        Item.init(armor: 0, health: 0, attack: 4, mana: -2, img: "AmuletGold", name: "Golden amulet"),
-        Item.init(armor: 2, health: 0, attack: 0, mana: 5, img: "AmuletPurple", name: "Amethyst amulet"),
+        Item.init(armor: 0, health: 0, attack: 3, mana: -2, img: "AmuletGold", name: "Golden amulet"),
+        Item.init(armor: 2, health: 0, attack: -2, mana: 10, img: "AmuletPurple", name: "Amethyst amulet"),
         Item.init(armor: 10, health: 0, attack: 0, mana: 3, img: "AmuletBlue", name: "Sapphire amulet"),
         Item.init(armor: 2, health: 2, attack: 2, mana: 2, img: "AmuletGreen", name: "Emerald amulet"),
-        Item.init(armor: 2, health: 20, attack: -2, mana: 0, img: "AmuletOrange", name: "Amber amulet"),
+        Item.init(armor: 5, health: 15, attack: -1, mana: 0, img: "AmuletOrange", name: "Amber amulet"),
     ]
     
 //    let rareItemArr = [
@@ -175,20 +184,37 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         let attrString = NSMutableAttributedString(string: desc)
         attrString.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range:NSMakeRange(0, attrString.length))
         
-        let price = "\(item.spellHealth)-\(item.spellArmor)-\(item.spellMana)-\(item.spellGold)"
-        let attrPrice = NSAttributedString(string: price)
-        
-        
         cell.cellTitle?.textColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         cell.cellTitle?.attributedText = Utils.shared.setBackgroundColorLabel(oldString: nameAttr)
         cell.cellTitle?.font = UIFont(name: "Munro", size: 20)
+        cell.cellTitle?.adjustsFontSizeToFitWidth = true
+        cell.cellTitle?.lineBreakMode = .byTruncatingTail
         
         cell.cellImage?.image = UIImage(named: "\(item.img).png")
         
         cell.cellDescription!.numberOfLines = 0
         cell.cellDescription?.font = UIFont(name: "MunroSmall", size: 15)
         cell.cellDescription?.textColor = .white
-        cell.cellDescription?.attributedText = Utils.shared.setColoredLabel(oldString: attrString)
+        
+        let fullDesc = NSMutableAttributedString()
+        
+        if item.type == .spell {
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "[", color: #colorLiteral(red: 0.9725490196, green: 0.8470588235, blue: 0.568627451, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "\(item.spellHealth)", color: #colorLiteral(red: 0.8470588235, green: 0.262745098, blue: 0.4784313725, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: " ", color: #colorLiteral(red: 0.968627451, green: 0.8431372549, blue: 0.5843137255, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "\(item.spellArmor)", color: #colorLiteral(red: 0.2666666667, green: 0.6784313725, blue: 0.9568627451, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: " ", color: #colorLiteral(red: 0.9647058824, green: 0.8392156863, blue: 0.6, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "\(item.spellMana)", color: #colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: " ", color: #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "\(item.spellGold)", color: #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)))
+            fullDesc.append(Utils.shared.getAttributedStringWithColor(string: "] ", color: #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)))
+            fullDesc.append(Utils.shared.setColoredLabel(oldString: attrString))
+        }
+        else {
+            fullDesc.append(Utils.shared.setColoredLabel(oldString: attrString))
+        }
+        
+        cell.cellDescription?.attributedText = fullDesc
         cell.cellDescription?.adjustsFontSizeToFitWidth = true
         cell.cellDescription?.lineBreakMode = .byTruncatingTail
         
@@ -284,37 +310,47 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
 
-
-        for _ in 0...countOfSelectedItem-1 {
-            itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])
+        if lvlDifficulty == 1 + startLvl {
+            allItem.shuffle()
+            for i in 0...5 {
+                itemOnBoard.append(allItem[i])
+            }
+            itemOnBoard.shuffle()
         }
-        
-        var reworkItemBoard = [Item]()
-
-        print("Item on start \(itemOnBoard)")
-        
-        for i in 0...itemOnBoard.count-1 {
-            for j in 0...itemOnBoard.count-1 {
-                if itemOnBoard[i].name == itemOnBoard[j].name && i < j {
-                    itemOnBoard[i].name = "DeletThis"
-                }
+        else {
+            for _ in 0...countOfSelectedItem-1 {
+                itemOnBoard.append(allItem[Int(arc4random_uniform(UInt32(allItem.count)))])
             }
         }
+
+
         
-        for i in 0...itemOnBoard.count-1 {
+//        var reworkItemBoard = [Item]()
+//
+//        print("Item on start \(itemOnBoard)")
+//        
+//        for i in 0...itemOnBoard.count-1 {
 //            for j in 0...itemOnBoard.count-1 {
-                if itemOnBoard[i].name != "DeletThis" {
-                    reworkItemBoard.append(itemOnBoard[i])
-                }
+//                if itemOnBoard[i].name == itemOnBoard[j].name && i < j {
+//                    itemOnBoard[i].name = "DeletThis"
+//                }
 //            }
-        }
-        
-        
-        print("Item on finish \(reworkItemBoard)")
-        
-        itemOnBoard = reworkItemBoard
-        
-        print("\(itemOnBoard) --- NEW ITEM BOARD")
+//        }
+//        
+//        for i in 0...itemOnBoard.count-1 {
+////            for j in 0...itemOnBoard.count-1 {
+//                if itemOnBoard[i].name != "DeletThis" {
+//                    reworkItemBoard.append(itemOnBoard[i])
+//                }
+////            }
+//        }
+//        
+//        
+//        print("Item on finish \(reworkItemBoard)")
+//        
+//        itemOnBoard = reworkItemBoard
+//        
+//        print("\(itemOnBoard) --- NEW ITEM BOARD")
         countOfSelectedItem = itemOnBoard.count
         
         tableView.separatorStyle = .none

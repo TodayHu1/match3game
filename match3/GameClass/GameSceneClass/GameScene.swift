@@ -385,6 +385,7 @@ class GameScene: SKScene {
     
     func gameOverScreen() {
         Flurry.logEvent("DeathBy", withParameters: ["Lvl": lvlDifficulty, "Enemy": self.enemyOnLevelArr[self.enemyIndexNow]])
+        Flurry.logEvent("DeadPlayer", withParameters: ["Attack": playerStat.attack, "Health": playerStat.healthMax, "Armor": playerStat.armorMax, "Mana": playerStat.manaMax, "Gold": playerStat.gold])
         removeAllObject()
         self.gameViewController.gameOverScreen()
     }

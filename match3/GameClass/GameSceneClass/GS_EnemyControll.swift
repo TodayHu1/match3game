@@ -39,7 +39,10 @@ extension GameScene {
                 _ = self.enemyUnit.animationStand()
                 self.updateEnemyCount()
                 self.boardSizeChange()
+                
                 soulGem += 1
+                self.player.buffParticle(name: "SoulGem")
+                
             }
             let gestureTrue = SKAction.run {
                 self.actionGesture(gesture: true)

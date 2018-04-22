@@ -487,7 +487,8 @@ class GameViewController: UIViewController {
         loadBoardSize = [[0,0]]
         loadBg = [""]
         loadEnemy = getEnemy(difficulty: lvlDifficulty)
-
+//        loadEnemy = [["SilverKnightsStandardBearer"]]
+//        playerStat.attack = 150
     }
     
     func getEnemy(difficulty: Int) -> [[String]] {
@@ -500,38 +501,55 @@ class GameViewController: UIViewController {
         else {
             var testArr = [Int]()
             var loopCount = 0
+            var unitCount = 4
+            
+//            if lvlForLoop > 35 {
+//                unitCount = 5
+//            }
+            
             while lvlForLoop > 0 {
                 loopCount += 1
                 let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
                 let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
+
+//                if loopCount > 60000000 {
+//                    return [["Doppelganger"]]
+//                }
                 
-                if loopCount > 15000 {
-                    return [["Doppelganger"]]
+                if loopCount > 300000 {
+                    unitCount += 1
+                    loopCount = 0
                 }
-                
+
                 if lvlForLoop >= difficultyUnitNow {
                     newLoadEnemy[0].append(self.enemyDifficultyArr[difficultyIndex][1] as! String)
                     lvlForLoop -= difficultyUnitNow
                     testArr.append(difficultyIndex)
                 }
-                
-                if newLoadEnemy[0].count > 4 {
+
+                if newLoadEnemy[0].count > unitCount {
                     testArr = []
                     newLoadEnemy[0] = []
                     lvlForLoop = difficulty * 2
                 }
             }
+            
+            print("\(newLoadEnemy) --- Enemy Arr")
             return newLoadEnemy
         }
+        
     }
     
     func getBoss(difficulty: Int) -> [[String]]? {
         switch difficulty {
+        case 10:
+            loadBoardSize = [[7,7]]
+            return [["Doppelganger"]]
         case 20:
             loadBg = ["SteamPunkBackground"]
             loadBoardSize = [[4,7]]
             return [["SteamPunkWalker"]]
-        case 40:
+        case 35:
             loadBg = ["Dungeon"]
             loadBoardSize = [[6,6]]
             return [["SilverKnightsPaladin"]]

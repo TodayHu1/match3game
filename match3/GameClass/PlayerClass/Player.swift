@@ -210,7 +210,6 @@ class Player: SKSpriteNode {
     }
     
     func takeDamage(damage: Int) {
-        print("LOH TD \(self.health)")
         
         onDefense()
         
@@ -229,7 +228,6 @@ class Player: SKSpriteNode {
             self.health -= damage
         }
         
-        print("LOH ATD \(self.health)")
         
         self.updateLabelOverHead()
     
@@ -312,7 +310,7 @@ class Player: SKSpriteNode {
             case .strong:
                 playerAnimAttack = SKAction.animate(with: playerArrStrongAttack, timePerFrame: 0.07)
             case .spell:
-                playerAnimAttack = SKAction.animate(with: playerArrSpellAttack, timePerFrame: 0.09)
+                playerAnimAttack = SKAction.animate(with: playerArrSpellAttack, timePerFrame: 0.08)
             }
             
             

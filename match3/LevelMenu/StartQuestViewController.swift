@@ -16,7 +16,7 @@ class StartQuestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if gameViewController.getBoss(difficulty: lvlDifficulty+1) != nil {
+        if gameViewController.getBoss(difficulty: lvlDifficulty) != nil {
             bossLabel.text = "BOSS"
         }
         else {

@@ -23,7 +23,7 @@ class LooseAndWinViewController: UIViewController {
         
         if playerStat.healthNow < 1 {
             playerStatOnDie = playerStat
-            playerStat = PlayerStat(manaMax: 3, healthMax: 30, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
+            playerStat = PlayerStat(manaMax: 4, healthMax: 38, armorMax: 45, attack: 10, spellArr: ["Null","Null","Null","Null"])
             print("\(playerStat.gold) --- \(lvlDifficulty) --- LOOSE AND WIN")
             lvlDifficulty = 1
             gameViewController.saveGameProgress()
@@ -64,6 +64,12 @@ class LooseAndWinViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
     }
+    
+    @IBAction func takeGold(_ sender: Any) {
+        playerStat.gold += 4
+    }
+    
+    
     
     @IBAction func refreshEnemyButton(_ sender: Any) {
 

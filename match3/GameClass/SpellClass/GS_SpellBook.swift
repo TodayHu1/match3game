@@ -41,89 +41,105 @@ extension GameScene {
             armor = 0
             coin = 0
             description = "U dont see it <_<"
-            
+            break
         case "SkullJail":
             mana = 8
             health = 2
             armor = 2
             coin = 0
             description = "Replaces skull matches for matches of chains"
-            
+            break
         case "HeartAttack":
-            mana = 0
-            health = 5
+            mana = 1
+            health = 4
             armor = 0
             coin = 0
             description = "Takes away a part of lives in exchange for four match of attack"
-            
+            break
         case "Nemesis":
-            mana = 5
+            mana = 4
             health = 0
             armor = 0
             coin = 0
             description = "Replaces match shields for attack matches"
-            
+            break
         case "NoOneStepBack":
-            mana = 2
-            health = 1
-            armor = 2
+            mana = 6
+            health = 10
+            armor = 0
             coin = 0
-            description = ""
-            
+            description = "Gives armor equal to 50% of current health points"
+            break
         case "FirstAid":
             mana = 8
             health = 0
             armor = 0
             coin = 0
             description = "Heals you on the number of skulls on the table"
-            
+            break
         case "EnergyAttack":
-            if playerStat.manaNow > 0 {
-                mana = playerStat.manaNow
-            }
-            else {
-                mana = 1
-            }
+            mana = 2
             health = 0
             armor = 0
             coin = 0
-            description = "Absorbs all mana, attacks on [ mana points * attack power / 3 ]"
-            
+            description = "Deals damage equal to the current mana"
+            break
         case "SilverSword":
-            mana = 7
+            mana = 6
             health = 0
             armor = 0
             coin = 0
             description = "Attacking the enemy on [ skulls * attack / 6 ]"
-            
+            break
         case "ScullingTheSkulls":
             mana = 3
             health = 0
             armor = 0
             coin = 0
-            description = "Spawns 3 matches of the skull, attacking the enemy on [ skulls * attack / 7 ]"
-            
+            description = "Spawns 2 matches of the skull, attacking the enemy on [ skulls * attack / 5 ]"
+            break
         case "GoldenHeart":
-            mana = 2
+            mana = 1
             health = 0
             armor = 0
             coin = 1
-            description = "Heals for 7 health"
-            
+            description = "Heals for 15 health"
+            break
         case "ManaHealth":
-            mana = 8
+            mana = 6
             health = 0
             armor = 0
             coin = 0
-            description = "Heals for 8 health"
-            
+            description = "Heals for 10 health"
+            break
         case "UnstableTreatment":
-            mana = 2
+            mana = 4
             health = 0
             armor = 0
             coin = 0
             description = "Spawns 3 poison matches and heals for 15 health"
-            
+            break
+        case "DiseasProtection":
+            mana = 2
+            health = 0
+            armor = 5
+            coin = 0
+            description = "Replaces all matches cogs and poison matches to the match armor"
+            break
+        case "ShieldStrike":
+            mana = 2
+            health = 0
+            armor = 8
+            coin = 0
+            description = "Deals damage equal to 50% of the armor"
+            break
+        case "LightningShield":
+            mana = 5
+            health = 1
+            armor = 0
+            coin = 0
+            description = "Gives 7 armor and deals 7 damage to an enemy"
+            break
         default:
             mana = 0
             health = 0
@@ -164,7 +180,7 @@ extension GameScene {
         case "HeartAttack":
             player.animationSpellBuffAndStand()
             var duration: Double = 0
-            let interval: Double = self.durationSpawnMatchAnimation()
+            let interval: Double = 0
             for _ in 0...5 {
                 duration += interval
                 matchMoveToBoard(matchType: Match.attack,
@@ -207,9 +223,10 @@ extension GameScene {
                 }
             }
         case "EnergyAttack":
-            let power = (playerStat.manaNow * playerStat.attack)
-            let damage = Int(power / 3)
-            print("\(damage) --\(power)-- ENERGY DAMAGE")
+            var damage = player.mana
+            if damage < 0 {
+                damage = 1
+            }
             player.fullAttackStandAnimation(damage: damage, attackType: .spell)
         case "SilverSword":
             var skullCount = 0
@@ -227,24 +244,24 @@ extension GameScene {
             player.fullAttackStandAnimation(damage: damage, attackType: .spell)
         case "ScullingTheSkulls":
 
-            self.spawnMatchOnRandomPosition(matchType: .skull, nodePosition: player, numberOfMatch: 3)
+            self.spawnMatchOnRandomPosition(matchType: .skull, nodePosition: player, numberOfMatch: 2)
 
             let skullCount = self.numberOfMatch(matchType: .skull)
 
             let power = (playerStat.attack * skullCount)
-            let damage = Int(power / 7)
+            let damage = Int(power / 5)
             print("\(damage) --\(power)-- ENERGY DAMAGE")
             self.player.fullAttackStandAnimation(damage: damage, attackType: .spell)
 
         case "GoldenHeart":
             player.animationSpellBuffAndStand()
-            player.health += 7
+            player.health += 15
             player.updateLabelOverHead()
             player.buffParticle(name: "Heart")
             
         case "ManaHealth":
             player.animationSpellBuffAndStand()
-            player.health += 8
+            player.health += 10
             player.updateLabelOverHead()
             player.buffParticle(name: "Heart")
             
@@ -255,6 +272,45 @@ extension GameScene {
             player.buffParticle(name: "Heart")
             
             spawnMatchOnRandomPosition(matchType: .poison, nodePosition: player, numberOfMatch: 3)
+            
+        case "NoOneStepBack":
+            player.animationSpellBuffAndStand()
+            
+            let newArmor = player.health / 2
+            
+            player.armor += newArmor
+            
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Armor")
+            
+        case "DiseasProtection":
+            player.animationSpellBuffAndStand()
+            var duration: Double = 0
+            let interval: Double = self.durationSpawnMatchAnimation()
+            for i in 0...matchBoard.verticalCount-1 {
+                for j in 0...matchBoard.horizontalCount-1 {
+                    if matchTypeOnTable[i][j] == Match.poison && matchTypeOnTable[i][j] == Match.cog {
+                        duration += interval
+                        matchMoveToBoard(matchType: Match.armor,
+                                         nodePosition: player,
+                                         i: i,
+                                         j: j,
+                                         waitTimeToAnimation: TimeInterval(duration),
+                                         durationAnimation: interval
+                        )
+                    }
+                }
+            }
+            
+        case "ShieldStrike":
+            let damage = player.armor / 2
+            player.fullAttackStandAnimation(damage: damage, attackType: .spell)
+            
+        case "LightningShield":
+            player.armor += 7
+            player.fullAttackStandAnimation(damage: 7, attackType: .strong)
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Armor")
             
         default:
             break

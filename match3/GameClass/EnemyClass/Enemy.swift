@@ -41,6 +41,7 @@ class EnemyUnit: SKSpriteNode {
         //BreakArmor modificator
         "ChainInstedArmor": false,
         "SteamPunkWalkerTrasform" : false,
+        "PoisonOnBreakMod": false,
         
         //Death modificator
         "SkullOnDie": 0,
@@ -93,7 +94,7 @@ class EnemyUnit: SKSpriteNode {
         self.anchorPoint.x = 0.5
         self.anchorPoint.y = 0
         
-        self.zPosition = 900
+        self.zPosition = 1100
         self.position = positionAnchor
         self.name = "enemyUnit"
         
