@@ -22,7 +22,7 @@ extension Player {
         gameViewController.saveGameProgress()
     }
 
-    func labelOverHead(shield: Int, health: Int, initLabel: Bool) {
+    func labelOverHead(shield: Int, health: Int, attack: Int = playerStat.attack, initLabel: Bool) {
         
         if initLabel {
             self.labelBoard.removeFromParent()
@@ -36,7 +36,7 @@ extension Player {
             //Health
             self.labelHealth.fontName = "MunroSmall"
             self.labelHealth.text = String(health)
-            self.labelHealth.position.x = self.labelBoard.position.x + 90
+            self.labelHealth.position.x = self.labelBoard.position.x + 150
             self.labelHealth.fontSize = 70
             self.labelBoard.addChild(self.labelHealth)
             self.iconHeart.size = CGSize(width: 120, height: 120)
@@ -48,7 +48,7 @@ extension Player {
             //Shield
             self.labelShield.fontName = "MunroSmall"
             self.labelShield.text = String(shield)
-            self.labelShield.position.x = self.labelBoard.position.x - 90
+            self.labelShield.position.x = self.labelBoard.position.x
             self.labelShield.fontSize = 70
             self.labelBoard.addChild(self.labelShield)
             self.iconShield.size = CGSize(width: 120, height: 120)
@@ -56,7 +56,16 @@ extension Player {
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
             
-            
+            //Attack
+            self.labelAttack.fontName = "MunroSmall"
+            self.labelAttack.text = String(attack)
+            self.labelAttack.position.x = self.labelBoard.position.x - 150
+            self.labelAttack.fontSize = 70
+            self.labelBoard.addChild(self.labelAttack)
+            self.iconAttack.size = CGSize(width: 140, height: 140)
+            self.iconAttack.zPosition = self.iconAttack.zPosition - 1
+            self.iconAttack.position.y += 20
+            self.labelAttack.addChild(self.iconAttack)
         }
         
         

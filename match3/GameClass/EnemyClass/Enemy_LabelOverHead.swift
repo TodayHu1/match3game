@@ -19,10 +19,10 @@ extension EnemyUnit {
 //    }
     
     func updateLabelOverHead() {
-        setLabelOverHead(armor: self.armor, health: self.health, initLabel: false)
+        setLabelOverHead(armor: self.armor, health: self.health, attack: self.attack, initLabel: false)
     }
     
-    func setLabelOverHead(armor: Int, health: Int, initLabel: Bool) {
+    func setLabelOverHead(armor: Int, health: Int, attack: Int , initLabel: Bool) {
         
         if initLabel {
             self.labelBoard.removeFromParent()
@@ -36,7 +36,7 @@ extension EnemyUnit {
             //Health
             self.labelHealth.fontName = "MunroSmall"
             self.labelHealth.text = String(health)
-            self.labelHealth.position.x = self.labelBoard.position.x + 90
+            self.labelHealth.position.x = self.labelBoard.position.x + 150
             self.labelHealth.fontSize = 70
             self.labelBoard.addChild(self.labelHealth)
             self.iconHeart.size = CGSize(width: 120, height: 120)
@@ -49,7 +49,7 @@ extension EnemyUnit {
             self.labelShield.fontName = "MunroSmall"
             self.labelShield.color = UIColor.green
             self.labelShield.text = String(armor)
-            self.labelShield.position.x = self.labelBoard.position.x - 90
+            self.labelShield.position.x = self.labelBoard.position.x 
             self.labelShield.fontSize = 70
             self.labelBoard.addChild(self.labelShield)
             self.iconShield.size = CGSize(width: 120, height: 120)
@@ -57,6 +57,16 @@ extension EnemyUnit {
             self.iconShield.position.y += 15
             self.labelShield.addChild(self.iconShield)
             
+            //Attack
+            self.labelAttack.fontName = "MunroSmall"
+            self.labelAttack.text = String(attack)
+            self.labelAttack.position.x = self.labelBoard.position.x - 150
+            self.labelAttack.fontSize = 70
+            self.labelBoard.addChild(self.labelAttack)
+            self.iconAttack.size = CGSize(width: 140, height: 140)
+            self.iconAttack.zPosition = self.iconAttack.zPosition - 1
+            self.iconAttack.position.y += 18
+            self.labelAttack.addChild(self.iconAttack)
             
             switch self.enemyName {
             case "SteamPunkWalker":
@@ -104,6 +114,12 @@ extension EnemyUnit {
         
         self.labelShield.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelShield.text!),
                                    to: Float(self.armor),
+                                   withDuration: 1,
+                                   andAnimationType: .EaseOut,
+                                   andCountingType: .Int)
+        
+        self.labelAttack.countFrom(fromValue: self.gameScene.stringToFloat(value: self.labelAttack.text!),
+                                   to: Float(self.attack),
                                    withDuration: 1,
                                    andAnimationType: .EaseOut,
                                    andCountingType: .Int)

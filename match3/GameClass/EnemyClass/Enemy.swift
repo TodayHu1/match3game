@@ -61,11 +61,13 @@ class EnemyUnit: SKSpriteNode {
     var labelRandomUnit = SKLabelNode(fontNamed: "Arial")
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
     var labelShield = SKCountingLabel(fontNamed: "Arial")
+    var labelAttack = SKCountingLabel(fontNamed: "Arial")
         //Icon for label
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
+        let iconAttack = SKSpriteNode(imageNamed: "AttackIcon")
     
-    
+
     //Position
     var positionAnchor: CGPoint =  CGPoint(x: 100, y: 140)
     var positionCenter: CGPoint = CGPoint(x: 0, y: 0)
@@ -114,7 +116,7 @@ class EnemyUnit: SKSpriteNode {
 
         initShadow()
 
-        setLabelOverHead(armor: self.attack, health: self.health, initLabel: true)
+        setLabelOverHead(armor: self.attack, health: self.health, attack: self.attack, initLabel: true)
         
         initEnemyAnimationTexture()
         

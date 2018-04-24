@@ -75,7 +75,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: -13, health: 28, attack: 0, mana: 0, img: "RedShield", name: "Blood Armor"),
         Item.init(armor: 15, health: 0, attack: 0, mana: 0, img: "BlueShield", name: "Basic armor"),
         Item.init(armor: 20, health: 0, attack: 0, mana: -2, img: "PurpleShield", name: "Mana shield"),
-        Item.init(armor: 10, health: 0, attack: 2, mana: 0, img: "BlackShield", name: "Barbarian armor"),
+        Item.init(armor: 10, health: 0, attack: 1, mana: 0, img: "BlackShield", name: "Barbarian armor"),
         Item.init(armor: 10, health: 5, attack: 0, mana: 0, img: "WhiteShield", name: "Diviny armor"),
         Item.init(armor: 10, health: 0, attack: 1, mana: 1, img: "OrangeShield", name: "Bronze armor"),
         Item.init(armor: 60, health: 0, attack: -5, mana: -1, img: "TealShield", name: "Ice armor"),
@@ -141,7 +141,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(armor: 0, health: 0, attack: 3, mana: -2, img: "AmuletGold", name: "Golden amulet"),
         Item.init(armor: 2, health: 0, attack: -2, mana: 10, img: "AmuletPurple", name: "Amethyst amulet"),
         Item.init(armor: 10, health: 0, attack: 0, mana: 3, img: "AmuletBlue", name: "Sapphire amulet"),
-        Item.init(armor: 2, health: 2, attack: 2, mana: 2, img: "AmuletGreen", name: "Emerald amulet"),
+        Item.init(armor: 2, health: 2, attack: 1, mana: 2, img: "AmuletGreen", name: "Emerald amulet"),
         Item.init(armor: 5, health: 15, attack: -1, mana: 0, img: "AmuletOrange", name: "Amber amulet"),
     ]
     

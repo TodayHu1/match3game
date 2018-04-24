@@ -73,7 +73,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="MunroSmall" family="Munro Small" pointSize="17"/>
                                                 <size key="titleShadowOffset" width="0.0" height="1"/>
-                                                <state key="normal" title="-" backgroundImage="Table">
+                                                <state key="normal" title="*" backgroundImage="Table">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="titleShadowColor" red="0.22366145597194897" green="0.22659290173523139" blue="0.23080583756345174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -10921,6 +10921,6 @@ LXQABS13AAUtfAAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAAAAAABS1+A
         <image name="skillCell" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ctM-uz-mod"/>
+        <segue reference="aX9-kC-apc"/>
     </inferredMetricsTieBreakers>
 </document>

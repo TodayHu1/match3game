@@ -23,6 +23,7 @@ extension EnemyUnit {
             gameViewController.presentText(text: "Power up", whoIs: .enemy)
             self.gameScene.nodeAnimationPulseUp(node: self, duration: 2, percentValuePulsation: 0.2)
             self.attack = Int(Double(self.attack) * attack)
+            updateLabelOverHead()
             print("\(self.attack) ---- ATTACK UP")
         }
     }

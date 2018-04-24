@@ -43,9 +43,9 @@ extension GameScene {
             description = "U dont see it <_<"
             break
         case "SkullJail":
-            mana = 8
-            health = 2
-            armor = 2
+            mana = 7 + ((playerStat.manaMax * 5)/100)
+            health = 1 + ((playerStat.healthMax * 2)/100)
+            armor = 1 + ((playerStat.armorMax * 2)/100)
             coin = 0
             description = "Replaces skull matches for matches of chains"
             break
@@ -65,7 +65,7 @@ extension GameScene {
             break
         case "NoOneStepBack":
             mana = 6
-            health = 10
+            health = 11
             armor = 0
             coin = 0
             description = "Gives armor equal to 50% of current health points"
@@ -82,10 +82,10 @@ extension GameScene {
             health = 0
             armor = 0
             coin = 0
-            description = "Deals damage equal to the current mana"
+            description = "Deals damage equal to the current mana * 2"
             break
         case "SilverSword":
-            mana = 6
+            mana = 5
             health = 0
             armor = 0
             coin = 0
@@ -106,7 +106,7 @@ extension GameScene {
             description = "Heals for 15 health"
             break
         case "ManaHealth":
-            mana = 6
+            mana = 5
             health = 0
             armor = 0
             coin = 0
@@ -129,14 +129,14 @@ extension GameScene {
         case "ShieldStrike":
             mana = 2
             health = 0
-            armor = 8
+            armor = 1 + ((playerStat.armorMax * 8)/100)
             coin = 0
             description = "Deals damage equal to 50% of the armor"
             break
         case "LightningShield":
-            mana = 5
-            health = 1
-            armor = 0
+            mana = 3
+            health = 2
+            armor = 1
             coin = 0
             description = "Gives 7 armor and deals 7 damage to an enemy"
             break

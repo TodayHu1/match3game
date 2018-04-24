@@ -107,7 +107,11 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
 //        playerStat.armorMax = 400
 //        playerStat.healthMax = 400
 //        playerStat.manaMax = 40
-//        lvlDifficulty = 10
+//        lvlDifficulty = 35
+        
+//        playerStat.spellOnBoard[0] = "ShieldStrike"
+//        playerStat.spellOnBoard[1] = "SkullJail"
+        
         
         healthNow.setTitle(String(playerStat.healthNow), for: .normal)
         armorNow.setTitle(String(playerStat.armorNow), for: .normal)
@@ -208,7 +212,7 @@ extension MainMenuViewController {
                 
                 // Get the default leaderboard ID
                 localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
-                    if error != nil { print(error!)
+                    if error != nil { print("GC " + (error?.localizedDescription)!)
                     } else {
                         gcDefaultLeaderBoard = leaderboardIdentifer!
                         self.getTopOnePlayer()
@@ -233,13 +237,15 @@ extension MainMenuViewController {
         
         leaderBoardRequest.loadScores { (scores, error) -> Void in
             if (error != nil) {
-                print("Error: \(error!.localizedDescription)")
+                print("GC Error: \(error!.localizedDescription)")
             }
             else {
                 if (scores != nil) {
                     guard let name = scores![0].player?.alias else { return }
                     print("TOP \(name)")
-                    self.tableButton.setTitle("Top Player - \(name)", for: .normal)
+                    self.tableButton.titleLabel?.numberOfLines = 0
+                    self.tableButton.titleLabel?.adjustsFontSizeToFitWidth = true
+                    self.tableButton.setTitle("Top Player: \(name)", for: .normal)
                 }
             }
         }
@@ -251,7 +257,7 @@ extension MainMenuViewController {
         bestScoreInt.value = Int64(lvlDifficulty)
         GKScore.report([bestScoreInt]) { (error) in
             if error != nil {
-                print(error!.localizedDescription)
+                print("GC " + error!.localizedDescription)
             } else {
                 print("GC Best Score submitted to your Leaderboard!")
             }

@@ -37,9 +37,11 @@ class Player: SKSpriteNode {
     var labelBoard = SKSpriteNode()
     var labelHealth = SKCountingLabel(fontNamed: "Arial")
     var labelShield = SKCountingLabel(fontNamed: "Arial")
+    var labelAttack = SKCountingLabel(fontNamed: "Arial")
         //Icon for label
         let iconHeart = SKSpriteNode(imageNamed: "Icon_Heart")
         let iconShield = SKSpriteNode(imageNamed: "Icon_Shield")
+        let iconAttack = SKSpriteNode(imageNamed: "AttackIcon")
     
     //Stats
     var attack: Int = 10
@@ -239,6 +241,9 @@ class Player: SKSpriteNode {
     
     func playerDie() {
         if self.health < 1 {
+            self.gold = 0
+            playerStat.gold = 0
+            gameViewController.saveGameProgress()
             self.animationDeath()
             self.gameScene.actionGesture(gesture: false)
             let color = SKAction.colorize(with: UIColor(displayP3Red: 255, green: 0, blue: 0, alpha: 1), colorBlendFactor: 1, duration: 0.05)

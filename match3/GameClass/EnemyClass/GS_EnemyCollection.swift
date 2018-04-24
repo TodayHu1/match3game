@@ -33,7 +33,7 @@ extension GameScene {
             
             switch enemyName {
             case "Dummy":
-                createEnemyUnit.attack = 999
+                createEnemyUnit.attack = 50
                 createEnemyUnit.health = 1
                 createEnemyUnit.armor = 0
                 createEnemyUnit.size = CGSize(width: 100, height: 100)
