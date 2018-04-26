@@ -88,6 +88,9 @@ extension GameScene {
             positionToMove = (manaPoolNode.parent?.position)!
             specialActionOnEnd = SKAction.run {
                 self.changeManaLabel()
+                let loadBuff = Bundle.main.path(forResource: "ManaSpark", ofType: "sks")
+                let buffParticle = NSKeyedUnarchiver.unarchiveObject(withFile: loadBuff!) as! SKEmitterNode
+                objectForAnimation.addChild(buffParticle)
             }
         case 7:
             objectForAnimation = enemyUnit

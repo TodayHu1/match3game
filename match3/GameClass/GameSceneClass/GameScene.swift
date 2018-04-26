@@ -157,11 +157,12 @@ class GameScene: SKScene {
         goldLabel.fontColor = #colorLiteral(red: 0.9686274529, green: 0.8872959706, blue: 0.3723448625, alpha: 1)
         goldLabel.position.y = -325
         goldLabel.zPosition = 1000
+        goldLabel.horizontalAlignmentMode = .left
         self.addChild(goldLabel)
         updatePlayerGold()
         
         let goldIcon = SKSpriteNode(texture: SKTexture(imageNamed: "CoinIcon"), size: CGSize(width: 20, height: 20))
-        goldIcon.position.x -= 17
+        goldIcon.position.x -= 12
         goldIcon.position.y += 7
         goldLabel.addChild(goldIcon)
         

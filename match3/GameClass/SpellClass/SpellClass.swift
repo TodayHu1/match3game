@@ -168,7 +168,7 @@ class Spell: SKSpriteNode {
             }
             else {
                 if self.gameScene.player.mana < manaToUse {
-                    gameViewController.presentText(text: "Not enough mana", color: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
+                    gameViewController.presentText(text: "Not enough mana", color: #colorLiteral(red: 0.6910010951, green: 0.5662215365, blue: 0.9686274529, alpha: 1))
                 }
                 if self.gameScene.player.health < healthToUse {
                     gameViewController.presentText(text: "Not enough health", color: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1))

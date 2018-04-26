@@ -39,21 +39,21 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 100, height: 100)
             //1
             case "Stony":
-                createEnemyUnit.attack = 7
+                createEnemyUnit.attack = 5
                 createEnemyUnit.health = 15
                 createEnemyUnit.armor = 25
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
                 createEnemyUnit.specialAbilities["PoisonOnBoard"] = 1
             //2
             case "PoisonScale":
-                createEnemyUnit.attack = 9
+                createEnemyUnit.attack = 6
                 createEnemyUnit.health = 20
                 createEnemyUnit.armor = 35
                 createEnemyUnit.size = CGSize(width: 125, height: 125)
                 createEnemyUnit.specialAbilities["PoisonOnBoard"] = 2
             //3
             case "StoneScale":
-                createEnemyUnit.attack = 9
+                createEnemyUnit.attack = 6
                 createEnemyUnit.health = 35
                 createEnemyUnit.armor = 40
                 createEnemyUnit.size = CGSize(width: 130, height: 130)
@@ -68,13 +68,13 @@ extension GameScene {
                 createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
             //5
             case "SteamPunkPunch":
-                createEnemyUnit.attack = 10
+                createEnemyUnit.attack = 8
                 createEnemyUnit.health = 51
                 createEnemyUnit.armor = 51
                 createEnemyUnit.size = CGSize(width: 120, height: 120)
             //6
             case "RoyalMage":
-                createEnemyUnit.attack = 18
+                createEnemyUnit.attack = 15
                 createEnemyUnit.health = 65
                 createEnemyUnit.armor = 5
                 createEnemyUnit.size = CGSize(width: 140, height: 140)
@@ -93,13 +93,13 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 270, height: 120)
             //9
             case "Ram":
-                createEnemyUnit.attack = 25
+                createEnemyUnit.attack = 23
                 createEnemyUnit.health = 65
                 createEnemyUnit.armor = 22
                 createEnemyUnit.size = CGSize(width: 140, height: 140)
             //10
             case "NeutralTurtle":
-                createEnemyUnit.attack = 15
+                createEnemyUnit.attack = 20
                 createEnemyUnit.health = 20
                 createEnemyUnit.armor = 80
                 createEnemyUnit.size = CGSize(width: 125, height: 115)

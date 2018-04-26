@@ -113,7 +113,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
         Item.init(name: "DiseasProtection"),
         Item.init(name: "LightningShield"),
         Item.init(name: "ShieldStrike"),
-        
+        Item.init(name: "ManaShield"),
     ]
     
     ///Мусорные предметы

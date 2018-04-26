@@ -52,7 +52,7 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
         // Call the GC authentication controller
         authenticateLocalPlayer()
         
-//        submitScore()
+        submitScore()
         getTopOnePlayer()
         
         UIApplication.shared.statusBarStyle = .lightContent
@@ -107,10 +107,15 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
 //        playerStat.armorMax = 400
 //        playerStat.healthMax = 400
 //        playerStat.manaMax = 40
-//        lvlDifficulty = 35
-        
+//        playerStat.gold = 4000
+//
+//        lvlDifficulty = 55
+//
 //        playerStat.spellOnBoard[0] = "ShieldStrike"
 //        playerStat.spellOnBoard[1] = "SkullJail"
+//        playerStat.spellOnBoard[2] = "ManaShield"
+        
+//        playerStat.legendArr.append("Fire feather")
         
         
         healthNow.setTitle(String(playerStat.healthNow), for: .normal)
@@ -212,8 +217,10 @@ extension MainMenuViewController {
                 
                 // Get the default leaderboard ID
                 localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
-                    if error != nil { print("GC " + (error?.localizedDescription)!)
-                    } else {
+                    if error != nil {
+                        print("GC GET " + (error?.localizedDescription)!)
+                    }
+                    else {
                         gcDefaultLeaderBoard = leaderboardIdentifer!
                         self.getTopOnePlayer()
                     }
@@ -222,8 +229,8 @@ extension MainMenuViewController {
             } else {
                 // 3. Game center is not enabled on the users device
                 gcEnabled = false
-                print("GC Local player could not be authenticated!")
-                print("GC" + "\(String(describing: error))")
+                print("GC NOT Local player could not be authenticated!")
+                print("GC NOT " + "\(String(describing: error))")
             }
         }
     }
@@ -234,10 +241,10 @@ extension MainMenuViewController {
         leaderBoardRequest.playerScope = GKLeaderboardPlayerScope.global
         leaderBoardRequest.timeScope = GKLeaderboardTimeScope.allTime
         leaderBoardRequest.range = NSMakeRange(1,1)
-        
+
         leaderBoardRequest.loadScores { (scores, error) -> Void in
             if (error != nil) {
-                print("GC Error: \(error!.localizedDescription)")
+                print("GC SMBT "+(error?.localizedDescription)!)
             }
             else {
                 if (scores != nil) {
@@ -250,16 +257,17 @@ extension MainMenuViewController {
             }
         }
     }
-    
+
     func submitScore() {
+        print("GC ID "+LEADERBOARD_ID)
         // Submit score to GC leaderboard
         let bestScoreInt = GKScore(leaderboardIdentifier: LEADERBOARD_ID)
         bestScoreInt.value = Int64(lvlDifficulty)
         GKScore.report([bestScoreInt]) { (error) in
             if error != nil {
-                print("GC " + error!.localizedDescription)
+                print("GC SMBT "+error!.localizedDescription)
             } else {
-                print("GC Best Score submitted to your Leaderboard!")
+                print("GC SMBT Best Score submitted to your Leaderboard!")
             }
         }
     }

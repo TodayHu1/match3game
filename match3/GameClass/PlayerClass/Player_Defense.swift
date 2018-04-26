@@ -26,7 +26,6 @@ extension Player {
     func spawnChainInstedSkullOnDefense() {
         let aOnd = self.specialAbilities["SpawnChainInstedSkullOnDefense"]
         if aOnd! > 0 {
-            
             var x = 0
             var y = 0
             for i in 0...self.gameScene.matchBoard.verticalCount-1 {

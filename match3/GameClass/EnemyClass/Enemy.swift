@@ -248,13 +248,19 @@ class EnemyUnit: SKSpriteNode {
                 //On Break Armor
                 breakArmorMod()
             }
+            self.buffParticle(name: "ArmorSpark", onBack: true, target: "Armor")
         }
         else {
             self.health -= damage
+            self.buffParticle(name: "HealthSpark", onBack: true, target: "Health")
         }
         
         
         if self.health < 1 {
+            
+            soulGem += 1
+            self.gameScene.player.buffParticle(name: "SoulGem")
+            
             let spawnNewEnemy = SKAction.run {
                 self.gameScene.newEnemy()
             }
@@ -276,13 +282,30 @@ class EnemyUnit: SKSpriteNode {
         return SKAction.wait(forDuration: 1)
     }
 
-    func buffParticle(name: String) {
+    func buffParticle(name: String, onBack: Bool = false, target: String = "Player") {
         let loadBuff = Bundle.main.path(forResource: name, ofType: "sks")
         let buffParticle = NSKeyedUnarchiver.unarchiveObject(withFile: loadBuff!) as! SKEmitterNode
+        
+        //        buffParticle.position = self.positionCenter
+        if onBack {
+            buffParticle.zPosition = -1
+        }
+        else {
+            buffParticle.zPosition = 1
+        }
+        
+        switch target {
+        case "Player":
+            buffParticle.position.y = self.positionCenter.y
+        case "Health":
+            buffParticle.position.y = self.iconHeart.position.y + 40
+        case "Armor":
+            buffParticle.position.y = self.iconShield.position.y + 40
+        default:
+            break
+        }
+        
         self.addChild(buffParticle)
-//        buffParticle.position = self.positionCenter
-        buffParticle.position.y = self.positionCenter.y
-        buffParticle.zPosition = self.zPosition + 1
     }
     
 }

@@ -225,9 +225,11 @@ class Player: SKSpriteNode {
                 self.health += self.armor
                 self.armor = 0
             }
+            self.buffParticle(name: "ArmorSpark", onBack: true, target: "Armor")
         }
         else {
             self.health -= damage
+            self.buffParticle(name: "HealthSpark", onBack: true, target: "Health")
         }
         
         
@@ -394,13 +396,30 @@ class Player: SKSpriteNode {
         self.run(SKAction.wait(forDuration: 0.5))
     }
     
-    func buffParticle(name: String) {
+    func buffParticle(name: String, onBack: Bool = false, target: String = "Player") {
         let loadBuff = Bundle.main.path(forResource: name, ofType: "sks")
         let buffParticle = NSKeyedUnarchiver.unarchiveObject(withFile: loadBuff!) as! SKEmitterNode
-        self.addChild(buffParticle)
+
         //        buffParticle.position = self.positionCenter
-        buffParticle.position.y = self.positionCenter.y
-        buffParticle.zPosition = self.zPosition + 1
+        if onBack {
+            buffParticle.zPosition = -1
+        }
+        else {
+            buffParticle.zPosition = 1
+        }
+        
+        switch target {
+        case "Player":
+            buffParticle.position.y = self.positionCenter.y
+        case "Health":
+            buffParticle.position.y = self.iconHeart.position.y + 40
+        case "Armor":
+            buffParticle.position.y = self.iconShield.position.y + 40
+        default:
+            break
+        }
+
+        self.addChild(buffParticle)
     }
 
     func initLegendItem() {

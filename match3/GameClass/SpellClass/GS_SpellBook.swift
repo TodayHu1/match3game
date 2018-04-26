@@ -129,7 +129,7 @@ extension GameScene {
         case "ShieldStrike":
             mana = 2
             health = 0
-            armor = 1 + ((playerStat.armorMax * 8)/100)
+            armor = 1 + ((playerStat.armorMax * 5)/100)
             coin = 0
             description = "Deals damage equal to 50% of the armor"
             break
@@ -139,6 +139,15 @@ extension GameScene {
             armor = 1
             coin = 0
             description = "Gives 7 armor and deals 7 damage to an enemy"
+            
+        case "ManaShield":
+            mana = 3
+            health = 0
+            armor = 0
+            coin = 0
+            description = "Gives armor equal to current mana * 2"
+            
+            
             break
         default:
             mana = 0
@@ -289,7 +298,7 @@ extension GameScene {
             let interval: Double = self.durationSpawnMatchAnimation()
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
-                    if matchTypeOnTable[i][j] == Match.poison && matchTypeOnTable[i][j] == Match.cog {
+                    if matchTypeOnTable[i][j] == Match.poison || matchTypeOnTable[i][j] == Match.cog {
                         duration += interval
                         matchMoveToBoard(matchType: Match.armor,
                                          nodePosition: player,
@@ -307,8 +316,14 @@ extension GameScene {
             player.fullAttackStandAnimation(damage: damage, attackType: .spell)
             
         case "LightningShield":
-            player.armor += 7
-            player.fullAttackStandAnimation(damage: 7, attackType: .strong)
+            player.armor += Int((playerStat.armorNow * 7)/100)
+            player.fullAttackStandAnimation(damage: Int((playerStat.armorNow * 7)/100), attackType: .strong)
+            player.updateLabelOverHead()
+            player.buffParticle(name: "Armor")
+            
+        case "ManaShield":
+            player.armor += playerStat.manaNow * 2
+            
             player.updateLabelOverHead()
             player.buffParticle(name: "Armor")
             
