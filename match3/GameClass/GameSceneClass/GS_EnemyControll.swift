@@ -107,7 +107,9 @@ extension GameScene {
                     case Match.coin.rawValue:
                         player.gold += actionOnTurn[Match.coin.rawValue]
                         self.updatePlayerGold()
-            
+                        
+                        player.buffParticle(name: "Coin")
+   
                     
                     case Match.poison.rawValue:
                         let damage = actionOnTurn[Match.poison.rawValue] * 6
