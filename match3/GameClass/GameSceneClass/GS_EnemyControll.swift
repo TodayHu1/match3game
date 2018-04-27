@@ -116,7 +116,7 @@ extension GameScene {
                         player.health -= damage
                         self.sceneShake(shakeCount: 5, intensity: CGVector(dx: 5, dy: 5), shakeDuration: 0.1)
                         player.updateLabelOverHead()
-                    
+                        player.buffParticle(name: "PoisonSpark", onBack: false, target: "Health")
                     
                     case Match.cog.rawValue:
                         enemyUnit.armor += 25

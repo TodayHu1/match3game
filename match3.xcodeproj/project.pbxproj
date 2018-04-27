@@ -165,6 +165,7 @@
 		A05A43EA20919EA900B25ED1 /* ArmorSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A05A43E720919EA800B25ED1 /* ArmorSpark.sks */; };
 		A05A43EB20919EA900B25ED1 /* ManaSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A05A43E820919EA900B25ED1 /* ManaSpark.sks */; };
 		A0C8997F2092B037006D2FCC /* Coin.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0C8997E2092B037006D2FCC /* Coin.sks */; };
+		A0C8998120932736006D2FCC /* PoisonSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0C8998020932735006D2FCC /* PoisonSpark.sks */; };
 		CDF48C7DD12DBB174A9CDCEB /* Pods_match3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE4178C1AC8F5ABA869E03E /* Pods_match3Tests.framework */; };
 		E55DC82177F1B0BDEF9DBB2A /* Pods_match3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD006D1CCACFB3E4A60CDC /* Pods_match3.framework */; };
 /* End PBXBuildFile section */
@@ -355,6 +356,7 @@
 		A05A43E720919EA800B25ED1 /* ArmorSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ArmorSpark.sks; sourceTree = "<group>"; };
 		A05A43E820919EA900B25ED1 /* ManaSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ManaSpark.sks; sourceTree = "<group>"; };
 		A0C8997E2092B037006D2FCC /* Coin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Coin.sks; sourceTree = "<group>"; };
+		A0C8998020932735006D2FCC /* PoisonSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonSpark.sks; sourceTree = "<group>"; };
 		BAE4178C1AC8F5ABA869E03E /* Pods_match3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_match3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CDD00BDBF3E7D5A3C5F732 /* Pods-match3UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match3UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-match3UITests/Pods-match3UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7CDEC9847C0B9B4D00BB4A4 /* Pods-match3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match3.release.xcconfig"; path = "Pods/Target Support Files/Pods-match3/Pods-match3.release.xcconfig"; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 		1FC9596D208219240072161A /* Particle */ = {
 			isa = PBXGroup;
 			children = (
+				A0C8998020932735006D2FCC /* PoisonSpark.sks */,
 				A0C8997E2092B037006D2FCC /* Coin.sks */,
 				A05A43E720919EA800B25ED1 /* ArmorSpark.sks */,
 				A05A43E620919EA800B25ED1 /* HealthSpark.sks */,
@@ -1120,6 +1123,7 @@
 				1F937D1A203EA58C003F0C91 /* 1-6.json in Resources */,
 				A05A43EA20919EA900B25ED1 /* ArmorSpark.sks in Resources */,
 				1F11EF761FA9A4C900FD51B7 /* Player-Attack.atlas in Resources */,
+				A0C8998120932736006D2FCC /* PoisonSpark.sks in Resources */,
 				1FC29DCE2057F97B00156B40 /* SpellChanger.xcassets in Resources */,
 				1F11EF711FA5F20D00FD51B7 /* GameUI.xcassets in Resources */,
 				1F983A611FED403100CE4FBC /* Dungeon.atlas in Resources */,

@@ -23,7 +23,7 @@ class Utils {
         oldString.setColorForText("poison", with: #colorLiteral(red: 0.2285714325, green: 0.7444876269, blue: 0.5582090146, alpha: 1))
         oldString.setColorForText("poisons", with: #colorLiteral(red: 0.2285714325, green: 0.7444876269, blue: 0.5582090146, alpha: 1))
         
-        oldString.setColorForText("attack", with: #colorLiteral(red: 0.8470588235, green: 0.262745098, blue: 0.4784313725, alpha: 1))
+        oldString.setColorForText("attack", with: #colorLiteral(red: 0.9245296717, green: 0.2359530926, blue: 0.1017343029, alpha: 1))
         oldString.setColorForText("attacks", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attacked", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         oldString.setColorForText("attacking", with: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
