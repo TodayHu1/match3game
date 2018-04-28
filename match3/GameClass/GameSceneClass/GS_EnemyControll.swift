@@ -112,7 +112,7 @@ extension GameScene {
    
                     
                     case Match.poison.rawValue:
-                        let damage = actionOnTurn[Match.poison.rawValue] * 6
+                        let damage = Int((actionOnTurn[Match.poison.rawValue] * enemyUnit.attack) / 3)
                         player.health -= damage
                         self.sceneShake(shakeCount: 5, intensity: CGVector(dx: 5, dy: 5), shakeDuration: 0.1)
                         player.updateLabelOverHead()
@@ -121,6 +121,13 @@ extension GameScene {
                     case Match.cog.rawValue:
                         enemyUnit.armor += 25
                     
+                    case Match.fire.rawValue:
+                        let damage = Int((actionOnTurn[Match.fire.rawValue] * enemyUnit.attack) / 2)
+                        print("\(damage) --- \(actionOnTurn[Match.fire.rawValue]) --- \(enemyUnit.attack)")
+                        player.takeDamage(damage: damage)
+                        player.health -= damage
+                        self.sceneShake(shakeCount: 5, intensity: CGVector(dx: 5, dy: 5), shakeDuration: 0.1)
+                        player.updateLabelOverHead()
                     
                     default: break
                 }

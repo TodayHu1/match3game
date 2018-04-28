@@ -13,8 +13,12 @@ import GameplayKit
 
 extension GameScene {
     
-    public func actionOnTurnCount() -> Int {
+    public func tripleMatchTypeCount() -> Int {
         return 7
+    }
+    
+    public func quadraMatchTypeCount() -> Int {
+        return 8
     }
     
     public func checkArrOnAction(loop: Bool) {
@@ -22,7 +26,7 @@ extension GameScene {
         count: matchBoard.verticalCount)
         findHorizontalMatchChaindInArr()
         findVerticalMatchChaindInArr()
-        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.tripleMatchTypeCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if(statArr[i][j] == indexOfMatch) {
@@ -45,7 +49,7 @@ extension GameScene {
     }
     
     private func findHorizontalMatchChaindInArr() {
-        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.tripleMatchTypeCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
                     if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
@@ -61,7 +65,7 @@ extension GameScene {
     }
     
     private func findVerticalMatchChaindInArr() {
-        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.tripleMatchTypeCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
@@ -70,6 +74,24 @@ extension GameScene {
                         statArr[i][j] = indexOfMatch
                         statArr[i+1][j] = indexOfMatch
                         statArr[i+2][j] = indexOfMatch
+                    }
+                }
+            }
+        }
+        
+        for indexOfMatch in self.tripleMatchTypeCount()+1...self.quadraMatchTypeCount()+1 {
+            for i in 0...matchBoard.verticalCount-3 {
+                for j in 0...matchBoard.horizontalCount-3 {
+                        print("\(i) = \(j) = \(matchTypeOnTable[i][j+1]) = \(matchTypeOnTable[i+1][j]) = \(matchTypeOnTable[i+2][j+1]) = \(matchTypeOnTable[i+1][j+2])")
+                    if matchTypeOnTable[i][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+2][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j+2].rawValue == indexOfMatch
+                    {
+                        statArr[i][j+1] = indexOfMatch
+                        statArr[i+1][j] = indexOfMatch
+                        statArr[i+2][j+1] = indexOfMatch
+                        statArr[i+1][j+2] = indexOfMatch
                     }
                 }
             }
@@ -131,7 +153,7 @@ extension GameScene {
     
     private func checkVerticalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.tripleMatchTypeCount()+1 {
             for i in 0...matchBoard.verticalCount-3 {
                 for j in 0...matchBoard.horizontalCount-1 {
                     if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&
@@ -142,12 +164,28 @@ extension GameScene {
                 }
             }
         }
+        
+        for indexOfMatch in self.tripleMatchTypeCount()+1...self.quadraMatchTypeCount()+1 {
+            for i in 0...matchBoard.verticalCount-3 {
+                for j in 0...matchBoard.horizontalCount-3 {
+                    print("\(i) = \(j) = \(matchTypeOnTable[i][j+1]) = \(matchTypeOnTable[i+1][j]) = \(matchTypeOnTable[i+2][j+1]) = \(matchTypeOnTable[i+1][j+2])")
+                    if matchTypeOnTable[i][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+2][j+1].rawValue == indexOfMatch &&
+                        matchTypeOnTable[i+1][j+2].rawValue == indexOfMatch
+                    {
+                        check = true
+                    }
+                }
+            }
+        }
+        
         return check
     }
     
     private func checkHorizontalArr() -> Bool {
         var check = false
-        for indexOfMatch in 1...self.actionOnTurnCount()+1 {
+        for indexOfMatch in 1...self.tripleMatchTypeCount()+1 {
             for i in 0...matchBoard.verticalCount-1 {
                 for j in 0...matchBoard.horizontalCount-3 {
                     if( matchTypeOnTable[i][j].rawValue == indexOfMatch &&

@@ -17,6 +17,7 @@ extension EnemyUnit {
         spawnChainInstedArmorMod()
         steamPunkWalkerTrasform()
         spawnPoisonOnBreakMod()
+        spawnFireOnBreakMod()
     }
     
     func steamPunkWalkerTrasform() {
@@ -117,6 +118,24 @@ extension EnemyUnit {
         }
     }
     
+    func spawnFireOnBreakMod() {
+        if (specialAbilities["FireOnBreakMod"] as! Bool) {
+            var duration: Double = 0
+            let interval: Double = self.gameScene.durationSpawnMatchAnimation()
+            for _ in 1...6 {
+                duration += interval
+                self.gameScene.matchMoveToBoard(
+                    matchType: Match.fire,
+                    nodePosition: self,
+                    i: self.gameScene.random(number: self.gameScene.matchBoard.verticalCount) - 1,
+                    j: self.gameScene.random(number: self.gameScene.matchBoard.horizontalCount) - 1,
+                    waitTimeToAnimation: duration,
+                    durationAnimation: interval
+                )
+            }
+            gameViewController.presentText(text: "Fire storm", color: .cyan, whoIs: .enemy)
+        }
+    }
 
     
 }

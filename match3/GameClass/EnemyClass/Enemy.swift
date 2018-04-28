@@ -42,6 +42,7 @@ class EnemyUnit: SKSpriteNode {
         "ChainInstedArmor": false,
         "SteamPunkWalkerTrasform" : false,
         "PoisonOnBreakMod": false,
+        "FireOnBreakMod": false,
         
         //Death modificator
         "SkullOnDie": 0,

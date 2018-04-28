@@ -83,7 +83,7 @@ class GameScene: SKScene {
         self.matchChance = loadMatchChance
         
         //Инициализируем массив для хранения собранных матчей
-        self.actionOnTurn = [Int](repeating: 0, count: actionOnTurnCount() + 1)
+        self.actionOnTurn = [Int](repeating: 0, count: quadraMatchTypeCount() + 1)
         
         //Инициализируем массив с типами матчей
         self.matchTypeOnTable = Array(repeating: Array(repeating: Match.null, count: self.matchBoard.horizontalCount), count: matchBoard.verticalCount)
@@ -151,6 +151,11 @@ class GameScene: SKScene {
     
     ///Построение декораций на сцене
     func buildScene(bgName: String) {
+        
+        matchTypeOnTable[0][0] = .fire
+        matchTypeOnTable[1][0] = .fire
+        matchTypeOnTable[2][1] = .fire
+        matchTypeOnTable[1][2] = .fire
         
         goldLabel = SKLabelNode(fontNamed: "Munro")
         goldLabel.fontSize = 20

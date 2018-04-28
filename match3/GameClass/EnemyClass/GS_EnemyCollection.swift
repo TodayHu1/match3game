@@ -85,6 +85,7 @@ extension GameScene {
                 createEnemyUnit.health = 55
                 createEnemyUnit.armor = 55
                 createEnemyUnit.size = CGSize(width: 270, height: 120)
+                createEnemyUnit.specialAbilities["FireOnBreakMod"] = true
             //9
             case "Ram":
                 createEnemyUnit.attack = 23

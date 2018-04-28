@@ -21,12 +21,14 @@ public enum Match: Int {
     case coin = 5
     case poison = 6
     case cog = 7
+    case fire = 8
 }
 
 extension GameScene {
     
     ///Функция инициализирующая текстуры для матчей
     func initMatchTexture() {
+        matchTexture[Match.null] = SKTexture(imageNamed:"MatchNull.png")
         matchTexture[Match.chain] = SKTexture(imageNamed:"MatchChain.png")
         matchTexture[Match.skull] = SKTexture(imageNamed:"MatchSkull.png")
         matchTexture[Match.armor] = SKTexture(imageNamed:"MatchArmor.png")
@@ -35,7 +37,7 @@ extension GameScene {
         matchTexture[Match.coin] = SKTexture(imageNamed:"MatchCoin.png")
         matchTexture[Match.poison] = SKTexture(imageNamed:"MatchPoison.png")
         matchTexture[Match.cog] = SKTexture(imageNamed:"MatchCog.png")
-        matchTexture[Match.null] = SKTexture(imageNamed:"MatchNull.png")
+        matchTexture[Match.fire] = SKTexture(imageNamed:"MatchNull.png")
     }
     
     ///Функция для получения текстуры матча по типо матча
@@ -57,7 +59,6 @@ extension GameScene {
         let sword = matchChance[3]
         let coin = matchChance[4]
         
-        print("MATCH CHANSE ___ NOW \(matchChance)" )
 
         switch randomNumber {
         // Череп
