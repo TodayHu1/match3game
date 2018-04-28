@@ -72,12 +72,6 @@ extension GameScene {
                 createEnemyUnit.health = 51
                 createEnemyUnit.armor = 51
                 createEnemyUnit.size = CGSize(width: 120, height: 120)
-            //6
-            case "RoyalMage":
-                createEnemyUnit.attack = 15
-                createEnemyUnit.health = 65
-                createEnemyUnit.armor = 5
-                createEnemyUnit.size = CGSize(width: 140, height: 140)
             //7
             case "Geoe":
                 createEnemyUnit.attack = 14
@@ -104,13 +98,6 @@ extension GameScene {
                 createEnemyUnit.armor = 80
                 createEnemyUnit.size = CGSize(width: 125, height: 115)
                 createEnemyUnit.specialAbilities["ChainInstedArmor"] = true
-            //13
-            case "CultistsProphet":
-                createEnemyUnit.attack = 25
-                createEnemyUnit.health = 1
-                createEnemyUnit.armor = 100
-                createEnemyUnit.size = CGSize(width: 170, height: 220)
-                createEnemyUnit.specialAbilities["VampireAttack"] = 0.33
             //15
             case "SteamPunkGuard":
                 createEnemyUnit.attack = 22
@@ -130,7 +117,7 @@ extension GameScene {
                 createEnemyUnit.attack = 20 + lvlDifficulty
                 createEnemyUnit.health = 1 + lvlDifficulty
                 createEnemyUnit.armor = 110
-                createEnemyUnit.size = CGSize(width: 130, height: 150)
+                createEnemyUnit.size = CGSize(width: 125, height: 150)
                 createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
             //25
             case "SilverKnightsStandardBearer":
@@ -140,6 +127,13 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 180, height: 190)
                 createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
 //                createEnemyUnit.specialAbilities["PoisonOnBreakMod"] = true
+            //40
+            case "CultistsProphet":
+                createEnemyUnit.attack = 10 + lvlDifficulty
+                createEnemyUnit.health = lvlDifficulty
+                createEnemyUnit.armor = 150 + lvlDifficulty
+                createEnemyUnit.size = CGSize(width: 170, height: 220)
+                createEnemyUnit.specialAbilities["VampireAttack"] = 0.33
             //Boss 1
             case "Doppelganger":
                 createEnemyUnit.attack = playerStat.attack

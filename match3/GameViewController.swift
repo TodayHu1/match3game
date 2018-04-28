@@ -464,16 +464,15 @@ class GameViewController: UIViewController {
         [3, "StoneScale"],
         [4, "ChainScale"],
         [5, "SteamPunkPunch"],
-        [6, "RoyalMage"],
         [7, "Geoe"],
         [8, "SteamPunkFlameThrower"],
         [9, "Ram"],
         [10, "NeutralTurtle"],
-        [13, "CultistsProphet"],
         [15, "SteamPunkGuard"],
         [20, "SilverKnightsSpear"],
         [22, "SilverKnightsPriest"],
-        [25, "SilverKnightsStandardBearer"]
+        [25, "SilverKnightsStandardBearer"],
+        [40, "CultistsProphet"],
     ]
     
     ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
