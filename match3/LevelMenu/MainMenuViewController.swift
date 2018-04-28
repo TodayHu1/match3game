@@ -103,18 +103,25 @@ class MainMenuViewController: UIViewController, GKGameCenterControllerDelegate {
             playerStat.attack = 1
         }
         
-//        playerStat.attack = 30
+//        playerStat.attack = 60
+//        
+//        playerStat.armorNow = 400
 //        playerStat.armorMax = 400
-//        playerStat.healthMax = 400
+//        
+//        playerStat.healthNow = 500
+//        playerStat.healthMax = 500
+//        
+//        playerStat.manaNow = 40
 //        playerStat.manaMax = 40
+//        
 //        playerStat.gold = 4000
 //
-//        lvlDifficulty = 55
+//        lvlDifficulty = 100
 //
 //        playerStat.spellOnBoard[0] = "ShieldStrike"
 //        playerStat.spellOnBoard[1] = "SkullJail"
 //        playerStat.spellOnBoard[2] = "ManaShield"
-        
+//        
 //        playerStat.legendArr.append("Fire feather")
         
         

@@ -16,6 +16,8 @@ class LooseAndWinViewController: UIViewController {
 
     var playerStatOnDie: PlayerStat!
     
+    @IBOutlet weak var playerImg: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,19 @@ class LooseAndWinViewController: UIViewController {
             lvlDifficulty = 1
             gameViewController.saveGameProgress()
         }
+        
+        if playerImg != nil {
+            var playerImageArr = [UIImage]()
+            
+            for i in 0...12 {
+                playerImageArr.append(UIImage(named: "Player-Victory-\(i).png")!)
+            }
+            
+            playerImg.animationImages = playerImageArr
+            playerImg.animationDuration = 1.5
+            playerImg.startAnimating()
+        }
+
 
     }
 

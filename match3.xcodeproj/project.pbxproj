@@ -166,6 +166,9 @@
 		A05A43EB20919EA900B25ED1 /* ManaSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A05A43E820919EA900B25ED1 /* ManaSpark.sks */; };
 		A0C8997F2092B037006D2FCC /* Coin.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0C8997E2092B037006D2FCC /* Coin.sks */; };
 		A0C8998120932736006D2FCC /* PoisonSpark.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0C8998020932735006D2FCC /* PoisonSpark.sks */; };
+		A0C8998320941F41006D2FCC /* Player-Victory.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C8998220941F41006D2FCC /* Player-Victory.xcassets */; };
+		A0C8998720943549006D2FCC /* CultistsAcolyte-Attack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A0C8998520943548006D2FCC /* CultistsAcolyte-Attack.atlas */; };
+		A0C8998820943549006D2FCC /* CultistsAcolyte-Stand.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A0C8998620943548006D2FCC /* CultistsAcolyte-Stand.atlas */; };
 		CDF48C7DD12DBB174A9CDCEB /* Pods_match3Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE4178C1AC8F5ABA869E03E /* Pods_match3Tests.framework */; };
 		E55DC82177F1B0BDEF9DBB2A /* Pods_match3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD006D1CCACFB3E4A60CDC /* Pods_match3.framework */; };
 /* End PBXBuildFile section */
@@ -357,6 +360,9 @@
 		A05A43E820919EA900B25ED1 /* ManaSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ManaSpark.sks; sourceTree = "<group>"; };
 		A0C8997E2092B037006D2FCC /* Coin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Coin.sks; sourceTree = "<group>"; };
 		A0C8998020932735006D2FCC /* PoisonSpark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonSpark.sks; sourceTree = "<group>"; };
+		A0C8998220941F41006D2FCC /* Player-Victory.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Player-Victory.xcassets"; sourceTree = "<group>"; };
+		A0C8998520943548006D2FCC /* CultistsAcolyte-Attack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = "CultistsAcolyte-Attack.atlas"; path = "../../../../../Downloads/CultistsAcolyte/CultistsAcolyte-Attack.atlas"; sourceTree = "<group>"; };
+		A0C8998620943548006D2FCC /* CultistsAcolyte-Stand.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = "CultistsAcolyte-Stand.atlas"; path = "../../../../../Downloads/CultistsAcolyte/CultistsAcolyte-Stand.atlas"; sourceTree = "<group>"; };
 		BAE4178C1AC8F5ABA869E03E /* Pods_match3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_match3Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0CDD00BDBF3E7D5A3C5F732 /* Pods-match3UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match3UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-match3UITests/Pods-match3UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7CDEC9847C0B9B4D00BB4A4 /* Pods-match3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match3.release.xcconfig"; path = "Pods/Target Support Files/Pods-match3/Pods-match3.release.xcconfig"; sourceTree = "<group>"; };
@@ -452,6 +458,7 @@
 				1FD69C151FAA0A760003CA7E /* Player-Stand.atlas */,
 				1F11EF751FA9A4C900FD51B7 /* Player-Attack.atlas */,
 				1F5B8FB7205EC2510046480D /* Player-Stand.xcassets */,
+				A0C8998220941F41006D2FCC /* Player-Victory.xcassets */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -766,6 +773,7 @@
 		1FD658F21F7E24BC00F808F4 /* EnemyAtlas */ = {
 			isa = PBXGroup;
 			children = (
+				A0C899842094351B006D2FCC /* CultistsAcolyte */,
 				1F13597820848450006194F7 /* SilverKnightsStandardBearer */,
 				1F13597320848353006194F7 /* SilverKnightsSpear */,
 				1F13596E208482F5006194F7 /* SilverKnightsPriest */,
@@ -918,6 +926,15 @@
 				D0CDD00BDBF3E7D5A3C5F732 /* Pods-match3UITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A0C899842094351B006D2FCC /* CultistsAcolyte */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8998520943548006D2FCC /* CultistsAcolyte-Attack.atlas */,
+				A0C8998620943548006D2FCC /* CultistsAcolyte-Stand.atlas */,
+			);
+			path = CultistsAcolyte;
 			sourceTree = "<group>";
 		};
 		E7AD1661EDC6A2CB8BA985FF /* Frameworks */ = {
@@ -1101,6 +1118,7 @@
 				1F937CF5203AB587003F0C91 /* 0-1.json in Resources */,
 				A05A43EB20919EA900B25ED1 /* ManaSpark.sks in Resources */,
 				1F00B6FD1FADB4AE00C002B3 /* munro.ttf in Resources */,
+				A0C8998820943549006D2FCC /* CultistsAcolyte-Stand.atlas in Resources */,
 				1F937CDF2032CF10003F0C91 /* CultistsProphet-Stand.atlas in Resources */,
 				1F937CEC20384BC7003F0C91 /* SteamPunkGuard-Attack.atlas in Resources */,
 				1F2D82251F83376F00710D50 /* Stony-Attack.atlas in Resources */,
@@ -1143,6 +1161,7 @@
 				1FC95979208227DE0072161A /* Death.sks in Resources */,
 				1F135976208483A5006194F7 /* SilverKnightsSpear-Attack.atlas in Resources */,
 				1FC9597F208361860072161A /* Player-SpellAttack.atlas in Resources */,
+				A0C8998320941F41006D2FCC /* Player-Victory.xcassets in Resources */,
 				1F937D0E203EA58C003F0C91 /* 1-12.json in Resources */,
 				A05A43E920919EA900B25ED1 /* HealthSpark.sks in Resources */,
 				1F13596C208482CC006194F7 /* Ram-Attack.atlas in Resources */,
@@ -1153,6 +1172,7 @@
 				1F00B6F71FAD9F0F00C002B3 /* SteamPunkPunch-Attack.atlas in Resources */,
 				1F13597C20848475006194F7 /* SilverKnightsStandardBearer-Stand.atlas in Resources */,
 				1F00B6FE1FADB4AE00C002B3 /* munro_narrow.ttf in Resources */,
+				A0C8998720943549006D2FCC /* CultistsAcolyte-Attack.atlas in Resources */,
 				1F00B6FF1FADB4AE00C002B3 /* munro_small.ttf in Resources */,
 				1F937CE3203438DE003F0C91 /* StoneScale-Stand.atlas in Resources */,
 				1F135967208481BD006194F7 /* SilverKnightsPaladin-Attack.atlas in Resources */,

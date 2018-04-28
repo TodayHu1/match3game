@@ -298,9 +298,9 @@ class EnemyUnit: SKSpriteNode {
         case "Player":
             buffParticle.position.y = self.positionCenter.y
         case "Health":
-            buffParticle.position.y = self.iconHeart.position.y + 40
+            buffParticle.position.y = self.iconHeart.position.y + 70
         case "Armor":
-            buffParticle.position.y = self.iconShield.position.y + 40
+            buffParticle.position.y = self.iconShield.position.y + 70
         default:
             break
         }

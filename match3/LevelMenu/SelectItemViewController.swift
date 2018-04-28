@@ -257,7 +257,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += trashArr
                 allItem += amuletArr
                 
-                if Int(arc4random_uniform(2)) == 0 {
+                if Int(arc4random_uniform(3)) == 0 {
                     allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
                 }
                 break
@@ -273,7 +273,7 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
                 allItem += trashArr
                 allItem += amuletArr
                 
-                if Int(arc4random_uniform(2)) == 0 {
+                if Int(arc4random_uniform(3)) == 0 {
                     allItem.append(legendaryItemArr[Int(arc4random_uniform(UInt32(legendaryItemArr.count)))])
                 }
 
@@ -296,10 +296,6 @@ class SelectItemViewController: UIViewController, UITableViewDelegate, UITableVi
             switch lvlDifficulty {
             case startLvl+1:
                 buildChest(chestType: .spellChest)
-            case startLvl+20:
-                buildChest(chestType: .oneLegendChest)
-            case startLvl+40:
-                buildChest(chestType: .oneLegendChest)
             default:
                 buildChest(chestType: .spellAndItemсhest)
             }

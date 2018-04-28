@@ -107,33 +107,41 @@ extension GameScene {
                 createEnemyUnit.specialAbilities["CogOnDefense"] = 2
             //20
             case "SilverKnightsSpear":
-                createEnemyUnit.attack = 19 + lvlDifficulty
+                createEnemyUnit.attack = 29 + Int(lvlDifficulty/2)
                 createEnemyUnit.health = 1 + lvlDifficulty
                 createEnemyUnit.armor = 100
                 createEnemyUnit.size = CGSize(width: 240, height: 165)
                 createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
             //22
             case "SilverKnightsPriest":
-                createEnemyUnit.attack = 20 + lvlDifficulty
-                createEnemyUnit.health = 1 + lvlDifficulty
-                createEnemyUnit.armor = 110
+                createEnemyUnit.attack = 35 + Int(lvlDifficulty/2)
+                createEnemyUnit.health = 6 + lvlDifficulty
+                createEnemyUnit.armor = 120
                 createEnemyUnit.size = CGSize(width: 125, height: 150)
                 createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
             //25
             case "SilverKnightsStandardBearer":
-                createEnemyUnit.attack = 21 + lvlDifficulty
-                createEnemyUnit.health = 1 + lvlDifficulty
-                createEnemyUnit.armor = 120
+                createEnemyUnit.attack = 42 + Int(lvlDifficulty/2)
+                createEnemyUnit.health = 11 + lvlDifficulty
+                createEnemyUnit.armor = 150
                 createEnemyUnit.size = CGSize(width: 180, height: 190)
                 createEnemyUnit.specialAbilities["PoisonOnDefense"] = 1
 //                createEnemyUnit.specialAbilities["PoisonOnBreakMod"] = true
             //40
             case "CultistsProphet":
-                createEnemyUnit.attack = 10 + lvlDifficulty
+                createEnemyUnit.attack = lvlDifficulty
                 createEnemyUnit.health = lvlDifficulty
-                createEnemyUnit.armor = 150 + lvlDifficulty
+                createEnemyUnit.armor = 220 + lvlDifficulty
                 createEnemyUnit.size = CGSize(width: 170, height: 220)
-                createEnemyUnit.specialAbilities["VampireAttack"] = 0.33
+                createEnemyUnit.specialAbilities["VampireAttack"] = 0.23
+            //50
+            case "CultistsAcolyte":
+                createEnemyUnit.attack = lvlDifficulty
+                createEnemyUnit.health = lvlDifficulty
+                createEnemyUnit.armor = 320 + lvlDifficulty
+                createEnemyUnit.size = CGSize(width: 210, height: 160)
+                createEnemyUnit.specialAbilities["VampireAttack"] = 0.23
+                createEnemyUnit.specialAbilities["AttackUpOnDefense"] = 1.15
             //Boss 1
             case "Doppelganger":
                 createEnemyUnit.attack = playerStat.attack
@@ -142,7 +150,7 @@ extension GameScene {
                 createEnemyUnit.size = CGSize(width: 155, height: 130)
                 createEnemyUnit.specialAbilities["SkullOnDefense"] = 1
                 createEnemyUnit.specialAbilities["SkullOnBoard"] = 2
-
+                createEnemyUnit.specialAbilities["AttackUpOnDefense"] = 1.1
 //                if playerStat.manaMax > 8 {
 //                    createEnemyUnit.specialAbilities["SkullOnDefense"] = 2
 //                }

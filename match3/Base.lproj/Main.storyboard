@@ -1213,11 +1213,11 @@
                                 <rect key="frame" x="20" y="73" width="280" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Mix-fq-Vf6">
+                                    <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="Mix-fq-Vf6">
                                         <rect key="frame" x="84" y="239" width="108" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VictoryMainChar" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-Re-LQ8">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Player-Victory-0" translatesAutoresizingMaskIntoConstraints="NO" id="n7F-Re-LQ8">
                                         <rect key="frame" x="27" y="48" width="232" height="202"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -1257,6 +1257,9 @@
                         <color key="backgroundColor" red="0.17635628170000001" green="0.17635628170000001" blue="0.17635628170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="B0H-jT-MsF"/>
                     </view>
+                    <connections>
+                        <outlet property="playerImg" destination="n7F-Re-LQ8" id="XgH-uQ-Tib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Py2-Mc-Zc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1275,6 +1278,7 @@
         <image name="Icon_Heart" width="256" height="256"/>
         <image name="Icon_Shield" width="256" height="256"/>
         <image name="ManaButton" width="256" height="256"/>
+        <image name="Player-Victory-0" width="228" height="216"/>
         <image name="SkillTableForTownHall" width="256" height="108"/>
         <image name="SoulGemIcon" width="256" height="256"/>
         <image name="SoulStone-0" width="205" height="256"/>
@@ -1291,7 +1295,6 @@
         <image name="UI_WoodenButtonSuperLong" width="768" height="256"/>
         <image name="UI_shadow" width="600" height="300"/>
         <image name="UI_shadowReversed" width="600" height="300"/>
-        <image name="VictoryMainChar" width="228" height="216"/>
         <image name="WallTownHall" width="256" height="512"/>
         <image name="WantedList" width="266" height="418"/>
         <image name="button:hPx-hJ-dJj:backgroundImage" width="256" height="224">
@@ -10921,6 +10924,6 @@ LXQABS13AAUtfAAAAAAAAAQBAAAAAAAAAFYAAAAAAAAAAAAAAAAABS1+A
         <image name="skillCell" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aX9-kC-apc"/>
+        <segue reference="ctM-uz-mod"/>
     </inferredMetricsTieBreakers>
 </document>

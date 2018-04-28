@@ -473,6 +473,7 @@ class GameViewController: UIViewController {
         [22, "SilverKnightsPriest"],
         [25, "SilverKnightsStandardBearer"],
         [40, "CultistsProphet"],
+        [40, "CultistsAcolyte"],
     ]
     
     ///Инициализация игрового уровня (враги бг шансМатча размерБорда)
@@ -508,7 +509,7 @@ class GameViewController: UIViewController {
             
             while lvlForLoop > 0 {
                 loopCount += 1
-                let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count-1)))
+                let difficultyIndex = Int(arc4random_uniform(UInt32(enemyDifficultyArr.count)))
                 let difficultyUnitNow: Int = enemyDifficultyArr[difficultyIndex][0] as! Int
 
 //                if loopCount > 60000000 {
